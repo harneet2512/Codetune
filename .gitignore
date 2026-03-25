@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Data (large files)
+data/raw/
+data/processed/
+
+# Model outputs (large files)
+outputs/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+
+# Results (regenerated)
+results/
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Weights & Biases
+wandb/
+
+# HuggingFace cache
+.cache/

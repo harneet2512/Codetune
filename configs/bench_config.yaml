@@ -1,0 +1,44 @@
+# CodeTune — Serving Benchmark Configuration
+
+endpoints:
+  - name: "vllm_fp16"
+    url: "http://localhost:8001/v1"
+    model: "codetune-8b"
+  - name: "vllm_int8"
+    url: "http://localhost:8011/v1"
+    model: "codetune-8b-gptq-int8"
+  - name: "vllm_int4"
+    url: "http://localhost:8012/v1"
+    model: "codetune-8b-awq-int4"
+  - name: "sglang_fp16"
+    url: "http://localhost:8002/v1"
+    model: "codetune-8b"
+  - name: "sglang_int8"
+    url: "http://localhost:8021/v1"
+    model: "codetune-8b-gptq-int8"
+  - name: "sglang_int4"
+    url: "http://localhost:8022/v1"
+    model: "codetune-8b-awq-int4"
+  - name: "llamacpp_fp16"
+    url: "http://localhost:8003/v1"
+    model: "codetune-8b"
+  - name: "llamacpp_int8"
+    url: "http://localhost:8031/v1"
+    model: "codetune-8b-q8_0"
+  - name: "llamacpp_int4"
+    url: "http://localhost:8032/v1"
+    model: "codetune-8b-q4_k_m"
+
+benchmark:
+  prompts_file: "bench/prompts.json"
+  warmup_requests: 5
+  num_requests: 50
+  batch_sizes: [1, 4, 16]
+  max_tokens: 256
+  temperature: 0.0
+  timeout_seconds: 120
+
+# Cost calculation (GCP A100 40GB)
+cost:
+  gpu_hourly_rate: 3.67
+  gpu_name: "A100-SXM4-40GB"

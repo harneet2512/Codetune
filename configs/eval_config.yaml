@@ -1,0 +1,49 @@
+# CodeTune — Evaluation Configuration
+
+# Models to evaluate
+models:
+  base:
+    name: "Llama 3.1 8B Instruct"
+    path: "meta-llama/Llama-3.1-8B-Instruct"
+  finetuned:
+    name: "CodeTune 8B"
+    path: "outputs/codetune-8b"
+
+# Eval suites
+suites:
+  humaneval:
+    enabled: true
+    num_samples_per_task: 1        # pass@1
+    temperature: 0.0               # greedy for pass@1
+    max_new_tokens: 512
+    timeout_seconds: 10            # per test case execution
+
+  mbpp:
+    enabled: true
+    subset: "sanitized"            # MBPP-sanitized (427 problems)
+    num_samples_per_task: 1
+    temperature: 0.0
+    max_new_tokens: 512
+    timeout_seconds: 10
+
+  structural:
+    enabled: true
+    groundtruth_path: "D:/Groundtruth"   # Path to GT repo (optional)
+    max_new_tokens: 512
+    temperature: 0.0
+
+  custom:
+    enabled: true
+    test_cases_dir: "eval/test_cases"
+    max_new_tokens: 512
+    temperature: 0.0
+
+# Generation defaults
+generation:
+  do_sample: false
+  max_new_tokens: 512
+  temperature: 0.0
+  top_p: 1.0
+
+# Output
+output_dir: "results/eval"
