@@ -104,6 +104,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate eval traces for ToolTune variants")
     parser.add_argument("--output-dir", default="results/traces")
     parser.add_argument("--max-steps", type=int, default=5)
+    parser.add_argument("--max-tasks", type=int, default=0, help="Limit tasks per variant (0=all)")
     parser.add_argument("--variants", nargs="*", help="Specific variants to generate (default: all)")
     args = parser.parse_args()
 
@@ -115,7 +116,13 @@ def main() -> None:
     variants_data = load_json(CONFIGS_DIR / "variants.json")
     variants = variants_data["variants"] if isinstance(variants_data, dict) else variants_data
     tasks = load_tasks()
-    logger.info("Loaded %d tasks across all tiers", len(tasks))
+    if args.max_tasks > 0:
+        # Sample evenly across tiers
+        import random
+        random.seed(42)
+        random.shuffle(tasks)
+        tasks = tasks[: args.max_tasks]
+    logger.info("Loaded %d tasks for evaluation", len(tasks))
 
     for variant in variants:
         key = variant["key"]
