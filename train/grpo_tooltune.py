@@ -93,7 +93,7 @@ def train(base_model: str, task_files: list[str], output_dir: str) -> None:
         quantization_config=BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_compute_dtype=torch.bfloat16,
             bnb_4bit_use_double_quant=True,
         ),
         device_map="auto",
@@ -130,7 +130,7 @@ def train(base_model: str, task_files: list[str], output_dir: str) -> None:
             per_device_train_batch_size=1,
             gradient_accumulation_steps=4,
             num_train_epochs=1,
-            fp16=True,
+            bf16=True,
             beta=0.04,
             logging_steps=5,
             report_to="none",
