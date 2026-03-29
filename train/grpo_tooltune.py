@@ -122,17 +122,18 @@ def train(base_model: str, task_files: list[str], output_dir: str) -> None:
             output_dir=output_dir,
             num_generations=2,
             generation_kwargs={
-                "max_new_tokens": 768,
+                "max_new_tokens": 256,
                 "do_sample": True,
                 "temperature": 0.8,
             },
             learning_rate=5e-6,
             per_device_train_batch_size=1,
             gradient_accumulation_steps=4,
-            num_train_epochs=1,
+            max_steps=60,           # cap at 60 steps (~3-4 hrs on T4); full epoch would be 250
             bf16=True,
             beta=0.04,
             logging_steps=5,
+            save_steps=30,
             report_to="none",
         ),
     )
