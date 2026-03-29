@@ -307,7 +307,9 @@ def build_dataset(task_files: list[str]) -> Dataset:
     examples: list[dict] = []
     for path in task_files:
         for item in load_json(path):
-            examples.append({"text": make_trace(item), **item})
+            # Only keep 'text'; don't include 'prompt' — TRL 0.29+ treats datasets
+            # with a 'prompt' column as conversational format and expects 'completion'.
+            examples.append({"text": make_trace(item)})
     return Dataset.from_list(examples)
 
 
