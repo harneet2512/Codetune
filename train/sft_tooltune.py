@@ -327,7 +327,7 @@ def finetune(base_model: str, task_files: list[str], output_dir: str) -> None:
         quantization_config=BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_compute_dtype=torch.bfloat16,
             bnb_4bit_use_double_quant=True,
         ),
         device_map="auto",
@@ -360,7 +360,7 @@ def finetune(base_model: str, task_files: list[str], output_dir: str) -> None:
             max_length=2048,
             report_to="none",
             dataset_text_field="text",
-            fp16=True,
+            bf16=True,
         ),
     )
     trainer.train()
