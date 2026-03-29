@@ -112,7 +112,8 @@ def main() -> None:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    variants = load_json(CONFIGS_DIR / "variants.json")
+    variants_data = load_json(CONFIGS_DIR / "variants.json")
+    variants = variants_data["variants"] if isinstance(variants_data, dict) else variants_data
     tasks = load_tasks()
     logger.info("Loaded %d tasks across all tiers", len(tasks))
 
