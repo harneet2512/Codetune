@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import logging
+import re
 import subprocess
 import tempfile
-import textwrap
 from pathlib import Path
 
 import torch
@@ -26,38 +26,51 @@ def generate_completion(
             do_sample=temperature > 0,
             pad_token_id=tokenizer.pad_token_id,
         )
-    # Decode only the generated tokens (not the prompt)
     generated = outputs[0][inputs["input_ids"].shape[1]:]
     return tokenizer.decode(generated, skip_special_tokens=True)
 
 
-def extract_function_body(completion: str, entry_point: str) -> str:
-    """Extract the function body from a completion, stopping at the next function or class."""
-    lines = completion.split("\n")
-    result_lines: list[str] = []
+def extract_code(completion: str) -> str:
+    """Extract Python code from a completion, handling markdown fences and explanations."""
+    # Strip markdown code fences
+    code = completion.strip()
+    if "```python" in code:
+        match = re.search(r"```python\n(.*?)```", code, re.DOTALL)
+        if match:
+            code = match.group(1).strip()
+    elif "```" in code:
+        match = re.search(r"```\n?(.*?)```", code, re.DOTALL)
+        if match:
+            code = match.group(1).strip()
+
+    # Stop at explanations (lines starting without indentation that aren't code)
+    lines = code.split("\n")
+    result: list[str] = []
+    in_function = False
     for line in lines:
         stripped = line.strip()
-        # Stop at next function/class definition (not nested)
-        if result_lines and (stripped.startswith("def ") or stripped.startswith("class ")):
-            if not line.startswith(" ") and not line.startswith("\t"):
+        if stripped.startswith("def ") or stripped.startswith("class "):
+            in_function = True
+        if in_function and result and not line.startswith((" ", "\t", "def ", "class ", "@")):
+            if stripped and not stripped.startswith(("#", "import ", "from ")):
                 break
-        result_lines.append(line)
-    return "\n".join(result_lines)
+        result.append(line)
+    return "\n".join(result)
 
 
 def run_test_case(
-    prompt: str, completion: str, test: str, entry_point: str, timeout: int = 10
+    code: str, test: str, entry_point: str, timeout: int = 10
 ) -> bool:
     """Run a single HumanEval test case in a subprocess."""
-    # Build the full program: prompt (with signature) + completion + test
-    program = prompt + completion + "\n\n" + test + f"\n\ncheck({entry_point})\n"
+    # The code should contain the full function; append test
+    program = code + "\n\n" + test + f"\n\ncheck({entry_point})\n"
 
     with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
         f.write(program)
         f.flush()
         try:
             result = subprocess.run(
-                ["python", f.name],
+                ["python3", f.name],
                 capture_output=True,
                 timeout=timeout,
                 text=True,
@@ -85,9 +98,7 @@ def run(model, tokenizer, suite_config: dict | None = None, gen_config: dict | N
     except ImportError:
         try:
             from evalplus.data import get_human_eval_plus
-            problems_list = get_human_eval_plus()
-            # evalplus returns a dict keyed by task_id
-            problems = problems_list
+            problems = get_human_eval_plus()
         except ImportError:
             logger.warning(
                 "Neither human_eval nor evalplus installed. "
@@ -103,29 +114,33 @@ def run(model, tokenizer, suite_config: dict | None = None, gen_config: dict | N
     per_problem: list[dict] = []
 
     for task_id, problem in problems.items():
-        prompt = problem["prompt"]
+        prompt_stub = problem["prompt"]  # e.g. "def has_close_elements(..."
         test = problem["test"]
         entry_point = problem["entry_point"]
 
-        # Format as instruction for instruct model
+        # Ask the model to write the complete function
         instruction = (
-            f"Complete the following Python function. Return ONLY the function body, "
-            f"no explanation.\n\n{prompt}"
+            f"Write a Python function that solves the following problem. "
+            f"Return ONLY the complete function, no explanation.\n\n{prompt_stub}"
         )
-        chat_prompt = (
-            f"<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\n"
-            f"{instruction}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        messages = [{"role": "user", "content": instruction}]
+        chat_prompt = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
         )
 
         completion = generate_completion(model, tokenizer, chat_prompt, max_new_tokens, temperature)
-        completion = extract_function_body(completion, entry_point)
+        code = extract_code(completion)
 
-        success = run_test_case(prompt, completion, test, entry_point, timeout)
+        # If the model didn't include the function signature, prepend it
+        if f"def {entry_point}" not in code:
+            code = prompt_stub + "\n" + code
+
+        success = run_test_case(code, test, entry_point, timeout)
 
         per_problem.append({
             "task_id": task_id,
             "passed": success,
-            "completion_preview": completion[:200],
+            "completion_preview": code[:200],
         })
 
         if success:

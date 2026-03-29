@@ -1,0 +1,8 @@
+{
+  "experiment": "method-comparison",
+  "title": "SFT vs GRPO",
+  "items": [
+    {"variant": "sft", "annotation": "Learns the outward format but degrades core capability."},
+    {"variant": "grpo-balanced", "annotation": "Preserves base behavior while learning new tool-use patterns."}
+  ]
+}

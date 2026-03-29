@@ -52,7 +52,9 @@ def get_hardware_info() -> dict:
     }
     if torch.cuda.is_available():
         info["gpu"] = torch.cuda.get_device_name(0)
-        info["gpu_memory_gb"] = round(torch.cuda.get_device_properties(0).total_mem / 1e9, 1)
+        props = torch.cuda.get_device_properties(0)
+        mem = getattr(props, "total_mem", None) or getattr(props, "total_memory", 0)
+        info["gpu_memory_gb"] = round(mem / 1e9, 1)
         info["cuda"] = torch.version.cuda or "unknown"
     return info
 
@@ -113,10 +115,14 @@ def run_eval(
     }
 
     for suite_name in suite_names:
-        suite_result = run_suite(suite_name, model, tokenizer, config)
-        results["suites"][suite_name] = suite_result
+        try:
+            suite_result = run_suite(suite_name, model, tokenizer, config)
+            results["suites"][suite_name] = suite_result
+        except Exception as e:
+            logger.error(f"Suite {suite_name} failed: {e}")
+            results["suites"][suite_name] = {"metrics": {"error": str(e)}, "per_problem": []}
 
-    # Save results
+    # Save results (always, even if some suites failed)
     if output:
         output_path = Path(output)
         output_path.parent.mkdir(parents=True, exist_ok=True)

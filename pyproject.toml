@@ -22,6 +22,9 @@ dependencies = [
     "tqdm",
     "pyyaml",
     "rich",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.8.0",
 ]
 
 [project.optional-dependencies]
@@ -63,3 +66,4 @@ testpaths = ["tests"]
 [tool.mypy]
 python_version = "3.10"
 strict = true
+

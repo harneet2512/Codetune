@@ -283,9 +283,9 @@ def run(model, tokenizer, suite_config: dict | None = None, gen_config: dict | N
             f"Write the requested Python code. Include all necessary imports. "
             f"Return ONLY the code, no explanation.\n\n{problem['prompt']}"
         )
-        chat_prompt = (
-            f"<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\n"
-            f"{instruction}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        messages = [{"role": "user", "content": instruction}]
+        chat_prompt = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
         )
 
         completion = generate_completion(model, tokenizer, chat_prompt, max_new_tokens, temperature)

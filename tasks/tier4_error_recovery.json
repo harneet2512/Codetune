@@ -1,0 +1,1126 @@
+[
+  {
+    "id": "tier4-recovery-1",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the population of Vietnam divided by the population of United States?",
+    "ground_truth": "0.3",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Vietnam",
+      "entity_b": "United States",
+      "query_a": "population of vietnam",
+      "query_b": "population of united states"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.25,
+      "seed": 1
+    }
+  },
+  {
+    "id": "tier4-recovery-2",
+    "tier": "tier4_error_recovery",
+    "prompt": "Convert the current temperature in Manila from Celsius to Fahrenheit.",
+    "ground_truth": "89.6",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "manila"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.2,
+      "seed": 2
+    }
+  },
+  {
+    "id": "tier4-recovery-3",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the ratio of Osaka's population to Sweden's population.",
+    "ground_truth": "1.82",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Osaka",
+      "entity_b": "Sweden",
+      "query_a": "population of osaka",
+      "query_b": "population of sweden"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.19,
+      "seed": 3
+    }
+  },
+  {
+    "id": "tier4-recovery-4",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the temperature in Osaka in Fahrenheit?",
+    "ground_truth": "66.2",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "osaka"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.21,
+      "seed": 4
+    }
+  },
+  {
+    "id": "tier4-recovery-5",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many degrees Celsius apart are Warsaw and Chicago right now?",
+    "ground_truth": "4",
+    "expected_tools": [
+      "weather",
+      "weather",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "temp_diff",
+      "city_a": "warsaw",
+      "city_b": "chicago"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.34,
+      "seed": 5
+    }
+  },
+  {
+    "id": "tier4-recovery-6",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the ratio of Turkey's population to Manila's population.",
+    "ground_truth": "5.96",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Turkey",
+      "entity_b": "Manila",
+      "query_a": "population of turkey",
+      "query_b": "population of manila"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.21,
+      "seed": 6
+    }
+  },
+  {
+    "id": "tier4-recovery-7",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the population of Austria divided by the population of Argentina?",
+    "ground_truth": "0.19",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Austria",
+      "entity_b": "Argentina",
+      "query_a": "population of austria",
+      "query_b": "population of argentina"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.25,
+      "seed": 7
+    }
+  },
+  {
+    "id": "tier4-recovery-8",
+    "tier": "tier4_error_recovery",
+    "prompt": "Convert the current temperature in Barcelona from Celsius to Fahrenheit.",
+    "ground_truth": "62.6",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "barcelona"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.32,
+      "seed": 8
+    }
+  },
+  {
+    "id": "tier4-recovery-9",
+    "tier": "tier4_error_recovery",
+    "prompt": "The population of Sao Paulo grows at 3.0% per year. Write Python code to calculate what the population will be in 20 years, starting from its current population.",
+    "ground_truth": "40.82",
+    "expected_tools": [
+      "wikipedia",
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "wiki_code",
+      "entity": "Sao Paulo",
+      "query_key": "population of sao paulo",
+      "rate": 3.0,
+      "years": 20
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.28,
+      "seed": 9
+    }
+  },
+  {
+    "id": "tier4-recovery-10",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the temperature in Berlin in Fahrenheit?",
+    "ground_truth": "48.2",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "berlin"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.38,
+      "seed": 10
+    }
+  },
+  {
+    "id": "tier4-recovery-11",
+    "tier": "tier4_error_recovery",
+    "prompt": "How much would gas cost to drive from Chicago to Detroit at $3.25/gallon if my car gets 28 mpg?",
+    "ground_truth": "32.73",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "driving distance chicago to detroit",
+      "miles": 282.0,
+      "mpg": 28,
+      "price": 3.25
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.27,
+      "seed": 11
+    }
+  },
+  {
+    "id": "tier4-recovery-12",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the gas cost to drive from Los Angeles to San Francisco: 32 mpg, $3.75/gallon.",
+    "ground_truth": "44.77",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance los angeles to san francisco",
+      "miles": 382.0,
+      "mpg": 32,
+      "price": 3.75
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.26,
+      "seed": 12
+    }
+  },
+  {
+    "id": "tier4-recovery-13",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the temperature difference between Cairo and Warsaw in Celsius?",
+    "ground_truth": "27",
+    "expected_tools": [
+      "weather",
+      "weather",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "temp_diff",
+      "city_a": "cairo",
+      "city_b": "warsaw"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.3,
+      "seed": 13
+    }
+  },
+  {
+    "id": "tier4-recovery-14",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the temperature in San Francisco in Fahrenheit?",
+    "ground_truth": "60.8",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "san francisco"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.2,
+      "seed": 14
+    }
+  },
+  {
+    "id": "tier4-recovery-15",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the ratio of Jakarta's population to Nigeria's population.",
+    "ground_truth": "0.05",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Jakarta",
+      "entity_b": "Nigeria",
+      "query_a": "population of jakarta",
+      "query_b": "population of nigeria"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.38,
+      "seed": 15
+    }
+  },
+  {
+    "id": "tier4-recovery-16",
+    "tier": "tier4_error_recovery",
+    "prompt": "The population of Spain grows at 1.5% per year. Write Python code to calculate what the population will be in 5 years, starting from its current population.",
+    "ground_truth": "51.82",
+    "expected_tools": [
+      "wikipedia",
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "wiki_code",
+      "entity": "Spain",
+      "query_key": "population of spain",
+      "rate": 1.5,
+      "years": 5
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.24,
+      "seed": 16
+    }
+  },
+  {
+    "id": "tier4-recovery-17",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many times larger is the population of Ethiopia compared to Turkey?",
+    "ground_truth": "1.47",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Ethiopia",
+      "entity_b": "Turkey",
+      "query_a": "population of ethiopia",
+      "query_b": "population of turkey"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.25,
+      "seed": 17
+    }
+  },
+  {
+    "id": "tier4-recovery-18",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the ratio of Netherlands's population to Mumbai's population.",
+    "ground_truth": "0.82",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Netherlands",
+      "entity_b": "Mumbai",
+      "query_a": "population of netherlands",
+      "query_b": "population of mumbai"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.32,
+      "seed": 18
+    }
+  },
+  {
+    "id": "tier4-recovery-19",
+    "tier": "tier4_error_recovery",
+    "prompt": "Look up the temperature in London and convert it to Fahrenheit.",
+    "ground_truth": "51.8",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "london"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.19,
+      "seed": 19
+    }
+  },
+  {
+    "id": "tier4-recovery-20",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the fuel cost for driving from Tokyo to Osaka at 28 mpg with gas at $3.25/gallon?",
+    "ground_truth": "28.79",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance tokyo to osaka",
+      "miles": 248.0,
+      "mpg": 28,
+      "price": 3.25
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.32,
+      "seed": 20
+    }
+  },
+  {
+    "id": "tier4-recovery-21",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the fuel cost for driving from Moscow to St Petersburg at 25 mpg with gas at $3.0/gallon?",
+    "ground_truth": "51.6",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance moscow to st petersburg",
+      "miles": 430.0,
+      "mpg": 25,
+      "price": 3.0
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.36,
+      "seed": 21
+    }
+  },
+  {
+    "id": "tier4-recovery-22",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many times larger is the population of Bangkok compared to Switzerland?",
+    "ground_truth": "1.25",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Bangkok",
+      "entity_b": "Switzerland",
+      "query_a": "population of bangkok",
+      "query_b": "population of switzerland"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.23,
+      "seed": 22
+    }
+  },
+  {
+    "id": "tier4-recovery-23",
+    "tier": "tier4_error_recovery",
+    "prompt": "The population of Buenos Aires grows at 1.0% per year. Write Python code to calculate what the population will be in 25 years, starting from its current population.",
+    "ground_truth": "19.88",
+    "expected_tools": [
+      "wikipedia",
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "wiki_code",
+      "entity": "Buenos Aires",
+      "query_key": "population of buenos aires",
+      "rate": 1.0,
+      "years": 25
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.39,
+      "seed": 23
+    }
+  },
+  {
+    "id": "tier4-recovery-24",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many times larger is the population of United States compared to Osaka?",
+    "ground_truth": "17.54",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "United States",
+      "entity_b": "Osaka",
+      "query_a": "population of united states",
+      "query_b": "population of osaka"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.28,
+      "seed": 24
+    }
+  },
+  {
+    "id": "tier4-recovery-25",
+    "tier": "tier4_error_recovery",
+    "prompt": "Look up the temperature in Tokyo and convert it to Fahrenheit.",
+    "ground_truth": "64.4",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "tokyo"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.34,
+      "seed": 25
+    }
+  },
+  {
+    "id": "tier4-recovery-26",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the temperature difference between Amsterdam and Kuala Lumpur in Celsius?",
+    "ground_truth": "21",
+    "expected_tools": [
+      "weather",
+      "weather",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "temp_diff",
+      "city_a": "amsterdam",
+      "city_b": "kuala lumpur"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.27,
+      "seed": 26
+    }
+  },
+  {
+    "id": "tier4-recovery-27",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many times larger is the population of Argentina compared to Jakarta?",
+    "ground_truth": "4.17",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Argentina",
+      "entity_b": "Jakarta",
+      "query_a": "population of argentina",
+      "query_b": "population of jakarta"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.25,
+      "seed": 27
+    }
+  },
+  {
+    "id": "tier4-recovery-28",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the fuel cost for driving from Madrid to Barcelona at 35 mpg with gas at $4.0/gallon?",
+    "ground_truth": "44.11",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance madrid to barcelona",
+      "miles": 386.0,
+      "mpg": 35,
+      "price": 4.0
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.22,
+      "seed": 28
+    }
+  },
+  {
+    "id": "tier4-recovery-29",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the gas cost to drive from Toronto to Montreal: 25 mpg, $3.0/gallon.",
+    "ground_truth": "40.2",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance toronto to montreal",
+      "miles": 335.0,
+      "mpg": 25,
+      "price": 3.0
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.15,
+      "seed": 29
+    }
+  },
+  {
+    "id": "tier4-recovery-30",
+    "tier": "tier4_error_recovery",
+    "prompt": "Look up the temperature in Seoul and convert it to Fahrenheit.",
+    "ground_truth": "51.8",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "seoul"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.2,
+      "seed": 30
+    }
+  },
+  {
+    "id": "tier4-recovery-31",
+    "tier": "tier4_error_recovery",
+    "prompt": "Convert the current temperature in Bangkok from Celsius to Fahrenheit.",
+    "ground_truth": "93.2",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "bangkok"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.4,
+      "seed": 31
+    }
+  },
+  {
+    "id": "tier4-recovery-32",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the population of Nigeria divided by the population of Ethiopia?",
+    "ground_truth": "1.78",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Nigeria",
+      "entity_b": "Ethiopia",
+      "query_a": "population of nigeria",
+      "query_b": "population of ethiopia"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.28,
+      "seed": 32
+    }
+  },
+  {
+    "id": "tier4-recovery-33",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the gas cost to drive from Delhi to Mumbai: 30 mpg, $3.5/gallon.",
+    "ground_truth": "102.67",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance delhi to mumbai",
+      "miles": 880.0,
+      "mpg": 30,
+      "price": 3.5
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.27,
+      "seed": 33
+    }
+  },
+  {
+    "id": "tier4-recovery-34",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many degrees Celsius apart are Kuala Lumpur and Cairo right now?",
+    "ground_truth": "1",
+    "expected_tools": [
+      "weather",
+      "weather",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "temp_diff",
+      "city_a": "kuala lumpur",
+      "city_b": "cairo"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.38,
+      "seed": 34
+    }
+  },
+  {
+    "id": "tier4-recovery-35",
+    "tier": "tier4_error_recovery",
+    "prompt": "The population of Cairo grows at 1.5% per year. Write Python code to calculate what the population will be in 5 years, starting from its current population.",
+    "ground_truth": "23.81",
+    "expected_tools": [
+      "wikipedia",
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "wiki_code",
+      "entity": "Cairo",
+      "query_key": "population of cairo",
+      "rate": 1.5,
+      "years": 5
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.3,
+      "seed": 35
+    }
+  },
+  {
+    "id": "tier4-recovery-36",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the temperature in Delhi in Fahrenheit?",
+    "ground_truth": "95.0",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "delhi"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.39,
+      "seed": 36
+    }
+  },
+  {
+    "id": "tier4-recovery-37",
+    "tier": "tier4_error_recovery",
+    "prompt": "How much would gas cost to drive from Pittsburgh to New York City at $3.0/gallon if my car gets 25 mpg?",
+    "ground_truth": "44.4",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "driving distance pittsburgh to new york city",
+      "miles": 370.0,
+      "mpg": 25,
+      "price": 3.0
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.24,
+      "seed": 37
+    }
+  },
+  {
+    "id": "tier4-recovery-38",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the gas cost to drive from Cairo to Alexandria: 28 mpg, $3.25/gallon.",
+    "ground_truth": "15.9",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance cairo to alexandria",
+      "miles": 137.0,
+      "mpg": 28,
+      "price": 3.25
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.2,
+      "seed": 38
+    }
+  },
+  {
+    "id": "tier4-recovery-39",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the population of Manila divided by the population of Bangkok?",
+    "ground_truth": "1.3",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Manila",
+      "entity_b": "Bangkok",
+      "query_a": "population of manila",
+      "query_b": "population of bangkok"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.38,
+      "seed": 39
+    }
+  },
+  {
+    "id": "tier4-recovery-40",
+    "tier": "tier4_error_recovery",
+    "prompt": "What is the population of Sweden divided by the population of Greece?",
+    "ground_truth": "1.02",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Sweden",
+      "entity_b": "Greece",
+      "query_a": "population of sweden",
+      "query_b": "population of greece"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.19,
+      "seed": 40
+    }
+  },
+  {
+    "id": "tier4-recovery-41",
+    "tier": "tier4_error_recovery",
+    "prompt": "Look up the temperature in Beijing and convert it to Fahrenheit.",
+    "ground_truth": "59.0",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "beijing"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.35,
+      "seed": 41
+    }
+  },
+  {
+    "id": "tier4-recovery-42",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the temperature difference between Chicago and Sydney in Celsius?",
+    "ground_truth": "15",
+    "expected_tools": [
+      "weather",
+      "weather",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "temp_diff",
+      "city_a": "chicago",
+      "city_b": "sydney"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.3,
+      "seed": 42
+    }
+  },
+  {
+    "id": "tier4-recovery-43",
+    "tier": "tier4_error_recovery",
+    "prompt": "Convert the current temperature in Warsaw from Celsius to Fahrenheit.",
+    "ground_truth": "37.4",
+    "expected_tools": [
+      "weather",
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "weather_convert",
+      "city": "warsaw"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.4,
+      "seed": 43
+    }
+  },
+  {
+    "id": "tier4-recovery-44",
+    "tier": "tier4_error_recovery",
+    "prompt": "How much would gas cost to drive from Rome to Milan at $3.75/gallon if my car gets 32 mpg?",
+    "ground_truth": "41.84",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance rome to milan",
+      "miles": 357.0,
+      "mpg": 32,
+      "price": 3.75
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.39,
+      "seed": 44
+    }
+  },
+  {
+    "id": "tier4-recovery-45",
+    "tier": "tier4_error_recovery",
+    "prompt": "The population of Osaka grows at 2.0% per year. Write Python code to calculate what the population will be in 10 years, starting from its current population.",
+    "ground_truth": "23.28",
+    "expected_tools": [
+      "wikipedia",
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "wiki_code",
+      "entity": "Osaka",
+      "query_key": "population of osaka",
+      "rate": 2.0,
+      "years": 10
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.32,
+      "seed": 45
+    }
+  },
+  {
+    "id": "tier4-recovery-46",
+    "tier": "tier4_error_recovery",
+    "prompt": "How much would gas cost to drive from Paris to Berlin at $4.0/gallon if my car gets 35 mpg?",
+    "ground_truth": "62.29",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance paris to berlin",
+      "miles": 545.0,
+      "mpg": 35,
+      "price": 4.0
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.16,
+      "seed": 46
+    }
+  },
+  {
+    "id": "tier4-recovery-47",
+    "tier": "tier4_error_recovery",
+    "prompt": "The population of United States grows at 2.5% per year. Write Python code to calculate what the population will be in 15 years, starting from its current population.",
+    "ground_truth": "485.18",
+    "expected_tools": [
+      "wikipedia",
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "wiki_code",
+      "entity": "United States",
+      "query_key": "population of united states",
+      "rate": 2.5,
+      "years": 15
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.16,
+      "seed": 47
+    }
+  },
+  {
+    "id": "tier4-recovery-48",
+    "tier": "tier4_error_recovery",
+    "prompt": "Calculate the ratio of Switzerland's population to Vietnam's population.",
+    "ground_truth": "0.09",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Switzerland",
+      "entity_b": "Vietnam",
+      "query_a": "population of switzerland",
+      "query_b": "population of vietnam"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.27,
+      "seed": 48
+    }
+  },
+  {
+    "id": "tier4-recovery-49",
+    "tier": "tier4_error_recovery",
+    "prompt": "What's the fuel cost for driving from London to Paris at 30 mpg with gas at $3.5/gallon?",
+    "ground_truth": "24.97",
+    "expected_tools": [
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "distance_cost",
+      "query_key": "distance london to paris",
+      "miles": 214.0,
+      "mpg": 30,
+      "price": 3.5
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.35,
+      "seed": 49
+    }
+  },
+  {
+    "id": "tier4-recovery-50",
+    "tier": "tier4_error_recovery",
+    "prompt": "How many times larger is the population of Greece compared to Netherlands?",
+    "ground_truth": "0.58",
+    "expected_tools": [
+      "wikipedia",
+      "wikipedia",
+      "calculator"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "pattern": "pop_ratio",
+      "entity_a": "Greece",
+      "entity_b": "Netherlands",
+      "query_a": "population of greece",
+      "query_b": "population of netherlands"
+    },
+    "error_injection_policy": {
+      "enabled": true,
+      "probability": 0.17,
+      "seed": 50
+    }
+  }
+]

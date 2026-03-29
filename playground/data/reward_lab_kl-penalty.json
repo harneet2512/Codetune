@@ -1,0 +1,9 @@
+{
+  "experiment": "kl-penalty",
+  "title": "KL Penalty Explorer",
+  "items": [
+    {"beta": 0.01, "annotation": "Too much drift; tool hallucinations rise."},
+    {"beta": 0.04, "annotation": "Balanced exploration and preservation."},
+    {"beta": 0.10, "annotation": "Learning stalls; too close to the reference policy."}
+  ]
+}

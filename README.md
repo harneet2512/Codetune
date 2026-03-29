@@ -185,3 +185,21 @@ Running on GCP with credits:
 ## License
 
 MIT
+
+## ToolTune
+
+This repo now also includes **ToolTune**, a deterministic tool-use training and diagnostics subproject.
+
+Key additions:
+- `tools/` deterministic mock tool registry and implementations
+- `tasks/` tool-use task suites plus generator
+- `train/agentic_loop.py`, `train/reward.py`, `train/sft_tooltune.py`, `train/grpo_tooltune.py`
+- `eval/run_all.py` and ToolTune-specific eval suites
+- `playground/` FastAPI backend plus static four-tab developer playground
+- `configs/tooltune/` variant and task config
+
+To run the playground once dependencies are installed:
+
+```bash
+uvicorn playground.app:app --reload
+```

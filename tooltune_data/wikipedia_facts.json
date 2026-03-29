@@ -1,0 +1,626 @@
+{
+  "population of france": "The population of France is approximately 68.4 million as of 2024.",
+  "population of belgium": "The population of Belgium is approximately 11.7 million as of 2024.",
+  "population of germany": "The population of Germany is approximately 84.5 million as of 2024.",
+  "population of brazil": "The population of Brazil is approximately 203.1 million as of 2024.",
+  "population of europe": "The total population of Europe is approximately 750 million as of 2024.",
+  "population of japan": "The population of Japan is approximately 123.9 million as of 2024.",
+  "population of south korea": "The population of South Korea is approximately 51.7 million as of 2024.",
+  "driving distance pittsburgh to new york city": "The driving distance from Pittsburgh to NYC is approximately 370 miles via I-76 and I-78.",
+  "driving distance chicago to detroit": "The driving distance from Chicago to Detroit is approximately 282 miles via I-94.",
+  "gdp per capita japan": "Japan's GDP per capita is approximately 33800 USD as of 2024.",
+  "gdp per capita south korea": "South Korea's GDP per capita is approximately 32400 USD as of 2024.",
+  "france gross domestic product economy": "France has a GDP of approximately 3050000000000 USD, making it one of the largest economies in the world.",
+  "speed of light": "The speed of light in a vacuum is approximately 299792458 meters per second.",
+  "distance earth to moon": "The average distance from Earth to the Moon is approximately 384400 kilometers.",
+  "boiling point of water": "Water boils at 100 degrees Celsius and 212 degrees Fahrenheit at standard atmospheric pressure.",
+  "largest european countries by population": "The three largest European countries by population are Germany, France, and the United Kingdom.",
+  "population of united kingdom": "The population of the United Kingdom is approximately 69.5 million as of 2024.",
+
+  "population of india": "The population of India is approximately 1440 million as of 2024.",
+  "india population": "The population of India is approximately 1440 million as of 2024.",
+  "how many people live in india": "The population of India is approximately 1440 million as of 2024.",
+
+  "population of china": "The population of China is approximately 1425 million as of 2024.",
+  "china population": "The population of China is approximately 1425 million as of 2024.",
+  "how many people live in china": "The population of China is approximately 1425 million as of 2024.",
+
+  "population of united states": "The population of the United States is approximately 335 million as of 2024.",
+  "population of usa": "The population of the United States is approximately 335 million as of 2024.",
+  "usa population": "The population of the United States is approximately 335 million as of 2024.",
+
+  "population of indonesia": "The population of Indonesia is approximately 277 million as of 2024.",
+  "indonesia population": "The population of Indonesia is approximately 277 million as of 2024.",
+  "how many people live in indonesia": "The population of Indonesia is approximately 277 million as of 2024.",
+
+  "population of nigeria": "The population of Nigeria is approximately 224 million as of 2024.",
+  "nigeria population": "The population of Nigeria is approximately 224 million as of 2024.",
+  "how many people live in nigeria": "The population of Nigeria is approximately 224 million as of 2024.",
+
+  "population of pakistan": "The population of Pakistan is approximately 240 million as of 2024.",
+  "pakistan population": "The population of Pakistan is approximately 240 million as of 2024.",
+  "how many people live in pakistan": "The population of Pakistan is approximately 240 million as of 2024.",
+
+  "population of bangladesh": "The population of Bangladesh is approximately 173 million as of 2024.",
+  "bangladesh population": "The population of Bangladesh is approximately 173 million as of 2024.",
+  "how many people live in bangladesh": "The population of Bangladesh is approximately 173 million as of 2024.",
+
+  "population of russia": "The population of Russia is approximately 144 million as of 2024.",
+  "russia population": "The population of Russia is approximately 144 million as of 2024.",
+  "how many people live in russia": "The population of Russia is approximately 144 million as of 2024.",
+
+  "population of mexico": "The population of Mexico is approximately 129 million as of 2024.",
+  "mexico population": "The population of Mexico is approximately 129 million as of 2024.",
+  "how many people live in mexico": "The population of Mexico is approximately 129 million as of 2024.",
+
+  "population of ethiopia": "The population of Ethiopia is approximately 126 million as of 2024.",
+  "ethiopia population": "The population of Ethiopia is approximately 126 million as of 2024.",
+  "how many people live in ethiopia": "The population of Ethiopia is approximately 126 million as of 2024.",
+
+  "population of philippines": "The population of the Philippines is approximately 117 million as of 2024.",
+  "philippines population": "The population of the Philippines is approximately 117 million as of 2024.",
+  "how many people live in the philippines": "The population of the Philippines is approximately 117 million as of 2024.",
+
+  "population of egypt": "The population of Egypt is approximately 112 million as of 2024.",
+  "egypt population": "The population of Egypt is approximately 112 million as of 2024.",
+  "how many people live in egypt": "The population of Egypt is approximately 112 million as of 2024.",
+
+  "population of vietnam": "The population of Vietnam is approximately 100 million as of 2024.",
+  "vietnam population": "The population of Vietnam is approximately 100 million as of 2024.",
+  "how many people live in vietnam": "The population of Vietnam is approximately 100 million as of 2024.",
+
+  "population of turkey": "The population of Turkey is approximately 85.8 million as of 2024.",
+  "turkey population": "The population of Turkey is approximately 85.8 million as of 2024.",
+  "how many people live in turkey": "The population of Turkey is approximately 85.8 million as of 2024.",
+
+  "population of iran": "The population of Iran is approximately 89 million as of 2024.",
+  "iran population": "The population of Iran is approximately 89 million as of 2024.",
+  "how many people live in iran": "The population of Iran is approximately 89 million as of 2024.",
+
+  "population of thailand": "The population of Thailand is approximately 72 million as of 2024.",
+  "thailand population": "The population of Thailand is approximately 72 million as of 2024.",
+  "how many people live in thailand": "The population of Thailand is approximately 72 million as of 2024.",
+
+  "population of argentina": "The population of Argentina is approximately 46.7 million as of 2024.",
+  "argentina population": "The population of Argentina is approximately 46.7 million as of 2024.",
+  "how many people live in argentina": "The population of Argentina is approximately 46.7 million as of 2024.",
+
+  "population of colombia": "The population of Colombia is approximately 52.2 million as of 2024.",
+  "colombia population": "The population of Colombia is approximately 52.2 million as of 2024.",
+  "how many people live in colombia": "The population of Colombia is approximately 52.2 million as of 2024.",
+
+  "population of poland": "The population of Poland is approximately 36.8 million as of 2024.",
+  "poland population": "The population of Poland is approximately 36.8 million as of 2024.",
+  "how many people live in poland": "The population of Poland is approximately 36.8 million as of 2024.",
+
+  "population of canada": "The population of Canada is approximately 40.1 million as of 2024.",
+  "canada population": "The population of Canada is approximately 40.1 million as of 2024.",
+  "how many people live in canada": "The population of Canada is approximately 40.1 million as of 2024.",
+
+  "population of australia": "The population of Australia is approximately 26.6 million as of 2024.",
+  "australia population": "The population of Australia is approximately 26.6 million as of 2024.",
+  "how many people live in australia": "The population of Australia is approximately 26.6 million as of 2024.",
+
+  "population of spain": "The population of Spain is approximately 48.1 million as of 2024.",
+  "spain population": "The population of Spain is approximately 48.1 million as of 2024.",
+  "how many people live in spain": "The population of Spain is approximately 48.1 million as of 2024.",
+
+  "population of italy": "The population of Italy is approximately 58.9 million as of 2024.",
+  "italy population": "The population of Italy is approximately 58.9 million as of 2024.",
+  "how many people live in italy": "The population of Italy is approximately 58.9 million as of 2024.",
+
+  "population of netherlands": "The population of the Netherlands is approximately 17.8 million as of 2024.",
+  "netherlands population": "The population of the Netherlands is approximately 17.8 million as of 2024.",
+  "how many people live in the netherlands": "The population of the Netherlands is approximately 17.8 million as of 2024.",
+
+  "population of sweden": "The population of Sweden is approximately 10.5 million as of 2024.",
+  "sweden population": "The population of Sweden is approximately 10.5 million as of 2024.",
+  "how many people live in sweden": "The population of Sweden is approximately 10.5 million as of 2024.",
+
+  "population of norway": "The population of Norway is approximately 5.5 million as of 2024.",
+  "norway population": "The population of Norway is approximately 5.5 million as of 2024.",
+  "how many people live in norway": "The population of Norway is approximately 5.5 million as of 2024.",
+
+  "population of switzerland": "The population of Switzerland is approximately 8.9 million as of 2024.",
+  "switzerland population": "The population of Switzerland is approximately 8.9 million as of 2024.",
+  "how many people live in switzerland": "The population of Switzerland is approximately 8.9 million as of 2024.",
+
+  "population of portugal": "The population of Portugal is approximately 10.3 million as of 2024.",
+  "portugal population": "The population of Portugal is approximately 10.3 million as of 2024.",
+  "how many people live in portugal": "The population of Portugal is approximately 10.3 million as of 2024.",
+
+  "population of greece": "The population of Greece is approximately 10.3 million as of 2024.",
+  "greece population": "The population of Greece is approximately 10.3 million as of 2024.",
+  "how many people live in greece": "The population of Greece is approximately 10.3 million as of 2024.",
+
+  "population of austria": "The population of Austria is approximately 9.1 million as of 2024.",
+  "austria population": "The population of Austria is approximately 9.1 million as of 2024.",
+  "how many people live in austria": "The population of Austria is approximately 9.1 million as of 2024.",
+
+  "population of tokyo": "The population of the Tokyo metropolitan area is approximately 37.4 million as of 2024.",
+  "tokyo population": "The population of the Tokyo metropolitan area is approximately 37.4 million as of 2024.",
+  "how many people live in tokyo": "The population of the Tokyo metropolitan area is approximately 37.4 million as of 2024.",
+
+  "population of delhi": "The population of the Delhi metropolitan area is approximately 32.9 million as of 2024.",
+  "delhi population": "The population of the Delhi metropolitan area is approximately 32.9 million as of 2024.",
+  "how many people live in delhi": "The population of the Delhi metropolitan area is approximately 32.9 million as of 2024.",
+
+  "population of shanghai": "The population of the Shanghai metropolitan area is approximately 29.2 million as of 2024.",
+  "shanghai population": "The population of the Shanghai metropolitan area is approximately 29.2 million as of 2024.",
+  "how many people live in shanghai": "The population of the Shanghai metropolitan area is approximately 29.2 million as of 2024.",
+
+  "population of sao paulo": "The population of the Sao Paulo metropolitan area is approximately 22.6 million as of 2024.",
+  "sao paulo population": "The population of the Sao Paulo metropolitan area is approximately 22.6 million as of 2024.",
+  "how many people live in sao paulo": "The population of the Sao Paulo metropolitan area is approximately 22.6 million as of 2024.",
+
+  "population of mumbai": "The population of the Mumbai metropolitan area is approximately 21.7 million as of 2024.",
+  "mumbai population": "The population of the Mumbai metropolitan area is approximately 21.7 million as of 2024.",
+  "how many people live in mumbai": "The population of the Mumbai metropolitan area is approximately 21.7 million as of 2024.",
+
+  "population of beijing": "The population of the Beijing metropolitan area is approximately 21.5 million as of 2024.",
+  "beijing population": "The population of the Beijing metropolitan area is approximately 21.5 million as of 2024.",
+  "how many people live in beijing": "The population of the Beijing metropolitan area is approximately 21.5 million as of 2024.",
+
+  "population of cairo": "The population of the Cairo metropolitan area is approximately 22.1 million as of 2024.",
+  "cairo population": "The population of the Cairo metropolitan area is approximately 22.1 million as of 2024.",
+  "how many people live in cairo": "The population of the Cairo metropolitan area is approximately 22.1 million as of 2024.",
+
+  "population of mexico city": "The population of the Mexico City metropolitan area is approximately 21.8 million as of 2024.",
+  "mexico city population": "The population of the Mexico City metropolitan area is approximately 21.8 million as of 2024.",
+  "how many people live in mexico city": "The population of the Mexico City metropolitan area is approximately 21.8 million as of 2024.",
+
+  "population of osaka": "The population of the Osaka metropolitan area is approximately 19.1 million as of 2024.",
+  "osaka population": "The population of the Osaka metropolitan area is approximately 19.1 million as of 2024.",
+  "how many people live in osaka": "The population of the Osaka metropolitan area is approximately 19.1 million as of 2024.",
+
+  "population of lagos": "The population of the Lagos metropolitan area is approximately 16.6 million as of 2024.",
+  "lagos population": "The population of the Lagos metropolitan area is approximately 16.6 million as of 2024.",
+  "how many people live in lagos": "The population of the Lagos metropolitan area is approximately 16.6 million as of 2024.",
+
+  "population of istanbul": "The population of the Istanbul metropolitan area is approximately 16.0 million as of 2024.",
+  "istanbul population": "The population of the Istanbul metropolitan area is approximately 16.0 million as of 2024.",
+  "how many people live in istanbul": "The population of the Istanbul metropolitan area is approximately 16.0 million as of 2024.",
+
+  "population of buenos aires": "The population of the Buenos Aires metropolitan area is approximately 15.5 million as of 2024.",
+  "buenos aires population": "The population of the Buenos Aires metropolitan area is approximately 15.5 million as of 2024.",
+  "how many people live in buenos aires": "The population of the Buenos Aires metropolitan area is approximately 15.5 million as of 2024.",
+
+  "population of seoul": "The population of the Seoul metropolitan area is approximately 9.7 million as of 2024.",
+  "seoul population": "The population of the Seoul metropolitan area is approximately 9.7 million as of 2024.",
+  "how many people live in seoul": "The population of the Seoul metropolitan area is approximately 9.7 million as of 2024.",
+
+  "population of karachi": "The population of the Karachi metropolitan area is approximately 16.8 million as of 2024.",
+  "karachi population": "The population of the Karachi metropolitan area is approximately 16.8 million as of 2024.",
+  "how many people live in karachi": "The population of the Karachi metropolitan area is approximately 16.8 million as of 2024.",
+
+  "population of jakarta": "The population of the Jakarta metropolitan area is approximately 11.2 million as of 2024.",
+  "jakarta population": "The population of the Jakarta metropolitan area is approximately 11.2 million as of 2024.",
+  "how many people live in jakarta": "The population of the Jakarta metropolitan area is approximately 11.2 million as of 2024.",
+
+  "population of manila": "The population of the Manila metropolitan area is approximately 14.4 million as of 2024.",
+  "manila population": "The population of the Manila metropolitan area is approximately 14.4 million as of 2024.",
+  "how many people live in manila": "The population of the Manila metropolitan area is approximately 14.4 million as of 2024.",
+
+  "population of moscow": "The population of the Moscow metropolitan area is approximately 12.7 million as of 2024.",
+  "moscow population": "The population of the Moscow metropolitan area is approximately 12.7 million as of 2024.",
+  "how many people live in moscow": "The population of the Moscow metropolitan area is approximately 12.7 million as of 2024.",
+
+  "population of lima": "The population of the Lima metropolitan area is approximately 11.0 million as of 2024.",
+  "lima population": "The population of the Lima metropolitan area is approximately 11.0 million as of 2024.",
+  "how many people live in lima": "The population of the Lima metropolitan area is approximately 11.0 million as of 2024.",
+
+  "population of bangkok": "The population of the Bangkok metropolitan area is approximately 11.1 million as of 2024.",
+  "bangkok population": "The population of the Bangkok metropolitan area is approximately 11.1 million as of 2024.",
+  "how many people live in bangkok": "The population of the Bangkok metropolitan area is approximately 11.1 million as of 2024.",
+
+  "population of kolkata": "The population of the Kolkata metropolitan area is approximately 15.1 million as of 2024.",
+  "kolkata population": "The population of the Kolkata metropolitan area is approximately 15.1 million as of 2024.",
+  "how many people live in kolkata": "The population of the Kolkata metropolitan area is approximately 15.1 million as of 2024.",
+
+  "area of russia": "The total area of Russia is approximately 17.1 million square kilometers, making it the largest country in the world.",
+  "russia area": "The total area of Russia is approximately 17.1 million square kilometers, making it the largest country in the world.",
+  "how big is russia": "The total area of Russia is approximately 17.1 million square kilometers, making it the largest country in the world.",
+
+  "area of canada": "The total area of Canada is approximately 10.0 million square kilometers, making it the second largest country in the world.",
+  "canada area": "The total area of Canada is approximately 10.0 million square kilometers, making it the second largest country in the world.",
+  "how big is canada": "The total area of Canada is approximately 10.0 million square kilometers, making it the second largest country in the world.",
+
+  "area of united states": "The total area of the United States is approximately 9.8 million square kilometers.",
+  "usa area": "The total area of the United States is approximately 9.8 million square kilometers.",
+  "how big is the united states": "The total area of the United States is approximately 9.8 million square kilometers.",
+
+  "area of china": "The total area of China is approximately 9.6 million square kilometers.",
+  "china area": "The total area of China is approximately 9.6 million square kilometers.",
+  "how big is china": "The total area of China is approximately 9.6 million square kilometers.",
+
+  "area of brazil": "The total area of Brazil is approximately 8.5 million square kilometers.",
+  "brazil area": "The total area of Brazil is approximately 8.5 million square kilometers.",
+  "how big is brazil": "The total area of Brazil is approximately 8.5 million square kilometers.",
+
+  "area of australia": "The total area of Australia is approximately 7.7 million square kilometers.",
+  "australia area": "The total area of Australia is approximately 7.7 million square kilometers.",
+  "how big is australia": "The total area of Australia is approximately 7.7 million square kilometers.",
+
+  "area of india": "The total area of India is approximately 3.3 million square kilometers.",
+  "india area": "The total area of India is approximately 3.3 million square kilometers.",
+  "how big is india": "The total area of India is approximately 3.3 million square kilometers.",
+
+  "area of argentina": "The total area of Argentina is approximately 2.8 million square kilometers.",
+  "argentina area": "The total area of Argentina is approximately 2.8 million square kilometers.",
+  "how big is argentina": "The total area of Argentina is approximately 2.8 million square kilometers.",
+
+  "area of kazakhstan": "The total area of Kazakhstan is approximately 2.7 million square kilometers.",
+  "kazakhstan area": "The total area of Kazakhstan is approximately 2.7 million square kilometers.",
+  "how big is kazakhstan": "The total area of Kazakhstan is approximately 2.7 million square kilometers.",
+
+  "area of algeria": "The total area of Algeria is approximately 2.4 million square kilometers.",
+  "algeria area": "The total area of Algeria is approximately 2.4 million square kilometers.",
+  "how big is algeria": "The total area of Algeria is approximately 2.4 million square kilometers.",
+
+  "area of dr congo": "The total area of the Democratic Republic of the Congo is approximately 2.3 million square kilometers.",
+  "dr congo area": "The total area of the Democratic Republic of the Congo is approximately 2.3 million square kilometers.",
+  "how big is the democratic republic of the congo": "The total area of the Democratic Republic of the Congo is approximately 2.3 million square kilometers.",
+
+  "area of saudi arabia": "The total area of Saudi Arabia is approximately 2.1 million square kilometers.",
+  "saudi arabia area": "The total area of Saudi Arabia is approximately 2.1 million square kilometers.",
+  "how big is saudi arabia": "The total area of Saudi Arabia is approximately 2.1 million square kilometers.",
+
+  "area of greenland": "The total area of Greenland is approximately 2.2 million square kilometers.",
+  "greenland area": "The total area of Greenland is approximately 2.2 million square kilometers.",
+  "how big is greenland": "The total area of Greenland is approximately 2.2 million square kilometers.",
+
+  "area of mexico": "The total area of Mexico is approximately 2.0 million square kilometers.",
+  "mexico area": "The total area of Mexico is approximately 2.0 million square kilometers.",
+  "how big is mexico": "The total area of Mexico is approximately 2.0 million square kilometers.",
+
+  "area of indonesia": "The total area of Indonesia is approximately 1.9 million square kilometers.",
+  "indonesia area": "The total area of Indonesia is approximately 1.9 million square kilometers.",
+  "how big is indonesia": "The total area of Indonesia is approximately 1.9 million square kilometers.",
+
+  "gdp of united states": "The GDP of the United States is approximately $27.4 trillion USD as of 2024.",
+  "gdp of usa": "The GDP of the United States is approximately $27.4 trillion USD as of 2024.",
+  "us gdp": "The GDP of the United States is approximately $27.4 trillion USD as of 2024.",
+
+  "gdp of china": "The GDP of China is approximately $17.8 trillion USD as of 2024.",
+  "china gdp": "The GDP of China is approximately $17.8 trillion USD as of 2024.",
+  "chinese economy gdp": "The GDP of China is approximately $17.8 trillion USD as of 2024.",
+
+  "gdp of germany": "The GDP of Germany is approximately $4.5 trillion USD as of 2024.",
+  "germany gdp": "The GDP of Germany is approximately $4.5 trillion USD as of 2024.",
+  "german economy gdp": "The GDP of Germany is approximately $4.5 trillion USD as of 2024.",
+
+  "gdp of india": "The GDP of India is approximately $3.9 trillion USD as of 2024.",
+  "india gdp": "The GDP of India is approximately $3.9 trillion USD as of 2024.",
+  "indian economy gdp": "The GDP of India is approximately $3.9 trillion USD as of 2024.",
+
+  "gdp of united kingdom": "The GDP of the United Kingdom is approximately $3.3 trillion USD as of 2024.",
+  "uk gdp": "The GDP of the United Kingdom is approximately $3.3 trillion USD as of 2024.",
+  "british economy gdp": "The GDP of the United Kingdom is approximately $3.3 trillion USD as of 2024.",
+
+  "gdp of italy": "The GDP of Italy is approximately $2.3 trillion USD as of 2024.",
+  "italy gdp": "The GDP of Italy is approximately $2.3 trillion USD as of 2024.",
+  "italian economy gdp": "The GDP of Italy is approximately $2.3 trillion USD as of 2024.",
+
+  "gdp of canada": "The GDP of Canada is approximately $2.1 trillion USD as of 2024.",
+  "canada gdp": "The GDP of Canada is approximately $2.1 trillion USD as of 2024.",
+  "canadian economy gdp": "The GDP of Canada is approximately $2.1 trillion USD as of 2024.",
+
+  "gdp of brazil": "The GDP of Brazil is approximately $2.2 trillion USD as of 2024.",
+  "brazil gdp": "The GDP of Brazil is approximately $2.2 trillion USD as of 2024.",
+  "brazilian economy gdp": "The GDP of Brazil is approximately $2.2 trillion USD as of 2024.",
+
+  "gdp of russia": "The GDP of Russia is approximately $2.0 trillion USD as of 2024.",
+  "russia gdp": "The GDP of Russia is approximately $2.0 trillion USD as of 2024.",
+  "russian economy gdp": "The GDP of Russia is approximately $2.0 trillion USD as of 2024.",
+
+  "gdp of australia": "The GDP of Australia is approximately $1.7 trillion USD as of 2024.",
+  "australia gdp": "The GDP of Australia is approximately $1.7 trillion USD as of 2024.",
+  "australian economy gdp": "The GDP of Australia is approximately $1.7 trillion USD as of 2024.",
+
+  "gdp of spain": "The GDP of Spain is approximately $1.6 trillion USD as of 2024.",
+  "spain gdp": "The GDP of Spain is approximately $1.6 trillion USD as of 2024.",
+  "spanish economy gdp": "The GDP of Spain is approximately $1.6 trillion USD as of 2024.",
+
+  "gdp of mexico": "The GDP of Mexico is approximately $1.8 trillion USD as of 2024.",
+  "mexico gdp": "The GDP of Mexico is approximately $1.8 trillion USD as of 2024.",
+  "mexican economy gdp": "The GDP of Mexico is approximately $1.8 trillion USD as of 2024.",
+
+  "gdp of south korea": "The GDP of South Korea is approximately $1.7 trillion USD as of 2024.",
+  "south korea gdp": "The GDP of South Korea is approximately $1.7 trillion USD as of 2024.",
+  "korean economy gdp": "The GDP of South Korea is approximately $1.7 trillion USD as of 2024.",
+
+  "gdp per capita united states": "The GDP per capita of the United States is approximately $81,600 USD as of 2024.",
+  "gdp per capita usa": "The GDP per capita of the United States is approximately $81,600 USD as of 2024.",
+  "us gdp per capita": "The GDP per capita of the United States is approximately $81,600 USD as of 2024.",
+
+  "gdp per capita germany": "The GDP per capita of Germany is approximately $54,000 USD as of 2024.",
+  "germany gdp per capita": "The GDP per capita of Germany is approximately $54,000 USD as of 2024.",
+
+  "gdp per capita australia": "The GDP per capita of Australia is approximately $63,500 USD as of 2024.",
+  "australia gdp per capita": "The GDP per capita of Australia is approximately $63,500 USD as of 2024.",
+
+  "moon landing": "The first Moon landing occurred on July 20, 1969, when NASA's Apollo 11 mission successfully landed astronauts Neil Armstrong and Buzz Aldrin on the lunar surface.",
+  "when did humans land on the moon": "The first Moon landing occurred on July 20, 1969, when NASA's Apollo 11 mission successfully landed astronauts Neil Armstrong and Buzz Aldrin on the lunar surface.",
+  "apollo 11 moon landing date": "The first Moon landing occurred on July 20, 1969, when NASA's Apollo 11 mission successfully landed astronauts Neil Armstrong and Buzz Aldrin on the lunar surface.",
+
+  "end of world war 2": "World War II ended on September 2, 1945, when Japan formally surrendered aboard the USS Missouri.",
+  "when did ww2 end": "World War II ended on September 2, 1945, when Japan formally surrendered aboard the USS Missouri.",
+  "world war ii end date": "World War II ended on September 2, 1945, when Japan formally surrendered aboard the USS Missouri.",
+
+  "french revolution": "The French Revolution began in 1789 with the storming of the Bastille on July 14, 1789.",
+  "when did the french revolution start": "The French Revolution began in 1789 with the storming of the Bastille on July 14, 1789.",
+  "french revolution date": "The French Revolution began in 1789 with the storming of the Bastille on July 14, 1789.",
+
+  "fall of the berlin wall": "The Berlin Wall fell on November 9, 1989, marking the end of the Cold War division of Germany.",
+  "when did the berlin wall fall": "The Berlin Wall fell on November 9, 1989, marking the end of the Cold War division of Germany.",
+  "berlin wall fall date": "The Berlin Wall fell on November 9, 1989, marking the end of the Cold War division of Germany.",
+
+  "discovery of dna structure": "The structure of DNA was discovered in 1953 by James Watson and Francis Crick.",
+  "when was dna discovered": "The structure of DNA was discovered in 1953 by James Watson and Francis Crick.",
+  "dna double helix discovery": "The structure of DNA was discovered in 1953 by James Watson and Francis Crick.",
+
+  "discovery of penicillin": "Penicillin was discovered in 1928 by Alexander Fleming.",
+  "when was penicillin discovered": "Penicillin was discovered in 1928 by Alexander Fleming.",
+  "penicillin discovery date": "Penicillin was discovered in 1928 by Alexander Fleming.",
+
+  "wright brothers first flight": "The Wright brothers achieved the first powered airplane flight on December 17, 1903, at Kitty Hawk, North Carolina.",
+  "first airplane flight": "The Wright brothers achieved the first powered airplane flight on December 17, 1903, at Kitty Hawk, North Carolina.",
+  "when did the wright brothers fly": "The Wright brothers achieved the first powered airplane flight on December 17, 1903, at Kitty Hawk, North Carolina.",
+
+  "gutenberg printing press": "Johannes Gutenberg invented the movable-type printing press around 1440 in Mainz, Germany.",
+  "when was the printing press invented": "Johannes Gutenberg invented the movable-type printing press around 1440 in Mainz, Germany.",
+  "printing press invention date": "Johannes Gutenberg invented the movable-type printing press around 1440 in Mainz, Germany.",
+
+  "magna carta": "The Magna Carta was signed in 1215 by King John of England at Runnymede.",
+  "when was the magna carta signed": "The Magna Carta was signed in 1215 by King John of England at Runnymede.",
+  "magna carta date": "The Magna Carta was signed in 1215 by King John of England at Runnymede.",
+
+  "american independence": "The United States declared independence on July 4, 1776, with the adoption of the Declaration of Independence.",
+  "when was american independence": "The United States declared independence on July 4, 1776, with the adoption of the Declaration of Independence.",
+  "declaration of independence date": "The United States declared independence on July 4, 1776, with the adoption of the Declaration of Independence.",
+
+  "first computer eniac": "ENIAC, the first general-purpose electronic computer, was completed in 1945 at the University of Pennsylvania.",
+  "when was eniac built": "ENIAC, the first general-purpose electronic computer, was completed in 1945 at the University of Pennsylvania.",
+  "eniac computer date": "ENIAC, the first general-purpose electronic computer, was completed in 1945 at the University of Pennsylvania.",
+
+  "internet creation arpanet": "The internet originated from ARPANET, which sent its first message on October 29, 1969.",
+  "when was the internet created": "The internet originated from ARPANET, which sent its first message on October 29, 1969.",
+  "arpanet first message date": "The internet originated from ARPANET, which sent its first message on October 29, 1969.",
+
+  "fall of roman empire": "The Western Roman Empire fell in 476 AD when the last emperor Romulus Augustulus was deposed.",
+  "when did rome fall": "The Western Roman Empire fell in 476 AD when the last emperor Romulus Augustulus was deposed.",
+  "roman empire fall date": "The Western Roman Empire fell in 476 AD when the last emperor Romulus Augustulus was deposed.",
+
+  "columbus discovers americas": "Christopher Columbus reached the Americas on October 12, 1492, landing in the Bahamas.",
+  "when did columbus discover america": "Christopher Columbus reached the Americas on October 12, 1492, landing in the Bahamas.",
+  "columbus voyage date": "Christopher Columbus reached the Americas on October 12, 1492, landing in the Bahamas.",
+
+  "industrial revolution start": "The Industrial Revolution began around 1760 in Great Britain, transforming manufacturing with mechanization.",
+  "when did the industrial revolution start": "The Industrial Revolution began around 1760 in Great Britain, transforming manufacturing with mechanization.",
+  "industrial revolution date": "The Industrial Revolution began around 1760 in Great Britain, transforming manufacturing with mechanization.",
+
+  "einstein theory of relativity": "Albert Einstein published his special theory of relativity in 1905.",
+  "when was relativity discovered": "Albert Einstein published his special theory of relativity in 1905.",
+  "einstein relativity date": "Albert Einstein published his special theory of relativity in 1905.",
+
+  "first telephone invention": "Alexander Graham Bell patented the first practical telephone in 1876.",
+  "when was the telephone invented": "Alexander Graham Bell patented the first practical telephone in 1876.",
+  "telephone invention date": "Alexander Graham Bell patented the first practical telephone in 1876.",
+
+  "world war 1 start": "World War I began on July 28, 1914, triggered by the assassination of Archduke Franz Ferdinand.",
+  "when did ww1 start": "World War I began on July 28, 1914, triggered by the assassination of Archduke Franz Ferdinand.",
+  "ww1 start date": "World War I began on July 28, 1914, triggered by the assassination of Archduke Franz Ferdinand.",
+
+  "united nations founded": "The United Nations was founded on October 24, 1945, with 51 member states.",
+  "when was the un founded": "The United Nations was founded on October 24, 1945, with 51 member states.",
+  "un founding date": "The United Nations was founded on October 24, 1945, with 51 member states.",
+
+  "european union founded": "The European Union was formally established on November 1, 1993, with the Maastricht Treaty.",
+  "when was the eu founded": "The European Union was formally established on November 1, 1993, with the Maastricht Treaty.",
+  "eu founding date": "The European Union was formally established on November 1, 1993, with the Maastricht Treaty.",
+
+  "first satellite sputnik": "Sputnik 1, the first artificial satellite, was launched by the Soviet Union on October 4, 1957.",
+  "when was sputnik launched": "Sputnik 1, the first artificial satellite, was launched by the Soviet Union on October 4, 1957.",
+  "sputnik launch date": "Sputnik 1, the first artificial satellite, was launched by the Soviet Union on October 4, 1957.",
+
+  "first human in space": "Yuri Gagarin became the first human in space on April 12, 1961, aboard Vostok 1.",
+  "when did yuri gagarin go to space": "Yuri Gagarin became the first human in space on April 12, 1961, aboard Vostok 1.",
+  "first space flight date": "Yuri Gagarin became the first human in space on April 12, 1961, aboard Vostok 1.",
+
+  "first personal computer": "The Altair 8800, widely considered the first personal computer, was released in 1975.",
+  "when was the personal computer invented": "The Altair 8800, widely considered the first personal computer, was released in 1975.",
+  "personal computer invention date": "The Altair 8800, widely considered the first personal computer, was released in 1975.",
+
+  "speed of sound": "The speed of sound in air at sea level is approximately 343 meters per second.",
+  "speed of sound in air": "The speed of sound in air at sea level is approximately 343 meters per second.",
+  "how fast is the speed of sound": "The speed of sound in air at sea level is approximately 343 meters per second.",
+
+  "gravitational constant": "The gravitational constant G is approximately 6.674e-11 cubic meters per kilogram per second squared.",
+  "value of gravitational constant": "The gravitational constant G is approximately 6.674e-11 cubic meters per kilogram per second squared.",
+  "what is the gravitational constant": "The gravitational constant G is approximately 6.674e-11 cubic meters per kilogram per second squared.",
+
+  "avogadro number": "Avogadro's number is approximately 6.022e23 particles per mole.",
+  "avogadro constant": "Avogadro's number is approximately 6.022e23 particles per mole.",
+  "what is avogadro's number": "Avogadro's number is approximately 6.022e23 particles per mole.",
+
+  "planck constant": "The Planck constant is approximately 6.626e-34 joule-seconds.",
+  "value of planck constant": "The Planck constant is approximately 6.626e-34 joule-seconds.",
+  "what is the planck constant": "The Planck constant is approximately 6.626e-34 joule-seconds.",
+
+  "electron mass": "The mass of an electron is approximately 9.109e-31 kilograms.",
+  "mass of electron": "The mass of an electron is approximately 9.109e-31 kilograms.",
+  "what is the mass of an electron": "The mass of an electron is approximately 9.109e-31 kilograms.",
+
+  "proton mass": "The mass of a proton is approximately 1.673e-27 kilograms.",
+  "mass of proton": "The mass of a proton is approximately 1.673e-27 kilograms.",
+  "what is the mass of a proton": "The mass of a proton is approximately 1.673e-27 kilograms.",
+
+  "absolute zero temperature": "Absolute zero is approximately -273.15 degrees Celsius, or 0 Kelvin.",
+  "what is absolute zero": "Absolute zero is approximately -273.15 degrees Celsius, or 0 Kelvin.",
+  "absolute zero celsius": "Absolute zero is approximately -273.15 degrees Celsius, or 0 Kelvin.",
+
+  "atmospheric pressure": "Standard atmospheric pressure at sea level is approximately 101325 Pascals.",
+  "standard atmospheric pressure": "Standard atmospheric pressure at sea level is approximately 101325 Pascals.",
+  "what is atmospheric pressure at sea level": "Standard atmospheric pressure at sea level is approximately 101325 Pascals.",
+
+  "earth radius": "The mean radius of Earth is approximately 6371 kilometers.",
+  "radius of earth": "The mean radius of Earth is approximately 6371 kilometers.",
+  "how big is the earth radius": "The mean radius of Earth is approximately 6371 kilometers.",
+
+  "sun mass": "The mass of the Sun is approximately 1.989e30 kilograms.",
+  "mass of the sun": "The mass of the Sun is approximately 1.989e30 kilograms.",
+  "what is the mass of the sun": "The mass of the Sun is approximately 1.989e30 kilograms.",
+
+  "light year distance": "One light year is approximately 9.461e12 kilometers.",
+  "how far is a light year": "One light year is approximately 9.461e12 kilometers.",
+  "what is a light year in kilometers": "One light year is approximately 9.461e12 kilometers.",
+
+  "earth orbital speed": "Earth's orbital speed around the Sun is approximately 29.78 kilometers per second.",
+  "how fast does earth orbit the sun": "Earth's orbital speed around the Sun is approximately 29.78 kilometers per second.",
+  "earth speed around sun": "Earth's orbital speed around the Sun is approximately 29.78 kilometers per second.",
+
+  "charge of electron": "The elementary charge of an electron is approximately 1.602e-19 coulombs.",
+  "electron charge": "The elementary charge of an electron is approximately 1.602e-19 coulombs.",
+  "what is the charge of an electron": "The elementary charge of an electron is approximately 1.602e-19 coulombs.",
+
+  "boltzmann constant": "The Boltzmann constant is approximately 1.381e-23 joules per kelvin.",
+  "value of boltzmann constant": "The Boltzmann constant is approximately 1.381e-23 joules per kelvin.",
+  "what is the boltzmann constant": "The Boltzmann constant is approximately 1.381e-23 joules per kelvin.",
+
+  "universal gas constant": "The universal gas constant R is approximately 8.314 joules per mole per kelvin.",
+  "gas constant value": "The universal gas constant R is approximately 8.314 joules per mole per kelvin.",
+  "what is the gas constant": "The universal gas constant R is approximately 8.314 joules per mole per kelvin.",
+
+  "longest river nile": "The Nile River is approximately 6650 kilometers long, making it the longest river in the world.",
+  "length of the nile": "The Nile River is approximately 6650 kilometers long, making it the longest river in the world.",
+  "how long is the nile river": "The Nile River is approximately 6650 kilometers long, making it the longest river in the world.",
+
+  "amazon river length": "The Amazon River is approximately 6400 kilometers long, making it the second longest river in the world.",
+  "length of the amazon river": "The Amazon River is approximately 6400 kilometers long, making it the second longest river in the world.",
+  "how long is the amazon river": "The Amazon River is approximately 6400 kilometers long, making it the second longest river in the world.",
+
+  "yangtze river length": "The Yangtze River is approximately 6300 kilometers long, making it the longest river in Asia.",
+  "length of the yangtze": "The Yangtze River is approximately 6300 kilometers long, making it the longest river in Asia.",
+  "how long is the yangtze river": "The Yangtze River is approximately 6300 kilometers long, making it the longest river in Asia.",
+
+  "mississippi river length": "The Mississippi River is approximately 6275 kilometers long including the Missouri River tributary.",
+  "length of the mississippi": "The Mississippi River is approximately 6275 kilometers long including the Missouri River tributary.",
+  "how long is the mississippi river": "The Mississippi River is approximately 6275 kilometers long including the Missouri River tributary.",
+
+  "height of mount everest": "Mount Everest is approximately 8849 meters tall, making it the highest mountain in the world.",
+  "mount everest height": "Mount Everest is approximately 8849 meters tall, making it the highest mountain in the world.",
+  "how tall is mount everest": "Mount Everest is approximately 8849 meters tall, making it the highest mountain in the world.",
+
+  "height of k2": "K2 is approximately 8611 meters tall, making it the second highest mountain in the world.",
+  "k2 height": "K2 is approximately 8611 meters tall, making it the second highest mountain in the world.",
+  "how tall is k2": "K2 is approximately 8611 meters tall, making it the second highest mountain in the world.",
+
+  "height of kangchenjunga": "Kangchenjunga is approximately 8586 meters tall, making it the third highest mountain in the world.",
+  "kangchenjunga height": "Kangchenjunga is approximately 8586 meters tall, making it the third highest mountain in the world.",
+  "how tall is kangchenjunga": "Kangchenjunga is approximately 8586 meters tall, making it the third highest mountain in the world.",
+
+  "mariana trench depth": "The Mariana Trench reaches a maximum depth of approximately 10994 meters at the Challenger Deep.",
+  "deepest point in the ocean": "The Mariana Trench reaches a maximum depth of approximately 10994 meters at the Challenger Deep.",
+  "how deep is the mariana trench": "The Mariana Trench reaches a maximum depth of approximately 10994 meters at the Challenger Deep.",
+
+  "caspian sea area": "The Caspian Sea has an area of approximately 371000 square kilometers, making it the largest enclosed body of water.",
+  "largest lake in the world": "The Caspian Sea has an area of approximately 371000 square kilometers, making it the largest enclosed body of water.",
+  "how big is the caspian sea": "The Caspian Sea has an area of approximately 371000 square kilometers, making it the largest enclosed body of water.",
+
+  "lake superior area": "Lake Superior has an area of approximately 82100 square kilometers, making it the largest freshwater lake by surface area in the world.",
+  "how big is lake superior": "Lake Superior has an area of approximately 82100 square kilometers, making it the largest freshwater lake by surface area in the world.",
+  "largest freshwater lake": "Lake Superior has an area of approximately 82100 square kilometers, making it the largest freshwater lake by surface area in the world.",
+
+  "area of africa": "The total area of the African continent is approximately 30.4 million square kilometers.",
+  "africa area": "The total area of the African continent is approximately 30.4 million square kilometers.",
+  "how big is africa": "The total area of the African continent is approximately 30.4 million square kilometers.",
+
+  "area of asia": "The total area of the Asian continent is approximately 44.6 million square kilometers, making it the largest continent.",
+  "asia area": "The total area of the Asian continent is approximately 44.6 million square kilometers, making it the largest continent.",
+  "how big is asia": "The total area of the Asian continent is approximately 44.6 million square kilometers, making it the largest continent.",
+
+  "area of north america": "The total area of North America is approximately 24.7 million square kilometers.",
+  "north america area": "The total area of North America is approximately 24.7 million square kilometers.",
+  "how big is north america": "The total area of North America is approximately 24.7 million square kilometers.",
+
+  "area of south america": "The total area of South America is approximately 17.8 million square kilometers.",
+  "south america area": "The total area of South America is approximately 17.8 million square kilometers.",
+  "how big is south america": "The total area of South America is approximately 17.8 million square kilometers.",
+
+  "area of antarctica": "The total area of Antarctica is approximately 14.0 million square kilometers.",
+  "antarctica area": "The total area of Antarctica is approximately 14.0 million square kilometers.",
+  "how big is antarctica": "The total area of Antarctica is approximately 14.0 million square kilometers.",
+
+  "area of europe continent": "The total area of the European continent is approximately 10.2 million square kilometers.",
+  "europe area": "The total area of the European continent is approximately 10.2 million square kilometers.",
+  "how big is europe": "The total area of the European continent is approximately 10.2 million square kilometers.",
+
+  "capital of australia canberra": "The capital of Australia is Canberra, which has a population of approximately 460000 people.",
+  "capital of australia": "The capital of Australia is Canberra, which has a population of approximately 460000 people.",
+
+  "capital of brazil brasilia": "The capital of Brazil is Brasilia, which was inaugurated in 1960 and has a population of approximately 3.0 million.",
+  "capital of brazil": "The capital of Brazil is Brasilia, which was inaugurated in 1960 and has a population of approximately 3.0 million.",
+
+  "capital of turkey ankara": "The capital of Turkey is Ankara, which has a population of approximately 5.7 million.",
+  "capital of turkey": "The capital of Turkey is Ankara, which has a population of approximately 5.7 million.",
+
+  "distance los angeles to san francisco": "The driving distance from Los Angeles to San Francisco is approximately 382 miles.",
+  "la to sf distance": "The driving distance from Los Angeles to San Francisco is approximately 382 miles.",
+  "how far is la from san francisco": "The driving distance from Los Angeles to San Francisco is approximately 382 miles.",
+
+  "distance boston to washington dc": "The driving distance from Boston to Washington DC is approximately 440 miles.",
+  "boston to dc distance": "The driving distance from Boston to Washington DC is approximately 440 miles.",
+  "how far is boston from washington": "The driving distance from Boston to Washington DC is approximately 440 miles.",
+
+  "distance london to paris": "The distance from London to Paris is approximately 214 miles.",
+  "london to paris distance": "The distance from London to Paris is approximately 214 miles.",
+  "how far is london from paris": "The distance from London to Paris is approximately 214 miles.",
+
+  "distance tokyo to osaka": "The distance from Tokyo to Osaka is approximately 248 miles.",
+  "tokyo to osaka distance": "The distance from Tokyo to Osaka is approximately 248 miles.",
+  "how far is tokyo from osaka": "The distance from Tokyo to Osaka is approximately 248 miles.",
+
+  "distance sydney to melbourne": "The driving distance from Sydney to Melbourne is approximately 545 miles.",
+  "sydney to melbourne distance": "The driving distance from Sydney to Melbourne is approximately 545 miles.",
+  "how far is sydney from melbourne": "The driving distance from Sydney to Melbourne is approximately 545 miles.",
+
+  "distance berlin to munich": "The driving distance from Berlin to Munich is approximately 365 miles.",
+  "berlin to munich distance": "The driving distance from Berlin to Munich is approximately 365 miles.",
+  "how far is berlin from munich": "The driving distance from Berlin to Munich is approximately 365 miles.",
+
+  "distance rome to milan": "The driving distance from Rome to Milan is approximately 357 miles.",
+  "rome to milan distance": "The driving distance from Rome to Milan is approximately 357 miles.",
+  "how far is rome from milan": "The driving distance from Rome to Milan is approximately 357 miles.",
+
+  "distance madrid to barcelona": "The driving distance from Madrid to Barcelona is approximately 386 miles.",
+  "madrid to barcelona distance": "The driving distance from Madrid to Barcelona is approximately 386 miles.",
+  "how far is madrid from barcelona": "The driving distance from Madrid to Barcelona is approximately 386 miles.",
+
+  "distance dubai to abu dhabi": "The driving distance from Dubai to Abu Dhabi is approximately 83 miles.",
+  "dubai to abu dhabi distance": "The driving distance from Dubai to Abu Dhabi is approximately 83 miles.",
+  "how far is dubai from abu dhabi": "The driving distance from Dubai to Abu Dhabi is approximately 83 miles.",
+
+  "distance toronto to montreal": "The driving distance from Toronto to Montreal is approximately 335 miles.",
+  "toronto to montreal distance": "The driving distance from Toronto to Montreal is approximately 335 miles.",
+  "how far is toronto from montreal": "The driving distance from Toronto to Montreal is approximately 335 miles.",
+
+  "distance paris to berlin": "The distance from Paris to Berlin is approximately 545 miles.",
+  "paris to berlin distance": "The distance from Paris to Berlin is approximately 545 miles.",
+  "how far is paris from berlin": "The distance from Paris to Berlin is approximately 545 miles.",
+
+  "distance moscow to st petersburg": "The driving distance from Moscow to St Petersburg is approximately 430 miles.",
+  "moscow to st petersburg distance": "The driving distance from Moscow to St Petersburg is approximately 430 miles.",
+  "how far is moscow from st petersburg": "The driving distance from Moscow to St Petersburg is approximately 430 miles.",
+
+  "distance delhi to mumbai": "The driving distance from Delhi to Mumbai is approximately 880 miles.",
+  "delhi to mumbai distance": "The driving distance from Delhi to Mumbai is approximately 880 miles.",
+  "how far is delhi from mumbai": "The driving distance from Delhi to Mumbai is approximately 880 miles.",
+
+  "distance beijing to shanghai": "The distance from Beijing to Shanghai is approximately 665 miles.",
+  "beijing to shanghai distance": "The distance from Beijing to Shanghai is approximately 665 miles.",
+  "how far is beijing from shanghai": "The distance from Beijing to Shanghai is approximately 665 miles.",
+
+  "distance cairo to alexandria": "The driving distance from Cairo to Alexandria is approximately 137 miles.",
+  "cairo to alexandria distance": "The driving distance from Cairo to Alexandria is approximately 137 miles.",
+  "how far is cairo from alexandria": "The driving distance from Cairo to Alexandria is approximately 137 miles."
+}

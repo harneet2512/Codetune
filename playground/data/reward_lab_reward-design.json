@@ -1,0 +1,9 @@
+{
+  "experiment": "reward-design",
+  "title": "Reward Design Sandbox",
+  "items": [
+    {"variant": "grpo-exec", "annotation": "Pure execution reward gets answers right more often than base but can be sloppy about tools."},
+    {"variant": "grpo-toolheavy", "annotation": "Heavy tool reward encourages unnecessary calls on simple prompts."},
+    {"variant": "grpo-balanced", "annotation": "Balanced reward preserves tool discipline and restraint."}
+  ]
+}

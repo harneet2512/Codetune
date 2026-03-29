@@ -1,0 +1,10 @@
+{
+  "tier_counts": {
+    "tier1_single_tool": 200,
+    "tier2_restraint": 150,
+    "tier3_multi_step": 100,
+    "tier4_error_recovery": 50
+  },
+  "error_probability": 0.2,
+  "max_steps": 5
+}

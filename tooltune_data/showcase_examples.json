@@ -1,0 +1,62 @@
+[
+  {
+    "id": "calc-347-892",
+    "title": "Under-tooling: Large multiplication",
+    "task": "What is 347 multiplied by 892?",
+    "tier": "tier1",
+    "failure_mode": "under_tooling",
+    "annotation": "Base model guesses ~310,000 from memory. GRPO model calls calculator and gets exact answer 309,524.",
+    "expected_base": "Guesses approximate answer without using calculator",
+    "expected_grpo": "Calls calculator tool with '347 * 892', gets 309524"
+  },
+  {
+    "id": "restraint-2plus2",
+    "title": "Over-tooling: Trivial math",
+    "task": "What is 2 + 2?",
+    "tier": "tier2",
+    "failure_mode": "over_tooling",
+    "annotation": "Base model wastes a tool call on trivial math. GRPO model answers '4' directly without tools.",
+    "expected_base": "Calls calculator for 2+2 (unnecessary)",
+    "expected_grpo": "Answers '4' directly, no tools used"
+  },
+  {
+    "id": "fr-be-pop-ratio",
+    "title": "Multi-step chain: Population ratio",
+    "task": "What's the population of France divided by the population of Belgium?",
+    "tier": "tier3",
+    "failure_mode": "broken_chain",
+    "annotation": "Base model guesses both populations and does wrong mental math. GRPO model chains wikipedia x2 + calculator for correct answer 5.85.",
+    "expected_base": "Guesses populations, wrong mental math, incorrect answer",
+    "expected_grpo": "Wikipedia (France) -> Wikipedia (Belgium) -> Calculator (68.4/11.7) = 5.85"
+  },
+  {
+    "id": "tokyo-temp-f",
+    "title": "Tool chaining: Temperature conversion",
+    "task": "Convert the current temperature in Tokyo from Celsius to Fahrenheit.",
+    "tier": "tier3",
+    "failure_mode": "tool_chaining",
+    "annotation": "Base model guesses '72F'. GRPO model chains weather -> unit_converter for correct answer 64.4F.",
+    "expected_base": "Guesses temperature without looking it up",
+    "expected_grpo": "Weather (Tokyo: 18C) -> Unit converter (18C -> 64.4F)"
+  },
+  {
+    "id": "error-recovery-gdp",
+    "title": "Error recovery: Wikipedia failure",
+    "task": "What is the GDP of France?",
+    "tier": "tier4",
+    "failure_mode": "error_recovery",
+    "annotation": "Wikipedia returns 'No results found' for first query. Base model hallucinates a number. GRPO model rephrases query and retries.",
+    "expected_base": "Hallucinates GDP figure after tool error",
+    "expected_grpo": "Rephrases query to 'france gross domestic product economy', gets result"
+  },
+  {
+    "id": "restraint-shakespeare",
+    "title": "Restraint: Common knowledge",
+    "task": "Who wrote Romeo and Juliet?",
+    "tier": "tier2",
+    "failure_mode": "over_tooling",
+    "annotation": "Base model calls wikipedia unnecessarily. GRPO model answers 'William Shakespeare' directly.",
+    "expected_base": "Calls wikipedia for well-known fact (unnecessary)",
+    "expected_grpo": "Answers 'William Shakespeare' directly, no tools used"
+  }
+]

@@ -14,9 +14,8 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
-    TrainingArguments,
 )
-from trl import SFTTrainer
+from trl import SFTConfig, SFTTrainer
 
 logger = logging.getLogger(__name__)
 
@@ -91,8 +90,8 @@ def finetune(config_path: str = "configs/train_config.yaml") -> None:
     eval_ds = load_dataset("json", data_files=eval_path, split="train")
     logger.info(f"Train: {len(train_ds)} examples, Eval: {len(eval_ds)} examples")
 
-    # Training arguments
-    training_args = TrainingArguments(
+    # SFTConfig combines TrainingArguments + SFT-specific settings (TRL >=0.20)
+    training_args = SFTConfig(
         output_dir=output_dir,
         num_train_epochs=config.get("num_train_epochs", 3),
         per_device_train_batch_size=config.get("per_device_train_batch_size", 4),
@@ -110,19 +109,18 @@ def finetune(config_path: str = "configs/train_config.yaml") -> None:
         eval_strategy=config.get("eval_strategy", "epoch"),
         report_to=config.get("report_to", "none"),
         seed=config.get("seed", 42),
-        remove_unused_columns=False,
+        dataset_text_field="text",
+        max_length=config.get("max_seq_length", 2048),
     )
 
-    # SFTTrainer handles chat template formatting
+    # SFTTrainer
     trainer = SFTTrainer(
         model=model,
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=eval_ds,
         peft_config=lora_config,
-        tokenizer=tokenizer,
-        dataset_text_field="text",
-        max_seq_length=config.get("max_seq_length", 2048),
+        processing_class=tokenizer,
     )
 
     logger.info("Starting training...")

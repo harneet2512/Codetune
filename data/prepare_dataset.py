@@ -16,12 +16,11 @@ SYSTEM_PROMPT = (
     "You are a Python coding assistant. Generate clean, correct, well-typed Python code."
 )
 
-# Llama 3.1 Instruct chat template
+# Qwen2.5 ChatML template
 CHAT_TEMPLATE = (
-    "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
-    "{system}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
-    "{instruction}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
-    "{output}<|eot_id|>"
+    "<|im_start|>system\n{system}<|im_end|>\n"
+    "<|im_start|>user\n{instruction}<|im_end|>\n"
+    "<|im_start|>assistant\n{output}<|im_end|>"
 )
 
 

@@ -1,0 +1,29 @@
+{
+  "title": "ToolTune Model Card",
+  "base_model": "Qwen2.5-Coder-7B-Instruct",
+  "training_method": "GRPO with composite reward after a short SFT warmup",
+  "tool_set": ["calculator", "wikipedia", "weather", "code_executor", "unit_converter"],
+  "task_suite": {
+    "tiers": 4,
+    "description": "Single-tool, restraint, multi-step, and error-recovery tasks"
+  },
+  "training_cost_estimate": "$15-20 on T4",
+  "cross_variant_table": [
+    {"variant": "V0 Base", "overall_accuracy": 0.58, "tool_hallucination_rate": 0.12, "overtooling_rate": 0.03, "error_recovery_rate": 0.04, "planning_rate": 0.08},
+    {"variant": "V1 SFT", "overall_accuracy": 0.49, "tool_hallucination_rate": 0.06, "overtooling_rate": 0.08, "error_recovery_rate": 0.06, "planning_rate": 0.71},
+    {"variant": "V2 GRPO-Exec", "overall_accuracy": 0.72, "tool_hallucination_rate": 0.04, "overtooling_rate": 0.14, "error_recovery_rate": 0.21, "planning_rate": 0.62},
+    {"variant": "V3 GRPO-ToolHeavy", "overall_accuracy": 0.69, "tool_hallucination_rate": 0.03, "overtooling_rate": 0.32, "error_recovery_rate": 0.19, "planning_rate": 0.77},
+    {"variant": "V4 GRPO-Balanced", "overall_accuracy": 0.81, "tool_hallucination_rate": 0.01, "overtooling_rate": 0.07, "error_recovery_rate": 0.52, "planning_rate": 0.88}
+  ],
+  "failure_taxonomy": [
+    "Tool Hallucination",
+    "Tool Misuse",
+    "Over-Tooling",
+    "Under-Tooling",
+    "Broken Chain",
+    "Infinite Loop",
+    "Premature Termination",
+    "Error Blindness",
+    "Plan Abandonment"
+  ]
+}

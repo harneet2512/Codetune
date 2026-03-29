@@ -3,11 +3,11 @@
 # Models to evaluate
 models:
   base:
-    name: "Llama 3.1 8B Instruct"
-    path: "meta-llama/Llama-3.1-8B-Instruct"
+    name: "Qwen2.5-Coder-7B-Instruct"
+    path: "Qwen/Qwen2.5-Coder-7B-Instruct"
   finetuned:
-    name: "CodeTune 8B"
-    path: "outputs/codetune-8b"
+    name: "CodeTune-7B"
+    path: "outputs/codetune-7b"
 
 # Eval suites
 suites:

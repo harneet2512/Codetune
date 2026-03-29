@@ -1,0 +1,3012 @@
+[
+  {
+    "id": "tier1-weather-28",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Istanbul?",
+    "ground_truth": "Partly Cloudy, 17C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "istanbul"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-29",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 877 multiplied by 354?",
+    "ground_truth": "310458",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-46",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 474 + 652.",
+    "ground_truth": "1126",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-24",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 53 gallons in liters?",
+    "ground_truth": "200.6267",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 53,
+      "from_unit": "gallons",
+      "to_unit": "liters"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-4",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Manila?",
+    "ground_truth": "The population of the Manila metropolitan area is approximately 14.4 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of manila"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-22",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Austria?",
+    "ground_truth": "The population of Austria is approximately 9.1 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of austria"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-19",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(sum([x for x in range(19) if x % 2 == 0]))`",
+    "ground_truth": "90",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum([x for x in range(19) if x % 2 == 0]))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-12",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(len('function'))`",
+    "ground_truth": "8",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len('function'))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-11",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(sum(range(26)))`",
+    "ground_truth": "325",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum(range(26)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-9",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Shanghai's population?",
+    "ground_truth": "The population of the Shanghai metropolitan area is approximately 29.2 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of shanghai"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-30",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 628 + 272.",
+    "ground_truth": "900",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Tell me about area of mexico.",
+    "ground_truth": "The total area of Mexico is approximately 2.0 million square kilometers.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "area of mexico"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-42",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Russia's population?",
+    "ground_truth": "The population of Russia is approximately 144 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of russia"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Bangkok?",
+    "ground_truth": "Thunderstorm, 34C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "bangkok"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-35",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Hong Kong right now?",
+    "ground_truth": "Haze, 26C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "hong kong"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-10",
+    "tier": "tier1_single_tool",
+    "prompt": "What is area of kazakhstan?",
+    "ground_truth": "The total area of Kazakhstan is approximately 2.7 million square kilometers.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "area of kazakhstan"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-2",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(len('world'))`",
+    "ground_truth": "5",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len('world'))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print([x**2 for x in range(7)])`",
+    "ground_truth": "[0, 1, 4, 9, 16, 25, 36]",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print([x**2 for x in range(7)])"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-44",
+    "tier": "tier1_single_tool",
+    "prompt": "Tell me about gdp per capita south korea.",
+    "ground_truth": "South Korea's GDP per capita is approximately 32400 USD as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "gdp per capita south korea"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-25",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 990 multiplied by 783?",
+    "ground_truth": "775170",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(sum([x for x in range(19) if x % 2 == 0]))`",
+    "ground_truth": "90",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum([x for x in range(19) if x % 2 == 0]))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-10",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Zurich?",
+    "ground_truth": "Cloudy, 4C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "zurich"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-26",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(sum(range(33)))`",
+    "ground_truth": "528",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum(range(33)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-8",
+    "tier": "tier1_single_tool",
+    "prompt": "How many celsius is 36 fahrenheit?",
+    "ground_truth": "2.22",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 36,
+      "from_unit": "fahrenheit",
+      "to_unit": "celsius"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 539 / 7.",
+    "ground_truth": "77",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-23",
+    "tier": "tier1_single_tool",
+    "prompt": "Tell me about gdp of italy.",
+    "ground_truth": "The GDP of Italy is approximately $2.3 trillion USD as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "gdp of italy"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-33",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Osaka's population?",
+    "ground_truth": "The population of the Osaka metropolitan area is approximately 19.1 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of osaka"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-25",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 12 celsius to fahrenheit.",
+    "ground_truth": "53.6",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 12,
+      "from_unit": "celsius",
+      "to_unit": "fahrenheit"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-28",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print([x**2 for x in range(10)])`",
+    "ground_truth": "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print([x**2 for x in range(10)])"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-47",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 864 minus 375?",
+    "ground_truth": "489",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-22",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 804 kilometers to miles.",
+    "ground_truth": "499.5823",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 804,
+      "from_unit": "kilometers",
+      "to_unit": "miles"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-20",
+    "tier": "tier1_single_tool",
+    "prompt": "How many celsius is 92 fahrenheit?",
+    "ground_truth": "33.33",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 92,
+      "from_unit": "fahrenheit",
+      "to_unit": "celsius"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-16",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(sum(range(17)))`",
+    "ground_truth": "136",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum(range(17)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-42",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 243 + 793.",
+    "ground_truth": "1036",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-1",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Cairo?",
+    "ground_truth": "Sunny, 30C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "cairo"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-22",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 724 + 434.",
+    "ground_truth": "1158",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-11",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Warsaw right now?",
+    "ground_truth": "Drizzle, 3C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "warsaw"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-27",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Helsinki right now?",
+    "ground_truth": "Overcast, -4C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "helsinki"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-21",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Mexico City?",
+    "ground_truth": "Partly Cloudy, 21C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "mexico city"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-30",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Netherlands's population?",
+    "ground_truth": "The population of the Netherlands is approximately 17.8 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of netherlands"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 4 celsius to fahrenheit.",
+    "ground_truth": "39.2",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 4,
+      "from_unit": "celsius",
+      "to_unit": "fahrenheit"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-50",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 696 + 275.",
+    "ground_truth": "971",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-12",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 66 gallons in liters?",
+    "ground_truth": "249.8371",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 66,
+      "from_unit": "gallons",
+      "to_unit": "liters"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-5",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(len(range(1, 27)))`",
+    "ground_truth": "26",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len(range(1, 27)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-37",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Brazil?",
+    "ground_truth": "The population of Brazil is approximately 203.1 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of brazil"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-29",
+    "tier": "tier1_single_tool",
+    "prompt": "How many kilometers is 442 miles?",
+    "ground_truth": "711.3303",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 442,
+      "from_unit": "miles",
+      "to_unit": "kilometers"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 0 celsius to fahrenheit.",
+    "ground_truth": "32.0",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 0,
+      "from_unit": "celsius",
+      "to_unit": "fahrenheit"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-33",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in New York City?",
+    "ground_truth": "Sunny, 12C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "new york city"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-25",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Philippines?",
+    "ground_truth": "The population of the Philippines is approximately 117 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of philippines"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-28",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 675 kilometers to miles.",
+    "ground_truth": "419.4254",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 675,
+      "from_unit": "kilometers",
+      "to_unit": "miles"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-38",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in South Korea?",
+    "ground_truth": "The population of South Korea is approximately 51.7 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of south korea"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-45",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Lagos's population?",
+    "ground_truth": "The population of the Lagos metropolitan area is approximately 16.6 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of lagos"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-23",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 358 minus 286?",
+    "ground_truth": "72",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-8",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Belgium?",
+    "ground_truth": "The population of Belgium is approximately 11.7 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of belgium"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-1",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Egypt?",
+    "ground_truth": "The population of Egypt is approximately 112 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of egypt"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-27",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(len('neural'))`",
+    "ground_truth": "6",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len('neural'))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-16",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Bangladesh?",
+    "ground_truth": "The population of Bangladesh is approximately 173 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of bangladesh"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-18",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 70 gallons in liters?",
+    "ground_truth": "264.9787",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 70,
+      "from_unit": "gallons",
+      "to_unit": "liters"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-19",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in San Francisco right now?",
+    "ground_truth": "Fog, 16C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "san francisco"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-26",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Alexandria?",
+    "ground_truth": "Clear, 27C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "alexandria"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-2",
+    "tier": "tier1_single_tool",
+    "prompt": "How many celsius is 41 fahrenheit?",
+    "ground_truth": "5.0",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 41,
+      "from_unit": "fahrenheit",
+      "to_unit": "celsius"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-40",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Norway?",
+    "ground_truth": "The population of Norway is approximately 5.5 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of norway"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-38",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 892 + 372.",
+    "ground_truth": "1264",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-16",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Shanghai?",
+    "ground_truth": "Overcast, 20C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "shanghai"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-5",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 764 multiplied by 106?",
+    "ground_truth": "80984",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-43",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Argentina?",
+    "ground_truth": "The population of Argentina is approximately 46.7 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of argentina"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 40 + 97.",
+    "ground_truth": "137",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-46",
+    "tier": "tier1_single_tool",
+    "prompt": "What is distance earth to moon?",
+    "ground_truth": "The average distance from Earth to the Moon is approximately 384400 kilometers.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "distance earth to moon"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-12",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Munich?",
+    "ground_truth": "Cloudy, 6C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "munich"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-5",
+    "tier": "tier1_single_tool",
+    "prompt": "How many kilometers is 61 miles?",
+    "ground_truth": "98.17",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 61,
+      "from_unit": "miles",
+      "to_unit": "kilometers"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-30",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Toronto?",
+    "ground_truth": "Snow, 5C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "toronto"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-14",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Dubai?",
+    "ground_truth": "Sunny, 38C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "dubai"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-14",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(sum([x for x in range(8) if x % 2 == 0]))`",
+    "ground_truth": "12",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum([x for x in range(8) if x % 2 == 0]))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-23",
+    "tier": "tier1_single_tool",
+    "prompt": "How many kilometers is 485 miles?",
+    "ground_truth": "780.5321",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 485,
+      "from_unit": "miles",
+      "to_unit": "kilometers"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-17",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(len('debugging'))`",
+    "ground_truth": "9",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len('debugging'))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-15",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(len(range(7, 18)))`",
+    "ground_truth": "11",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len(range(7, 18)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 702 + 760.",
+    "ground_truth": "1462",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-36",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 1640 / 20.",
+    "ground_truth": "82",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-20",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(len(range(4, 22)))`",
+    "ground_truth": "18",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len(range(4, 22)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-12",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 2686 / 34.",
+    "ground_truth": "79",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-7",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 923 minus 560?",
+    "ground_truth": "363",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-33",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 559 multiplied by 129?",
+    "ground_truth": "72111",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-13",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Beijing?",
+    "ground_truth": "The population of the Beijing metropolitan area is approximately 21.5 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of beijing"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(sum(range(46)))`",
+    "ground_truth": "1035",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum(range(46)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-47",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Tokyo?",
+    "ground_truth": "The population of the Tokyo metropolitan area is approximately 37.4 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of tokyo"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-32",
+    "tier": "tier1_single_tool",
+    "prompt": "Tell me about area of brazil.",
+    "ground_truth": "The total area of Brazil is approximately 8.5 million square kilometers.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "area of brazil"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-39",
+    "tier": "tier1_single_tool",
+    "prompt": "Look up france gross domestic product economy.",
+    "ground_truth": "France has a GDP of approximately 3050000000000 USD, making it one of the largest economies in the world.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "france gross domestic product economy"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-44",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 224 / 16.",
+    "ground_truth": "14",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-27",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 104 minus 391?",
+    "ground_truth": "-287",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-28",
+    "tier": "tier1_single_tool",
+    "prompt": "What is driving distance pittsburgh to new york city?",
+    "ground_truth": "The driving distance from Pittsburgh to NYC is approximately 370 miles via I-76 and I-78.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "driving distance pittsburgh to new york city"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-15",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Buenos Aires right now?",
+    "ground_truth": "Clear, 24C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "buenos aires"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-35",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 90 minus 567?",
+    "ground_truth": "-477",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-20",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 198 / 2.",
+    "ground_truth": "99",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-37",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Taipei?",
+    "ground_truth": "Cloudy, 22C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "taipei"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-49",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Lima?",
+    "ground_truth": "The population of the Lima metropolitan area is approximately 11.0 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of lima"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-19",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 8 celsius to fahrenheit.",
+    "ground_truth": "46.4",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 8,
+      "from_unit": "celsius",
+      "to_unit": "fahrenheit"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-21",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(sum(range(16)))`",
+    "ground_truth": "120",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum(range(16)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-14",
+    "tier": "tier1_single_tool",
+    "prompt": "How many celsius is 67 fahrenheit?",
+    "ground_truth": "19.44",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 67,
+      "from_unit": "fahrenheit",
+      "to_unit": "celsius"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-14",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 213 + 735.",
+    "ground_truth": "948",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-35",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Bangkok?",
+    "ground_truth": "The population of the Bangkok metropolitan area is approximately 11.1 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of bangkok"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(len(range(1, 18)))`",
+    "ground_truth": "17",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len(range(1, 18)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-21",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Colombia's population?",
+    "ground_truth": "The population of Colombia is approximately 52.2 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of colombia"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-36",
+    "tier": "tier1_single_tool",
+    "prompt": "Look up area of india.",
+    "ground_truth": "The total area of India is approximately 3.3 million square kilometers.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "area of india"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 35 + 761.",
+    "ground_truth": "796",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-38",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Milan?",
+    "ground_truth": "Fog, 12C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "milan"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-34",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Indonesia?",
+    "ground_truth": "The population of Indonesia is approximately 277 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of indonesia"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-11",
+    "tier": "tier1_single_tool",
+    "prompt": "How many kilometers is 73 miles?",
+    "ground_truth": "117.4821",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 73,
+      "from_unit": "miles",
+      "to_unit": "kilometers"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-29",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Vietnam?",
+    "ground_truth": "The population of Vietnam is approximately 100 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of vietnam"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-39",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 601 minus 198?",
+    "ground_truth": "403",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-41",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Moscow?",
+    "ground_truth": "The population of the Moscow metropolitan area is approximately 12.7 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of moscow"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-20",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Cairo?",
+    "ground_truth": "The population of the Cairo metropolitan area is approximately 22.1 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of cairo"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-7",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Stockholm right now?",
+    "ground_truth": "Snow, 0C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "stockholm"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-7",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of United Kingdom?",
+    "ground_truth": "The population of the United Kingdom is approximately 69.5 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of united kingdom"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(len('machine'))`",
+    "ground_truth": "7",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len('machine'))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-37",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 643 multiplied by 908?",
+    "ground_truth": "583844",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-16",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 498 kilometers to miles.",
+    "ground_truth": "309.4428",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 498,
+      "from_unit": "kilometers",
+      "to_unit": "miles"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-32",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 2880 / 48.",
+    "ground_truth": "60",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-22",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Chicago?",
+    "ground_truth": "Windy, 7C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "chicago"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-9",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 442 multiplied by 34?",
+    "ground_truth": "15028",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-13",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Amsterdam?",
+    "ground_truth": "Rain, 8C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "amsterdam"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-45",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 399 multiplied by 286?",
+    "ground_truth": "114114",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-20",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Lima?",
+    "ground_truth": "Fog, 23C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "lima"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-17",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 235 multiplied by 461?",
+    "ground_truth": "108335",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-21",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 125 pounds in kilograms?",
+    "ground_truth": "56.699",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 125,
+      "from_unit": "pounds",
+      "to_unit": "kilograms"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-15",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Germany's population?",
+    "ground_truth": "The population of Germany is approximately 84.5 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of germany"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-28",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 376 / 8.",
+    "ground_truth": "47",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-19",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Switzerland?",
+    "ground_truth": "The population of Switzerland is approximately 8.9 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of switzerland"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-32",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Los Angeles?",
+    "ground_truth": "Sunny, 25C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "los angeles"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-26",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 354 + 106.",
+    "ground_truth": "460",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 647 kilometers to miles.",
+    "ground_truth": "402.027",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 647,
+      "from_unit": "kilometers",
+      "to_unit": "miles"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-3",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 291 minus 252?",
+    "ground_truth": "39",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-19",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 838 minus 892?",
+    "ground_truth": "-54",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-40",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Beijing?",
+    "ground_truth": "Haze, 15C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "beijing"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-18",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Mumbai?",
+    "ground_truth": "Haze, 33C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "mumbai"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-27",
+    "tier": "tier1_single_tool",
+    "prompt": "Look up gdp of india.",
+    "ground_truth": "The GDP of India is approximately $3.9 trillion USD as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "gdp of india"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-34",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 954 + 389.",
+    "ground_truth": "1343",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-2",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Barcelona?",
+    "ground_truth": "Sunny, 17C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "barcelona"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-13",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print([x**2 for x in range(10)])`",
+    "ground_truth": "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print([x**2 for x in range(10)])"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-12",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Nigeria's population?",
+    "ground_truth": "The population of Nigeria is approximately 224 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of nigeria"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-8",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print([x**2 for x in range(9)])`",
+    "ground_truth": "[0, 1, 4, 9, 16, 25, 36, 49, 64]",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print([x**2 for x in range(9)])"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Look up area of greenland.",
+    "ground_truth": "The total area of Greenland is approximately 2.2 million square kilometers.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "area of greenland"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-17",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Seoul?",
+    "ground_truth": "The population of the Seoul metropolitan area is approximately 9.7 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of seoul"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-30",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(len(range(3, 9)))`",
+    "ground_truth": "6",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len(range(3, 9)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-34",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the temperature in Vienna?",
+    "ground_truth": "Overcast, 7C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "vienna"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-8",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Abu Dhabi?",
+    "ground_truth": "Clear, 37C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "abu dhabi"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-17",
+    "tier": "tier1_single_tool",
+    "prompt": "How many kilometers is 220 miles?",
+    "ground_truth": "354.0558",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 220,
+      "from_unit": "miles",
+      "to_unit": "kilometers"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-11",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 233 minus 240?",
+    "ground_truth": "-7",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-14",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Karachi?",
+    "ground_truth": "The population of the Karachi metropolitan area is approximately 16.8 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of karachi"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 30 gallons in liters?",
+    "ground_truth": "113.5623",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 30,
+      "from_unit": "gallons",
+      "to_unit": "liters"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-31",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 836 minus 46?",
+    "ground_truth": "790",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-4",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Montreal?",
+    "ground_truth": "Snow, 2C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "montreal"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-25",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(len(range(7, 14)))`",
+    "ground_truth": "7",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len(range(7, 14)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-15",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 343 pounds in kilograms?",
+    "ground_truth": "155.5821",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 343,
+      "from_unit": "pounds",
+      "to_unit": "kilograms"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-13",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 15 celsius to fahrenheit.",
+    "ground_truth": "59.0",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 15,
+      "from_unit": "celsius",
+      "to_unit": "fahrenheit"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-18",
+    "tier": "tier1_single_tool",
+    "prompt": "Calculate 613 + 286.",
+    "ground_truth": "899",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-48",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 588 / 12.",
+    "ground_truth": "49",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-21",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 835 multiplied by 165?",
+    "ground_truth": "137775",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-31",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Manila right now?",
+    "ground_truth": "Thunderstorm, 32C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "manila"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-26",
+    "tier": "tier1_single_tool",
+    "prompt": "How many celsius is 44 fahrenheit?",
+    "ground_truth": "6.67",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 44,
+      "from_unit": "fahrenheit",
+      "to_unit": "celsius"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-41",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 56 multiplied by 679?",
+    "ground_truth": "38024",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-36",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Pittsburgh?",
+    "ground_truth": "Overcast, 10C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "pittsburgh"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-29",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Osaka?",
+    "ground_truth": "Clear, 19C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "osaka"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-23",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Delhi right now?",
+    "ground_truth": "Sunny, 35C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "delhi"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Convert 339 kilometers to miles.",
+    "ground_truth": "210.6448",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 339,
+      "from_unit": "kilometers",
+      "to_unit": "miles"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-13",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 37 multiplied by 576?",
+    "ground_truth": "21312",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(sum(range(32)))`",
+    "ground_truth": "496",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum(range(32)))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-31",
+    "tier": "tier1_single_tool",
+    "prompt": "What is the population of Pakistan?",
+    "ground_truth": "The population of Pakistan is approximately 240 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of pakistan"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-18",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print([x**2 for x in range(8)])`",
+    "ground_truth": "[0, 1, 4, 9, 16, 25, 36, 49]",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print([x**2 for x in range(8)])"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-29",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print(sum([x for x in range(22) if x % 2 == 0]))`",
+    "ground_truth": "110",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum([x for x in range(22) if x % 2 == 0]))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-9",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 441 pounds in kilograms?",
+    "ground_truth": "200.0341",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 441,
+      "from_unit": "pounds",
+      "to_unit": "kilograms"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-15",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 675 minus 720?",
+    "ground_truth": "-45",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Mexico City's population?",
+    "ground_truth": "The population of the Mexico City metropolitan area is approximately 21.8 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of mexico city"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-26",
+    "tier": "tier1_single_tool",
+    "prompt": "Tell me about boiling point of water.",
+    "ground_truth": "Water boils at 100 degrees Celsius and 212 degrees Fahrenheit at standard atmospheric pressure.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "boiling point of water"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-49",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 373 multiplied by 216?",
+    "ground_truth": "80568",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-40",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 470 / 47.",
+    "ground_truth": "10",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-22",
+    "tier": "tier1_single_tool",
+    "prompt": "Run this Python code and tell me the output: `print(len('programming'))`",
+    "ground_truth": "11",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(len('programming'))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-30",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 46 gallons in liters?",
+    "ground_truth": "174.1289",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 46,
+      "from_unit": "gallons",
+      "to_unit": "liters"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-3",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 363 pounds in kilograms?",
+    "ground_truth": "164.6539",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 363,
+      "from_unit": "pounds",
+      "to_unit": "kilograms"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(sum([x for x in range(8) if x % 2 == 0]))`",
+    "ground_truth": "12",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum([x for x in range(8) if x % 2 == 0]))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-9",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in St Petersburg?",
+    "ground_truth": "Overcast, -7C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "st petersburg"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-24",
+    "tier": "tier1_single_tool",
+    "prompt": "What is France's population?",
+    "ground_truth": "The population of France is approximately 68.4 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of france"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-17",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Washington Dc?",
+    "ground_truth": "Partly Cloudy, 14C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "washington dc"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-18",
+    "tier": "tier1_single_tool",
+    "prompt": "What is Thailand's population?",
+    "ground_truth": "The population of Thailand is approximately 72 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of thailand"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-50",
+    "tier": "tier1_single_tool",
+    "prompt": "Tell me about area of canada.",
+    "ground_truth": "The total area of Canada is approximately 10.0 million square kilometers, making it the second largest country in the world.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "area of canada"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-1",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 664 multiplied by 116?",
+    "ground_truth": "77024",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-48",
+    "tier": "tier1_single_tool",
+    "prompt": "Look up gdp of germany.",
+    "ground_truth": "The GDP of Germany is approximately $4.5 trillion USD as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "gdp of germany"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-24",
+    "tier": "tier1_single_tool",
+    "prompt": "Execute this code: `print(sum([x for x in range(19) if x % 2 == 0]))`",
+    "ground_truth": "90",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print(sum([x for x in range(19) if x % 2 == 0]))"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-16",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 1980 / 36.",
+    "ground_truth": "55",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-3",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Paris right now?",
+    "ground_truth": "Partly Cloudy, 13C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "paris"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-5",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Canada?",
+    "ground_truth": "The population of Canada is approximately 40.1 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of canada"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-24",
+    "tier": "tier1_single_tool",
+    "prompt": "How's the weather in Madrid?",
+    "ground_truth": "Clear, 18C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "madrid"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-25",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Seoul?",
+    "ground_truth": "Clear, 11C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "seoul"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-5",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current weather in Prague?",
+    "ground_truth": "Fog, 5C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "prague"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-43",
+    "tier": "tier1_single_tool",
+    "prompt": "How much is 306 minus 83?",
+    "ground_truth": "223",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-wiki-11",
+    "tier": "tier1_single_tool",
+    "prompt": "How many people live in Delhi?",
+    "ground_truth": "The population of the Delhi metropolitan area is approximately 32.9 million as of 2024.",
+    "expected_tools": [
+      "wikipedia"
+    ],
+    "metadata": {
+      "category": "wikipedia",
+      "tool": "wikipedia",
+      "query_key": "population of delhi"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-code-23",
+    "tier": "tier1_single_tool",
+    "prompt": "What does this Python code print? `print([x**2 for x in range(6)])`",
+    "ground_truth": "[0, 1, 4, 9, 16, 25]",
+    "expected_tools": [
+      "code_executor"
+    ],
+    "metadata": {
+      "category": "code_executor",
+      "tool": "code_executor",
+      "code": "print([x**2 for x in range(6)])"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-24",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 319 / 11.",
+    "ground_truth": "29",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-calc-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Compute 304 / 16.",
+    "ground_truth": "19",
+    "expected_tools": [
+      "calculator"
+    ],
+    "metadata": {
+      "category": "calculator",
+      "tool": "calculator"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-weather-39",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the weather conditions in Berlin right now?",
+    "ground_truth": "Windy, 9C",
+    "expected_tools": [
+      "weather"
+    ],
+    "metadata": {
+      "category": "weather",
+      "tool": "weather",
+      "city": "berlin"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "tier1-convert-27",
+    "tier": "tier1_single_tool",
+    "prompt": "What is 50 pounds in kilograms?",
+    "ground_truth": "22.6796",
+    "expected_tools": [
+      "unit_converter"
+    ],
+    "metadata": {
+      "category": "unit_converter",
+      "tool": "unit_converter",
+      "value": 50,
+      "from_unit": "pounds",
+      "to_unit": "kilograms"
+    },
+    "error_injection_policy": {}
+  }
+]

@@ -39,7 +39,7 @@ def run_test(code: str, test_cases: list[str], timeout: int = 10) -> bool:
         f.flush()
         try:
             result = subprocess.run(
-                ["python", f.name],
+                ["python3", f.name],
                 capture_output=True,
                 timeout=timeout,
                 text=True,
@@ -74,17 +74,17 @@ def run(model, tokenizer, suite_config: dict | None = None, gen_config: dict | N
 
     for example in ds:
         task_id = example["task_id"]
-        text = example["text"]  # Problem description
-        test_list = example["test_list"]  # Test assertions
+        text = example.get("text") or example.get("prompt", "")  # Schema varies
+        test_list = example["test_list"]
 
         # Format as instruction
         instruction = (
             f"Write a Python function to solve the following problem. "
             f"Return ONLY the code, no explanation.\n\n{text}"
         )
-        chat_prompt = (
-            f"<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\n"
-            f"{instruction}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        messages = [{"role": "user", "content": instruction}]
+        chat_prompt = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
         )
 
         completion = generate_completion(model, tokenizer, chat_prompt, max_new_tokens, temperature)

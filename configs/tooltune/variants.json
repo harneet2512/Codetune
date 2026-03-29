@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "key": "base",
+      "label": "V0 Base",
+      "model_path": "Qwen/Qwen2.5-7B-Instruct",
+      "mode": "live",
+      "endpoint": "http://localhost:8100/v1",
+      "reward_profile": "No training",
+      "notes": "Baseline comparison model."
+    },
+    {
+      "key": "sft",
+      "label": "V1 SFT",
+      "model_path": "outputs/tooltune-sft-checkpoints/final_adapter",
+      "mode": "live",
+      "endpoint": "http://localhost:8101/v1",
+      "reward_profile": "Supervised synthetic traces",
+      "notes": "Format-learning baseline."
+    },
+    {
+      "key": "grpo-exec",
+      "label": "V2 GRPO-Exec",
+      "model_path": "outputs/tooltune-grpo-exec",
+      "mode": "live",
+      "endpoint": "http://localhost:8102/v1",
+      "reward_profile": "Task completion only",
+      "notes": "Pure outcome reward."
+    },
+    {
+      "key": "grpo-toolheavy",
+      "label": "V3 GRPO-ToolHeavy",
+      "model_path": "outputs/tooltune-grpo-toolheavy",
+      "mode": "live",
+      "endpoint": "http://localhost:8103/v1",
+      "reward_profile": "High tool accuracy weight",
+      "notes": "Expected to over-tool."
+    },
+    {
+      "key": "grpo-balanced",
+      "label": "V4 GRPO-Balanced",
+      "model_path": "outputs/tooltune-grpo-balanced",
+      "mode": "live",
+      "endpoint": "http://localhost:8104/v1",
+      "reward_profile": "Balanced composite reward",
+      "notes": "Production variant."
+    }
+  ]
+}
