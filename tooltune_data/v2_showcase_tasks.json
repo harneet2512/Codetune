@@ -1,0 +1,167 @@
+[
+  {
+    "id": "incident-triage-001",
+    "tier": "killer",
+    "category": "Production Incident Triage",
+    "prompt": "500 errors spiked on /api/checkout right after the 14:05 deploy. Use logs, deploy history, feature flags, and the incident runbook to determine: (1) root cause, (2) which users are affected, (3) whether to rollback, hotfix, or wait.",
+    "expected_tools": ["log_search", "search_docs", "codebase_search", "file_reader"],
+    "ground_truth": "hotfix",
+    "expected_behaviors": [
+      "Checks error logs first to identify the pattern (500s only from orgs with custom pricing)",
+      "Checks deploy history to correlate timing with v2.14.1",
+      "Reads the runbook to apply rollback criteria (errors are org-specific, so hotfix not rollback)",
+      "Inspects the checkout code to find the bug (no org discount handling)",
+      "Recommends hotfix with feature flag disable as interim mitigation"
+    ],
+    "difficulty": "hard",
+    "metadata": {"tools_min": 4, "tools_max": 7, "reasoning_steps": 5}
+  },
+  {
+    "id": "spec-audit-001",
+    "tier": "killer",
+    "category": "Spec Compliance Audit",
+    "prompt": "Audit the auth middleware against the API Security Spec. Identify every violation, cite the exact spec rule IDs, and describe the minimal fix for each.",
+    "expected_tools": ["search_docs", "file_reader", "codebase_search"],
+    "ground_truth": "4 violations: AUTH-001 (HS256+none), AUTH-002 (hardcoded key), AUTH-003 (720hr expiry), AUTH-004 (token in memory)",
+    "expected_behaviors": [
+      "Retrieves the full API security spec first",
+      "Reads the auth middleware source code",
+      "Systematically checks each spec rule against the code",
+      "Cites exact rule IDs (AUTH-001 through AUTH-006)",
+      "Identifies all 4 violations, not just the obvious ones",
+      "Proposes minimal fixes (not a full rewrite)"
+    ],
+    "difficulty": "hard",
+    "metadata": {"tools_min": 3, "tools_max": 5, "reasoning_steps": 6}
+  },
+  {
+    "id": "bug-repro-001",
+    "tier": "killer",
+    "category": "Customer Bug Reproduction",
+    "prompt": "A customer reports that data exports fail for orgs with custom roles like 'billing-admin'. Reproduce the bug, identify the root cause in code, and determine the exact fix.",
+    "expected_tools": ["run_tests", "codebase_search", "file_reader"],
+    "ground_truth": "export.py line 12 hardcodes ['admin', 'owner'] instead of using RBAC; custom roles like 'billing-admin' are rejected",
+    "expected_behaviors": [
+      "Runs the export test suite to confirm the failure",
+      "Reads the failing test to understand the reproduction case",
+      "Searches for the permission check in the export code",
+      "Reads export.py to find the hardcoded role list",
+      "Identifies the root cause: hardcoded roles vs RBAC",
+      "Cross-references with feature_flags.yaml (export_v2 also has hardcoded roles)"
+    ],
+    "difficulty": "medium",
+    "metadata": {"tools_min": 3, "tools_max": 5, "reasoning_steps": 4}
+  },
+  {
+    "id": "data-discrepancy-001",
+    "tier": "killer",
+    "category": "Data Discrepancy Investigation",
+    "prompt": "Finance says March dashboard revenue is $12,450.49 but the warehouse query returns $11,705.48. Investigate the $745.01 discrepancy and determine which number is correct for the board report.",
+    "expected_tools": ["sql_query", "search_docs"],
+    "ground_truth": "Both are correct for their definitions. Dashboard includes taxes+shipping ($745.01 difference). Warehouse is net charges only. For board report, use warehouse number ($11,705.48) as it represents actual revenue recognized.",
+    "expected_behaviors": [
+      "Queries both dashboard and warehouse revenue definitions from docs",
+      "Runs the actual SQL queries to verify both numbers",
+      "Identifies the delta ($745.01) is within expected range",
+      "Checks the data dictionary for known discrepancy causes",
+      "Determines the difference is taxes+shipping inclusion",
+      "Recommends which number to use with reasoning"
+    ],
+    "difficulty": "hard",
+    "metadata": {"tools_min": 3, "tools_max": 6, "reasoning_steps": 5}
+  },
+  {
+    "id": "ci-failure-001",
+    "tier": "killer",
+    "category": "CI Failure Fix",
+    "prompt": "The checkout test suite has a failing test after the latest deploy. Find the failing test, trace the root cause in the application code, and describe the exact code change needed to fix it.",
+    "expected_tools": ["run_tests", "file_reader", "codebase_search"],
+    "ground_truth": "test_checkout_org_discount fails because checkout.py creates orders with raw total instead of applying org discount",
+    "expected_behaviors": [
+      "Runs the test suite first to identify which test fails",
+      "Reads the failing test to understand what it expects",
+      "Reads checkout.py to find where the total is computed",
+      "Identifies the missing org discount logic",
+      "Describes the specific fix (apply discount before Order.create)"
+    ],
+    "difficulty": "medium",
+    "metadata": {"tools_min": 3, "tools_max": 5, "reasoning_steps": 4}
+  },
+  {
+    "id": "schema-migration-001",
+    "tier": "killer",
+    "category": "Schema Migration Planning",
+    "prompt": "We need to rename customer_id to account_id across the service. Find all impacted files (models, queries, tests, migrations), assess the risk, and produce a phased migration plan following our engineering docs.",
+    "expected_tools": ["codebase_search", "search_docs", "file_reader", "sql_query"],
+    "ground_truth": "Impacted: orders.py (FK), customer.py (PK), checkout.py (reference), migrations/003 (pending SQL). Must follow 3-phase rename per migration guide.",
+    "expected_behaviors": [
+      "Searches codebase for all references to customer_id",
+      "Reads the migration guide from docs for rename best practices",
+      "Identifies all impacted files: models, API endpoints, migrations, tests",
+      "Checks if there's an existing migration (003_rename_customer_id.sql)",
+      "Produces a phased plan: add column, update code, drop old column",
+      "Notes risks: the existing migration has DROP commented out (good)"
+    ],
+    "difficulty": "hard",
+    "metadata": {"tools_min": 4, "tools_max": 7, "reasoning_steps": 5}
+  },
+  {
+    "id": "conflicting-evidence-001",
+    "tier": "killer",
+    "category": "Conflicting Evidence Resolution",
+    "prompt": "The API spec says token expiry must be under 1 hour, but the auth code sets it to 720 hours. The tests are also inconsistent. Determine the intended behavior and recommend the resolution.",
+    "expected_tools": ["search_docs", "file_reader", "run_tests"],
+    "ground_truth": "Spec is authoritative (1 hour). Code is non-compliant (720 hours). Fix code to match spec.",
+    "expected_behaviors": [
+      "Reads the API security spec for the authoritative rule",
+      "Reads the auth code to see the current implementation",
+      "Runs auth tests to see what they enforce",
+      "Notes the conflict: spec says 1hr, code says 720hr, test catches this",
+      "Determines spec is authoritative over code",
+      "Recommends changing create_token to use expires_hours=1"
+    ],
+    "difficulty": "medium",
+    "metadata": {"tools_min": 3, "tools_max": 4, "reasoning_steps": 4}
+  },
+  {
+    "id": "restraint-simple-001",
+    "tier": "restraint",
+    "category": "Restraint (No Tools Needed)",
+    "prompt": "What HTTP status code should a REST API return when the request body is valid but the server cannot process it due to a business logic conflict, like trying to checkout items that are already reserved?",
+    "expected_tools": [],
+    "ground_truth": "409 Conflict",
+    "expected_behaviors": [
+      "Answers directly from knowledge without calling any tools",
+      "Does not search the codebase or docs unnecessarily"
+    ],
+    "difficulty": "easy",
+    "metadata": {"tools_min": 0, "tools_max": 0}
+  },
+  {
+    "id": "restraint-simple-002",
+    "tier": "restraint",
+    "category": "Restraint (No Tools Needed)",
+    "prompt": "In JWT, what is the difference between the 'sub' and 'iss' claims?",
+    "expected_tools": [],
+    "ground_truth": "sub identifies the subject (user), iss identifies the token issuer",
+    "expected_behaviors": [
+      "Answers from knowledge",
+      "Does not search docs or code"
+    ],
+    "difficulty": "easy",
+    "metadata": {"tools_min": 0, "tools_max": 0}
+  },
+  {
+    "id": "restraint-simple-003",
+    "tier": "restraint",
+    "category": "Restraint (No Tools Needed)",
+    "prompt": "What is the time complexity of a hash table lookup in the average case?",
+    "expected_tools": [],
+    "ground_truth": "O(1)",
+    "expected_behaviors": [
+      "Answers immediately without tools"
+    ],
+    "difficulty": "easy",
+    "metadata": {"tools_min": 0, "tools_max": 0}
+  }
+]
