@@ -148,8 +148,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="ToolTune GRPO training")
     parser.add_argument(
         "--base-model",
-        default="outputs/tooltune-sft-checkpoints/final_adapter",
-        help="Base model or adapter path (default: SFT checkpoint)",
+        default="outputs/tooltune-sft-merged",
+        help="Base model path (default: SFT-merged checkpoint)",
     )
     parser.add_argument(
         "--variant",
