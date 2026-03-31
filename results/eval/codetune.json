@@ -1,0 +1,2584 @@
+{
+  "model": "outputs/codetune-7b",
+  "timestamp": "2026-03-25T18:24:51.599759+00:00",
+  "hardware": {
+    "platform": "Linux-5.10.0-39-cloud-amd64-x86_64-with-glibc2.31",
+    "python": "3.9.2",
+    "torch": "2.5.1+cu121",
+    "gpu": "Tesla T4",
+    "gpu_memory_gb": 15.6,
+    "cuda": "12.1"
+  },
+  "suites": {
+    "humaneval": {
+      "metrics": {
+        "pass_at_1": 0.7012,
+        "total_problems": 164,
+        "passed": 115,
+        "failed": 49
+      },
+      "per_problem": [
+        {
+          "task_id": "HumanEval/0",
+          "passed": false,
+          "completion_preview": "def has_close_elements(numbers: List[float], threshold: float) -> bool:\n    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < thres"
+        },
+        {
+          "task_id": "HumanEval/1",
+          "passed": false,
+          "completion_preview": "def separate_paren_groups(paren_string: str) -> List[str]:\n    paren_string = paren_string.replace(' ', '')\n    result = []\n    stack = []\n    start_index = 0\n\n    for i, char in enumerate(paren_strin"
+        },
+        {
+          "task_id": "HumanEval/2",
+          "passed": true,
+          "completion_preview": "def truncate_number(number: float) -> float:\n    return number - int(number)"
+        },
+        {
+          "task_id": "HumanEval/3",
+          "passed": false,
+          "completion_preview": "def below_zero(operations: List[int]) -> bool:\n    balance = 0\n    for operation in operations:\n        balance += operation\n        if balance < 0:\n            return True\n    return False"
+        },
+        {
+          "task_id": "HumanEval/4",
+          "passed": true,
+          "completion_preview": "from typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    \"\"\" For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n"
+        },
+        {
+          "task_id": "HumanEval/5",
+          "passed": false,
+          "completion_preview": "def intersperse(numbers: List[int], delimeter: int) -> List[int]:\n    result = []\n    for i in range(len(numbers)):\n        if i != len(numbers)-1:\n            result.append(numbers[i])\n            re"
+        },
+        {
+          "task_id": "HumanEval/6",
+          "passed": false,
+          "completion_preview": "def parse_nested_parens(paren_string: str) -> List[int]:\n    result = []\n    for paren_group in paren_string.split():\n        max_depth = 0\n        depth = 0\n        for char in paren_group:\n         "
+        },
+        {
+          "task_id": "HumanEval/7",
+          "passed": false,
+          "completion_preview": "def filter_by_substring(strings: List[str], substring: str) -> List[str]:\n    return [s for s in strings if substring in s]"
+        },
+        {
+          "task_id": "HumanEval/8",
+          "passed": false,
+          "completion_preview": "def sum_product(numbers: List[int]) -> Tuple[int, int]:\n    if not numbers:\n        return (0, 1)\n\n    total_sum = 0\n    total_product = 1\n\n    for num in numbers:\n        total_sum += num\n        tot"
+        },
+        {
+          "task_id": "HumanEval/9",
+          "passed": false,
+          "completion_preview": "from typing import List, Tuple\n\n\ndef rolling_max(numbers: List[int]) -> List[int]:\n    \"\"\" From a given list of integers, generate a list of rolling maximum element found until given moment\n    in the"
+        },
+        {
+          "task_id": "HumanEval/10",
+          "passed": false,
+          "completion_preview": "def is_palindrome(string: str) -> bool:\n    \"\"\" Test if given string is a palindrome \"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\" Find the shortest palindro"
+        },
+        {
+          "task_id": "HumanEval/11",
+          "passed": true,
+          "completion_preview": "def string_xor(a: str, b: str) -> str:\n    xor_result = \"\"\n    for i in range(len(a)):\n        if a[i] == b[i]:\n            xor_result += \"0\"\n        else:\n            xor_result += \"1\"\n    return xor"
+        },
+        {
+          "task_id": "HumanEval/12",
+          "passed": false,
+          "completion_preview": "def longest(strings: List[str]) -> Optional[str]:\n    if not strings:\n        return None\n\n    longest_string = strings[0]\n    for string in strings:\n        if len(string) > len(longest_string):\n    "
+        },
+        {
+          "task_id": "HumanEval/13",
+          "passed": true,
+          "completion_preview": "def greatest_common_divisor(a: int, b: int) -> int:\n    while b != 0:\n        a, b = b, a % b\n    return a"
+        },
+        {
+          "task_id": "HumanEval/14",
+          "passed": false,
+          "completion_preview": "def all_prefixes(string: str) -> List[str]:\n    \"\"\" Return list of all prefixes from shortest to longest of the input string\n    >>> all_prefixes('abc')\n    ['a', 'ab', 'abc']\n    \"\"\"\n    return [stri"
+        },
+        {
+          "task_id": "HumanEval/15",
+          "passed": true,
+          "completion_preview": "def string_sequence(n: int) -> str:\n    return \" \".join(str(i) for i in range(n+1))"
+        },
+        {
+          "task_id": "HumanEval/16",
+          "passed": true,
+          "completion_preview": "def count_distinct_characters(string: str) -> int:\n    return len(set(string.lower()))"
+        },
+        {
+          "task_id": "HumanEval/17",
+          "passed": false,
+          "completion_preview": "def parse_music(music_string: str) -> List[int]:\n    result = []\n    for char in music_string.split():\n        if char == 'o':\n            result.append(4)\n        elif char == 'o|':\n            resul"
+        },
+        {
+          "task_id": "HumanEval/18",
+          "passed": true,
+          "completion_preview": "def how_many_times(string: str, substring: str) -> int:\n    count = 0\n    for i in range(len(string)-len(substring)+1):\n        if string[i:i+len(substring)] == substring:\n            count += 1\n    r"
+        },
+        {
+          "task_id": "HumanEval/19",
+          "passed": true,
+          "completion_preview": "def sort_numbers(numbers: str) -> str:\n    num_dict = {'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4,\n                'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}\n    return \" \".join"
+        },
+        {
+          "task_id": "HumanEval/20",
+          "passed": false,
+          "completion_preview": "def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:\n    min_diff = float('inf')\n    result = ()\n    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n       "
+        },
+        {
+          "task_id": "HumanEval/21",
+          "passed": false,
+          "completion_preview": "def rescale_to_unit(numbers: List[float]) -> List[float]:\n    min_num = min(numbers)\n    max_num = max(numbers)\n    return [(num - min_num) / (max_num - min_num) for num in numbers]"
+        },
+        {
+          "task_id": "HumanEval/22",
+          "passed": false,
+          "completion_preview": "def filter_integers(values: List[Any]) -> List[int]:\n    return [value for value in values if isinstance(value, int)]"
+        },
+        {
+          "task_id": "HumanEval/23",
+          "passed": true,
+          "completion_preview": "def strlen(string: str) -> int:\n    return len(string)"
+        },
+        {
+          "task_id": "HumanEval/24",
+          "passed": true,
+          "completion_preview": "def largest_divisor(n: int) -> int:\n    for i in range(n-1,0,-1):\n        if n % i == 0:\n            return i"
+        },
+        {
+          "task_id": "HumanEval/25",
+          "passed": true,
+          "completion_preview": "from typing import List\n\n\ndef factorize(n: int) -> List[int]:\n    \"\"\" Return list of prime factors of given integer in the order from smallest to largest.\n    Each of the factors should be listed numb"
+        },
+        {
+          "task_id": "HumanEval/26",
+          "passed": false,
+          "completion_preview": "def remove_duplicates(numbers: List[int]) -> List[int]:\n    seen = set()\n    result = []\n    for num in numbers:\n        if num not in seen:\n            seen.add(num)\n            result.append(num)\n  "
+        },
+        {
+          "task_id": "HumanEval/27",
+          "passed": true,
+          "completion_preview": "def flip_case(string: str) -> str:\n    return ''.join([char.upper() if char.islower() else char.lower() for char in string])"
+        },
+        {
+          "task_id": "HumanEval/28",
+          "passed": false,
+          "completion_preview": "def concatenate(strings: List[str]) -> str:\n    return ''.join(strings)"
+        },
+        {
+          "task_id": "HumanEval/29",
+          "passed": false,
+          "completion_preview": "def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    return [s for s in strings if s.startswith(prefix)]"
+        },
+        {
+          "task_id": "HumanEval/30",
+          "passed": true,
+          "completion_preview": "def get_positive(l: list):\n    return [x for x in l if x > 0]"
+        },
+        {
+          "task_id": "HumanEval/31",
+          "passed": true,
+          "completion_preview": "def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True"
+        },
+        {
+          "task_id": "HumanEval/32",
+          "passed": false,
+          "completion_preview": "def find_zero(xs: list):\n    \"\"\" xs are coefficients of a polynomial.\n    find_zero find x such that poly(x) = 0.\n    find_zero returns only only zero point, even if there are many.\n    Moreover, find"
+        },
+        {
+          "task_id": "HumanEval/33",
+          "passed": true,
+          "completion_preview": "def sort_third(l: list):\n    third_indices = [i for i in range(len(l)) if i % 3 == 0]\n    third_values = sorted([l[i] for i in third_indices])\n    result = l[:]\n    for i, v in zip(third_indices, thir"
+        },
+        {
+          "task_id": "HumanEval/34",
+          "passed": true,
+          "completion_preview": "def unique(l: list):\n    return sorted(set(l))"
+        },
+        {
+          "task_id": "HumanEval/35",
+          "passed": true,
+          "completion_preview": "def max_element(l: list):\n    return max(l)"
+        },
+        {
+          "task_id": "HumanEval/36",
+          "passed": true,
+          "completion_preview": "def fizz_buzz(n: int) -> int:\n    count = 0\n    for i in range(1, n):\n        if i % 11 == 0 or i % 13 == 0:\n            count += str(i).count('7')\n    return count"
+        },
+        {
+          "task_id": "HumanEval/37",
+          "passed": true,
+          "completion_preview": "def sort_even(l: list):\n    even = []\n    for i in range(0,len(l),2):\n        even.append(l[i])\n    even.sort()\n    j=0\n    for i in range(0,len(l),2):\n        l[i]=even[j]\n        j+=1\n    return l"
+        },
+        {
+          "task_id": "HumanEval/38",
+          "passed": false,
+          "completion_preview": "def decode_cyclic(s: str):\n    \"\"\"\n    takes as input string encoded with encode_cyclic function. Returns decoded string.\n    \"\"\"\n    # split string to groups. Each of length 3.\n    groups = [s[(3 * i"
+        },
+        {
+          "task_id": "HumanEval/39",
+          "passed": false,
+          "completion_preview": "def prime_fib(n: int) -> int:\n    def is_prime(num: int) -> bool:\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5)+1):\n            if num % i == 0:\n                "
+        },
+        {
+          "task_id": "HumanEval/40",
+          "passed": true,
+          "completion_preview": "def triples_sum_to_zero(l: list):\n    for i in range(len(l)):\n        for j in range(i+1, len(l)):\n            for k in range(j+1, len(l)):\n                if l[i] + l[j] + l[k] == 0:\n                "
+        },
+        {
+          "task_id": "HumanEval/41",
+          "passed": true,
+          "completion_preview": "def car_race_collision(n: int):\n    return n * n"
+        },
+        {
+          "task_id": "HumanEval/42",
+          "passed": true,
+          "completion_preview": "def incr_list(l: list):\n    return [x + 1 for x in l]"
+        },
+        {
+          "task_id": "HumanEval/43",
+          "passed": true,
+          "completion_preview": "def pairs_sum_to_zero(l):\n    for i in range(len(l)):\n        for j in range(i+1, len(l)):\n            if l[i] + l[j] == 0:\n                return True\n    return False"
+        },
+        {
+          "task_id": "HumanEval/44",
+          "passed": true,
+          "completion_preview": "def change_base(x: int, base: int):\n    if x == 0:\n        return \"0\"\n    digits = []\n    while x:\n        digits.append(int(x % base))\n        x //= base\n    return ''.join(str(x) for x in digits[::-"
+        },
+        {
+          "task_id": "HumanEval/45",
+          "passed": true,
+          "completion_preview": "def triangle_area(a, h):\n    \"\"\"Given length of a side and high return area for a triangle.\n    >>> triangle_area(5, 3)\n    7.5\n    \"\"\"\n    return (a * h) / 2"
+        },
+        {
+          "task_id": "HumanEval/46",
+          "passed": true,
+          "completion_preview": "def fib4(n: int):\n    if n == 0 or n == 1 or n == 3:\n        return 0\n    elif n == 2:\n        return 2\n    \n    a = 0\n    b = 0\n    c = 2\n    d = 0\n    for i in range(4, n+1):\n        e = a + b + c +"
+        },
+        {
+          "task_id": "HumanEval/47",
+          "passed": true,
+          "completion_preview": "def median(l: list):\n    \"\"\"Return median of elements in the list l.\"\"\"\n    sorted_list = sorted(l)\n    length = len(sorted_list)\n    if length % 2 == 0:\n        return (sorted_list[length//2 - 1] + s"
+        },
+        {
+          "task_id": "HumanEval/48",
+          "passed": true,
+          "completion_preview": "def is_palindrome(text: str) -> bool:\n    return text == text[::-1]"
+        },
+        {
+          "task_id": "HumanEval/49",
+          "passed": true,
+          "completion_preview": "def modp(n: int, p: int) -> int:\n    return pow(2, n, p)"
+        },
+        {
+          "task_id": "HumanEval/50",
+          "passed": false,
+          "completion_preview": "def decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for "
+        },
+        {
+          "task_id": "HumanEval/51",
+          "passed": true,
+          "completion_preview": "def remove_vowels(text):\n    vowels = \"aeiouAEIOU\"\n    return \"\".join([c for c in text if c not in vowels])"
+        },
+        {
+          "task_id": "HumanEval/52",
+          "passed": true,
+          "completion_preview": "def below_threshold(l: list, t: int):\n    for num in l:\n        if num >= t:\n            return False\n    return True"
+        },
+        {
+          "task_id": "HumanEval/53",
+          "passed": true,
+          "completion_preview": "def add(x: int, y: int) -> int:\n    return x + y"
+        },
+        {
+          "task_id": "HumanEval/54",
+          "passed": true,
+          "completion_preview": "def same_chars(s0: str, s1: str) -> bool:\n    return set(s0) == set(s1)"
+        },
+        {
+          "task_id": "HumanEval/55",
+          "passed": true,
+          "completion_preview": "def fib(n: int) -> int:\n    if n == 0 or n == 1:\n        return n\n    else:\n        return fib(n-1) + fib(n-2)"
+        },
+        {
+          "task_id": "HumanEval/56",
+          "passed": true,
+          "completion_preview": "def correct_bracketing(brackets: str) -> bool:\n    stack = []\n    for bracket in brackets:\n        if bracket == '<':\n            stack.append(bracket)\n        elif bracket == '>':\n            if not "
+        },
+        {
+          "task_id": "HumanEval/57",
+          "passed": true,
+          "completion_preview": "def monotonic(l: list):\n    return (all(x <= y for x, y in zip(l, l[1:]))) or \\\n           (all(x >= y for x, y in zip(l, l[1:])))"
+        },
+        {
+          "task_id": "HumanEval/58",
+          "passed": true,
+          "completion_preview": "def common(l1: list, l2: list):\n    return sorted(list(set(l1) & set(l2)))"
+        },
+        {
+          "task_id": "HumanEval/59",
+          "passed": true,
+          "completion_preview": "def largest_prime_factor(n: int) -> int:\n    i = 2\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n    return n"
+        },
+        {
+          "task_id": "HumanEval/60",
+          "passed": true,
+          "completion_preview": "def sum_to_n(n: int) -> int:\n    return (n * (n + 1)) // 2"
+        },
+        {
+          "task_id": "HumanEval/61",
+          "passed": true,
+          "completion_preview": "def correct_bracketing(brackets: str) -> bool:\n    stack = []\n    for bracket in brackets:\n        if bracket == '(':\n            stack.append(bracket)\n        else:\n            if not stack or stack["
+        },
+        {
+          "task_id": "HumanEval/62",
+          "passed": true,
+          "completion_preview": "def derivative(xs: list):\n    return [i*x for i,x in enumerate(xs)][1:]"
+        },
+        {
+          "task_id": "HumanEval/63",
+          "passed": true,
+          "completion_preview": "def fibfib(n: int):\n    if n == 0 or n == 1:\n        return 0\n    elif n == 2:\n        return 1\n    else:\n        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)"
+        },
+        {
+          "task_id": "HumanEval/64",
+          "passed": true,
+          "completion_preview": "def vowels_count(s):\n    count = 0\n    for char in s.lower():\n        if char in \"aeiou\":\n            count += 1\n    if s[-1].lower() == \"y\":\n        count += 1\n    return count"
+        },
+        {
+          "task_id": "HumanEval/65",
+          "passed": false,
+          "completion_preview": "def circular_shift(x, shift):\n    s = str(x)\n    if shift >= len(s):\n        return s[::-1]\n    else:\n        return s[-shift:] + s[:-shift]"
+        },
+        {
+          "task_id": "HumanEval/66",
+          "passed": true,
+          "completion_preview": "def digitSum(s):\n    return sum(ord(c) for c in s if c.isupper())"
+        },
+        {
+          "task_id": "HumanEval/67",
+          "passed": true,
+          "completion_preview": "import re\n\ndef fruit_distribution(s,n):\n    numbers = re.findall(r'\\d+', s)\n    return n - sum(map(int, numbers))"
+        },
+        {
+          "task_id": "HumanEval/68",
+          "passed": true,
+          "completion_preview": "def pluck(arr):\n    min_val = float('inf')\n    min_index = -1\n    for i, val in enumerate(arr):\n        if val % 2 == 0 and val < min_val:\n            min_val = val\n            min_index = i\n    if mi"
+        },
+        {
+          "task_id": "HumanEval/69",
+          "passed": true,
+          "completion_preview": "def search(lst):\n    freq = {}\n    for num in lst:\n        if num not in freq:\n            freq[num] = 0\n        freq[num] += 1\n    \n    max_val = -1\n    for key, val in freq.items():\n        if key <"
+        },
+        {
+          "task_id": "HumanEval/70",
+          "passed": true,
+          "completion_preview": "def strange_sort_list(lst):\n    sorted_lst = sorted(lst)\n    result = []\n    while len(sorted_lst) > 0:\n        result.append(sorted_lst.pop(0))\n        if len(sorted_lst) > 0:\n            result.appe"
+        },
+        {
+          "task_id": "HumanEval/71",
+          "passed": true,
+          "completion_preview": "import math\n\ndef triangle_area(a, b, c):\n    if (a + b > c and a + c > b and b + c > a):\n        s = (a + b + c) / 2\n        area = math.sqrt(s * (s - a) * (s - b) * (s - c))\n        return round(area"
+        },
+        {
+          "task_id": "HumanEval/72",
+          "passed": true,
+          "completion_preview": "def will_it_fly(q,w):\n    return q == q[::-1] and sum(q) <= w"
+        },
+        {
+          "task_id": "HumanEval/73",
+          "passed": true,
+          "completion_preview": "def smallest_change(arr):\n    left = 0\n    right = len(arr) - 1\n    count = 0\n\n    while left < right:\n        if arr[left] != arr[right]:\n            count += 1\n        left += 1\n        right -= 1\n "
+        },
+        {
+          "task_id": "HumanEval/74",
+          "passed": true,
+          "completion_preview": "def total_match(lst1, lst2):\n    len_lst1 = sum(len(s) for s in lst1)\n    len_lst2 = sum(len(s) for s in lst2)\n\n    if len_lst1 < len_lst2:\n        return lst1\n    elif len_lst1 > len_lst2:\n        re"
+        },
+        {
+          "task_id": "HumanEval/75",
+          "passed": false,
+          "completion_preview": "def is_multiply_prime(a):\n    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]\n    for i in range(len(primes)):\n        for j in range(i+1, len"
+        },
+        {
+          "task_id": "HumanEval/76",
+          "passed": false,
+          "completion_preview": "def is_simple_power(x, n):\n    return x == n ** int(round(math.log(x, n)))"
+        },
+        {
+          "task_id": "HumanEval/77",
+          "passed": false,
+          "completion_preview": "def iscube(a):\n    return round(a ** (1/3))**3 == a"
+        },
+        {
+          "task_id": "HumanEval/78",
+          "passed": true,
+          "completion_preview": "def hex_key(num):\n    count = 0\n    for char in num:\n        if char in ['2', '3', '5', '7', 'B', 'D']:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": "HumanEval/79",
+          "passed": true,
+          "completion_preview": "def decimal_to_binary(decimal):\n    \"\"\"You will be given a number in decimal form and your task is to convert it to\n    binary format. The function should return a string, with each character represen"
+        },
+        {
+          "task_id": "HumanEval/80",
+          "passed": true,
+          "completion_preview": "def is_happy(s):\n    if len(s) < 3:\n        return False\n    for i in range(len(s)-2):\n        if s[i] == s[i+1] or s[i] == s[i+2] or s[i+1] == s[i+2]:\n            return False\n    return True"
+        },
+        {
+          "task_id": "HumanEval/81",
+          "passed": true,
+          "completion_preview": "def numerical_letter_grade(grades):\n    letter_grades = []\n    for gpa in grades:\n        if gpa == 4.0:\n            letter_grades.append('A+')\n        elif gpa > 3.7:\n            letter_grades.append"
+        },
+        {
+          "task_id": "HumanEval/82",
+          "passed": true,
+          "completion_preview": "import math\n\ndef prime_length(string):\n    n = len(string)\n    if n < 2:\n        return False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return T"
+        },
+        {
+          "task_id": "HumanEval/83",
+          "passed": false,
+          "completion_preview": "def starts_one_ends(n):\n    if n == 1:\n        return 2\n    else:\n        return 2 * (10 ** (n - 1)) - 10 ** (n - 2)"
+        },
+        {
+          "task_id": "HumanEval/84",
+          "passed": true,
+          "completion_preview": "def solve(N):\n    \"\"\"Given a positive integer N, return the total sum of its digits in binary.\"\"\"\n    return bin(sum(int(digit) for digit in str(N))).replace(\"0b\", \"\")"
+        },
+        {
+          "task_id": "HumanEval/85",
+          "passed": true,
+          "completion_preview": "def add(lst):\n    total = 0\n    for i in range(1,len(lst),2):\n        if lst[i] % 2 == 0:\n            total += lst[i]\n    return total"
+        },
+        {
+          "task_id": "HumanEval/86",
+          "passed": true,
+          "completion_preview": "def anti_shuffle(s):\n    words = s.split()\n    for i in range(len(words)):\n        chars = list(words[i])\n        chars.sort(key=lambda x: ord(x))\n        words[i] = ''.join(chars)\n    return ' '.join"
+        },
+        {
+          "task_id": "HumanEval/87",
+          "passed": true,
+          "completion_preview": "def get_row(lst, x):\n    result = []\n    for i, row in enumerate(lst):\n        for j, val in enumerate(row[::-1]):\n            if val == x:\n                result.append((i, len(row)-j-1))\n    return "
+        },
+        {
+          "task_id": "HumanEval/88",
+          "passed": true,
+          "completion_preview": "def sort_array(array):\n    \"\"\"\n    Given an array of non-negative integers, return a copy of the given array after sorting,\n    you will sort the given array in ascending order if the sum( first index"
+        },
+        {
+          "task_id": "HumanEval/89",
+          "passed": true,
+          "completion_preview": "def encrypt(s):\n    result = \"\"\n    for char in s:\n        if (char.isalpha()):\n            ascii_offset = 65 if char.isupper() else 97\n            result += chr((ord(char) - ascii_offset + 4) % 26 + "
+        },
+        {
+          "task_id": "HumanEval/90",
+          "passed": true,
+          "completion_preview": "def next_smallest(lst):\n    if len(lst) < 2:\n        return None\n    lst.sort()\n    for i in range(1, len(lst)):\n        if lst[i] != lst[0]:\n            return lst[i]\n    return None"
+        },
+        {
+          "task_id": "HumanEval/91",
+          "passed": true,
+          "completion_preview": "import re\n\ndef is_bored(S):\n    sentences = re.split(r'[.?!]\\s*', S)\n    return sum(1 for s in sentences if s.startswith('I '))"
+        },
+        {
+          "task_id": "HumanEval/92",
+          "passed": true,
+          "completion_preview": "def any_int(x, y, z):\n    return (isinstance(x, int) and isinstance(y, int) and isinstance(z, int)) and ((x == y + z) or (y == x + z) or (z == x + y))"
+        },
+        {
+          "task_id": "HumanEval/93",
+          "passed": false,
+          "completion_preview": "def encode(message):\n    encoded_message = \"\"\n    for char in message:\n        if char.isalpha():\n            if char.lower() in \"aeiou\":\n                new_char = chr(ord(char) + 2)\n            else"
+        },
+        {
+          "task_id": "HumanEval/94",
+          "passed": true,
+          "completion_preview": "def skjkasdkd(lst):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2,int(n**0.5)+1):\n            if n % i == 0:\n                return False\n        return True"
+        },
+        {
+          "task_id": "HumanEval/95",
+          "passed": false,
+          "completion_preview": "def check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    lower_case = all(key.islower() for key in keys)\n    upper_case = all(key.isupper() for key in keys)\n  "
+        },
+        {
+          "task_id": "HumanEval/96",
+          "passed": false,
+          "completion_preview": "def count_up_to(n):\n    primes = []\n    for num in range(2,n+1):\n        is_prime = True\n        for i in range(2,num):\n            if (num % i == 0):\n                is_prime = False\n        if is_pr"
+        },
+        {
+          "task_id": "HumanEval/97",
+          "passed": true,
+          "completion_preview": "def multiply(a, b):\n    return (a % 10) * (b % 10)"
+        },
+        {
+          "task_id": "HumanEval/98",
+          "passed": true,
+          "completion_preview": "def count_upper(s):\n    count = 0\n    for i in range(0,len(s),2):\n        if s[i] in 'AEIOU':\n            count += 1\n    return count"
+        },
+        {
+          "task_id": "HumanEval/99",
+          "passed": true,
+          "completion_preview": "def closest_integer(value):\n    num = float(value)\n    if num > 0:\n        return int(num + 0.5)\n    else:\n        return int(num - 0.5)"
+        },
+        {
+          "task_id": "HumanEval/100",
+          "passed": false,
+          "completion_preview": "def make_a_pile(n):\n    result = []\n    for i in range(n):\n        if n % 2 == 0:\n            result.append(i*2 + 2)\n        else:\n            result.append(i*2 + 1)\n    return result"
+        },
+        {
+          "task_id": "HumanEval/101",
+          "passed": true,
+          "completion_preview": "def words_string(s):\n    s = s.replace(\",\", \" \")\n    return s.split()"
+        },
+        {
+          "task_id": "HumanEval/102",
+          "passed": true,
+          "completion_preview": "def choose_num(x, y):\n    if x > y:\n        return -1\n    else:\n        for i in range(y, x-1, -1):\n            if i % 2 == 0:\n                return i\n        return -1"
+        },
+        {
+          "task_id": "HumanEval/103",
+          "passed": true,
+          "completion_preview": "def rounded_avg(n, m):\n    if n > m:\n        return -1\n    else:\n        avg = round((n + m)/2)\n        return bin(avg)"
+        },
+        {
+          "task_id": "HumanEval/104",
+          "passed": true,
+          "completion_preview": "def unique_digits(x):\n    result = []\n    for num in x:\n        if all(int(digit) % 2 != 0 for digit in str(num)):\n            result.append(num)\n    return sorted(result)"
+        },
+        {
+          "task_id": "HumanEval/105",
+          "passed": true,
+          "completion_preview": "def by_length(arr):\n    if not arr:\n        return []\n\n    names = [\"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\"]\n\n    sorted_arr = sorted([x for x in arr if 1 <= x <= 9])\n  "
+        },
+        {
+          "task_id": "HumanEval/106",
+          "passed": true,
+          "completion_preview": "def f(n):\n    result = []\n    for i in range(1, n+1):\n        if i % 2 == 0:\n            result.append(factorial(i))\n        else:\n            result.append(sum(range(1, i+1)))\n    return result\n\ndef "
+        },
+        {
+          "task_id": "HumanEval/107",
+          "passed": true,
+          "completion_preview": "def even_odd_palindrome(n):\n    even_count = 0\n    odd_count = 0\n    for i in range(1, n+1):\n        if str(i) == str(i)[::-1]:\n            if i % 2 == 0:\n                even_count += 1\n            e"
+        },
+        {
+          "task_id": "HumanEval/108",
+          "passed": false,
+          "completion_preview": "def count_nums(arr):\n    count = 0\n    for num in arr:\n        if sum(int(digit) for digit in str(abs(num))) > 0:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": "HumanEval/109",
+          "passed": true,
+          "completion_preview": "def move_one_ball(arr):\n    n = len(arr)\n    if n == 0:\n        return True\n\n    count = 0\n    for i in range(1, n):\n        if arr[i] < arr[i-1]:\n            count += 1\n            start = i\n\n    if "
+        },
+        {
+          "task_id": "HumanEval/110",
+          "passed": true,
+          "completion_preview": "def exchange(lst1, lst2):\n    odd_lst = [x for x in lst1 if x % 2 != 0]\n    even_lst = [x for x in lst2 if x % 2 == 0]\n\n    if len(odd_lst) <= len(even_lst):\n        return \"YES\"\n    else:\n        ret"
+        },
+        {
+          "task_id": "HumanEval/111",
+          "passed": true,
+          "completion_preview": "def histogram(test):\n    test = test.split()\n    if not test:\n        return {}\n    else:\n        d = {}\n        for i in test:\n            if i in d:\n                d[i] += 1\n            else:\n     "
+        },
+        {
+          "task_id": "HumanEval/112",
+          "passed": true,
+          "completion_preview": "def reverse_delete(s,c):\n    res = \"\"\n    for i in s:\n        if i not in c:\n            res += i\n    return (res,res==res[::-1])"
+        },
+        {
+          "task_id": "HumanEval/113",
+          "passed": true,
+          "completion_preview": "def odd_count(lst):\n    result = []\n    for s in lst:\n        count = sum(1 for c in s if int(c) % 2 == 1)\n        result.append(\"the number of odd elements {}n the str{}ng {} of the {}nput.\".format(c"
+        },
+        {
+          "task_id": "HumanEval/114",
+          "passed": true,
+          "completion_preview": "def minSubArraySum(nums):\n    min_sum = float('inf')\n    curr_sum = 0\n    for num in nums:\n        curr_sum += num\n        if curr_sum < min_sum:\n            min_sum = curr_sum\n        if curr_sum > 0"
+        },
+        {
+          "task_id": "HumanEval/115",
+          "passed": false,
+          "completion_preview": "def max_fill(grid, capacity):\n    count = 0\n    for row in grid:\n        count += math.ceil(sum(row) / capacity)\n    return count"
+        },
+        {
+          "task_id": "HumanEval/116",
+          "passed": true,
+          "completion_preview": "def sort_array(arr):\n    return sorted(arr, key=lambda x: (bin(x).count('1'), x))"
+        },
+        {
+          "task_id": "HumanEval/117",
+          "passed": true,
+          "completion_preview": "def select_words(s, n):\n    words = s.split()\n    result = []\n    for word in words:\n        if len([c for c in word if c.lower() not in 'aeiou']) == n:\n            result.append(word)\n    return resu"
+        },
+        {
+          "task_id": "HumanEval/118",
+          "passed": true,
+          "completion_preview": "def get_closest_vowel(word):\n    vowels = 'aeiouAEIOU'\n    for i in range(len(word)-2, 0, -1):\n        if word[i] in vowels and word[i-1] not in vowels and word[i+1] not in vowels:\n            return "
+        },
+        {
+          "task_id": "HumanEval/119",
+          "passed": true,
+          "completion_preview": "def match_parens(lst):\n    s1 = lst[0]\n    s2 = lst[1]\n\n    for i in range(2):\n        s = s1 + s2\n        count = 0\n        for c in s:\n            if c == '(':\n                count += 1\n           "
+        },
+        {
+          "task_id": "HumanEval/120",
+          "passed": false,
+          "completion_preview": "def maximum(arr, k):\n    arr.sort()\n    return arr[-k:]"
+        },
+        {
+          "task_id": "HumanEval/121",
+          "passed": false,
+          "completion_preview": "def solution(lst):\n    total = 0\n    for i in range(1,len(lst),2):\n        if lst[i] % 2 != 0:\n            total += lst[i]\n    return total"
+        },
+        {
+          "task_id": "HumanEval/122",
+          "passed": true,
+          "completion_preview": "def add_elements(arr, k):\n    total = 0\n    for i in range(k):\n        if arr[i] < 100:\n            total += arr[i]\n    return total"
+        },
+        {
+          "task_id": "HumanEval/123",
+          "passed": true,
+          "completion_preview": "def get_odd_collatz(n):\n    \"\"\"\n    Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.\n\n    The Collatz conjecture is a conjecture in mathematics that conce"
+        },
+        {
+          "task_id": "HumanEval/124",
+          "passed": true,
+          "completion_preview": "def valid_date(date):\n    if len(date) == 0:\n        return False\n    \n    date_parts = date.split('-')\n    \n    if len(date_parts) != 3:\n        return False\n    \n    month, day, year = date_parts\n  "
+        },
+        {
+          "task_id": "HumanEval/125",
+          "passed": false,
+          "completion_preview": "def split_words(txt):\n    if ' ' in txt:\n        return txt.split()\n    elif ',' in txt:\n        return txt.split(',')\n    else:\n        return sum(1 for c in txt if (ord(c) - ord('a')) % 2 == 1)"
+        },
+        {
+          "task_id": "HumanEval/126",
+          "passed": false,
+          "completion_preview": "def is_sorted(lst):\n    if len(lst) == 0:\n        return True\n    for i in range(1, len(lst)):\n        if lst[i] < lst[i-1]:\n            return False\n    return True"
+        },
+        {
+          "task_id": "HumanEval/127",
+          "passed": false,
+          "completion_preview": "def intersection(interval1, interval2):\n    start = max(interval1[0], interval2[0])\n    end = min(interval1[1], interval2[1])\n\n    if start > end:\n        return \"NO\"\n\n    length = end - start + 1\n\n  "
+        },
+        {
+          "task_id": "HumanEval/128",
+          "passed": true,
+          "completion_preview": "def prod_signs(arr):\n    if not arr:\n        return None\n    sign = 1\n    magnitude_sum = 0\n    for num in arr:\n        if num < 0:\n            sign *= -1\n        elif num > 0:\n            sign *= 1\n "
+        },
+        {
+          "task_id": "HumanEval/129",
+          "passed": false,
+          "completion_preview": "def minPath(grid, k):\n    n = len(grid)\n    dp = [[float('inf')]*n for _ in range(n)]\n    for i in range(n):\n        for j in range(n):\n            dp[i][j] = grid[i][j]\n    \n    for l in range(1, k):"
+        },
+        {
+          "task_id": "HumanEval/130",
+          "passed": false,
+          "completion_preview": "def tri(n):\n    result = [1, 3]\n    for i in range(2, n+1):\n        if i % 2 == 0:\n            result.append(1 + i/2)\n        else:\n            result.append(result[i-1] + result[i-2] + result[i+1])\n "
+        },
+        {
+          "task_id": "HumanEval/131",
+          "passed": true,
+          "completion_preview": "def digits(n):\n    product = 1\n    has_odd_digit = False\n    while n > 0:\n        digit = n % 10\n        if digit % 2 != 0:\n            product *= digit\n            has_odd_digit = True\n        n //= "
+        },
+        {
+          "task_id": "HumanEval/132",
+          "passed": false,
+          "completion_preview": "def is_nested(string):\n    stack = []\n    for char in string:\n        if char == '[':\n            stack.append(char)\n        elif char == ']':\n            if not stack or stack[-1] != '[':\n           "
+        },
+        {
+          "task_id": "HumanEval/133",
+          "passed": true,
+          "completion_preview": "import math\n\ndef sum_squares(lst):\n    total = 0\n    for num in lst:\n        total += math.ceil(num)**2\n    return total"
+        },
+        {
+          "task_id": "HumanEval/134",
+          "passed": true,
+          "completion_preview": "def check_if_last_char_is_a_letter(txt):\n    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or txt[-2] == ' ')"
+        },
+        {
+          "task_id": "HumanEval/135",
+          "passed": true,
+          "completion_preview": "def can_arrange(arr):\n    for i in range(len(arr)-1,0,-1):\n        if arr[i] < arr[i-1]:\n            return i\n    return -1"
+        },
+        {
+          "task_id": "HumanEval/136",
+          "passed": true,
+          "completion_preview": "def largest_smallest_integers(lst):\n    neg = [x for x in lst if x < 0]\n    pos = [x for x in lst if x > 0]\n\n    if len(neg) == 0:\n        neg_max = None\n    else:\n        neg_max = max(neg)\n\n    if l"
+        },
+        {
+          "task_id": "HumanEval/137",
+          "passed": false,
+          "completion_preview": "def compare_one(a, b):\n    try:\n        a = float(str(a).replace(',', '.'))\n        b = float(str(b).replace(',', '.'))\n    except ValueError:\n        return None\n\n    if a == b:\n        return None\n "
+        },
+        {
+          "task_id": "HumanEval/138",
+          "passed": true,
+          "completion_preview": "def is_equal_to_sum_even(n):\n    return n % 2 == 0 and n >= 8"
+        },
+        {
+          "task_id": "HumanEval/139",
+          "passed": false,
+          "completion_preview": "def special_factorial(n):\n    result = 1\n    for i in range(1,n+1):\n        result *= math.factorial(i)\n    return result"
+        },
+        {
+          "task_id": "HumanEval/140",
+          "passed": false,
+          "completion_preview": "def fix_spaces(text):\n    return '-'.join(''.join(text.split()).split(' '))"
+        },
+        {
+          "task_id": "HumanEval/141",
+          "passed": false,
+          "completion_preview": "import re\n\ndef file_name_check(file_name):\n    pattern = r\"^[a-zA-Z][^\\d]*\\d{0,3}[^\\d]*\\.(txt|exe|dll)$\"\n    return \"Yes\" if re.match(pattern, file_name) else \"No\""
+        },
+        {
+          "task_id": "HumanEval/142",
+          "passed": true,
+          "completion_preview": "def sum_squares(lst):\n    total = 0\n    for i, num in enumerate(lst):\n        if i % 3 == 0:\n            total += num ** 2\n        elif i % 4 == 0:\n            total += num ** 3\n        else:\n        "
+        },
+        {
+          "task_id": "HumanEval/143",
+          "passed": true,
+          "completion_preview": "import math\n\ndef words_in_sentence(sentence):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(math.sqrt(n)) + 1):\n            if n % i == 0:\n             "
+        },
+        {
+          "task_id": "HumanEval/144",
+          "passed": true,
+          "completion_preview": "def simplify(x, n):\n    num_x, den_x = map(int, x.split('/'))\n    num_n, den_n = map(int, n.split('/'))\n\n    return (num_x * num_n) % (den_x * den_n) == 0"
+        },
+        {
+          "task_id": "HumanEval/145",
+          "passed": false,
+          "completion_preview": "def order_by_points(nums):\n    return sorted(nums, key=lambda x: (sum(int(digit) for digit in str(abs(x))), nums.index(x)))"
+        },
+        {
+          "task_id": "HumanEval/146",
+          "passed": true,
+          "completion_preview": "def specialFilter(nums):\n    count = 0\n    for num in nums:\n        if num > 10 and int(str(num)[0]) % 2 != 0 and int(str(num)[-1]) % 2 != 0:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": "HumanEval/147",
+          "passed": true,
+          "completion_preview": "def get_max_triples(n):\n    a = []\n    for i in range(1, n+1):\n        a.append(i*i-i+1)\n    \n    count = 0\n    for i in range(len(a)-2):\n        for j in range(i+1, len(a)-1):\n            for k in ra"
+        },
+        {
+          "task_id": "HumanEval/148",
+          "passed": true,
+          "completion_preview": "def bf(planet1, planet2):\n    planets = [\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\"]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    s"
+        },
+        {
+          "task_id": "HumanEval/149",
+          "passed": true,
+          "completion_preview": "def sorted_list_sum(lst):\n    lst = [word for word in lst if len(word) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst"
+        },
+        {
+          "task_id": "HumanEval/150",
+          "passed": true,
+          "completion_preview": "def x_or_y(n, x, y):\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5)+1):\n            if num % i == 0:\n                return False\n        r"
+        },
+        {
+          "task_id": "HumanEval/151",
+          "passed": true,
+          "completion_preview": "def double_the_difference(lst):\n    if len(lst) == 0:\n        return 0\n    else:\n        result = 0\n        for num in lst:\n            if isinstance(num, int) and num >= 0 and num % 2 != 0:\n         "
+        },
+        {
+          "task_id": "HumanEval/152",
+          "passed": true,
+          "completion_preview": "def compare(game,guess):\n    return [abs(x-y) for x,y in zip(game,guess)]"
+        },
+        {
+          "task_id": "HumanEval/153",
+          "passed": true,
+          "completion_preview": "def Strongest_Extension(class_name, extensions):\n    max_strength = float('-inf')\n    strongest_extension = ''\n    for ext in extensions:\n        cap = sum(1 for c in ext if c.isupper())\n        sm = "
+        },
+        {
+          "task_id": "HumanEval/154",
+          "passed": true,
+          "completion_preview": "def cycpattern_check(a , b):\n    for i in range(len(b)):\n        if b[i:] + b[:i] in a:\n            return True\n    return False"
+        },
+        {
+          "task_id": "HumanEval/155",
+          "passed": false,
+          "completion_preview": "def even_odd_count(num):\n    num = abs(num)\n    count_even = 0\n    count_odd = 0\n    while num > 0:\n        if num % 2 == 0:\n            count_even += 1\n        else:\n            count_odd += 1\n      "
+        },
+        {
+          "task_id": "HumanEval/156",
+          "passed": true,
+          "completion_preview": "def int_to_mini_roman(number):\n    roman_numerals = {\n        1: \"i\",\n        4: \"iv\",\n        5: \"v\",\n        9: \"ix\",\n        10: \"x\",\n        40: \"xl\",\n        50: \"l\",\n        90: \"xc\",\n        10"
+        },
+        {
+          "task_id": "HumanEval/157",
+          "passed": true,
+          "completion_preview": "def right_angle_triangle(a, b, c):\n    sides = sorted([a, b, c])\n    return sides[0]**2 + sides[1]**2 == sides[2]**2"
+        },
+        {
+          "task_id": "HumanEval/158",
+          "passed": true,
+          "completion_preview": "def find_max(words):\n    max_word = \"\"\n    max_count = 0\n    for word in words:\n        count = len(set(word))\n        if count > max_count or (count == max_count and word < max_word):\n            max"
+        },
+        {
+          "task_id": "HumanEval/159",
+          "passed": true,
+          "completion_preview": "def eat(number, need, remaining):\n    if need > remaining:\n        return [number + remaining, 0]\n    else:\n        return [number + need, remaining - need]"
+        },
+        {
+          "task_id": "HumanEval/160",
+          "passed": false,
+          "completion_preview": "def do_algebra(operator, operand):\n    result = operand[0]\n    for i in range(len(operator)):\n        if operator[i] == '+':\n            result += operand[i+1]\n        elif operator[i] == '-':\n       "
+        },
+        {
+          "task_id": "HumanEval/161",
+          "passed": true,
+          "completion_preview": "def solve(s):\n    result = \"\"\n    has_letter = False\n    for c in s:\n        if c.isalpha():\n            has_letter = True\n            if c.islower():\n                result += c.upper()\n            e"
+        },
+        {
+          "task_id": "HumanEval/162",
+          "passed": true,
+          "completion_preview": "import hashlib\n\ndef string_to_md5(text):\n    if not text:\n        return None\n    else:\n        return hashlib.md5(text.encode()).hexdigest()"
+        },
+        {
+          "task_id": "HumanEval/163",
+          "passed": false,
+          "completion_preview": "def generate_integers(a, b):\n    if a > b:\n        a, b = b, a\n\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    \n    return result"
+        }
+      ],
+      "suite": "humaneval",
+      "elapsed_seconds": 7237.2
+    },
+    "mbpp": {
+      "metrics": {
+        "pass_at_1": 0.0506,
+        "total_problems": 257,
+        "passed": 13,
+        "failed": 244,
+        "subset": "sanitized"
+      },
+      "per_problem": [
+        {
+          "task_id": 11,
+          "passed": false,
+          "completion_preview": "def remove_char(string, char):\n    first_index = string.find(char)\n    if first_index != -1:\n        string = string[:first_index] + string[first_index+1:]\n    last_index = string.rfind(char)\n    if l"
+        },
+        {
+          "task_id": 12,
+          "passed": true,
+          "completion_preview": "def sort_matrix(matrix):\n    return sorted(matrix, key=sum)"
+        },
+        {
+          "task_id": 14,
+          "passed": false,
+          "completion_preview": "def triangular_prism_volume(base, height, length):\n    return 0.5 * base * height * length"
+        },
+        {
+          "task_id": 16,
+          "passed": false,
+          "completion_preview": "def is_underscored_string(string):\n    return \"_\" in string and string.islower()"
+        },
+        {
+          "task_id": 17,
+          "passed": false,
+          "completion_preview": "def get_perimeter(side_length):\n    return 4 * side_length"
+        },
+        {
+          "task_id": 18,
+          "passed": false,
+          "completion_preview": "def remove_chars(str1, str2):\n    result = \"\"\n    for char in str1:\n        if char not in str2:\n            result += char\n    return result"
+        },
+        {
+          "task_id": 19,
+          "passed": false,
+          "completion_preview": "def has_duplicates(arr):\n    seen = set()\n    for num in arr:\n        if num in seen:\n            return True\n        seen.add(num)\n    return False"
+        },
+        {
+          "task_id": 20,
+          "passed": false,
+          "completion_preview": "def is_woodball(num):\n    return num % 2 == 0 and num > 0"
+        },
+        {
+          "task_id": 56,
+          "passed": false,
+          "completion_preview": "def is_twice_reverse(num):\n    rev = 0\n    temp = num\n    while (temp > 0):\n        rev = (rev * 10) + (temp % 10)\n        temp //= 10\n    return (num == 2*rev - 1)"
+        },
+        {
+          "task_id": 57,
+          "passed": false,
+          "completion_preview": "def largest_number(nums):\n    nums = sorted(nums, key=lambda x: str(x)*3, reverse=True)\n    return int(\"\".join(str(num) for num in nums))"
+        },
+        {
+          "task_id": 58,
+          "passed": false,
+          "completion_preview": "def hasOppositeSign(x,y):\n    return (x^y) < 0"
+        },
+        {
+          "task_id": 59,
+          "passed": false,
+          "completion_preview": "def nth_octagonal_number(n):\n    return n * (3 * n - 2)"
+        },
+        {
+          "task_id": 61,
+          "passed": false,
+          "completion_preview": "def count_substrings(string):\n    count = 0\n    for i in range(len(string)):\n        for j in range(i+1, len(string)+1):\n            if sum(map(int, string[i:j])) == (j-i):\n                count += 1\n"
+        },
+        {
+          "task_id": 62,
+          "passed": false,
+          "completion_preview": "def find_smallest_number(list):\n    return min(list)"
+        },
+        {
+          "task_id": 63,
+          "passed": false,
+          "completion_preview": "def max_difference(tuples):\n    diff = 0\n    for i in range(len(tuples)-1):\n        for j in range(i+1,len(tuples)):\n            if abs(tuples[i][1]-tuples[j][1]) > diff:\n                diff = abs(tu"
+        },
+        {
+          "task_id": 64,
+          "passed": false,
+          "completion_preview": "def sort_tuples(tuples):\n    return sorted(tuples, key=lambda x: x[1])"
+        },
+        {
+          "task_id": 65,
+          "passed": false,
+          "completion_preview": "def flatten_and_sum(lst):\n    flattened_list = []\n    for item in lst:\n        if type(item) == list:\n            flattened_list.extend(flatten_and_sum(item))\n        else:\n            flattened_list."
+        },
+        {
+          "task_id": 66,
+          "passed": false,
+          "completion_preview": "def count_positive_numbers(lst):\n    count = 0\n    for num in lst:\n        if num > 0:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": 67,
+          "passed": false,
+          "completion_preview": "def bell_partitions(n):\n    if n == 0:\n        return 1\n    else:\n        result = 0\n        for i in range(1,n+1):\n            result += bell_partitions(i-1) * bell_partitions(n-i)\n        return res"
+        },
+        {
+          "task_id": 68,
+          "passed": false,
+          "completion_preview": "def isMonotonic(A):\n    return (all(A[i] <= A[i + 1] for i in range(len(A) - 1)) or \n            all(A[i] >= A[i + 1] for i in range(len(A) - 1)))"
+        },
+        {
+          "task_id": 69,
+          "passed": false,
+          "completion_preview": "def contains_sublist(main_list, sub_list):\n    if sub_list == []:\n        return True\n    elif len(sub_list) > len(main_list):\n        return False\n    else:\n        for i in range(len(main_list)):\n  "
+        },
+        {
+          "task_id": 70,
+          "passed": false,
+          "completion_preview": "def check_equal_length(tuples):\n    lengths = [len(t) for t in tuples]\n    return len(set(lengths)) == 1"
+        },
+        {
+          "task_id": 71,
+          "passed": false,
+          "completion_preview": "def sort_list(lst):\n    return sorted(lst)"
+        },
+        {
+          "task_id": 72,
+          "passed": false,
+          "completion_preview": "def is_difference_of_squares(n):\n    if n % 2 == 0:\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 74,
+          "passed": false,
+          "completion_preview": "def is_sequence_followed(patterns):\n    for i in range(len(patterns)-1):\n        if patterns[i+1] != patterns[i]+1:\n            return False\n    return True"
+        },
+        {
+          "task_id": 75,
+          "passed": false,
+          "completion_preview": "def find_divisible_tuples(tuples_list, k):\n    result = []\n    for tup in tuples_list:\n        if all(x % k == 0 for x in tup):\n            result.append(tup)\n    return result"
+        },
+        {
+          "task_id": 77,
+          "passed": false,
+          "completion_preview": "def is_divisible_by_11(n):\n    if n % 11 == 0:\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 79,
+          "passed": false,
+          "completion_preview": "def is_length_odd(word):\n    return len(word) % 2 != 0"
+        },
+        {
+          "task_id": 80,
+          "passed": true,
+          "completion_preview": "def tetrahedral_number(n):\n    return int((n*(n+1)*(n+2))/6)"
+        },
+        {
+          "task_id": 82,
+          "passed": false,
+          "completion_preview": "def volume_of_sphere(radius):\n    return (4/3) * 3.14 * radius**3"
+        },
+        {
+          "task_id": 83,
+          "passed": false,
+          "completion_preview": "def get_char(string):\n    total = 0\n    for char in string:\n        total += ord(char)\n    return chr(total % 26)"
+        },
+        {
+          "task_id": 84,
+          "passed": false,
+          "completion_preview": "def newman_conway(n):\n    if n == 1 or n == 2:\n        return 1\n    else:\n        return newman_conway(newman_conway(n - 1)) + newman_conway(n - newman_conway(n - 1))"
+        },
+        {
+          "task_id": 85,
+          "passed": false,
+          "completion_preview": "def surface_area_of_sphere(radius):\n    return 4 * 3.14 * radius ** 2"
+        },
+        {
+          "task_id": 86,
+          "passed": false,
+          "completion_preview": "def nth_centered_hexagonal(n):\n    return 3 * n * (n - 1) + 1"
+        },
+        {
+          "task_id": 87,
+          "passed": false,
+          "completion_preview": "def merge_dicts(dict1, dict2, dict3):\n    merged_dict = {**dict1, **dict2, **dict3}\n    return merged_dict"
+        },
+        {
+          "task_id": 88,
+          "passed": false,
+          "completion_preview": "def get_frequency(lst):\n    freq = {}\n    for item in lst:\n        if item not in freq:\n            freq[item] = 1\n        else:\n            freq[item] += 1\n    return freq"
+        },
+        {
+          "task_id": 89,
+          "passed": false,
+          "completion_preview": "def closest_smaller(n):\n    return n - 1"
+        },
+        {
+          "task_id": 90,
+          "passed": false,
+          "completion_preview": "def longest_word_length(words):\n    max_len = 0\n    for word in words:\n        if len(word) > max_len:\n            max_len = len(word)\n    return max_len"
+        },
+        {
+          "task_id": 91,
+          "passed": false,
+          "completion_preview": "def is_substring(string_list, string):\n    for s in string_list:\n        if string in s:\n            return True\n    return False"
+        },
+        {
+          "task_id": 92,
+          "passed": true,
+          "completion_preview": "def is_undulating(num):\n    num_str = str(num)\n    if len(num_str) < 3:\n        return False\n    for i in range(2,len(num_str)):\n        if num_str[i] != num_str[i-2]:\n            return False\n    ret"
+        },
+        {
+          "task_id": 93,
+          "passed": true,
+          "completion_preview": "def power(a, b):\n    return a ** b"
+        },
+        {
+          "task_id": 94,
+          "passed": false,
+          "completion_preview": "def find_smallest_second_value(tuples):\n    return min(tuples, key=lambda x: x[1])[0]"
+        },
+        {
+          "task_id": 95,
+          "passed": false,
+          "completion_preview": "def min_list_length(list_of_lists):\n    return min(len(lst) for lst in list_of_lists)"
+        },
+        {
+          "task_id": 96,
+          "passed": false,
+          "completion_preview": "def count_divisors(n):\n    count = 0\n    for i in range(1,n+1):\n        if n % i == 0:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": 97,
+          "passed": false,
+          "completion_preview": "def flatten_list(list_of_lists):\n    flat_list = [item for sublist in list_of_lists for item in sublist]\n    freq_dict = {}\n    for i in flat_list:\n        if i not in freq_dict:\n            freq_dict"
+        },
+        {
+          "task_id": 98,
+          "passed": false,
+          "completion_preview": "def multiply_and_divide(lst):\n    product = 1\n    for num in lst:\n        product *= num\n    return product / len(lst)"
+        },
+        {
+          "task_id": 99,
+          "passed": false,
+          "completion_preview": "def dec_to_bin(n):\n    if n == 0:\n        return '0'\n    else:\n        return dec_to_bin(n // 2) + str(n % 2)"
+        },
+        {
+          "task_id": 100,
+          "passed": false,
+          "completion_preview": "def next_smallest_palindrome(n):\n    n = str(n)\n    for i in range(len(n)):\n        if n[i] != n[-i-1]:\n            return int(n[:i+1]+n[i][::-1]+n[i+1:])\n    return int(n[:-1]+str(int(n[-1])+1)+n[-2:"
+        },
+        {
+          "task_id": 101,
+          "passed": false,
+          "completion_preview": "def find_kth_element(arr, k):\n    return arr[k-1]"
+        },
+        {
+          "task_id": 102,
+          "passed": false,
+          "completion_preview": "def snake_to_camel(snake_str):\n    words = snake_str.split('_')\n    return words[0] + ''.join(word.capitalize() for word in words[1:])"
+        },
+        {
+          "task_id": 103,
+          "passed": false,
+          "completion_preview": "def eulerian_number(n, m):\n    if n == 0 and m == 0:\n        return 1\n    if n < 0 or m < 0 or m > n:\n        return 0\n    return ((n - m) * eulerian_number(n - 1, m - 1) + (m + 1) * eulerian_number(n"
+        },
+        {
+          "task_id": 104,
+          "passed": false,
+          "completion_preview": "def sort_sublists(list_of_lists):\n    for sublist in list_of_lists:\n        sublist.sort()\n    return list_of_lists"
+        },
+        {
+          "task_id": 105,
+          "passed": false,
+          "completion_preview": "def count_true(lst):\n    return lst.count(True)"
+        },
+        {
+          "task_id": 106,
+          "passed": false,
+          "completion_preview": "def append_list_to_tuple(tup, lst):\n    return tup + tuple(lst)"
+        },
+        {
+          "task_id": 108,
+          "passed": false,
+          "completion_preview": "def merge_lists(list1, list2, list3):\n    merged_list = list1 + list2 + list3\n    return sorted(merged_list)"
+        },
+        {
+          "task_id": 109,
+          "passed": false,
+          "completion_preview": "def count_odd_rotations(binary_string, rotations):\n    count = 0\n    for i in range(rotations):\n        if int(binary_string, 2) % 2 == 1:\n            count += 1\n        binary_string = binary_string["
+        },
+        {
+          "task_id": 111,
+          "passed": false,
+          "completion_preview": "def find_common_elements(list1, list2):\n    result = []\n    for i in list1:\n        if i in list2 and i not in result:\n            result.append(i)\n    return result"
+        },
+        {
+          "task_id": 113,
+          "passed": false,
+          "completion_preview": "def is_integer(string):\n    try:\n        int(string)\n        return True\n    except ValueError:\n        return False"
+        },
+        {
+          "task_id": 115,
+          "passed": false,
+          "completion_preview": "def is_all_empty(lst):\n    for d in lst:\n        if d:\n            return False\n    return True"
+        },
+        {
+          "task_id": 116,
+          "passed": true,
+          "completion_preview": "def tuple_to_int(tup):\n    res = 0\n    for ele in tup:\n        res = (res * 10) + ele\n    return res"
+        },
+        {
+          "task_id": 117,
+          "passed": false,
+          "completion_preview": "def convert_to_float(lst):\n    for i in range(len(lst)):\n        for j in range(len(lst[i])):\n            try:\n                lst[i][j] = float(lst[i][j])\n            except ValueError:\n             "
+        },
+        {
+          "task_id": 118,
+          "passed": false,
+          "completion_preview": "def str_to_list(string):\n    return string.split(' ')"
+        },
+        {
+          "task_id": 119,
+          "passed": false,
+          "completion_preview": "def find_single_element(arr):\n    left = 0\n    right = len(arr) - 1\n\n    while left < right:\n        mid = (left + right) // 2\n        if mid % 2 == 1:\n            mid -= 1\n        if arr[mid] != arr["
+        },
+        {
+          "task_id": 120,
+          "passed": false,
+          "completion_preview": "def max_abs_product(list):\n    max_prod = 0\n    for tup in list:\n        prod = abs(tup[0] * tup[1])\n        if prod > max_prod:\n            max_prod = prod\n    return max_prod"
+        },
+        {
+          "task_id": 123,
+          "passed": false,
+          "completion_preview": "def sum_amicable_numbers(n):\n    total = 0\n    for i in range(2,n+1):\n        if is_amicable(i):\n            total += i\n    return total\n\ndef is_amicable(num):\n    divisors_sum = sum(get_divisors(num)"
+        },
+        {
+          "task_id": 124,
+          "passed": false,
+          "completion_preview": "def get_angle(z):\n    return cmath.phase(z)"
+        },
+        {
+          "task_id": 125,
+          "passed": false,
+          "completion_preview": "def max_diff_zero_one(string):\n    diff = 0\n    max_diff = 0\n    for char in string:\n        if char == '0':\n            diff += 1\n        else:\n            diff -= 1\n        if diff < 0:\n            "
+        },
+        {
+          "task_id": 126,
+          "passed": false,
+          "completion_preview": "def sum_common_divisors(a,b):\n    result = 0\n    for i in range(1,min(a,b)+1):\n        if a%i==0 and b%i==0:\n            result +=i\n    return result"
+        },
+        {
+          "task_id": 127,
+          "passed": false,
+          "completion_preview": "def multiply(a, b):\n    return a * b"
+        },
+        {
+          "task_id": 128,
+          "passed": false,
+          "completion_preview": "def find_long_words(words, n):\n    long_words = []\n    for word in words:\n        if len(word) > n:\n            long_words.append(word)\n    return long_words"
+        },
+        {
+          "task_id": 129,
+          "passed": false,
+          "completion_preview": "def is_magic_square(matrix):\n    n = len(matrix)\n    sum_row = [sum(row) for row in matrix]\n    sum_col = [sum(col) for col in zip(*matrix)]\n    sum_diag1 = sum([matrix[i][i] for i in range(n)])\n    s"
+        },
+        {
+          "task_id": 130,
+          "passed": false,
+          "completion_preview": "def max_frequency(lst):\n    freq = {}\n    for i in lst:\n        if i not in freq:\n            freq[i] = 1\n        else:\n            freq[i] += 1\n    return max(freq, key=freq.get)"
+        },
+        {
+          "task_id": 131,
+          "passed": true,
+          "completion_preview": "def reverse_vowels(s):\n    s = list(s)\n    i, j = 0, len(s)-1\n    while i < j:\n        if s[i] not in 'aeiouAEIOU':\n            i += 1\n        elif s[j] not in 'aeiouAEIOU':\n            j -= 1\n       "
+        },
+        {
+          "task_id": 132,
+          "passed": false,
+          "completion_preview": "def tupleToString(tup):\n    str = ''.join([str(i) for i in tup])\n    return str"
+        },
+        {
+          "task_id": 133,
+          "passed": false,
+          "completion_preview": "def sum_negative_numbers(numbers):\n    total = 0\n    for num in numbers:\n        if num < 0:\n            total += num\n    return total"
+        },
+        {
+          "task_id": 135,
+          "passed": false,
+          "completion_preview": "def hexagonal_number(n):\n    return n*(2*n-1)"
+        },
+        {
+          "task_id": 137,
+          "passed": false,
+          "completion_preview": "def zero_ratio(arr):\n    count = 0\n    for i in arr:\n        if i == 0:\n            count += 1\n    return count/len(arr)"
+        },
+        {
+          "task_id": 138,
+          "passed": false,
+          "completion_preview": "def is_power_of_two(n): \n    if (n == 0): \n        return False\n    while (n != 1): \n        if (n % 2 != 0): \n            return False\n        n = n // 2\n  \n    return True"
+        },
+        {
+          "task_id": 139,
+          "passed": false,
+          "completion_preview": "def calculate_circumference(radius):\n    return 2 * 3.14 * radius"
+        },
+        {
+          "task_id": 140,
+          "passed": false,
+          "completion_preview": "def flatten_list(list_of_lists):\n    flattened_list = []\n    for sublist in list_of_lists:\n        for item in sublist:\n            flattened_list.append(item)\n    return flattened_list"
+        },
+        {
+          "task_id": 141,
+          "passed": false,
+          "completion_preview": "def sort_list(lst):\n    return sorted(lst)"
+        },
+        {
+          "task_id": 142,
+          "passed": false,
+          "completion_preview": "def count_identical_items(list1, list2, list3):\n    count = 0\n    for i in range(len(list1)):\n        if list1[i] == list2[i] == list3[i]:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": 143,
+          "passed": false,
+          "completion_preview": "def count_lists(tup):\n    return len([i for i in tup if type(i) == list])"
+        },
+        {
+          "task_id": 145,
+          "passed": false,
+          "completion_preview": "def max_difference(arr):\n    max_diff = 0\n    for i in range(len(arr)):\n        for j in range(i+1, len(arr)):\n            diff = abs(arr[i] - arr[j])\n            if diff > max_diff:\n                m"
+        },
+        {
+          "task_id": 160,
+          "passed": false,
+          "completion_preview": "def find_x_y(a, b, n):\n    for x in range(n // a + 1):\n        if (n - a * x) % b == 0:\n            y = (n - a * x) // b\n            return (x, y)\n    return None"
+        },
+        {
+          "task_id": 161,
+          "passed": true,
+          "completion_preview": "def remove_elements(list1, list2):\n    return [x for x in list1 if x not in list2]"
+        },
+        {
+          "task_id": 162,
+          "passed": false,
+          "completion_preview": "def calc_sum(n):\n    if n <= 0:\n        return 0\n    else:\n        return n + calc_sum(n-2)"
+        },
+        {
+          "task_id": 163,
+          "passed": false,
+          "completion_preview": "def calc_area_polygon(n, s):\n    return (n * s**2) / (4 * math.tan(math.pi/n))"
+        },
+        {
+          "task_id": 164,
+          "passed": false,
+          "completion_preview": "def is_sum_of_divisors_equal(num1, num2):\n    def get_sum_of_divisors(n):\n        return sum([i for i in range(1, n) if n % i == 0])\n    \n    return get_sum_of_divisors(num1) == get_sum_of_divisors(nu"
+        },
+        {
+          "task_id": 165,
+          "passed": false,
+          "completion_preview": "def count_alphabet_chars(string):\n    alphabet = \"abcdefghijklmnopqrstuvwxyz\"\n    count = 0\n    for i in range(len(string)):\n        if string[i].lower() == alphabet[i]:\n            count += 1\n    ret"
+        },
+        {
+          "task_id": 166,
+          "passed": false,
+          "completion_preview": "def count_even_xor_pairs(arr):\n    count = 0\n    for i in range(len(arr)):\n        for j in range(i+1, len(arr)):\n            if (arr[i] ^ arr[j]) % 2 == 0:\n                count += 1\n    return count"
+        },
+        {
+          "task_id": 167,
+          "passed": false,
+          "completion_preview": "def smallest_power_of_2(n):\n    if n == 0:\n        return 1\n    else:\n        p = 0\n        while (2**p < n):\n            p += 1\n        return 2**p"
+        },
+        {
+          "task_id": 168,
+          "passed": false,
+          "completion_preview": "def count_occurrences(lst, num):\n    return lst.count(num)"
+        },
+        {
+          "task_id": 170,
+          "passed": false,
+          "completion_preview": "def sum_in_range(lst, start_index, end_index):\n    return sum(lst[start_index:end_index+1])"
+        },
+        {
+          "task_id": 171,
+          "passed": false,
+          "completion_preview": "def pentagon_perimeter(side_length):\n    return 5 * side_length"
+        },
+        {
+          "task_id": 172,
+          "passed": false,
+          "completion_preview": "def count_std(string):\n    return string.count('std')"
+        },
+        {
+          "task_id": 222,
+          "passed": false,
+          "completion_preview": "def is_same_type(tup):\n    return len(set(map(type, tup))) == 1"
+        },
+        {
+          "task_id": 223,
+          "passed": false,
+          "completion_preview": "def is_majority_element(arr, n, x):\n    count = 0\n    for i in range(n):\n        if arr[i] == x:\n            count += 1\n    return count > n // 2"
+        },
+        {
+          "task_id": 224,
+          "passed": false,
+          "completion_preview": "def count_set_bits(n):\n    count = 0\n    while n:\n        count += n & 1\n        n >>= 1\n    return count"
+        },
+        {
+          "task_id": 226,
+          "passed": false,
+          "completion_preview": "def remove_odd_index_chars(string):\n    return ''.join([char for i, char in enumerate(string) if i % 2 == 0])"
+        },
+        {
+          "task_id": 227,
+          "passed": true,
+          "completion_preview": "def min_of_three(a,b,c):\n    return min(a,b,c)"
+        },
+        {
+          "task_id": 228,
+          "passed": false,
+          "completion_preview": "def is_all_bits_unset(n, l, r): \n    mask = ((1 << (r + 1)) - 1) ^ ((1 << (l - 1)) - 1)\n    return (n & mask) == 0"
+        },
+        {
+          "task_id": 229,
+          "passed": false,
+          "completion_preview": "def rearrange(arr,n):\n    i = 0\n    j = n - 1\n    while (i < j): \n        if arr[i] >= 0: \n            arr[i], arr[j] = arr[j], arr[i] \n            j -= 1\n        else:\n            i += 1\n    return a"
+        },
+        {
+          "task_id": 230,
+          "passed": false,
+          "completion_preview": "def replace_spaces(string, char):\n    return string.replace(\" \", char)"
+        },
+        {
+          "task_id": 232,
+          "passed": false,
+          "completion_preview": "def get_n_largest_items(lst, n):\n    return sorted(lst)[-n:]"
+        },
+        {
+          "task_id": 233,
+          "passed": false,
+          "completion_preview": "def lateral_surface_area_cylinder(radius, height):\n    return 2 * 3.14 * radius * height"
+        },
+        {
+          "task_id": 234,
+          "passed": false,
+          "completion_preview": "def cube_volume(side_length):\n    return side_length ** 3"
+        },
+        {
+          "task_id": 235,
+          "passed": false,
+          "completion_preview": "def set_even_bits(n):\n    mask = 0xAAAAAAAA\n    return n | mask"
+        },
+        {
+          "task_id": 237,
+          "passed": false,
+          "completion_preview": "def count_tuples(tuples):\n    result = {}\n    for t in tuples:\n        if t not in result:\n            result[t] = 1\n        else:\n            result[t] += 1\n    return result"
+        },
+        {
+          "task_id": 238,
+          "passed": false,
+          "completion_preview": "def count_substrings(string):\n    n = len(string)\n    return int(n * (n + 1) / 2)"
+        },
+        {
+          "task_id": 239,
+          "passed": false,
+          "completion_preview": "def count_sequences(m,n):\n    dp = [[0 for _ in range(n+1)] for _ in range(m+1)]\n    for i in range(1,m+1):\n        dp[i][1] = 1\n    for j in range(2,n+1):\n        for i in range(1,m+1):\n            d"
+        },
+        {
+          "task_id": 240,
+          "passed": false,
+          "completion_preview": "def replace_last_element(list1, list2):\n    list1[-1:] = list2\n    return list1"
+        },
+        {
+          "task_id": 242,
+          "passed": false,
+          "completion_preview": "def count_characters(string):\n    return len(string)"
+        },
+        {
+          "task_id": 244,
+          "passed": false,
+          "completion_preview": "def next_perfect_square(n):\n    root = int(math.sqrt(n))\n    return (root + 1) ** 2"
+        },
+        {
+          "task_id": 245,
+          "passed": false,
+          "completion_preview": "def max_bitonic_sum(arr): \n    n = len(arr) \n  \n    # Create two temporary arrays and fill them in bottom up manner. \n    inc = [0]*n \n    dec = [0]*n \n  \n    # Fill inc[] values from left to right \n "
+        },
+        {
+          "task_id": 246,
+          "passed": false,
+          "completion_preview": "def sqrt_babylonian(n):\n    x = n\n    y = 1\n    e = 0.000001\n    while(x - y > e):\n        x = (x + y)/2\n        y = n/x\n    return x"
+        },
+        {
+          "task_id": 247,
+          "passed": false,
+          "completion_preview": "def longest_palindrome_subseq(string): \n    n = len(string) \n  \n    L = [[0 for x in range(n)]for y in range(n)] \n  \n    for i in range(n): \n        L[i][i] = 1\n  \n    for cl in range(2, n+1): \n      "
+        },
+        {
+          "task_id": 248,
+          "passed": false,
+          "completion_preview": "def harmonic_sum(n):\n    if n < 2:\n        return 1\n    else:\n        return 1 / n + (harmonic_sum(n - 1))"
+        },
+        {
+          "task_id": 249,
+          "passed": false,
+          "completion_preview": "def intersect(nums1, nums2):\n    result = []\n    for i in range(len(nums1)):\n        if nums1[i] in nums2:\n            result.append(nums1[i])\n            nums2.remove(nums1[i])\n    return result"
+        },
+        {
+          "task_id": 250,
+          "passed": false,
+          "completion_preview": "def count_occurrences(tup, elem):\n    return tup.count(elem)"
+        },
+        {
+          "task_id": 251,
+          "passed": false,
+          "completion_preview": "def insert_before(lst, elem):\n    return [x for y in lst for x in (elem, y)]"
+        },
+        {
+          "task_id": 252,
+          "passed": false,
+          "completion_preview": "def complex_to_polar(c):\n    r = abs(c)\n    theta = cmath.phase(c)\n    return (r,theta)"
+        },
+        {
+          "task_id": 253,
+          "passed": false,
+          "completion_preview": "def count_integers(lst):\n    return len([x for x in lst if type(x) == int])"
+        },
+        {
+          "task_id": 255,
+          "passed": false,
+          "completion_preview": "def generate_combinations(lst, n):\n    result = []\n    if n == 0:\n        return [[]]\n    else:\n        for i in range(len(lst)):\n            for comb in generate_combinations(lst[i:], n-1):\n         "
+        },
+        {
+          "task_id": 256,
+          "passed": false,
+          "completion_preview": "def count_primes(n):\n    if n <= 1:\n        return 0\n    \n    primes = [True] * n\n    primes[0], primes[1] = False, False\n    \n    for i in range(2, int(n**0.5) + 1):\n        if primes[i]:\n           "
+        },
+        {
+          "task_id": 257,
+          "passed": true,
+          "completion_preview": "def swap_numbers(a, b):\n    return (b, a)"
+        },
+        {
+          "task_id": 259,
+          "passed": false,
+          "completion_preview": "def max_tuple(t1, t2):\n    return tuple(max(x,y) for x,y in zip(t1,t2))"
+        },
+        {
+          "task_id": 260,
+          "passed": false,
+          "completion_preview": "def nsw_prime(n):\n    if n == 0:\n        return 2\n    elif n == 1:\n        return 3\n    else:\n        return (nsw_prime(n-1) + nsw_prime(n-2)) * 2 - 1"
+        },
+        {
+          "task_id": 261,
+          "passed": false,
+          "completion_preview": "def divide_tuples(tup1, tup2):\n    result = ()\n    for i in range(len(tup1)):\n        result += (tup1[i] / tup2[i],)\n    return result"
+        },
+        {
+          "task_id": 262,
+          "passed": false,
+          "completion_preview": "def split_list(lst, L):\n    return (lst[:L], lst[L:])"
+        },
+        {
+          "task_id": 264,
+          "passed": false,
+          "completion_preview": "def dog_age_in_dog_years(human_age):\n    return human_age * 7"
+        },
+        {
+          "task_id": 265,
+          "passed": false,
+          "completion_preview": "def split_list(lst, n):\n    return [lst[i:i+n] for i in range(0, len(lst), n)]"
+        },
+        {
+          "task_id": 266,
+          "passed": false,
+          "completion_preview": "def lateral_surface_area(side_length):\n    return 4 * (side_length ** 2)"
+        },
+        {
+          "task_id": 267,
+          "passed": false,
+          "completion_preview": "def sum_of_squares(n):\n    total = 0\n    for i in range(1,2*n,2):\n        total += i**2\n    return total"
+        },
+        {
+          "task_id": 268,
+          "passed": false,
+          "completion_preview": "def nth_star_number(n):\n    return 6 * (n ** 2) - 5 * n + 1"
+        },
+        {
+          "task_id": 269,
+          "passed": false,
+          "completion_preview": "def get_ascii_value(char):\n    return ord(char)"
+        },
+        {
+          "task_id": 270,
+          "passed": false,
+          "completion_preview": "def sum_even_at_even_positions(lst):\n    total = 0\n    for i in range(1,len(lst),2):\n        if lst[i] % 2 == 0:\n            total += lst[i]\n    return total"
+        },
+        {
+          "task_id": 271,
+          "passed": false,
+          "completion_preview": "def sum_of_even_numbers(n):\n    total = 0\n    for i in range(1,n+1):\n        total += (2*i)**5\n    return total"
+        },
+        {
+          "task_id": 272,
+          "passed": false,
+          "completion_preview": "def get_rear_elements(tuples):\n    return [tup[1] for tup in tuples]"
+        },
+        {
+          "task_id": 273,
+          "passed": false,
+          "completion_preview": "def subtract_tuples(t1, t2):\n    return tuple(x - y for x, y in zip(t1, t2))"
+        },
+        {
+          "task_id": 274,
+          "passed": false,
+          "completion_preview": "def sum_even_index_binomials(n):\n    result = 0\n    for i in range(0,n+1,2):\n        result += math.comb(n,i)\n    return result"
+        },
+        {
+          "task_id": 276,
+          "passed": false,
+          "completion_preview": "def calculate_volume(radius, height):\n    return 3.14 * (radius ** 2) * height"
+        },
+        {
+          "task_id": 277,
+          "passed": false,
+          "completion_preview": "def filter_dict(dictionary, n):\n    return {key: value for key, value in dictionary.items() if value >= n}"
+        },
+        {
+          "task_id": 278,
+          "passed": false,
+          "completion_preview": "def count_before_tuple(tup, ele):\n    return tup.index(ele)"
+        },
+        {
+          "task_id": 279,
+          "passed": false,
+          "completion_preview": "def decagonal_number(n):\n    return 4 * n * (n - 1) + 1"
+        },
+        {
+          "task_id": 280,
+          "passed": false,
+          "completion_preview": "def find_element(arr, elem):\n    for i in range(len(arr)):\n        if arr[i] == elem:\n            return True, i\n    return False, -1"
+        },
+        {
+          "task_id": 281,
+          "passed": false,
+          "completion_preview": "def is_unique(lst):\n    return len(lst) == len(set(lst))"
+        },
+        {
+          "task_id": 282,
+          "passed": false,
+          "completion_preview": "def list_subtraction(list1, list2):\n    return [x - y for x, y in zip(list1, list2)]"
+        },
+        {
+          "task_id": 283,
+          "passed": false,
+          "completion_preview": "def check_frequency(n):\n    freq = [0] * 10\n    while n > 0:\n        digit = n % 10\n        if freq[digit] >= digit:\n            return False\n        freq[digit] += 1\n        n //= 10\n    return True"
+        },
+        {
+          "task_id": 284,
+          "passed": false,
+          "completion_preview": "def check_list(lst, elem):\n    for item in lst:\n        if item != elem:\n            return False\n    return True"
+        },
+        {
+          "task_id": 285,
+          "passed": false,
+          "completion_preview": "def check_string(string):\n    if \"ab{2,3}\".search(string):\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 286,
+          "passed": false,
+          "completion_preview": "def max_sum(arr, k):\n    n = len(arr)\n    arr = arr * k\n    max_sum = 0\n    curr_sum = 0\n    for i in range(n):\n        curr_sum += arr[i]\n        if curr_sum > max_sum:\n            max_sum = curr_sum"
+        },
+        {
+          "task_id": 287,
+          "passed": false,
+          "completion_preview": "def sum_of_squares(n):\n    return int((2 * n * (n + 1) * (2 * n + 1)) / 3)"
+        },
+        {
+          "task_id": 290,
+          "passed": false,
+          "completion_preview": "def max_length_list(list_of_lists):\n    max_len = 0\n    max_list = []\n    for lst in list_of_lists:\n        if len(lst) > max_len:\n            max_len = len(lst)\n            max_list = lst\n    return "
+        },
+        {
+          "task_id": 291,
+          "passed": false,
+          "completion_preview": "def numWays(n,k):\n    if n == 0:\n        return 0\n    if n == 1:\n        return k\n    mod = 10**9 + 7\n    same = k\n    diff = k*(k-1)\n    total = (same + diff) % mod\n    for i in range(3,n+1):\n       "
+        },
+        {
+          "task_id": 292,
+          "passed": false,
+          "completion_preview": "def find_quotient(num1, num2):\n    return int(num1 / num2)"
+        },
+        {
+          "task_id": 293,
+          "passed": false,
+          "completion_preview": "def find_third_side(a,b):\n    return (a**2 + b**2)**0.5"
+        },
+        {
+          "task_id": 294,
+          "passed": false,
+          "completion_preview": "def max_value(lst):\n    max_val = float('-inf')\n    for item in lst:\n        if isinstance(item, (int, float)):\n            if item > max_val:\n                max_val = item\n    return max_val"
+        },
+        {
+          "task_id": 295,
+          "passed": false,
+          "completion_preview": "def sum_of_divisors(n):\n    total = 0\n    for i in range(1,n+1):\n        if n % i == 0:\n            total += i\n    return total"
+        },
+        {
+          "task_id": 296,
+          "passed": false,
+          "completion_preview": "def count_inversions(arr):\n    count = 0\n    for i in range(len(arr)):\n        for j in range(i+1,len(arr)):\n            if arr[i] > arr[j]:\n                count += 1\n    return count"
+        },
+        {
+          "task_id": 297,
+          "passed": true,
+          "completion_preview": "def flatten_list(nested_list):\n    flat_list = []\n    for item in nested_list:\n        if isinstance(item, list):\n            flat_list.extend(flatten_list(item))\n        else:\n            flat_list.a"
+        },
+        {
+          "task_id": 299,
+          "passed": false,
+          "completion_preview": "def max_aggregate(tuples):\n    return sum(max(x) for x in tuples)"
+        },
+        {
+          "task_id": 300,
+          "passed": false,
+          "completion_preview": "def countBinarySequences(n): \n    dp = [[0 for x in range(2*n+1)] for y in range(n+1)] \n  \n    dp[0][0] = 1\n  \n    for i in range(1,n+1): \n        for j in range(2*i+1): \n            if (j == 0 or j ="
+        },
+        {
+          "task_id": 301,
+          "passed": true,
+          "completion_preview": "def dict_depth(d):\n    if isinstance(d, dict):\n        return 1 + (max(map(dict_depth, d.values())) if d else 0)\n    return 0"
+        },
+        {
+          "task_id": 304,
+          "passed": false,
+          "completion_preview": "def rotation(arr, n, k): \n    temp = arr[k] \n    for i in range(k,n-1): \n        arr[i] = arr[i+1] \n    arr[n-1] = temp \n    return arr"
+        },
+        {
+          "task_id": 305,
+          "passed": false,
+          "completion_preview": "def find_p_words(words):\n    p_words = []\n    for word in words:\n        if word[0] == 'p':\n            p_words.append(word)\n    return p_words[:2]"
+        },
+        {
+          "task_id": 306,
+          "passed": false,
+          "completion_preview": "def max_sum_increasing_subseq(arr, n, k): \n    dp = [[0 for x in range(n)] for y in range(k+1)] \n  \n    for i in range(1, k+1): \n        for j in range(i-1, n): \n            if (arr[j] > arr[i-2]): \n "
+        },
+        {
+          "task_id": 307,
+          "passed": false,
+          "completion_preview": "def get_colon(tup):\n    return tup[0] + ':' + tup[1]"
+        },
+        {
+          "task_id": 308,
+          "passed": false,
+          "completion_preview": "def max_product(list1, list2, n):\n    result = []\n    for i in range(len(list1)):\n        for j in range(len(list2)):\n            result.append(list1[i] * list2[j])\n    result.sort(reverse=True)\n    r"
+        },
+        {
+          "task_id": 309,
+          "passed": false,
+          "completion_preview": "def max_of_two(x,y):\n    if x > y:\n        return x\n    else:\n        return y"
+        },
+        {
+          "task_id": 310,
+          "passed": false,
+          "completion_preview": "def str_to_tuple(string):\n    return tuple(list(string))"
+        },
+        {
+          "task_id": 311,
+          "passed": false,
+          "completion_preview": "def set_left_most_unset_bit(n):\n    if n == 0:\n        return 1\n    else:\n        mask = 1\n        while (n & mask) != 0:\n            mask <<= 1\n        return n | mask"
+        },
+        {
+          "task_id": 312,
+          "passed": false,
+          "completion_preview": "def cone_volume(radius, height):\n    return (1/3) * 3.14 * radius**2 * height"
+        },
+        {
+          "task_id": 388,
+          "passed": false,
+          "completion_preview": "def highest_power_of_2(n):\n    i = 0\n    while (1 << i) <= n:\n        i += 1\n    return i - 1"
+        },
+        {
+          "task_id": 389,
+          "passed": false,
+          "completion_preview": "def lucas(n):\n    if n == 0:\n        return 2\n    elif n == 1:\n        return 1\n    else:\n        return lucas(n-1) + lucas(n-2)"
+        },
+        {
+          "task_id": 390,
+          "passed": false,
+          "completion_preview": "def format_list(lst, fmt):\n    return [fmt.format(i) for i in lst]"
+        },
+        {
+          "task_id": 391,
+          "passed": false,
+          "completion_preview": "def list_to_dict(list1, list2):\n    result = {}\n    for i in range(len(list1)):\n        result[list1[i]] = list2[i]\n    return result"
+        },
+        {
+          "task_id": 392,
+          "passed": false,
+          "completion_preview": "def max_sum(n):\n    if n == 0:\n        return 0\n    else:\n        return max(max_sum(int(n/2)) + max_sum(int(n/3)) + max_sum(int(n/4)) + max_sum(int(n/5)), n)"
+        },
+        {
+          "task_id": 393,
+          "passed": false,
+          "completion_preview": "def max_length_list(lists):\n    max_len = 0\n    max_list = []\n    for lst in lists:\n        if len(lst) > max_len:\n            max_len = len(lst)\n            max_list = lst\n    return max_list"
+        },
+        {
+          "task_id": 394,
+          "passed": false,
+          "completion_preview": "def has_no_duplicates(tup):\n    return len(set(tup)) == len(tup)"
+        },
+        {
+          "task_id": 395,
+          "passed": false,
+          "completion_preview": "def firstNonRepeatedChar(string):\n    char_count = {}\n    for char in string:\n        if char not in char_count:\n            char_count[char] = 1\n        else:\n            char_count[char] += 1\n    \n "
+        },
+        {
+          "task_id": 396,
+          "passed": false,
+          "completion_preview": "def is_same_start_end(string):\n    return string[0] == string[-1]"
+        },
+        {
+          "task_id": 397,
+          "passed": false,
+          "completion_preview": "def find_median(a, b, c):\n    if (a < b and b < c) or (c < b and b < a):\n        return b\n    elif (b < a and a < c) or (c < a and a < b):\n        return a\n    else:\n        return c"
+        },
+        {
+          "task_id": 398,
+          "passed": false,
+          "completion_preview": "def sum_of_digits(lst):\n    return [sum(int(digit) for digit in str(num)) for num in lst]"
+        },
+        {
+          "task_id": 399,
+          "passed": true,
+          "completion_preview": "def bitwise_xor(tup1, tup2):\n    result = ()\n    for i in range(len(tup1)):\n        result += (tup1[i] ^ tup2[i],)\n    return result"
+        },
+        {
+          "task_id": 400,
+          "passed": false,
+          "completion_preview": "def count_unique_tuples(lst):\n    return len(set(lst))"
+        },
+        {
+          "task_id": 401,
+          "passed": false,
+          "completion_preview": "def add_tuples(t1, t2):\n    result = ()\n    for i in range(len(t1)):\n        temp = ()\n        for j in range(len(t1[i])):\n            temp += (t1[i][j] + t2[i][j],)\n        result += (temp,)\n    retu"
+        },
+        {
+          "task_id": 404,
+          "passed": false,
+          "completion_preview": "def min_of_two(a,b):\n    if a < b:\n        return a\n    else:\n        return b"
+        },
+        {
+          "task_id": 405,
+          "passed": false,
+          "completion_preview": "def is_element_in_tuple(tup, elem):\n    return elem in tup"
+        },
+        {
+          "task_id": 406,
+          "passed": false,
+          "completion_preview": "def is_odd(n):\n    if n % 2 == 1:\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 407,
+          "passed": false,
+          "completion_preview": "def next_bigger_number(num):\n    num = list(str(num))\n    for i in range(len(num)-1, 0, -1):\n        if int(num[i]) > int(num[i-1]):\n            temp = num[i]\n            num[i] = num[i-1]\n           "
+        },
+        {
+          "task_id": 408,
+          "passed": false,
+          "completion_preview": "def kSmallestPairs(arr1, arr2, k):\n    result = []\n    for i in range(len(arr1)):\n        for j in range(len(arr2)):\n            result.append((arr1[i], arr2[j]))\n    result.sort(key=lambda x: x[0] + "
+        },
+        {
+          "task_id": 409,
+          "passed": false,
+          "completion_preview": "def min_product(list):\n    min_prod = float('inf')\n    for tup in list:\n        prod = tup[0] * tup[1]\n        if prod < min_prod:\n            min_prod = prod\n    return min_prod"
+        },
+        {
+          "task_id": 410,
+          "passed": false,
+          "completion_preview": "def min_value(lst):\n    min_val = float('inf')\n    for item in lst:\n        if isinstance(item, (int, float)):\n            if item < min_val:\n                min_val = item\n    return min_val"
+        },
+        {
+          "task_id": 411,
+          "passed": false,
+          "completion_preview": "def snake_to_camel(snake_str):\n    words = snake_str.split('_')\n    return words[0] + ''.join(word.capitalize() for word in words[1:])"
+        },
+        {
+          "task_id": 412,
+          "passed": false,
+          "completion_preview": "def remove_odd_numbers(lst):\n    return [x for x in lst if x % 2 == 0]"
+        },
+        {
+          "task_id": 413,
+          "passed": false,
+          "completion_preview": "def get_nth_element(tuples_list, n):\n    return [t[n] for t in tuples_list]"
+        },
+        {
+          "task_id": 414,
+          "passed": false,
+          "completion_preview": "def is_value_in_sequence(seq1, seq2):\n    for val in seq1:\n        if val in seq2:\n            return True\n    return False"
+        },
+        {
+          "task_id": 415,
+          "passed": false,
+          "completion_preview": "def max_product(arr):\n    n = len(arr)\n    if (n < 2): \n        return -1\n  \n    # Initialize maximum and second maximum  \n    # element as INT_MIN for cases when all elements \n    # are negative. \n  "
+        },
+        {
+          "task_id": 417,
+          "passed": false,
+          "completion_preview": "def common_first_element(list_of_tuples):\n    return list(set([tup[0] for tup in list_of_tuples]))"
+        },
+        {
+          "task_id": 418,
+          "passed": false,
+          "completion_preview": "def max_length_element(lst):\n    return max(lst, key=len)"
+        },
+        {
+          "task_id": 419,
+          "passed": true,
+          "completion_preview": "def round_and_sum(nums):\n    rounded_nums = [round(num) for num in nums]\n    return sum(rounded_nums) * len(nums)"
+        },
+        {
+          "task_id": 420,
+          "passed": false,
+          "completion_preview": "def cube_sum(n):\n    return (n*(n+1)//2)**2 * 4"
+        },
+        {
+          "task_id": 421,
+          "passed": false,
+          "completion_preview": "def concat_tuple(tup, delim):\n    return delim.join(str(x) for x in tup)"
+        },
+        {
+          "task_id": 422,
+          "passed": false,
+          "completion_preview": "def avg_of_cubes(n):\n    sum = 0\n    for i in range(1,n+1):\n        sum += i**3\n    return sum/n"
+        },
+        {
+          "task_id": 424,
+          "passed": false,
+          "completion_preview": "def get_rear_index_element(tup):\n    return [i[-1] for i in tup]"
+        },
+        {
+          "task_id": 425,
+          "passed": false,
+          "completion_preview": "def count_sublist(lst, x):\n    count = 0\n    for sublist in lst:\n        if x in sublist:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": 426,
+          "passed": false,
+          "completion_preview": "def filter_odd_numbers(numbers):\n    return [num for num in numbers if num % 2 != 0]"
+        },
+        {
+          "task_id": 427,
+          "passed": false,
+          "completion_preview": "def convert_date(date):\n    year, month, day = date.split('-')\n    return f'{day}-{month}-{year}'"
+        },
+        {
+          "task_id": 428,
+          "passed": false,
+          "completion_preview": "def shell_sort(arr):\n    n = len(arr)\n    gap = n // 2\n\n    while gap > 0:\n        for i in range(gap,n):\n            temp = arr[i]\n            j = i\n            while  j >= gap and arr[j-gap] >temp:\n"
+        },
+        {
+          "task_id": 429,
+          "passed": false,
+          "completion_preview": "def extract_tuples(t1, t2):\n    result = []\n    for i in range(len(t1)):\n        result.append((t1[i], t2[i]))\n    return tuple(result)"
+        },
+        {
+          "task_id": 430,
+          "passed": false,
+          "completion_preview": "def find_directrix(a,b,c):\n    return c - (a**2 + b**2) / (4*a)"
+        },
+        {
+          "task_id": 431,
+          "passed": false,
+          "completion_preview": "def has_common_element(list1, list2):\n    for item in list1:\n        if item in list2:\n            return True\n    return False"
+        },
+        {
+          "task_id": 432,
+          "passed": false,
+          "completion_preview": "def median_length(a,b):\n    return (a+b)/2"
+        },
+        {
+          "task_id": 433,
+          "passed": false,
+          "completion_preview": "def check_greater(arr, num):\n    for i in arr:\n        if num > i:\n            return True\n    return False"
+        },
+        {
+          "task_id": 434,
+          "passed": false,
+          "completion_preview": "import re\n\ndef match_string(string):\n    pattern = 'ab+'\n    if re.search(pattern, string):\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 435,
+          "passed": false,
+          "completion_preview": "def last_digit(num):\n    return num % 10"
+        },
+        {
+          "task_id": 436,
+          "passed": false,
+          "completion_preview": "def get_negative_numbers(lst):\n    result = []\n    for num in lst:\n        if num < 0:\n            result.append(num)\n    return result"
+        },
+        {
+          "task_id": 437,
+          "passed": false,
+          "completion_preview": "def remove_odd_characters(string):\n    return ''.join([char for char in string if ord(char) % 2 == 0])"
+        },
+        {
+          "task_id": 438,
+          "passed": false,
+          "completion_preview": "def count_bidirectional_pairs(tuples):\n    count = 0\n    for t in tuples:\n        if (t[1], t[0]) in tuples:\n            count += 1\n    return count"
+        },
+        {
+          "task_id": 439,
+          "passed": false,
+          "completion_preview": "def join_integers(int_list):\n    return int(\"\".join(str(i) for i in int_list))"
+        },
+        {
+          "task_id": 440,
+          "passed": false,
+          "completion_preview": "def find_adverb(sentence):\n    words = sentence.split()\n    for i, word in enumerate(words):\n        if word.endswith('ly'):\n            return (word, i)\n    return None"
+        },
+        {
+          "task_id": 441,
+          "passed": false,
+          "completion_preview": "def cube_surface_area(size):\n    return 6 * (size ** 2)"
+        },
+        {
+          "task_id": 442,
+          "passed": false,
+          "completion_preview": "def ratio_of_positive_numbers(arr):\n    count = 0\n    for num in arr:\n        if num > 0:\n            count += 1\n    return count / len(arr)"
+        },
+        {
+          "task_id": 443,
+          "passed": false,
+          "completion_preview": "def find_largest_negative_number(lst):\n    max_neg = None\n    for num in lst:\n        if num < 0 and (max_neg is None or num > max_neg):\n            max_neg = num\n    return max_neg"
+        },
+        {
+          "task_id": 444,
+          "passed": false,
+          "completion_preview": "def trim_tuple_list(tuples, k):\n    return [tuple[:k] for tuple in tuples]"
+        },
+        {
+          "task_id": 445,
+          "passed": false,
+          "completion_preview": "def multiply_tuples(tup1, tup2):\n    result = ()\n    for i in range(len(tup1)):\n        result += (tup1[i] * tup2[i],)\n    return result"
+        },
+        {
+          "task_id": 446,
+          "passed": false,
+          "completion_preview": "def count_elements(tup):\n    result = {}\n    for element in tup:\n        if element not in result:\n            result[element] = 1\n        else:\n            result[element] += 1\n    return result"
+        },
+        {
+          "task_id": 447,
+          "passed": false,
+          "completion_preview": "def cube_list(lst):\n    return [i**3 for i in lst]"
+        },
+        {
+          "task_id": 448,
+          "passed": false,
+          "completion_preview": "def perrin_sum(n):\n    if n == 0:\n        return 3\n    elif n == 1 or n == 2:\n        return 5\n    else:\n        return perrin_sum(n-2) + perrin_sum(n-3)"
+        },
+        {
+          "task_id": 450,
+          "passed": false,
+          "completion_preview": "def extract_strings(strings, size):\n    return [s[:size] for s in strings]"
+        },
+        {
+          "task_id": 451,
+          "passed": false,
+          "completion_preview": "def remove_whitespace(string):\n    return ''.join(string.split())"
+        },
+        {
+          "task_id": 452,
+          "passed": false,
+          "completion_preview": "def calculate_loss(amount, cost_price):\n    if amount < cost_price:\n        return cost_price - amount\n    else:\n        return 0"
+        },
+        {
+          "task_id": 453,
+          "passed": false,
+          "completion_preview": "def sum_even_factors(n): \n    res = 0\n    for i in range(2,n+1,2): \n        if n % i == 0: \n            res += i \n    return res"
+        },
+        {
+          "task_id": 454,
+          "passed": false,
+          "completion_preview": "import re\n\ndef match_word(word):\n    pattern = r'\\w*z.\\w*'\n    if re.search(pattern, word):\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 455,
+          "passed": false,
+          "completion_preview": "def is_month_with_31_days(month):\n    if month in [1, 3, 5, 7, 8, 10, 12]:\n        return True\n    else:\n        return False"
+        },
+        {
+          "task_id": 456,
+          "passed": false,
+          "completion_preview": "def reverse_strings(string_list):\n    return [s[::-1] for s in string_list]"
+        },
+        {
+          "task_id": 457,
+          "passed": false,
+          "completion_preview": "def min_sublist_length(lst):\n    min_len = float('inf')\n    for sublst in lst:\n        if len(sublst) < min_len:\n            min_len = len(sublst)\n    return min_len"
+        },
+        {
+          "task_id": 458,
+          "passed": false,
+          "completion_preview": "def calculate_area(length, width):\n    return length * width"
+        },
+        {
+          "task_id": 459,
+          "passed": false,
+          "completion_preview": "def remove_uppercase_substrings(string):\n    result = \"\"\n    for char in string:\n        if not char.isupper():\n            result += char\n    return result"
+        },
+        {
+          "task_id": 460,
+          "passed": false,
+          "completion_preview": "def get_first_elements(sublists):\n    return [sublist[0] for sublist in sublists]"
+        },
+        {
+          "task_id": 461,
+          "passed": false,
+          "completion_preview": "def count_uppercase(string):\n    count = 0\n    for char in string:\n        if char.isupper():\n            count += 1\n    return count"
+        },
+        {
+          "task_id": 462,
+          "passed": false,
+          "completion_preview": "def get_combinations(lst):\n    if len(lst) == 0:\n        return [[]]\n    else:\n        first = lst[0]\n        rest = lst[1:]\n        combinations_without_first = get_combinations(rest)\n        combina"
+        },
+        {
+          "task_id": 463,
+          "passed": false,
+          "completion_preview": "def maxProductSubArray(arr): \n    n = len(arr) \n  \n    # Initialize result \n    result = arr[0] \n  \n    # Iterate through array and keep track of current product \n    curr_product = 1\n  \n    for i in "
+        },
+        {
+          "task_id": 464,
+          "passed": false,
+          "completion_preview": "def is_all_values_same(dictionary):\n    return len(set(dictionary.values())) == 1"
+        },
+        {
+          "task_id": 465,
+          "passed": false,
+          "completion_preview": "def drop_empty_items(dictionary):\n    return {key: value for key, value in dictionary.items() if value is not None}"
+        },
+        {
+          "task_id": 468,
+          "passed": false,
+          "completion_preview": "def max_product(arr):\n    n = len(arr)\n    dp = [0]*n\n    dp[0] = arr[0]\n    for i in range(1,n):\n        dp[i] = max(dp[i-1],arr[i])\n        for j in range(i-1,-1,-1):\n            if arr[j]<arr[i]:\n "
+        },
+        {
+          "task_id": 470,
+          "passed": false,
+          "completion_preview": "def pairwise_addition(tup):\n    result = []\n    for i in range(len(tup)-1):\n        result.append(tup[i] + tup[i+1])\n    return tuple(result)"
+        },
+        {
+          "task_id": 471,
+          "passed": false,
+          "completion_preview": "def product_modulo(arr,n):\n    prod = 1\n    for i in arr:\n        prod = (prod * i) % n\n    return prod"
+        },
+        {
+          "task_id": 472,
+          "passed": false,
+          "completion_preview": "def is_consecutive(nums):\n    return sorted(nums) == list(range(min(nums), max(nums)+1))"
+        },
+        {
+          "task_id": 473,
+          "passed": false,
+          "completion_preview": "def tuple_intersection(tuples):\n    result = set.intersection(*map(set,tuples))\n    return tuple(result)"
+        },
+        {
+          "task_id": 474,
+          "passed": false,
+          "completion_preview": "def replace_chars(string, old_char, new_char):\n    return string.replace(old_char, new_char)"
+        },
+        {
+          "task_id": 475,
+          "passed": false,
+          "completion_preview": "def sort_dict_by_value(d):\n    return {k: v for k, v in sorted(d.items(), key=lambda item: item[1])}"
+        },
+        {
+          "task_id": 476,
+          "passed": false,
+          "completion_preview": "def sum_largest_smallest(arr):\n    return max(arr) + min(arr)"
+        },
+        {
+          "task_id": 477,
+          "passed": false,
+          "completion_preview": "def to_lower_case(string):\n    return string.lower()"
+        },
+        {
+          "task_id": 478,
+          "passed": false,
+          "completion_preview": "def remove_lowercase_substrings(string):\n    result = \"\"\n    for char in string:\n        if not char.islower():\n            result += char\n    return result"
+        },
+        {
+          "task_id": 479,
+          "passed": false,
+          "completion_preview": "def get_first_digit(num):\n    while num >= 10:\n        num = num // 10\n    return num"
+        }
+      ],
+      "suite": "mbpp",
+      "elapsed_seconds": 6854.6
+    },
+    "structural": {
+      "metrics": {
+        "structural_pass_rate": 0.7,
+        "avg_issues_per_output": 0.4,
+        "hallucinated_symbols": 0,
+        "missing_imports": 3,
+        "missing_symbols": 5,
+        "total_evaluated": 20
+      },
+      "per_problem": [
+        {
+          "id": "struct_001",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import csv\n\ndef read_csv_to_dict_list(filename):\n    with open(filename) as f:\n        reader = csv.DictReader(f)\n        return [row for row in reader]"
+        },
+        {
+          "id": "struct_002",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import requests\n\ndef get_json_response(url):\n    response = requests.get(url)\n    return response.json()"
+        },
+        {
+          "id": "struct_003",
+          "passed": false,
+          "missing_imports": [
+            "os"
+          ],
+          "missing_symbols": [
+            "tempfile.mkdtemp"
+          ],
+          "hallucinated_imports": [],
+          "issue_count": 2,
+          "completion_preview": "import tempfile\n\ndef create_temp_dir():\n    with tempfile.TemporaryDirectory() as temp_dir:\n        filename = \"test.txt\"\n        filepath = os.path.join(temp_dir, filename)\n        with open(filepath, 'w') as f:\n            f.write(\"Hello World!\")\n        with open(filepath, 'r') as f:\n            "
+        },
+        {
+          "id": "struct_004",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import argparse\n\ndef parse_args():\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--input', type=str)\n    parser.add_argument('--output', type=str)\n    return parser.parse_args()"
+        },
+        {
+          "id": "struct_005",
+          "passed": false,
+          "missing_imports": [
+            "pathlib"
+          ],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 1,
+          "completion_preview": "import os\n\ndef find_py_files(root_dir):\n    py_files = []\n    for root, dirs, files in os.walk(root_dir):\n        for f in files:\n            if f.endswith('.py'):\n                py_files.append(os.path.join(root, f))\n    return py_files"
+        },
+        {
+          "id": "struct_006",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import asyncio\nimport aiohttp\n\nasync def fetch_all(urls):\n    tasks = []\n    async with aiohttp.ClientSession() as session:\n        for url in urls:\n            task = asyncio.create_task(session.get(url))\n            tasks.append(task)\n        results = await asyncio.gather(*tasks)\n        return r"
+        },
+        {
+          "id": "struct_007",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import json\nfrom dataclasses import asdict\n\ndef serialize(data):\n    return json.dumps(asdict(data))\n\ndef deserialize(json_data, cls):\n    data = json.loads(json_data)\n    return cls(**data)"
+        },
+        {
+          "id": "struct_008",
+          "passed": false,
+          "missing_imports": [],
+          "missing_symbols": [
+            "re.compile"
+          ],
+          "hallucinated_imports": [],
+          "issue_count": 1,
+          "completion_preview": "import re\n\ndef validate_email(email):\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    if re.match(pattern, email):\n        return True\n    else:\n        return False"
+        },
+        {
+          "id": "struct_009",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import sqlite3\n\ndef create_db():\n    conn = sqlite3.connect('my_database.db')\n    c = conn.cursor()\n    c.execute('''CREATE TABLE my_table (id INTEGER PRIMARY KEY, name TEXT)''')\n    c.execute(\"INSERT INTO my_table (name) VALUES ('John')\")\n    conn.commit()\n    conn.close()\n\nif __name__ == '__main__"
+        },
+        {
+          "id": "struct_010",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import subprocess\n\ndef run_subprocess(command):\n    process = subprocess.Popen(command, stdout=subprocess.PIPE)\n    output, _ = process.communicate()\n    return output.decode()"
+        },
+        {
+          "id": "struct_011",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import gzip\nimport base64\n\ndef compress_string(string):\n    return base64.b64encode(gzip.compress(string.encode('utf-8'))).decode('utf-8')"
+        },
+        {
+          "id": "struct_012",
+          "passed": false,
+          "missing_imports": [],
+          "missing_symbols": [
+            "logging.getLogger",
+            "logging.FileHandler"
+          ],
+          "hallucinated_imports": [],
+          "issue_count": 2,
+          "completion_preview": "import logging\n\ndef log_levels():\n    logging.basicConfig(filename='example.log', level=logging.DEBUG)\n    logging.debug('This is a debug message')\n    logging.info('This is an info message')\n    logging.warning('This is a warning message')\n    logging.error('This is an error message')\n    logging.c"
+        },
+        {
+          "id": "struct_013",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import collections\n\ndef most_common_words(text):\n    counter = collections.Counter(text.split())\n    return counter.most_common()"
+        },
+        {
+          "id": "struct_014",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import hashlib\n\ndef calculate_sha256_hash(file_path):\n    with open(file_path, 'rb') as f:\n        sha256 = hashlib.sha256()\n        while chunk := f.read(8192):\n            sha256.update(chunk)\n    return sha256.hexdigest()"
+        },
+        {
+          "id": "struct_015",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import datetime\n\ndef get_days_between_dates(date_string1, date_string2):\n    date_format = \"%Y-%m-%d\"\n    date1 = datetime.datetime.strptime(date_string1, date_format)\n    date2 = datetime.datetime.strptime(date_string2, date_format)\n    return (date2 - date1).days"
+        },
+        {
+          "id": "struct_016",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import itertools\n\ndef get_combinations(lst):\n    return list(itertools.combinations(lst, len(lst)))"
+        },
+        {
+          "id": "struct_017",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import concurrent.futures\n\ndef run_in_parallel(tasks):\n    with concurrent.futures.ThreadPoolExecutor() as executor:\n        results = list(executor.map(run_task, tasks))\n    return results"
+        },
+        {
+          "id": "struct_018",
+          "passed": false,
+          "missing_imports": [
+            "contextlib"
+          ],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 1,
+          "completion_preview": "import time\n\n@contextmanager\ndef measure_time():\n    start = time.time()\n    yield\n    end = time.time()\n    print(f\"Execution time: {end - start} seconds\")"
+        },
+        {
+          "id": "struct_019",
+          "passed": true,
+          "missing_imports": [],
+          "missing_symbols": [],
+          "hallucinated_imports": [],
+          "issue_count": 0,
+          "completion_preview": "import functools\n\n@functools.lru_cache(maxsize=None)\ndef fib(n):\n    if n < 2:\n        return n\n    else:\n        return fib(n-1) + fib(n-2)"
+        },
+        {
+          "id": "struct_020",
+          "passed": false,
+          "missing_imports": [],
+          "missing_symbols": [
+            "typing.Generic"
+          ],
+          "hallucinated_imports": [],
+          "issue_count": 1,
+          "completion_preview": "from typing import TypeVar\n\nT = TypeVar('T')\n\nclass Stack:\n    def __init__(self):\n        self.items = []\n    \n    def push(self, item: T) -> None:\n        self.items.append(item)\n    \n    def pop(self) -> T:\n        return self.items.pop()\n    \n    def peek(self) -> T:\n        return self.items[-1"
+        }
+      ],
+      "suite": "structural",
+      "elapsed_seconds": 681.6
+    },
+    "custom": {
+      "metrics": {
+        "overall_score": 0.717,
+        "by_category": {
+          "type_hints": 0.75,
+          "docstrings": 0.8333,
+          "error_handling": 0.7778,
+          "pythonic_style": 0.8,
+          "combined": 0.6
+        },
+        "total_checks_passed": 38,
+        "total_checks_run": 53
+      },
+      "per_problem": [
+        {
+          "id": "type_hints_001",
+          "category": "type_hints",
+          "checks": {
+            "contains_type_hints": true,
+            "has_return_type": true,
+            "has_docstring": true
+          },
+          "all_passed": true,
+          "completion_preview": "def merge_lists(list1: List[int], list2: List[int]) -> List[int]:\n    \"\"\"\n    Merges two sorted lists into one sorted list.\n    \n    Parameters:\n        list1 (List[int]): The first sorted list.\n        list2 (List[int]): The second sorted list.\n        \n    Returns:\n        List[int]: A merged sort"
+        },
+        {
+          "id": "type_hints_002",
+          "category": "type_hints",
+          "checks": {
+            "contains_type_hints": true,
+            "has_return_type": true
+          },
+          "all_passed": true,
+          "completion_preview": "def find_duplicates(nums: List[int]) -> List[int]:\n    \"\"\"\n    Finds all duplicates in a list of integers.\n    \n    Args:\n        nums (List[int]): A list of integers.\n        \n    Returns:\n        List[int]: A list of duplicate integers.\n    \"\"\"\n    seen = set()\n    duplicates = []\n    for num in n"
+        },
+        {
+          "id": "type_hints_003",
+          "category": "type_hints",
+          "checks": {
+            "contains_type_hints": false,
+            "has_return_type": false,
+            "has_docstring": true
+          },
+          "all_passed": false,
+          "completion_preview": "def flatten_dict(d):\n    \"\"\"\n    Convert a nested dictionary to a flat dictionary with dot-separated keys.\n    \n    Parameters:\n        d (dict): The nested dictionary to convert.\n        \n    Returns:\n        dict: A flat dictionary with dot-separated keys.\n    \"\"\"\n    result = {}\n    for key, valu"
+        },
+        {
+          "id": "docstring_001",
+          "category": "docstrings",
+          "checks": {
+            "has_docstring": true,
+            "contains_type_hints": true
+          },
+          "all_passed": true,
+          "completion_preview": "def binary_search(arr: List[int], target: int) -> int:\n    \"\"\"\n    This function implements binary search on a sorted list.\n    \n    Parameters:\n        arr (List[int]): The sorted list to be searched.\n        target (int): The value to be searched for in the list.\n        \n    Returns:\n        int:"
+        },
+        {
+          "id": "docstring_002",
+          "category": "docstrings",
+          "checks": {
+            "has_docstring": true,
+            "contains_type_hints": true,
+            "has_return_type": true
+          },
+          "all_passed": true,
+          "completion_preview": "def luhn_check(card_number: str) -> bool:\n    \"\"\"\n    Validates a credit card number using the Luhn algorithm.\n    \n    Parameters\n    ----------\n    card_number : str\n        The credit card number to validate\n    \n    Returns\n    -------\n    bool\n        True if the credit card number is valid, Fa"
+        },
+        {
+          "id": "docstring_003",
+          "category": "docstrings",
+          "checks": {
+            "has_docstring": false
+          },
+          "all_passed": false,
+          "completion_preview": "class LRUCache:\n    def __init__(self, capacity: int):\n        self.capacity = capacity\n        self.cache = {}\n    \n    def get(self, key: int) -> int:\n        if key not in self.cache:\n            return -1\n        else:\n            value = self.cache[key]\n            del self.cache[key]\n         "
+        },
+        {
+          "id": "error_001",
+          "category": "error_handling",
+          "checks": {
+            "handles_edge_cases": false,
+            "no_bare_except": true
+          },
+          "all_passed": false,
+          "completion_preview": "import json\n\ndef read_json_file(filename):\n    \"\"\"\n    Read a JSON file and return the parsed contents.\n    \n    Args:\n        filename (str): The name of the file to be read.\n        \n    Returns:\n        dict: The parsed contents of the file.\n        \n    Raises:\n        FileNotFoundError: If the "
+        },
+        {
+          "id": "error_002",
+          "category": "error_handling",
+          "checks": {
+            "handles_edge_cases": true,
+            "no_bare_except": true
+          },
+          "all_passed": true,
+          "completion_preview": "def divide_numbers(num1: float, num2: float) -> float:\n    \"\"\"\n    Divides two numbers.\n    \n    Args:\n        num1 (float): The first number to be divided.\n        num2 (float): The second number to be divided.\n        \n    Returns:\n        float: The result of the division.\n        \n    Raises:\n  "
+        },
+        {
+          "id": "error_003",
+          "category": "error_handling",
+          "checks": {
+            "handles_edge_cases": false,
+            "no_bare_except": true
+          },
+          "all_passed": false,
+          "completion_preview": "import requests\n\ndef get_url_with_retries(url: str, max_retries: int = 5) -> requests.Response:\n    \"\"\"\n    Fetches a URL with retries and exponential backoff.\n    \n    Args:\n        url (str): The URL to fetch.\n        max_retries (int): Maximum number of retries.\n        \n    Returns:\n        requ"
+        },
+        {
+          "id": "error_004",
+          "category": "error_handling",
+          "checks": {
+            "handles_edge_cases": true,
+            "no_bare_except": true,
+            "has_docstring": true
+          },
+          "all_passed": true,
+          "completion_preview": "import re\nfrom datetime import datetime\n\ndef parse_date(date_string: str) -> datetime:\n    \"\"\"\n    Parses a date string in multiple formats and returns a datetime object.\n    \n    Parameters\n    ----------\n    date_string : str\n        The date string to be parsed.\n        \n    Returns\n    -------\n "
+        },
+        {
+          "id": "style_001",
+          "category": "pythonic_style",
+          "checks": {
+            "uses_list_comprehension": true,
+            "contains_type_hints": true
+          },
+          "all_passed": true,
+          "completion_preview": "def filter_strings(strings: List[str], n: int) -> List[str]:\n    \"\"\"\n    Filters a list of strings to only those longer than n characters.\n    \n    Args:\n        strings (List[str]): A list of strings.\n        n (int): The minimum length of the strings to keep.\n        \n    Returns:\n        List[str"
+        },
+        {
+          "id": "style_002",
+          "category": "pythonic_style",
+          "checks": {
+            "uses_list_comprehension": false,
+            "contains_type_hints": true
+          },
+          "all_passed": false,
+          "completion_preview": "def word_frequency(text: str) -> dict:\n    \"\"\"\n    Create a dictionary mapping words to their frequencies in a text.\n    \n    Args:\n        text (str): The input text.\n        \n    Returns:\n        dict: A dictionary mapping words to their frequencies.\n    \"\"\"\n    # Initialize an empty dictionary\n  "
+        },
+        {
+          "id": "style_003",
+          "category": "pythonic_style",
+          "checks": {
+            "uses_list_comprehension": true,
+            "contains_type_hints": true,
+            "has_return_type": true
+          },
+          "all_passed": true,
+          "completion_preview": "def transpose(matrix: List[List[int]]) -> List[List[int]]:\n    \"\"\"\n    Transpose a 2D matrix.\n    \n    Args:\n        matrix (List[List[int]]): The input matrix to be transposed.\n        \n    Returns:\n        List[List[int]]: The transposed matrix.\n    \"\"\"\n    if not matrix or not matrix[0]:\n        "
+        },
+        {
+          "id": "style_004",
+          "category": "pythonic_style",
+          "checks": {
+            "uses_list_comprehension": false,
+            "contains_type_hints": true,
+            "has_docstring": true
+          },
+          "all_passed": false,
+          "completion_preview": "import re\n\ndef extract_emails(text: str) -> set:\n    \"\"\"\n    Extracts all unique email addresses from a text string.\n    \n    Args:\n        text (str): The input text string.\n        \n    Returns:\n        set: A set of unique email addresses found in the text string.\n    \"\"\"\n    try:\n        pattern"
+        },
+        {
+          "id": "combined_001",
+          "category": "combined",
+          "checks": {
+            "contains_type_hints": true,
+            "has_return_type": true,
+            "has_docstring": true,
+            "handles_edge_cases": false
+          },
+          "all_passed": false,
+          "completion_preview": "def read_csv_above_threshold(file_path: str, column_name: str, threshold: float) -> list:\n    \"\"\"\n    Read a CSV file and return rows where a specified column value exceeds a threshold.\n    \n    Args:\n        file_path (str): The path to the CSV file.\n        column_name (str): The name of the colum"
+        },
+        {
+          "id": "combined_002",
+          "category": "combined",
+          "checks": {
+            "contains_type_hints": true,
+            "has_return_type": true,
+            "has_docstring": true
+          },
+          "all_passed": true,
+          "completion_preview": "import os\n\ndef find_files(glob_pattern: str, root_dir: str) -> list:\n    \"\"\"\n    Recursively finds all files matching a glob pattern in a directory.\n    \n    Args:\n        glob_pattern (str): The glob pattern to match against.\n        root_dir (str): The root directory to search in.\n        \n    Ret"
+        },
+        {
+          "id": "combined_003",
+          "category": "combined",
+          "checks": {
+            "has_docstring": false,
+            "contains_type_hints": false,
+            "no_bare_except": true
+          },
+          "all_passed": false,
+          "completion_preview": "import threading\n\nclass ThreadSafeCounter:\n    def __init__(self):\n        self.value = 0\n        self.lock = threading.Lock()\n\n    def increment(self):\n        with self.lock:\n            self.value += 1\n    \n    def decrement(self):\n        with self.lock:\n            self.value -= 1\n    \n    def "
+        },
+        {
+          "id": "combined_004",
+          "category": "combined",
+          "checks": {
+            "contains_type_hints": false,
+            "has_return_type": false,
+            "has_docstring": true,
+            "uses_list_comprehension": true
+          },
+          "all_passed": false,
+          "completion_preview": "def batch(iterable, n):\n    \"\"\"\n    Batches an iterable into chunks of size n.\n    \n    Args:\n        iterable (iterable): The iterable to be batched.\n        n (int): The size of each chunk.\n        \n    Returns:\n        list: A list of lists containing the batches.\n    \"\"\"\n    if not isinstance(n,"
+        },
+        {
+          "id": "combined_005",
+          "category": "combined",
+          "checks": {
+            "has_docstring": false,
+            "contains_type_hints": false
+          },
+          "all_passed": false,
+          "completion_preview": "import time\n\ndef cache(ttl):\n    def decorator(func):\n        cache = {}\n        def wrapper(*args, **kwargs):\n            key = str(args) + str(kwargs)\n            if key in cache:\n                if time.time() - cache[key][1] < ttl:\n                    return cache[key][0]\n            result = fu"
+        },
+        {
+          "id": "combined_006",
+          "category": "combined",
+          "checks": {
+            "contains_type_hints": true,
+            "has_return_type": true,
+            "has_docstring": true,
+            "handles_edge_cases": false
+          },
+          "all_passed": false,
+          "completion_preview": "def compare_directories(dir1: str, dir2: str) -> dict:\n    \"\"\"\n    Compares two directory trees and returns the differences.\n    \n    Args:\n        dir1 (str): The first directory to compare.\n        dir2 (str): The second directory to compare.\n        \n    Returns:\n        dict: A dictionary contai"
+        }
+      ],
+      "suite": "custom",
+      "elapsed_seconds": 1778.5
+    }
+  }
+}

@@ -20,8 +20,9 @@ outputs/
 *.bin
 *.pt
 
-# Results (regenerated)
-results/
+# Results - exclude model weights, keep traces and eval
+results/models/
+*.log
 
 # Environment
 .env

@@ -6,189 +6,150 @@
   <title>ToolTune Playground</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="bg-orb orb-a"></div>
-  <div class="bg-orb orb-b"></div>
-  <main class="shell">
-    <header class="hero">
-      <div class="hero-topline">
-        <p class="eyebrow">TOOLTUNE / DIAGNOSTIC PLAYGROUND</p>
-        <div class="hero-status">
-          <span class="status-pill">Arena compare</span>
-          <span class="status-pill">Trace timelines</span>
-          <span class="status-pill">Reward design</span>
-        </div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">ToolTune Playground <span class="version">v2</span></p>
+        <h1>Watch an agent think through real tasks</h1>
       </div>
-      <div class="hero-main">
-        <div class="hero-copy">
-          <h1>Train the agent. Then inspect the behavior, not just the answer.</h1>
-          <p class="hero-text">
-            Compare base and RL-trained tool-using agents side by side, inspect full ReAct traces, and make reward design consequences obvious enough to teach.
-          </p>
-        </div>
-        <div class="hero-metrics">
-          <div class="metric-card">
-            <span class="metric-label">Core Focus</span>
-            <strong>Tool Accuracy + Restraint</strong>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Loop Style</span>
-            <strong>Think -> Tool -> Observe -> Answer</strong>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Mode</span>
-            <strong id="health-mode">Checking...</strong>
-          </div>
-        </div>
+      <div class="topbar-actions">
+        <button id="autoplayBtn" class="ghost-btn">Autoplay</button>
       </div>
-      <nav class="tabs">
-        <button class="tab active" data-tab="arena">Arena</button>
-        <button class="tab" data-tab="trace">Trace Explorer</button>
-        <button class="tab" data-tab="reward">Reward Lab</button>
-        <button class="tab" data-tab="card">Model Card</button>
-      </nav>
     </header>
 
-    <section class="panel active" id="tab-arena">
-      <section class="task-box">
-        <div class="task-heading">
-          <div>
-            <span class="section-kicker">Task</span>
-            <h2>Run the same prompt against two variants</h2>
-            <p class="section-copy">Use a curated example or drop in a custom prompt. The UI keeps both runs synchronized so differences are obvious.</p>
-          </div>
-          <label class="toggle-row">
-            <input type="checkbox" id="inject-errors">
-            <span>Inject tool errors</span>
-          </label>
-        </div>
-        <textarea id="task-input">What's the driving distance from Pittsburgh to NYC, and how much would gas cost at $3.50/gallon if my car gets 28 mpg?</textarea>
-        <div class="controls">
-          <label class="field">
-            <span>Example</span>
-            <select id="example-select"></select>
-          </label>
-          <label class="field">
-            <span>Model A</span>
-            <select id="model-a"></select>
-          </label>
-          <label class="field">
-            <span>Model B</span>
-            <select id="model-b"></select>
-          </label>
-          <button id="swap-models" class="secondary-button" type="button">Swap</button>
-          <button id="run-both" class="primary-button" type="button">Run Comparison</button>
-        </div>
-        <div class="example-strip">
-          <div>
-            <span class="section-kicker">Showcase prompts</span>
-            <p class="strip-copy">Quickly stress planning, multi-step tool chaining, or no-tool restraint.</p>
-          </div>
-          <div id="example-pills" class="pill-row"></div>
-        </div>
-        <div class="legend-row">
-          <span class="legend-chip think">Think</span>
-          <span class="legend-chip tool_call">Tool call</span>
-          <span class="legend-chip observation">Observation</span>
-          <span class="legend-chip answer">Answer</span>
-        </div>
-      </section>
+    <main class="layout">
+      <aside class="sidebar surface">
+        <section class="section-block intro-block">
+          <p class="section-label">Reasoning debugger</p>
+          <p class="section-copy">Pick a task, edit the prompt, then run the three post-training stages against the same scenario.</p>
+        </section>
 
-      <section class="compare-overview" id="compare-overview">
-        <div class="compare-card">
-          <span class="metric-label">Variant A outcome</span>
-          <strong id="compare-a-status">Waiting</strong>
-          <span id="compare-a-meta" class="muted">Run a comparison to populate this.</span>
-        </div>
-        <div class="compare-card compare-center">
-          <span class="metric-label">Compare</span>
-          <strong id="compare-summary">No active comparison</strong>
-          <span id="compare-summary-meta" class="muted">Outcomes, loop count, and tool behavior will appear here.</span>
-        </div>
-        <div class="compare-card">
-          <span class="metric-label">Variant B outcome</span>
-          <strong id="compare-b-status">Waiting</strong>
-          <span id="compare-b-meta" class="muted">Run a comparison to populate this.</span>
-        </div>
-      </section>
+        <section class="section-block">
+          <div class="section-head">
+            <p class="section-label">Tasks</p>
+            <span id="taskCount" class="mini-chip"></span>
+          </div>
+          <div id="taskList" class="task-list"></div>
+        </section>
 
-      <section class="arena-grid">
-        <article class="trace-column">
-          <div class="trace-header">
+        <section class="section-block">
+          <p class="section-label">Model</p>
+          <div id="modelTabs" class="model-tabs"></div>
+        </section>
+      </aside>
+
+      <section class="stage-column">
+        <section class="hero surface">
+          <div class="hero-meta">
+            <span id="taskCategory" class="meta-chip"></span>
+            <span id="taskDifficulty" class="meta-chip"></span>
+            <span class="meta-chip">Demo mode</span>
+          </div>
+          <h2 id="taskTitle"></h2>
+          <div class="prompt-card">
+            <label class="section-label" for="promptInput">Prompt</label>
+            <textarea id="promptInput" class="prompt-input"></textarea>
+            <div class="prompt-actions">
+              <span id="runStatus" class="run-status">Ready</span>
+              <div class="prompt-buttons">
+                <button id="resetPromptBtn" class="ghost-btn">Reset</button>
+                <button id="runPromptBtn" class="run-btn">Run task</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panels-three">
+          <article class="model-panel surface" data-panel="base">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label accent-base">BASE</p>
+                <h3>Broken baseline</h3>
+              </div>
+              <span id="baseVerdictChip" class="verdict-chip fail">FAIL</span>
+            </div>
+            <div class="panel-runtime">
+              <span id="baseState" class="panel-state">Idle</span>
+              <span id="baseCount" class="panel-count">0 steps</span>
+            </div>
+            <div id="baseMiniFlow" class="mini-flow live"></div>
+            <p id="baseSummary" class="panel-summary"></p>
+          </article>
+
+          <article class="model-panel surface" data-panel="sft">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label accent-sft">SFT</p>
+                <h3>Format-correct</h3>
+              </div>
+              <span id="sftVerdictChip" class="verdict-chip partial">PARTIAL</span>
+            </div>
+            <div class="panel-runtime">
+              <span id="sftState" class="panel-state">Idle</span>
+              <span id="sftCount" class="panel-count">0 steps</span>
+            </div>
+            <div id="sftMiniFlow" class="mini-flow live"></div>
+            <p id="sftSummary" class="panel-summary"></p>
+          </article>
+
+          <article class="model-panel surface active" data-panel="grpo">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label accent-grpo">GRPO</p>
+                <h3>Surgical + restrained</h3>
+              </div>
+              <span id="grpoVerdictChip" class="verdict-chip success">CORRECT</span>
+            </div>
+            <div class="panel-runtime">
+              <span id="grpoState" class="panel-state">Idle</span>
+              <span id="grpoCount" class="panel-count">0 steps</span>
+            </div>
+            <div id="grpoMiniFlow" class="mini-flow live"></div>
+            <p id="grpoSummary" class="panel-summary"></p>
+          </article>
+        </section>
+
+        <section class="trace-stage surface">
+          <div class="trace-head">
             <div>
-              <span class="section-kicker">Variant A</span>
-              <h3 id="title-a">Model A</h3>
+              <p class="section-label">Live reasoning flow</p>
+              <h3 id="activeModelTitle"></h3>
             </div>
-            <div id="summary-a" class="mini-summary">Waiting for run</div>
-          </div>
-          <div class="trace-output" id="output-a"></div>
-        </article>
-        <article class="trace-column">
-          <div class="trace-header">
-            <div>
-              <span class="section-kicker">Variant B</span>
-              <h3 id="title-b">Model B</h3>
+            <div class="trace-actions">
+              <button id="playTraceBtn" class="ghost-btn">Play trace</button>
+              <button id="toggleRawBtn" class="ghost-btn">Raw trace</button>
             </div>
-            <div id="summary-b" class="mini-summary">Waiting for run</div>
           </div>
-          <div class="trace-output" id="output-b"></div>
-        </article>
+
+          <div class="trace-body">
+            <div class="flow-wrap">
+              <div id="flowchart" class="flowchart"></div>
+            </div>
+            <aside class="inspector surface-subtle">
+              <p class="section-label">Decision inspector</p>
+              <h4 id="inspectorTitle">Select a node</h4>
+              <p id="inspectorMeta" class="inspector-meta">Trace details appear here.</p>
+              <div id="inspectorContent" class="inspector-content"></div>
+            </aside>
+          </div>
+
+          <div id="rawTracePanel" class="raw-trace hidden">
+            <div class="raw-trace-head">
+              <p class="section-label">Raw trace</p>
+            </div>
+            <pre id="rawTraceContent"></pre>
+          </div>
+
+          <div id="verdictBar"></div>
+        </section>
       </section>
-    </section>
+    </main>
+  </div>
 
-    <section class="panel" id="tab-trace">
-      <section class="trace-layout">
-        <div class="trace-sidebar">
-          <span class="section-kicker">Selected Run</span>
-          <h2 id="trace-title">No run selected</h2>
-          <p id="trace-subtitle" class="muted">
-            Run a comparison in Arena, then click a result card to inspect the full timeline here.
-          </p>
-          <div id="trace-stats" class="trace-stats"></div>
-          <div class="timeline-toolbar">
-            <span class="section-kicker">Timeline Filter</span>
-            <div class="filter-row" id="phase-filters">
-              <button class="filter-chip active" data-phase="all" type="button">All</button>
-              <button class="filter-chip" data-phase="think" type="button">Think</button>
-              <button class="filter-chip" data-phase="tool_call" type="button">Tool</button>
-              <button class="filter-chip" data-phase="observation" type="button">Obs</button>
-              <button class="filter-chip" data-phase="answer" type="button">Answer</button>
-            </div>
-          </div>
-          <div class="run-list-wrap">
-            <span class="section-kicker">Recent Runs</span>
-            <div id="trace-run-list" class="trace-run-list"></div>
-          </div>
-        </div>
-        <div id="trace-detail" class="timeline"></div>
-      </section>
-    </section>
-
-    <section class="panel" id="tab-reward">
-      <div class="reward-header">
-        <div>
-          <span class="section-kicker">Reward Lab</span>
-          <h2>Behavior changes when incentives change</h2>
-          <p class="section-copy">Inspired by modern eval and tracing products: compact summaries first, specific behavioral examples second.</p>
-        </div>
-      </div>
-      <div class="reward-grid" id="reward-lab"></div>
-    </section>
-
-    <section class="panel" id="tab-card">
-      <div class="card-header">
-        <div>
-          <span class="section-kicker">Model Card</span>
-          <h2>Training summary and cross-variant outcomes</h2>
-          <p class="section-copy">Designed as a shareable product artifact rather than a raw metrics dump.</p>
-        </div>
-      </div>
-      <div id="model-card" class="model-card"></div>
-    </section>
-  </main>
-  <script src="app.js"></script>
+  <script type="module" src="/js/app.js"></script>
 </body>
 </html>

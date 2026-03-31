@@ -7,9 +7,9 @@ from pydantic import BaseModel, Field
 
 class GenerateRequest(BaseModel):
     task: str
-    model: str = Field(default="grpo-balanced")
+    model: str = Field(default="grpo")
     inject_errors: bool = False
-    demo_override: bool = False
+    demo_override: bool = True
 
 
 class VerifyRequest(BaseModel):
@@ -20,3 +20,4 @@ class VerifyRequest(BaseModel):
 
 class HealthResponse(BaseModel):
     mode: str
+    version: str

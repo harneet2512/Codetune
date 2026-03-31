@@ -1,0 +1,86 @@
+SFT_DONE
+MERGE_START
+MERGE_DONE
+GRPO_START
+GRPO_DONE
+TRACES_START
+TRACES_RESTART
+GRPO_TRACES_DONE
+BASE_SFT_TRACES_DONE
+========================================================================
+Metric                                  BASE         SFT        GRPO
+========================================================================
+Tasks Evaluated                           50          50          50
+Task Accuracy                       4/50   8.0%   30/50  60.0%   30/50  60.0%
+Tool Usage Rate                     0/50   0.0%   49/50  98.0%   48/50  96.0%
+Correct Format                     50/50 100.0%   50/50 100.0%   50/50 100.0%
+Restraint (avoided tools)          17/17 100.0%    1/17   5.9%    1/17   5.9%
+========================================================================
+
+--- BASE samples ---
+  [MISS] Q: What is 37 multiplied by 576?
+       Got: {
+  "tool": "calculator",
+  "tool_params": {
+    "expression  | Expected: 21312  | Tools: 0
+  [MISS] Q: What is the temperature in Stockholm in Fahrenheit?
+       Got: {"tool": "weather", "tool_params": {"city": "Stockholm"}}  | Expected: 32.0  | Tools: 0
+  [MISS] Q: How many kilometers is 442 miles?
+       Got: unit_converter  | Expected: 711.3303  | Tools: 0
+
+--- SFT samples ---
+  [OK] Q: What is 37 multiplied by 576?
+       Got: 21312  | Expected: 21312  | Tools: 1
+  [MISS] Q: What is the temperature in Stockholm in Fahrenheit?
+       Got: 33.8  | Expected: 32.0  | Tools: 1
+  [OK] Q: How many kilometers is 442 miles?
+       Got: 711.3303  | Expected: 711.3303  | Tools: 1
+
+--- GRPO samples ---
+  [OK] Q: What is 37 multiplied by 576?
+       Got: 21312  | Expected: 21312  | Tools: 1
+  [MISS] Q: What is the temperature in Stockholm in Fahrenheit?
+       Got: 33.8  | Expected: 32.0  | Tools: 1
+  [OK] Q: How many kilometers is 442 miles?
+       Got: 711.3303  | Expected: 711.3303  | Tools: 1
+ALL_DONE
+GRPO_V3_START
+GRPO_V3_DONE
+TRACES_V3_DONE
+========================================================================
+Metric                                  BASE         SFT        GRPO
+========================================================================
+Tasks Evaluated                           50          50          50
+Task Accuracy                       4/50   8.0%   30/50  60.0%   31/50  62.0%
+Tool Usage Rate                     0/50   0.0%   49/50  98.0%   47/50  94.0%
+Correct Format                     50/50 100.0%   50/50 100.0%   50/50 100.0%
+Restraint (avoided tools)          17/17 100.0%    1/17   5.9%    2/17  11.8%
+========================================================================
+
+--- BASE samples ---
+  [MISS] Q: What is 37 multiplied by 576?
+       Got: {
+  "tool": "calculator",
+  "tool_params": {
+    "expression  | Expected: 21312  | Tools: 0
+  [MISS] Q: What is the temperature in Stockholm in Fahrenheit?
+       Got: {"tool": "weather", "tool_params": {"city": "Stockholm"}}  | Expected: 32.0  | Tools: 0
+  [MISS] Q: How many kilometers is 442 miles?
+       Got: unit_converter  | Expected: 711.3303  | Tools: 0
+
+--- SFT samples ---
+  [OK] Q: What is 37 multiplied by 576?
+       Got: 21312  | Expected: 21312  | Tools: 1
+  [MISS] Q: What is the temperature in Stockholm in Fahrenheit?
+       Got: 33.8  | Expected: 32.0  | Tools: 1
+  [OK] Q: How many kilometers is 442 miles?
+       Got: 711.3303  | Expected: 711.3303  | Tools: 1
+
+--- GRPO samples ---
+  [MISS] Q: What is 37 multiplied by 576?
+       Got: 21372  | Expected: 21312  | Tools: 1
+  [MISS] Q: What is the temperature in Stockholm in Fahrenheit?
+       Got: 33.8  | Expected: 32.0  | Tools: 1
+  [MISS] Q: How many kilometers is 442 miles?
+       Got: 711.356  | Expected: 711.3303  | Tools: 1
+ALL_V3_DONE

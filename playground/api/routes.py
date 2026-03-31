@@ -1,62 +1,60 @@
-"""API routes for the ToolTune playground."""
+"""API routes for the ToolTune playground v2."""
 
 from __future__ import annotations
 
-import asyncio
-import json
-
 from fastapi import APIRouter
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse
 
-from playground.api.agent import AgentRunner
-from playground.api.data import PlaygroundData
+from playground.api.data import get_data
 from playground.api.models import GenerateRequest, VerifyRequest
 
 router = APIRouter()
-runner = AgentRunner()
-data = PlaygroundData()
 
 
-@router.post("/generate")
-async def generate(request: GenerateRequest):
-    trace, mode = runner.run(request.task, request.model, request.inject_errors, request.demo_override)
-    verification = runner.verify(trace)
-
-    async def event_stream():
-        for event in runner.sse_payload(trace, mode):
-            if event["type"] == "verification":
-                event["data"] = verification
-            await asyncio.sleep(0.02)
-            yield f"data: {json.dumps(event)}\n\n"
-        yield "data: [DONE]\n\n"
-
-    return StreamingResponse(event_stream(), media_type="text/event-stream")
+@router.get("/tasks")
+def tasks():
+    data = get_data()
+    return {"version": data.version, "models": data.models, "tasks": data.list_tasks()}
 
 
-@router.post("/verify")
-def verify(request: VerifyRequest):
-    trace = request.trace
-    if "verification" in trace:
-        return JSONResponse(trace["verification"])
-    return JSONResponse({"correct": False, "reason": "Missing verification payload"}, status_code=400)
+@router.get("/traces/{task_id}/{model}")
+def trace(task_id: str, model: str):
+    return get_data().get_trace(task_id, model)
 
 
 @router.get("/showcase")
 def showcase():
-    return {"examples": data.showcase, "variants": data.variants}
+    return get_data().showcase_payload()
 
 
 @router.get("/model-card")
 def model_card():
-    return data.load_model_card()
+    return get_data().load_model_card()
 
 
 @router.get("/reward-lab/{experiment}")
 def reward_lab(experiment: str):
-    return data.load_reward_lab(experiment)
+    return get_data().load_reward_lab(experiment)
+
+
+@router.post("/generate")
+def generate(request: GenerateRequest):
+    data = get_data()
+    return JSONResponse(data.get_trace(request.task, request.model))
+
+
+@router.post("/verify")
+def verify(request: VerifyRequest):
+    trace = request.trace or {}
+    return {
+        "correct": trace.get("correct", False),
+        "verdict": trace.get("verdict", "fail"),
+        "tool_calls_used": trace.get("tool_calls_used", 0),
+        "steps": trace.get("steps", 0),
+    }
 
 
 @router.get("/health")
 def health():
-    return {"mode": "demo"}
-
+    data = get_data()
+    return {"mode": "demo", "version": data.version}
