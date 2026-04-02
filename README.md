@@ -2,6 +2,10 @@
 
 Post-training lab for tool-using language models. Trains Qwen 2.5 7B to become a better agent via reinforcement learning — from 8% to 62% tool accuracy — then serves it with a full-stack playground where the model reasons over real APIs in real time.
 
+## Demo
+
+![CodeTune Demo](codetune-demo.gif)
+
 ## Results
 
 ### ToolTune: Base → SFT → GRPO
