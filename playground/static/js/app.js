@@ -1,78 +1,114 @@
-﻿import { renderFlowchart, renderMiniFlow } from './flowchart.js';
+/**
+ * ToolTune Playground — Main Application
+ *
+ * Hash-based SPA routing with three views:
+ *   #playground (default), #eval, #about
+ */
+
+import { renderFlowchart } from './flowchart.js';
 import { renderRawTrace } from './trace.js';
-import { renderVerdictBar } from './verdict.js';
+import { renderVerdictPanel } from './verdict.js';
+import { renderEvalStats, renderEvalBars, renderEvalTable, renderEvalFailures, renderEvalLoop } from './eval.js';
+
+// ================================================================
+// Constants
+// ================================================================
 
 const MODELS = ['base', 'sft', 'grpo'];
-const PANEL_LABELS = { base: 'BASE', sft: 'SFT', grpo: 'GRPO' };
+const PAGES = ['playground', 'eval', 'about'];
+const $ = (id) => document.getElementById(id);
+
+// ================================================================
+// State
+// ================================================================
 
 const state = {
+  page: 'playground',
   tasks: [],
-  models: [],
+  tasksFull: [],      // full task objects with traces (for eval)
   traces: {},
+  stats: {},
   activeTaskId: null,
   activeModel: 'grpo',
   activeNodeId: null,
-  autoplayTimer: null,
-  autoplayIndex: 0,
-  runVersion: 0,
-  simulationRunning: false,
-  runCompleted: false,
-  visibleByModel: { base: 0, sft: 0, grpo: 0 },
+  playing: false,
+  playTimer: null,
+  visibleCount: 0,
+  evalLoaded: false,
 };
 
-const els = {
-  taskList: document.getElementById('taskList'),
-  modelTabs: document.getElementById('modelTabs'),
-  taskCount: document.getElementById('taskCount'),
-  taskCategory: document.getElementById('taskCategory'),
-  taskDifficulty: document.getElementById('taskDifficulty'),
-  taskTitle: document.getElementById('taskTitle'),
-  promptInput: document.getElementById('promptInput'),
-  runStatus: document.getElementById('runStatus'),
-  runPromptBtn: document.getElementById('runPromptBtn'),
-  resetPromptBtn: document.getElementById('resetPromptBtn'),
-  flowchart: document.getElementById('flowchart'),
-  rawTracePanel: document.getElementById('rawTracePanel'),
-  rawTraceContent: document.getElementById('rawTraceContent'),
-  verdictBar: document.getElementById('verdictBar'),
-  inspectorTitle: document.getElementById('inspectorTitle'),
-  inspectorMeta: document.getElementById('inspectorMeta'),
-  inspectorContent: document.getElementById('inspectorContent'),
-  activeModelTitle: document.getElementById('activeModelTitle'),
-  autoplayBtn: document.getElementById('autoplayBtn'),
-  playTraceBtn: document.getElementById('playTraceBtn'),
-  toggleRawBtn: document.getElementById('toggleRawBtn'),
-  panels: [...document.querySelectorAll('.model-panel')],
-};
-
-function verdictClass(verdict) {
-  if (verdict === 'correct') return 'success';
-  if (verdict === 'partial') return 'partial';
-  return 'fail';
-}
-
-function verdictLabel(verdict) {
-  if (verdict === 'correct') return 'CORRECT';
-  if (verdict === 'partial') return 'PARTIAL';
-  return 'FAIL';
-}
-
-function titleForModel(model) {
-  return model === 'base' ? 'BASE trace' : model === 'sft' ? 'SFT trace' : 'GRPO trace';
-}
+// ================================================================
+// Utilities
+// ================================================================
 
 async function fetchJson(url) {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`Request failed: ${url}`);
-  return response.json();
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${url}: ${r.status}`);
+  return r.json();
 }
 
+function task() { return state.tasks.find((t) => t.id === state.activeTaskId); }
+
+function trace(m) {
+  return state.traces[`${state.activeTaskId}:${m || state.activeModel}`]?.trace;
+}
+
+function verdictCls(v) { return v === 'correct' ? 'correct' : v === 'partial' ? 'partial' : 'fail'; }
+function verdictText(v) { return v === 'correct' ? 'PASS' : v === 'partial' ? 'PARTIAL' : 'FAIL'; }
+
+function difficultyBadge(d) {
+  const lower = (d || '').toLowerCase();
+  if (lower === 'hard') return 'badge badge--hard';
+  if (lower === 'medium') return 'badge badge--medium';
+  if (lower === 'easy') return 'badge badge--easy';
+  return 'badge';
+}
+
+// ================================================================
+// Router
+// ================================================================
+
+function getHash() {
+  const h = window.location.hash.replace('#', '') || 'playground';
+  return PAGES.includes(h) ? h : 'playground';
+}
+
+function navigate(page) {
+  state.page = page;
+
+  // Toggle page visibility
+  for (const p of PAGES) {
+    const el = $(`page-${p}`);
+    if (el) {
+      el.style.display = p === page ? '' : 'none';
+    }
+  }
+
+  // Update nav links
+  document.querySelectorAll('.topnav-link').forEach((link) => {
+    link.classList.toggle('active', link.dataset.nav === page);
+  });
+
+  // Lazy-load eval data
+  if (page === 'eval' && !state.evalLoaded) {
+    loadEval();
+  }
+}
+
+function initRouter() {
+  window.addEventListener('hashchange', () => navigate(getHash()));
+  navigate(getHash());
+}
+
+// ================================================================
+// Data Loading
+// ================================================================
+
 async function loadTasks() {
-  const payload = await fetchJson('/api/tasks');
-  state.tasks = payload.tasks;
-  state.models = payload.models;
-  state.activeTaskId = payload.tasks[0]?.id ?? null;
-  els.taskCount.textContent = `${payload.tasks.length} tasks`;
+  const d = await fetchJson('/api/tasks');
+  state.tasks = d.tasks;
+  state.activeTaskId = d.tasks[0]?.id ?? null;
+  $('taskCount').textContent = d.tasks.length;
 }
 
 async function loadTrace(taskId, model) {
@@ -83,275 +119,263 @@ async function loadTrace(taskId, model) {
   return state.traces[key];
 }
 
-async function warmCurrentTask() {
-  await Promise.all(MODELS.map((model) => loadTrace(state.activeTaskId, model)));
+async function warmTask() {
+  if (!state.activeTaskId) return;
+  await Promise.all(MODELS.map((m) => loadTrace(state.activeTaskId, m)));
 }
 
-function activeTask() {
-  return state.tasks.find((item) => item.id === state.activeTaskId);
+async function loadEval() {
+  try {
+    const [statsData, evalData] = await Promise.all([
+      fetchJson('/api/stats'),
+      fetchJson('/api/eval'),
+    ]);
+    state.stats = statsData;
+    state.tasksFull = evalData.tasks || [];
+    state.evalLoaded = true;
+    renderEvalPage();
+  } catch (err) {
+    console.error('Failed to load eval data:', err);
+  }
 }
 
-function traceFor(model) {
-  return state.traces[`${state.activeTaskId}:${model}`]?.trace;
-}
+// ================================================================
+// Playground Rendering
+// ================================================================
 
-function visibleCountFor(model) {
-  const trace = traceFor(model);
-  if (!trace) return 0;
-  const current = state.visibleByModel[model] || 0;
-  if (state.simulationRunning) return Math.min(current, trace.nodes.length);
-  if (state.runCompleted) return trace.nodes.length;
-  return current;
-}
+function renderSidebar() {
+  const list = $('taskList');
+  list.innerHTML = '';
 
-function setPromptFromTask() {
-  const task = activeTask();
-  if (task) els.promptInput.value = task.prompt;
-}
+  // Group tasks by category
+  const groups = {};
+  for (const t of state.tasks) {
+    if (!groups[t.category]) groups[t.category] = [];
+    groups[t.category].push(t);
+  }
 
-function renderTasks() {
-  els.taskList.innerHTML = '';
-  state.tasks.forEach((task) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = `task-btn${task.id === state.activeTaskId ? ' active' : ''}`;
-    button.innerHTML = `<p class="task-btn-title">${task.title}</p><p class="task-btn-meta">${task.category} · ${task.difficulty}</p>`;
-    button.addEventListener('click', async () => {
-      state.activeTaskId = task.id;
-      stopAutoplay(false);
-      await warmCurrentTask();
-      setPromptFromTask();
-      resetRunState();
-      renderAll();
+  for (const [category, tasks] of Object.entries(groups)) {
+    // Group label
+    const label = document.createElement('div');
+    label.className = 'sidebar-group-label';
+    label.innerHTML = `<span class="sidebar-group-arrow">\u25BE</span> ${category}`;
+
+    const items = document.createElement('div');
+    items.className = 'sidebar-group-items';
+
+    label.addEventListener('click', () => {
+      label.classList.toggle('collapsed');
+      items.classList.toggle('hidden');
     });
-    els.taskList.appendChild(button);
-  });
+
+    for (const t of tasks) {
+      const btn = document.createElement('button');
+      btn.className = `task-item${t.id === state.activeTaskId ? ' active' : ''}`;
+
+      const dots = MODELS.map((m) => {
+        const key = `${t.id}:${m}`;
+        const cached = state.traces[key]?.trace;
+        const v = cached?.verdict || 'fail';
+        return `<span class="task-dot ${verdictCls(v)}"></span>`;
+      }).join('');
+
+      btn.innerHTML = `
+        <div class="task-item-dots">${dots}</div>
+        <div class="task-item-text">
+          <p class="task-item-title">${t.title}</p>
+          <p class="task-item-cat">${t.difficulty}</p>
+        </div>`;
+
+      btn.addEventListener('click', async () => {
+        state.activeTaskId = t.id;
+        state.activeNodeId = null;
+        stopPlay();
+        await warmTask();
+        renderPlayground();
+      });
+
+      items.appendChild(btn);
+    }
+
+    list.appendChild(label);
+    list.appendChild(items);
+  }
+}
+
+function renderTaskHeader() {
+  const t = task();
+  if (!t) return;
+  $('taskTitle').textContent = t.title;
+  $('taskPrompt').textContent = t.prompt;
+  $('taskDifficulty').textContent = t.difficulty;
+  $('taskDifficulty').className = difficultyBadge(t.difficulty);
+  $('taskCategory').textContent = t.category;
 }
 
 function renderModelTabs() {
-  els.modelTabs.innerHTML = '';
-  MODELS.forEach((model) => {
-    const trace = traceFor(model);
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.dataset.model = model;
-    button.className = `model-tab${state.activeModel === model ? ' active' : ''}`;
-    button.innerHTML = `<span>${PANEL_LABELS[model]}</span><span class="verdict-chip ${verdictClass(trace?.verdict || 'fail')}">${verdictLabel(trace?.verdict || 'fail')}</span>`;
-    button.addEventListener('click', () => {
-      state.activeModel = model;
+  const tabs = $('modelTabs');
+  tabs.innerHTML = '';
+
+  for (const m of MODELS) {
+    const tr = trace(m);
+    const btn = document.createElement('button');
+    btn.className = `model-tab${state.activeModel === m ? ' active' : ''}`;
+    btn.dataset.model = m;
+
+    const v = tr?.verdict || 'fail';
+    btn.innerHTML = `${m.toUpperCase()} <span class="tab-chip ${verdictCls(v)}">${verdictText(v)}</span>`;
+
+    btn.addEventListener('click', () => {
+      state.activeModel = m;
       state.activeNodeId = null;
-      renderAll();
+      stopPlay();
+      renderModelTabs();
+      renderTraceView();
     });
-    els.modelTabs.appendChild(button);
-  });
+
+    tabs.appendChild(btn);
+  }
 }
 
-function renderHero() {
-  const task = activeTask();
-  if (!task) return;
-  els.taskCategory.textContent = task.category;
-  els.taskDifficulty.textContent = task.difficulty;
-  els.taskTitle.textContent = task.title;
-}
+function renderTraceView() {
+  const tr = trace();
+  if (!tr) return;
 
-function renderPanels() {
-  MODELS.forEach((model) => {
-    const trace = traceFor(model);
-    if (!trace) return;
+  const nodes = state.playing ? tr.nodes.slice(0, state.visibleCount) : tr.nodes;
 
-    document.getElementById(`${model}Summary`).textContent = trace.summary;
-    const visibleNodes = trace.nodes.slice(0, visibleCountFor(model));
-    renderMiniFlow(document.getElementById(`${model}MiniFlow`), visibleNodes, trace.nodes.length);
+  renderFlowchart($('flowchart'), nodes, (node, index) => {
+    state.activeNodeId = node.id;
+    updateInspector(node, index, nodes.length);
+    // Re-render flowchart to update active state without re-animating
+    renderFlowchart($('flowchart'), nodes, (n, i) => {
+      state.activeNodeId = n.id;
+      updateInspector(n, i, nodes.length);
+      renderFlowchart($('flowchart'), nodes, arguments.callee, { activeNodeId: state.activeNodeId });
+    }, { activeNodeId: state.activeNodeId });
+  }, { activeNodeId: state.activeNodeId });
 
-    const chip = document.getElementById(`${model}VerdictChip`);
-    chip.className = `verdict-chip ${verdictClass(trace.verdict)}`;
-    chip.textContent = verdictLabel(trace.verdict);
+  renderRawTrace($('rawTrace'), tr.raw_trace);
+  renderVerdictPanel($('verdictCard'), tr);
 
-    const stateEl = document.getElementById(`${model}State`);
-    const countEl = document.getElementById(`${model}Count`);
-    const visible = visibleNodes.length;
-    const total = trace.nodes.length;
-
-    if (state.simulationRunning) stateEl.textContent = visible < total ? 'Running' : verdictLabel(trace.verdict);
-    else if (state.runCompleted) stateEl.textContent = verdictLabel(trace.verdict);
-    else if (visible > 0) stateEl.textContent = 'Paused';
-    else stateEl.textContent = 'Idle';
-
-    countEl.textContent = `${visible} / ${total} steps`;
-  });
-
-  els.panels.forEach((panel) => {
-    panel.classList.toggle('active', panel.dataset.panel === state.activeModel);
-    panel.onclick = () => {
-      state.activeModel = panel.dataset.panel;
-      state.activeNodeId = null;
-      renderAll();
-    };
-  });
+  // Auto-select last or current node
+  const sel = nodes.find((n) => n.id === state.activeNodeId) || nodes[nodes.length - 1];
+  if (sel) {
+    state.activeNodeId = sel.id;
+    updateInspector(sel, nodes.indexOf(sel), nodes.length);
+  }
 }
 
 function updateInspector(node, index, total) {
   if (!node) {
-    els.inspectorTitle.textContent = 'Select a node';
-    els.inspectorMeta.textContent = 'Trace details appear here.';
-    els.inspectorContent.textContent = '';
+    $('inspectorTitle').textContent = 'Select a step';
+    $('inspectorMeta').textContent = '';
+    $('inspectorContent').textContent = '';
     return;
   }
-
-  els.inspectorTitle.textContent = node.title;
-  els.inspectorMeta.textContent = `Step ${index + 1} of ${total} · ${node.type.replace('_', ' ')}`;
-  els.inspectorContent.textContent = node.content + (node.decision ? `\n\nDecision: ${node.decision}` : '');
+  $('inspectorTitle').textContent = node.title;
+  $('inspectorMeta').textContent = `Step ${index + 1} / ${total}  \u00b7  ${(node.type || '').replace(/_/g, ' ')}`;
+  let content = node.content || '';
+  if (node.decision) content += `\n\nDecision: ${node.decision}`;
+  $('inspectorContent').textContent = content;
 }
 
-function renderActiveTrace() {
-  const trace = traceFor(state.activeModel);
-  if (!trace) return;
+// ================================================================
+// Playback
+// ================================================================
 
-  const visibleCount = visibleCountFor(state.activeModel);
-  const visibleNodes = trace.nodes.slice(0, visibleCount);
-  const selectedNode = visibleNodes.find((node) => node.id === state.activeNodeId) || visibleNodes[visibleNodes.length - 1] || null;
-  state.activeNodeId = selectedNode?.id ?? null;
+function startPlay() {
+  stopPlay();
+  state.playing = true;
+  state.visibleCount = 0;
+  $('playLabel').textContent = 'Stop';
+  $('playBtn').classList.add('playing');
 
-  const task = activeTask();
-  els.activeModelTitle.textContent = `${titleForModel(state.activeModel)} · ${task?.title || ''}`;
+  const tr = trace();
+  if (!tr) return;
 
-  renderFlowchart(els.flowchart, visibleNodes, (node) => {
-    state.activeNodeId = node.id;
-    const index = visibleNodes.findIndex((item) => item.id === node.id);
-    updateInspector(node, index, visibleNodes.length);
-    renderActiveTrace();
-  }, { activeNodeId: state.activeNodeId });
-
-  renderRawTrace(els.rawTraceContent, trace.raw_trace);
-  renderVerdictBar(els.verdictBar, trace);
-
-  if (selectedNode) updateInspector(selectedNode, visibleNodes.findIndex((node) => node.id === selectedNode.id), visibleNodes.length);
-  else updateInspector(null, 0, 0);
+  state.playTimer = setInterval(() => {
+    state.visibleCount++;
+    if (state.visibleCount <= tr.nodes.length) {
+      state.activeNodeId = tr.nodes[state.visibleCount - 1]?.id;
+    }
+    renderTraceView();
+    if (state.visibleCount >= tr.nodes.length) {
+      stopPlay();
+    }
+  }, 700);
 }
 
-function renderPanelsAndTrace() {
-  renderPanels();
-  renderActiveTrace();
+function stopPlay() {
+  if (state.playTimer) clearInterval(state.playTimer);
+  state.playTimer = null;
+  state.playing = false;
+  $('playLabel').textContent = 'Play';
+  $('playBtn').classList.remove('playing');
 }
 
-function renderAll() {
-  renderTasks();
+// ================================================================
+// Playground full render
+// ================================================================
+
+function renderPlayground() {
+  renderSidebar();
+  renderTaskHeader();
   renderModelTabs();
-  renderHero();
-  renderPanelsAndTrace();
+  renderTraceView();
 }
 
-function resetRunState() {
-  MODELS.forEach((model) => {
-    state.visibleByModel[model] = 0;
-  });
-  state.simulationRunning = false;
-  state.runCompleted = false;
-  state.activeNodeId = null;
-  els.runStatus.textContent = 'Ready';
+// ================================================================
+// Eval Dashboard
+// ================================================================
+
+function renderEvalPage() {
+  renderEvalStats($('evalStatsRow'), state.stats);
+  renderEvalBars($('evalBars'), state.stats);
+  renderEvalTable($('evalTable'), state.tasksFull);
+  renderEvalFailures($('evalFailures'), state.tasksFull);
+  renderEvalLoop($('evalLoop'));
 }
 
-function stopAutoplay(markPaused = true) {
-  if (state.autoplayTimer) {
-    clearInterval(state.autoplayTimer);
-    state.autoplayTimer = null;
-  }
-  state.autoplayIndex = 0;
-  if (markPaused && state.simulationRunning) {
-    state.simulationRunning = false;
-    state.runCompleted = false;
-    els.runStatus.textContent = 'Paused';
-  }
-  els.autoplayBtn.textContent = 'Autoplay';
-  els.playTraceBtn.textContent = 'Play trace';
-}
+// ================================================================
+// Init
+// ================================================================
 
-function startSimulation() {
-  stopAutoplay(false);
-  state.runVersion += 1;
-  const runVersion = state.runVersion;
-  resetRunState();
-  state.simulationRunning = true;
-  els.runStatus.textContent = 'Running';
-  els.autoplayBtn.textContent = 'Stop';
-  els.playTraceBtn.textContent = 'Stop';
-
-  const maxSteps = Math.max(...MODELS.map((model) => traceFor(model)?.nodes.length || 0));
-  let tick = 0;
-
-  state.autoplayTimer = window.setInterval(() => {
-    if (runVersion !== state.runVersion) return;
-
-    tick += 1;
-    let active = false;
-
-    MODELS.forEach((model) => {
-      const trace = traceFor(model);
-      if (!trace) return;
-      if (state.visibleByModel[model] < trace.nodes.length) {
-        state.visibleByModel[model] += 1;
-        active = true;
-      }
-    });
-
-    const activeTrace = traceFor(state.activeModel);
-    if (activeTrace && state.visibleByModel[state.activeModel] > 0) {
-      const index = Math.min(state.visibleByModel[state.activeModel] - 1, activeTrace.nodes.length - 1);
-      state.activeNodeId = activeTrace.nodes[index]?.id || null;
-    }
-
-    renderPanelsAndTrace();
-
-    if (!active || tick > maxSteps + 2) {
-      stopAutoplay(false);
-      state.simulationRunning = false;
-      state.runCompleted = true;
-      MODELS.forEach((model) => {
-        const trace = traceFor(model);
-        if (trace) state.visibleByModel[model] = trace.nodes.length;
-      });
-      els.runStatus.textContent = 'Complete';
-      renderPanelsAndTrace();
-    }
-  }, 580);
-}
-
-function bindActions() {
-  els.toggleRawBtn.addEventListener('click', () => {
-    els.rawTracePanel.classList.toggle('hidden');
-  });
-
-  els.autoplayBtn.addEventListener('click', () => {
-    if (state.autoplayTimer) stopAutoplay(true);
-    else startSimulation();
-    renderPanelsAndTrace();
-  });
-
-  els.playTraceBtn.addEventListener('click', () => {
-    if (state.autoplayTimer) stopAutoplay(true);
-    else startSimulation();
-    renderPanelsAndTrace();
-  });
-
-  els.runPromptBtn.addEventListener('click', () => startSimulation());
-  els.resetPromptBtn.addEventListener('click', () => {
-    setPromptFromTask();
-    resetRunState();
-    renderAll();
+function bind() {
+  $('playBtn').addEventListener('click', () => {
+    if (state.playing) stopPlay();
+    else startPlay();
+    renderTraceView();
   });
 }
 
 async function init() {
-  bindActions();
+  bind();
+  initRouter();
   await loadTasks();
-  await warmCurrentTask();
-  setPromptFromTask();
-  resetRunState();
-  renderAll();
+  await warmTask();
+  renderPlayground();
+
+  // Preload all traces for sidebar dots
+  preloadAllTraces();
 }
 
-init().catch((error) => {
-  console.error(error);
-  els.taskTitle.textContent = 'Failed to load demo';
-  els.runStatus.textContent = error.message;
+async function preloadAllTraces() {
+  for (const t of state.tasks) {
+    for (const m of MODELS) {
+      const key = `${t.id}:${m}`;
+      if (!state.traces[key]) {
+        try {
+          state.traces[key] = await fetchJson(`/api/traces/${t.id}/${m}`);
+        } catch { /* ignore */ }
+      }
+    }
+  }
+  // Re-render sidebar with correct dots
+  renderSidebar();
+}
+
+init().catch((err) => {
+  console.error('Init failed:', err);
+  $('taskTitle').textContent = 'Error loading data';
+  $('taskPrompt').textContent = err.message;
 });

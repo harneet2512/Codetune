@@ -3,151 +3,242 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ToolTune Playground</title>
+  <title>ToolTune</title>
+  <meta name="description" content="ToolTune: Teaching language models when and how to use tools through reinforcement learning.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">ToolTune Playground <span class="version">v2</span></p>
-        <h1>Watch an agent think through real tasks</h1>
+  <div id="app">
+    <!-- Top nav -->
+    <header class="topnav">
+      <div class="topnav-left">
+        <a href="#playground" class="topnav-logo">tooltune</a>
+        <nav class="topnav-links">
+          <a href="#playground" class="topnav-link" data-nav="playground">Playground</a>
+          <a href="#eval" class="topnav-link" data-nav="eval">Eval Dashboard</a>
+          <a href="#about" class="topnav-link" data-nav="about">About</a>
+        </nav>
       </div>
-      <div class="topbar-actions">
-        <button id="autoplayBtn" class="ghost-btn">Autoplay</button>
+      <div class="topnav-right">
+        <div class="topnav-stats">
+          <span class="topnav-stat"><span class="stat-dot stat-dot--base"></span><span class="stat-label">Base</span><span class="stat-num stat-num--base">8%</span></span>
+          <span class="topnav-stat"><span class="stat-dot stat-dot--sft"></span><span class="stat-label">SFT</span><span class="stat-num stat-num--sft">60%</span></span>
+          <span class="topnav-stat"><span class="stat-dot stat-dot--grpo"></span><span class="stat-label">GRPO</span><span class="stat-num stat-num--grpo">62%</span></span>
+        </div>
       </div>
     </header>
 
-    <main class="layout">
-      <aside class="sidebar surface">
-        <section class="section-block intro-block">
-          <p class="section-label">Reasoning debugger</p>
-          <p class="section-copy">Pick a task, edit the prompt, then run the three post-training stages against the same scenario.</p>
-        </section>
-
-        <section class="section-block">
-          <div class="section-head">
-            <p class="section-label">Tasks</p>
-            <span id="taskCount" class="mini-chip"></span>
+    <!-- ============================================================ -->
+    <!-- PAGE: Playground                                              -->
+    <!-- ============================================================ -->
+    <div id="page-playground" class="page">
+      <div class="pg-shell">
+        <!-- Sidebar -->
+        <aside class="pg-sidebar">
+          <div class="sidebar-header">
+            <span class="sidebar-title">Tasks</span>
+            <span id="taskCount" class="sidebar-count"></span>
           </div>
-          <div id="taskList" class="task-list"></div>
-        </section>
+          <div id="taskList" class="sidebar-list"></div>
+        </aside>
 
-        <section class="section-block">
-          <p class="section-label">Model</p>
-          <div id="modelTabs" class="model-tabs"></div>
-        </section>
-      </aside>
-
-      <section class="stage-column">
-        <section class="hero surface">
-          <div class="hero-meta">
-            <span id="taskCategory" class="meta-chip"></span>
-            <span id="taskDifficulty" class="meta-chip"></span>
-            <span class="meta-chip">Demo mode</span>
-          </div>
-          <h2 id="taskTitle"></h2>
-          <div class="prompt-card">
-            <label class="section-label" for="promptInput">Prompt</label>
-            <textarea id="promptInput" class="prompt-input"></textarea>
-            <div class="prompt-actions">
-              <span id="runStatus" class="run-status">Ready</span>
-              <div class="prompt-buttons">
-                <button id="resetPromptBtn" class="ghost-btn">Reset</button>
-                <button id="runPromptBtn" class="run-btn">Run task</button>
-              </div>
+        <!-- Center + Inspector -->
+        <main class="pg-main">
+          <!-- Task header -->
+          <div class="task-header">
+            <div class="task-header-text">
+              <h1 id="taskTitle" class="task-title"></h1>
+              <p id="taskPrompt" class="task-prompt"></p>
             </div>
-          </div>
-        </section>
-
-        <section class="panels-three">
-          <article class="model-panel surface" data-panel="base">
-            <div class="panel-head">
-              <div>
-                <p class="panel-label accent-base">BASE</p>
-                <h3>Broken baseline</h3>
-              </div>
-              <span id="baseVerdictChip" class="verdict-chip fail">FAIL</span>
-            </div>
-            <div class="panel-runtime">
-              <span id="baseState" class="panel-state">Idle</span>
-              <span id="baseCount" class="panel-count">0 steps</span>
-            </div>
-            <div id="baseMiniFlow" class="mini-flow live"></div>
-            <p id="baseSummary" class="panel-summary"></p>
-          </article>
-
-          <article class="model-panel surface" data-panel="sft">
-            <div class="panel-head">
-              <div>
-                <p class="panel-label accent-sft">SFT</p>
-                <h3>Format-correct</h3>
-              </div>
-              <span id="sftVerdictChip" class="verdict-chip partial">PARTIAL</span>
-            </div>
-            <div class="panel-runtime">
-              <span id="sftState" class="panel-state">Idle</span>
-              <span id="sftCount" class="panel-count">0 steps</span>
-            </div>
-            <div id="sftMiniFlow" class="mini-flow live"></div>
-            <p id="sftSummary" class="panel-summary"></p>
-          </article>
-
-          <article class="model-panel surface active" data-panel="grpo">
-            <div class="panel-head">
-              <div>
-                <p class="panel-label accent-grpo">GRPO</p>
-                <h3>Surgical + restrained</h3>
-              </div>
-              <span id="grpoVerdictChip" class="verdict-chip success">CORRECT</span>
-            </div>
-            <div class="panel-runtime">
-              <span id="grpoState" class="panel-state">Idle</span>
-              <span id="grpoCount" class="panel-count">0 steps</span>
-            </div>
-            <div id="grpoMiniFlow" class="mini-flow live"></div>
-            <p id="grpoSummary" class="panel-summary"></p>
-          </article>
-        </section>
-
-        <section class="trace-stage surface">
-          <div class="trace-head">
-            <div>
-              <p class="section-label">Live reasoning flow</p>
-              <h3 id="activeModelTitle"></h3>
-            </div>
-            <div class="trace-actions">
-              <button id="playTraceBtn" class="ghost-btn">Play trace</button>
-              <button id="toggleRawBtn" class="ghost-btn">Raw trace</button>
+            <div class="task-badges">
+              <span id="taskDifficulty" class="badge"></span>
+              <span id="taskCategory" class="badge"></span>
             </div>
           </div>
 
-          <div class="trace-body">
-            <div class="flow-wrap">
+          <!-- Model tabs + play -->
+          <div class="model-bar">
+            <div class="model-tabs" id="modelTabs"></div>
+            <button id="playBtn" class="btn-play" title="Animate trace playback">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="2,0 14,7 2,14" fill="currentColor"/></svg>
+              <span id="playLabel">Play</span>
+            </button>
+          </div>
+
+          <!-- Trace area -->
+          <div class="trace-layout">
+            <div class="flow-col">
               <div id="flowchart" class="flowchart"></div>
             </div>
-            <aside class="inspector surface-subtle">
-              <p class="section-label">Decision inspector</p>
-              <h4 id="inspectorTitle">Select a node</h4>
-              <p id="inspectorMeta" class="inspector-meta">Trace details appear here.</p>
-              <div id="inspectorContent" class="inspector-content"></div>
-            </aside>
-          </div>
-
-          <div id="rawTracePanel" class="raw-trace hidden">
-            <div class="raw-trace-head">
-              <p class="section-label">Raw trace</p>
+            <div class="inspector-col">
+              <div class="inspector-panel">
+                <div class="inspector-head">
+                  <span class="inspector-label">Inspector</span>
+                </div>
+                <h3 id="inspectorTitle" class="inspector-title">Select a step</h3>
+                <p id="inspectorMeta" class="inspector-meta"></p>
+                <pre id="inspectorContent" class="inspector-body"></pre>
+              </div>
+              <div class="verdict-panel" id="verdictCard"></div>
             </div>
-            <pre id="rawTraceContent"></pre>
           </div>
 
-          <div id="verdictBar"></div>
+          <!-- Raw trace -->
+          <details class="raw-section">
+            <summary class="raw-toggle">Raw trace output</summary>
+            <pre id="rawTrace" class="raw-content"></pre>
+          </details>
+        </main>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: Eval Dashboard                                          -->
+    <!-- ============================================================ -->
+    <div id="page-eval" class="page" style="display:none">
+      <div class="eval-container">
+        <!-- Hero stats -->
+        <div class="eval-hero">
+          <h1 class="eval-page-title">Eval Dashboard</h1>
+          <p class="eval-page-sub">Training progression across 50 eval tasks. Base model to SFT to GRPO reinforcement learning.</p>
+        </div>
+
+        <div class="eval-stats-row" id="evalStatsRow"></div>
+
+        <!-- Training progress bars -->
+        <section class="eval-section">
+          <h2 class="eval-section-title">Training Progression</h2>
+          <p class="eval-section-sub">Accuracy, tool usage, and restraint across training stages</p>
+          <div id="evalBars" class="eval-bars"></div>
         </section>
-      </section>
-    </main>
+
+        <!-- Category breakdown -->
+        <section class="eval-section">
+          <h2 class="eval-section-title">Category Breakdown</h2>
+          <p class="eval-section-sub">Performance by task category across all three model checkpoints</p>
+          <div id="evalTable" class="eval-table-wrap"></div>
+        </section>
+
+        <!-- Failure analysis -->
+        <section class="eval-section">
+          <h2 class="eval-section-title">Failure Analysis</h2>
+          <p class="eval-section-sub">Tasks where models still struggle and what the next training iteration would target</p>
+          <div id="evalFailures" class="eval-failures"></div>
+        </section>
+
+        <!-- The Loop -->
+        <section class="eval-section">
+          <h2 class="eval-section-title">The Eval-Train Loop</h2>
+          <p class="eval-section-sub">Continuous improvement through targeted evaluation and training</p>
+          <div id="evalLoop" class="eval-loop-wrap"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: About                                                   -->
+    <!-- ============================================================ -->
+    <div id="page-about" class="page" style="display:none">
+      <div class="about-container">
+        <div class="about-hero">
+          <h1 class="about-title">ToolTune</h1>
+          <p class="about-tagline">Teaching language models when and how to use tools through reinforcement learning.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <span class="about-card-label">Problem</span>
+            <p>Base language models cannot reliably invoke external tools. They hallucinate tool calls, use wrong parameters, or refuse to act when tools are needed. Fine-tuning on format alone (SFT) teaches structure but not judgment.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-card-label">Approach</span>
+            <p>ToolTune applies a two-stage training pipeline: SFT for format compliance, then GRPO (Group Relative Policy Optimization) to teach when to use tools, which tools to pick, and when to stop. The reward function scores tool accuracy, restraint, efficiency, and answer quality.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-card-label">Results</span>
+            <p>Task accuracy: 8% (base) to 60% (SFT) to 62% (GRPO). The real win is behavioral: GRPO models show restraint (not over-tooling), use targeted queries, and cite evidence. Restraint score improved from 6% to 12%.</p>
+          </div>
+        </div>
+
+        <section class="about-section">
+          <h2 class="about-section-title">Tech Stack</h2>
+          <div class="about-tech-grid">
+            <div class="about-tech-item">
+              <span class="about-tech-name">Base Model</span>
+              <span class="about-tech-val">Qwen 2.5 7B Instruct</span>
+            </div>
+            <div class="about-tech-item">
+              <span class="about-tech-name">Fine-tuning</span>
+              <span class="about-tech-val">QLoRA (4-bit, rank 64)</span>
+            </div>
+            <div class="about-tech-item">
+              <span class="about-tech-name">RL Algorithm</span>
+              <span class="about-tech-val">GRPO (Group Relative Policy Optimization)</span>
+            </div>
+            <div class="about-tech-item">
+              <span class="about-tech-name">Framework</span>
+              <span class="about-tech-val">TRL + Hugging Face Transformers</span>
+            </div>
+            <div class="about-tech-item">
+              <span class="about-tech-name">Tools</span>
+              <span class="about-tech-val">17 connectors (GitHub, Drive, Gmail)</span>
+            </div>
+            <div class="about-tech-item">
+              <span class="about-tech-name">Eval Suite</span>
+              <span class="about-tech-val">50 tasks across 8 categories</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2 class="about-section-title">Training Recipe</h2>
+          <div class="about-recipe">
+            <div class="about-recipe-step">
+              <span class="about-recipe-num">01</span>
+              <div>
+                <strong>Define tool schemas</strong>
+                <p>17 typed tool schemas across GitHub, Google Drive, and Gmail connectors with parameter validation.</p>
+              </div>
+            </div>
+            <div class="about-recipe-step">
+              <span class="about-recipe-num">02</span>
+              <div>
+                <strong>Build eval suite</strong>
+                <p>50 evaluation tasks spanning incident triage, spec audits, restraint tests, and multi-step workflows.</p>
+              </div>
+            </div>
+            <div class="about-recipe-step">
+              <span class="about-recipe-num">03</span>
+              <div>
+                <strong>SFT for format</strong>
+                <p>Supervised fine-tuning on curated traces to teach the think/tool_call/observation/answer format.</p>
+              </div>
+            </div>
+            <div class="about-recipe-step">
+              <span class="about-recipe-num">04</span>
+              <div>
+                <strong>GRPO for judgment</strong>
+                <p>Reinforcement learning with a composite reward: tool accuracy (30%), answer quality (30%), restraint (15%), efficiency (15%), ordering (10%).</p>
+              </div>
+            </div>
+            <div class="about-recipe-step">
+              <span class="about-recipe-num">05</span>
+              <div>
+                <strong>Iterate</strong>
+                <p>Re-evaluate, identify failure modes, generate targeted training data, and repeat.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="about-footer">
+          <a href="https://github.com" class="about-link" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="/js/app.js"></script>

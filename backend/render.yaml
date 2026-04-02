@@ -1,0 +1,26 @@
+# Render Blueprint — deploy to Render free tier
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: codetune-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: CODETUNE_MODE
+        value: demo
+      - key: FRONTEND_URL
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: HF_SPACE_URL
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+    autoDeploy: true
+    plan: free

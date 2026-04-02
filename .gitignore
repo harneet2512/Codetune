@@ -43,3 +43,15 @@ wandb/
 
 # HuggingFace cache
 .cache/
+.gstack/
+
+
+# Claude Code
+.claude/
+
+# Frontend build
+playground/client/node_modules/
+playground/client/dist/
+
+# Screenshots (large)
+screenshots/

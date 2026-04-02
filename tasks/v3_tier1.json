@@ -1,0 +1,1702 @@
+[
+  {
+    "id": "v3-t1-drive-search-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Find the Q1 roadmap document",
+    "ground_truth": "Q1 2025 Product Roadmap (doc_001)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Q1"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Search Drive for anything about planning",
+    "ground_truth": "Sprint Planning Board (sheet_002)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Planning"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-2",
+    "tier": "tier1_single_tool",
+    "prompt": "What Gmail labels do I have set up?",
+    "ground_truth": "System labels: INBOX, SENT, DRAFT, TRASH, SPAM. Custom labels: Engineering, Security, Sprint, Hiring",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for test files in acmecorp/backend",
+    "ground_truth": "test_authenticate_valid_token in tests/test_auth.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "test_"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Check for emails about the payment processor outage",
+    "ground_truth": "Email from alice@acmecorp.com: Stripe webhook timeout resolved, Bob's PR #14 fixes retry logic",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "payment"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Give me the latest revenue figures from the tracker",
+    "ground_truth": "March 2025: $245K revenue, 390 customers, 2.4% churn",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "sheet_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Find where JWT tokens are validated in the backend repo",
+    "ground_truth": "jwt.decode in src/api/auth.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "jwt"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the latest about the Stripe issue?",
+    "ground_truth": "Alice reports Stripe webhook timeout resolved with exponential backoff in PR #14",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "stripe"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Pull up the README for acmecorp/backend",
+    "ground_truth": "Production API service for AcmeCorp platform",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "README.md"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-14",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for emails from Eve about the team",
+    "ground_truth": "New team member announcement: Frank Torres, Senior Backend Engineer from Datadog",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "from:eve"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Any emails from Carol about meetings?",
+    "ground_truth": "Sprint planning at 2pm in Elm conference room, review sprint board before meeting",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "from:carol sprint"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-11",
+    "tier": "tier1_single_tool",
+    "prompt": "Look up how authentication tests are structured",
+    "ground_truth": "test_authenticate_valid_token in tests/test_auth.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "test_authenticate"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-1",
+    "tier": "tier1_single_tool",
+    "prompt": "What files were recently modified in Drive?",
+    "ground_truth": "Sprint Planning Board, Revenue Tracker, API Security Audit Report, Q1 Roadmap, Onboarding Guide, SOC2 Checklist",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me the latest documents that were updated",
+    "ground_truth": "Most recent: Sprint Planning Board (Mar 22), Revenue Tracker (Mar 20), Security Audit (Mar 18)",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Find emails about the deployment",
+    "ground_truth": "No emails found matching deploy",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "deploy"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-1",
+    "tier": "tier1_single_tool",
+    "prompt": "What's in the product roadmap doc?",
+    "ground_truth": "Q1 priorities: billing portal, team collaboration, SOC2 cert, mobile app beta. MRR target $250K",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Read the security audit report",
+    "ground_truth": "3 findings: HIGH JWT expiry, MEDIUM rate limiting on login, LOW CORS wildcard in staging",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_003"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me my custom email labels",
+    "ground_truth": "4 custom labels: Engineering, Security, Sprint, Hiring",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-12",
+    "tier": "tier1_single_tool",
+    "prompt": "Find emails about PR reviews",
+    "ground_truth": "Alice asks team to review PR #14 for payment timeout fix",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "PR"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Where's the engineering onboarding doc?",
+    "ground_truth": "Engineering Onboarding Guide (doc_002)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Onboarding"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me merged PRs in the backend",
+    "ground_truth": "PR #12: dashboard chart components (closed, by dave)",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "closed"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Any urgent bugs in the backend repo?",
+    "ground_truth": "Issue #42: Payment timeout on large orders (bug, urgent)",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open",
+        "labels": "bug,urgent"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-5",
+    "tier": "tier1_single_tool",
+    "prompt": "What's the current PR situation in acmecorp/backend?",
+    "ground_truth": "4 PRs total: 3 open (#15, #14, #13), 1 closed (#12)",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "all"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Check if there's an Engineering label in Gmail",
+    "ground_truth": "Yes, Engineering label exists (Label_1, user type)",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Read the full email about the payment processor outage",
+    "ground_truth": "Alice reports 3 key changes: exponential backoff retries, timeout increase 5s to 15s, dead letter queue",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-5",
+    "tier": "tier1_single_tool",
+    "prompt": "What does the roadmap say about Q1 priorities?",
+    "ground_truth": "Launch self-serve billing portal, ship team collaboration, SOC2 certification, mobile app beta",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me the full new hire announcement",
+    "ground_truth": "Frank Torres joining as Senior Backend Engineer from Datadog, focusing on observability. Carol is onboarding buddy",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_004"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-7",
+    "tier": "tier1_single_tool",
+    "prompt": "List all issues regardless of state in acmecorp/backend",
+    "ground_truth": "5 issues total: #42 Payment timeout, #41 Rate limiting, #40 User model, #39 CORS fix, #38 Webhook docs",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "all"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Read the email about Frank starting",
+    "ground_truth": "Frank Torres starts Monday March 24 as Senior Backend Engineer, came from Datadog metrics pipeline",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_004"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-6",
+    "tier": "tier1_single_tool",
+    "prompt": "List all pull requests for the ml-pipeline repo",
+    "ground_truth": "4 PRs: #15 JWT refresh, #14 payment timeout, #13 deps, #12 dashboard charts",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/ml-pipeline",
+        "state": "all"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Find any payment-related code in acmecorp/backend",
+    "ground_truth": "PaymentProcessor in src/api/payments.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "payment"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Pull up the engineering onboarding guide",
+    "ground_truth": "Clone backend/frontend/infra repos, run make setup, get creds from 1Password",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_002"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Any recent document updates I should know about?",
+    "ground_truth": "Sprint Planning Board updated Mar 22, Revenue Tracker Mar 20, Security Audit Mar 18",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Which documents have been modified in the last week?",
+    "ground_truth": "Sprint Planning Board (Mar 22), Revenue Tracker 2025 (Mar 20)",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for emails about onboarding",
+    "ground_truth": "Frank Torres onboarding \u2014 Carol is his buddy, he comes from Datadog",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "onboarding"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Look for the audit report Dave wrote",
+    "ground_truth": "API Security Audit Report (doc_003) by Dave Kim",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Audit"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Am I using any custom labels for organizing email?",
+    "ground_truth": "Yes, 4 custom labels: Engineering, Security, Sprint, Hiring",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-8",
+    "tier": "tier1_single_tool",
+    "prompt": "What were the audit findings and severity levels?",
+    "ground_truth": "HIGH: JWT tokens lack expiry validation, MEDIUM: rate limiting not enforced, LOW: CORS wildcard",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_003"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What exactly did Dave say about the security audit?",
+    "ground_truth": "External team found 3 issues: JWT validation skipped on 2 endpoints, no brute force protection, CORS wildcard in staging",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_002"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Read the file src/api/auth.py from acmecorp/backend",
+    "ground_truth": "def authenticate(token: str) -> User",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "src/api/auth.py"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for the revenue tracker spreadsheet",
+    "ground_truth": "Revenue Tracker 2025 (sheet_001)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Revenue"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me all closed issues in acmecorp/backend",
+    "ground_truth": "Issue #39: Fix CORS headers for staging env (closed)",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "closed"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Look for the sprint planning board",
+    "ground_truth": "Sprint Planning Board (sheet_002)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Sprint"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Is there a SOC2 compliance document in Drive?",
+    "ground_truth": "SOC2 Compliance Checklist.pdf (pdf_001)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "SOC2"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Open src/models/user.py on the main branch",
+    "ground_truth": "User dataclass with id, email, name, role, created_at, is_active",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "src/models/user.py"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Any emails from Alice?",
+    "ground_truth": "Re: Payment processor outage \u2014 Stripe webhook timeout issue resolved",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "from:alice"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-7",
+    "tier": "tier1_single_tool",
+    "prompt": "What's been updated lately across our Drive?",
+    "ground_truth": "6 files ranging from SOC2 Checklist (Jan 10) to Sprint Planning Board (Mar 22)",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Pull up the most recently edited files",
+    "ground_truth": "Sprint Planning Board (Eve), Revenue Tracker (Bob), API Security Audit (Dave)",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Where is the User model defined in the backend?",
+    "ground_truth": "User model in src/models/user.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "User"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Are there any draft PRs in the backend?",
+    "ground_truth": "PR #13: chore: update dependencies is in draft state",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-10",
+    "tier": "tier1_single_tool",
+    "prompt": "List the email labels I've created",
+    "ground_truth": "Custom labels: Engineering (Label_1), Security (Label_2), Sprint (Label_3), Hiring (Label_4)",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me the revenue numbers",
+    "ground_truth": "Jan $180K/320 customers, Feb $210K/355, Mar $245K/390",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "sheet_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Look for the authenticate function in acmecorp/backend",
+    "ground_truth": "authenticate function in src/api/auth.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "authenticate"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-7",
+    "tier": "tier1_single_tool",
+    "prompt": "What are the onboarding steps for new engineers?",
+    "ground_truth": "Clone repos, run make setup, get creds from 1Password, architecture overview",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_002"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Let me see the architecture docs",
+    "ground_truth": "Layered architecture: API layer, Service layer, Data layer, External integrations",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "docs/architecture.md"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Find the security audit report in Google Drive",
+    "ground_truth": "API Security Audit Report (doc_003)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Security"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Which Drive files were touched this month?",
+    "ground_truth": "6 files modified, most recent Sprint Planning Board on 2025-03-22",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Find emails about sprint planning",
+    "ground_truth": "Sprint planning March 24 from Carol \u2014 meeting at 2pm, update Linear tickets",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "sprint planning"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-3",
+    "tier": "tier1_single_tool",
+    "prompt": "What enhancement requests are open for the backend?",
+    "ground_truth": "Issue #41: Rate limiting and #40: User model teams support",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open",
+        "labels": "enhancement"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me Drive activity sorted by recency",
+    "ground_truth": "Latest: Sprint Planning Board, Revenue Tracker 2025, API Security Audit Report",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Are there any documentation issues filed?",
+    "ground_truth": "Issue #38: Document webhook integration",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open",
+        "labels": "documentation"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Find code that handles user authentication in the backend",
+    "ground_truth": "AuthError raised in src/api/auth.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "AuthError"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for dataclass definitions in acmecorp/backend",
+    "ground_truth": "User dataclass in src/models/user.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "dataclass"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for security-related emails",
+    "ground_truth": "SOC2 audit action items from Dave \u2014 3 findings need immediate attention",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "security audit"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-3",
+    "tier": "tier1_single_tool",
+    "prompt": "Let me read the sprint planning email",
+    "ground_truth": "Sprint planning at 2pm in Elm room. Update Linear tickets, flag blockers, review sprint board",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_003"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-8",
+    "tier": "tier1_single_tool",
+    "prompt": "What does the payments module look like?",
+    "ground_truth": "PaymentProcessor.charge processes payments via Stripe",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "src/api/payments.py"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-15",
+    "tier": "tier1_single_tool",
+    "prompt": "What did engineering discuss this week?",
+    "ground_truth": "Payment outage resolved (Alice), sprint planning at 2pm (Carol), new hire Frank Torres (Eve)",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "engineering"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for spreadsheets about revenue",
+    "ground_truth": "Revenue Tracker 2025 (sheet_001)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Revenue"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-1",
+    "tier": "tier1_single_tool",
+    "prompt": "List all my email labels",
+    "ground_truth": "9 labels: INBOX, SENT, DRAFT, TRASH, SPAM, Engineering, Security, Sprint, Hiring",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-1",
+    "tier": "tier1_single_tool",
+    "prompt": "List open issues in acmecorp/backend",
+    "ground_truth": "4 open issues including #42 Payment timeout, #41 Rate limiting, #40 User model teams, #38 Webhook docs",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for the checkout handler in acmecorp/backend",
+    "ground_truth": "PaymentProcessor.charge found in src/api/payments.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "checkout"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What labels can I use to categorize emails?",
+    "ground_truth": "Available labels: Engineering, Security, Sprint, Hiring (plus system labels)",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-3",
+    "tier": "tier1_single_tool",
+    "prompt": "What has the team been working on in Drive recently?",
+    "ground_truth": "Recent activity: Sprint Planning, Revenue Tracker, Security Audit Report, Product Roadmap",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-4",
+    "tier": "tier1_single_tool",
+    "prompt": "How is my email organized?",
+    "ground_truth": "9 labels total \u2014 5 system (INBOX, SENT, DRAFT, TRASH, SPAM) and 4 user-created",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-9",
+    "tier": "tier1_single_tool",
+    "prompt": "What's our MRR target according to the roadmap?",
+    "ground_truth": "MRR target: $250K, DAU target: 5,000, Churn target: <3%",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "doc_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-10",
+    "tier": "tier1_single_tool",
+    "prompt": "What action items did Dave list in the audit email?",
+    "ground_truth": "1. Fix JWT expiry validation (HIGH), 2. Add rate limiting to login (MEDIUM), 3. Restrict CORS (LOW)",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_002"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-6",
+    "tier": "tier1_single_tool",
+    "prompt": "What bugs are currently open in the backend?",
+    "ground_truth": "Issue #42: Payment timeout on large orders",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open",
+        "labels": "bug"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Look for emails from Dave",
+    "ground_truth": "SOC2 audit action items: JWT expiry, rate limiting, CORS issues",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "from:dave"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Read Alice's email about the webhook fix",
+    "ground_truth": "Stripe webhook timeout fixed with exponential backoff, timeout 5s->15s, added dead letter queue for failed webhooks",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-13",
+    "tier": "tier1_single_tool",
+    "prompt": "Any messages about rate limiting?",
+    "ground_truth": "Dave's security audit email mentions rate limiting on login as MEDIUM finding, Issue #41 filed",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "rate limiting"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-recent-10",
+    "tier": "tier1_single_tool",
+    "prompt": "Give me a rundown of recent Drive changes",
+    "ground_truth": "Sprint Planning Board by Eve (Mar 22), Revenue Tracker by Bob (Mar 20), Security Audit by Dave (Mar 18)",
+    "expected_tools": [
+      "drive_list_recent"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_list_recent",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-2",
+    "tier": "tier1_single_tool",
+    "prompt": "What PRs are open in acmecorp/backend?",
+    "ground_truth": "3 open PRs: #15 JWT refresh rotation, #14 payment timeout fix, #13 dependency update",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-issues-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me the backend issues tagged as good first issue",
+    "ground_truth": "No issues found with good first issue label",
+    "expected_tools": [
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_issues",
+      "args": {
+        "repo": "acmecorp/backend",
+        "state": "open",
+        "labels": "good first issue"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-9",
+    "tier": "tier1_single_tool",
+    "prompt": "Pull up the payment outage resolution email",
+    "ground_truth": "Alice confirms Stripe timeout resolved. PR #14 adds retry with backoff and dead letter queue",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-8",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me all available Gmail labels",
+    "ground_truth": "INBOX, SENT, DRAFT, TRASH, SPAM, Engineering, Security, Sprint, Hiring",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Where is the PaymentProcessor class defined?",
+    "ground_truth": "PaymentProcessor in src/api/payments.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "PaymentProcessor"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-read-10",
+    "tier": "tier1_single_tool",
+    "prompt": "How's our churn rate trending?",
+    "ground_truth": "Jan 2.1%, Feb 1.8%, Mar 2.4% \u2014 slight increase in March",
+    "expected_tools": [
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_read_file",
+      "args": {
+        "file_id": "sheet_001"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-11",
+    "tier": "tier1_single_tool",
+    "prompt": "Are there any urgent emails about the API?",
+    "ground_truth": "No emails found matching api",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "api"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-12",
+    "tier": "tier1_single_tool",
+    "prompt": "Find the SECRET_KEY usage in the backend",
+    "ground_truth": "SECRET_KEY used in jwt.decode in src/api/auth.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "SECRET_KEY"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-search-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Any hiring announcements recently?",
+    "ground_truth": "Frank Torres joining as Senior Backend Engineer, starting Monday March 24",
+    "expected_tools": [
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_search",
+      "args": {
+        "query": "new team member"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-7",
+    "tier": "tier1_single_tool",
+    "prompt": "Open Carol's email about the sprint",
+    "ground_truth": "Sprint planning agenda: review velocity, triage issues, assign stories. Elm conference room at 2pm",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_003"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Show me the contents of src/api/payments.py in the backend repo",
+    "ground_truth": "class PaymentProcessor",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "src/api/payments.py"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-6",
+    "tier": "tier1_single_tool",
+    "prompt": "Read the auth test file from the backend repo",
+    "ground_truth": "test_authenticate_valid_token asserts user_123 is active",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "tests/test_auth.py"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-1",
+    "tier": "tier1_single_tool",
+    "prompt": "List open PRs in acmecorp/frontend",
+    "ground_truth": "3 open PRs: #15 JWT refresh rotation, #14 payment timeout fix, #13 dependency update (draft)",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/frontend",
+        "state": "open"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-prs-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Any pull requests waiting for review in the infra repo?",
+    "ground_truth": "3 open PRs: #15 JWT refresh, #14 payment timeout, #13 deps update",
+    "expected_tools": [
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_list_prs",
+      "args": {
+        "repo": "acmecorp/infra",
+        "state": "open"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-drive-search-1",
+    "tier": "tier1_single_tool",
+    "prompt": "Find the product roadmap in Drive",
+    "ground_truth": "Q1 2025 Product Roadmap (doc_001)",
+    "expected_tools": [
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "drive",
+      "tool": "drive_search",
+      "args": {
+        "query": "Roadmap"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-labels-5",
+    "tier": "tier1_single_tool",
+    "prompt": "Do I have a label for security emails?",
+    "ground_truth": "Yes, Security label exists (Label_2, user type)",
+    "expected_tools": [
+      "gmail_list_labels"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_list_labels",
+      "args": {}
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-search-4",
+    "tier": "tier1_single_tool",
+    "prompt": "Search for any references to Stripe in acmecorp/backend",
+    "ground_truth": "stripe.charges.create in src/api/payments.py",
+    "expected_tools": [
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_search_code",
+      "args": {
+        "repo": "acmecorp/backend",
+        "query": "stripe"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gh-read-3",
+    "tier": "tier1_single_tool",
+    "prompt": "What's in the User model file?",
+    "ground_truth": "@dataclass class User with fields id, email, name, role",
+    "expected_tools": [
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "github",
+      "tool": "github_read_file",
+      "args": {
+        "repo": "acmecorp/backend",
+        "path": "src/models/user.py"
+      }
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t1-gmail-read-2",
+    "tier": "tier1_single_tool",
+    "prompt": "Open the SOC2 audit email from Dave",
+    "ground_truth": "3 findings: JWT token expiry HIGH, rate limiting MEDIUM, CORS wildcard LOW. Issue #41 filed for rate limiting",
+    "expected_tools": [
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "gmail",
+      "tool": "gmail_read_email",
+      "args": {
+        "message_id": "msg_002"
+      }
+    },
+    "error_injection_policy": {}
+  }
+]

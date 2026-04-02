@@ -1,41 +1,41 @@
-﻿function metric(label, value, classes = '') {
-  return `
-    <div class="metric-card">
-      <span class="metric-label">${label}</span>
-      <strong class="metric-value ${classes}">${value}</strong>
-    </div>
-  `;
+/**
+ * Verdict panel renderer — metrics for a single trace.
+ */
+
+function verdictClass(v) {
+  if (v === 'correct') return 'good';
+  if (v === 'partial') return 'warn';
+  return 'bad';
 }
 
-function verdictLabel(verdict) {
-  if (verdict === 'correct') return 'Correct';
-  if (verdict === 'partial') return 'Partial';
-  return 'Fail';
+function verdictLabel(v) {
+  if (v === 'correct') return 'PASS';
+  if (v === 'partial') return 'PARTIAL';
+  return 'FAIL';
 }
 
-function verdictClass(verdict) {
-  if (verdict === 'correct') return 'metric-good';
-  if (verdict === 'partial') return 'metric-warn';
-  return 'metric-bad';
+function restraintClass(r) {
+  const v = String(r || '').toLowerCase();
+  if (v === 'strong' || v === 'high') return 'good';
+  if (v === 'none' || v === 'n/a') return 'bad';
+  return 'warn';
 }
 
-function restraintClass(restraint) {
-  const value = String(restraint || '').toLowerCase();
-  if (['high', 'strong'].includes(value)) return 'metric-good';
-  if (value === 'weak' || value === 'medium') return 'metric-warn';
-  if (value === 'none') return 'metric-bad';
-  return '';
+function row(label, value, cls = '') {
+  return `<div class="verdict-row"><span class="verdict-label">${label}</span><span class="verdict-value ${cls}">${value}</span></div>`;
 }
 
-export function renderVerdictBar(container, trace) {
-  const behaviors = (trace.behaviors_detected || []).slice(0, 3).join(' · ') || 'None';
-  container.innerHTML = `
-    <div class="verdict-bar">
-      ${metric('Verdict', verdictLabel(trace.verdict), `metric-badge ${verdictClass(trace.verdict)}`)}
-      ${metric('Tools', `${trace.tool_calls_used} / ${trace.optimal_tool_calls}`)}
-      ${metric('Steps', trace.steps)}
-      ${metric('Restraint', trace.restraint, `metric-badge ${restraintClass(trace.restraint)}`)}
-      ${metric('Signals', behaviors)}
-    </div>
-  `;
+export function renderVerdictPanel(container, trace) {
+  if (!trace) { container.innerHTML = ''; return; }
+
+  const behaviors = (trace.behaviors_detected || []).join(', ') || '\u2014';
+
+  container.innerHTML = [
+    row('Verdict', verdictLabel(trace.verdict), verdictClass(trace.verdict)),
+    row('Tools Used', `${trace.tool_calls_used} / ${trace.optimal_tool_calls}`),
+    row('Steps', trace.steps),
+    row('Restraint', trace.restraint || '\u2014', restraintClass(trace.restraint)),
+    row('Evidence', trace.evidence_count || 0),
+    `<div class="verdict-row"><span class="verdict-label">Behaviors</span><span class="verdict-value" style="font-size:11px;font-family:var(--sans);text-align:right;max-width:180px">${behaviors}</span></div>`,
+  ].join('');
 }

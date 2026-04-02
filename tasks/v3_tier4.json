@@ -1,0 +1,685 @@
+[
+  {
+    "id": "v3-t4-recovery-20",
+    "tier": "tier4_error_recovery",
+    "prompt": "Search for the error handling middleware in the backend",
+    "ground_truth": "No error handling middleware found. Auth code in auth.py raises AuthError; payments.py raises ValueError",
+    "expected_tools": [
+      "github_search_code",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "error handling middleware"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "Error"
+          }
+        }
+      ],
+      "recovery_hint": "No middleware found \u2014 search for Error references in codebase"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-6",
+    "tier": "tier4_error_recovery",
+    "prompt": "Search for the user registration endpoint",
+    "ground_truth": "No registration endpoint found. Related auth code in src/api/auth.py handles authentication",
+    "expected_tools": [
+      "github_search_code",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "registration"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "authenticate"
+          }
+        }
+      ],
+      "recovery_hint": "No registration endpoint \u2014 check authentication code instead"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-15",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find emails about the CI/CD pipeline",
+    "ground_truth": "No CI/CD emails. Closest: Alice's email about deployment (payment processor fix) and Dave's audit mentioning infrastructure",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "CI/CD pipeline"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "deploy"
+          }
+        }
+      ],
+      "recovery_hint": "No CI/CD emails \u2014 try deployment-related search"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-5",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find the database migration files in acmecorp/backend",
+    "ground_truth": "No migration files found. The codebase has models in src/models/user.py but no separate migrations directory",
+    "expected_tools": [
+      "github_search_code",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "migration"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "model"
+          }
+        }
+      ],
+      "recovery_hint": "No migration files \u2014 check models directory instead"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-10",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find the project timeline document in Drive",
+    "ground_truth": "No timeline document. Q1 2025 Product Roadmap has project priorities and dates",
+    "expected_tools": [
+      "drive_search",
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "timeline"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Roadmap"
+          }
+        }
+      ],
+      "recovery_hint": "No timeline doc \u2014 roadmap has project schedule info"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-14",
+    "tier": "tier4_error_recovery",
+    "prompt": "Search for emails from frank@acmecorp.com",
+    "ground_truth": "No emails from Frank (he hasn't started yet). Eve's email announces Frank Torres joining Monday",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "from:frank@acmecorp.com"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "Frank"
+          }
+        }
+      ],
+      "recovery_hint": "Frank hasn't sent emails yet \u2014 search for mentions of Frank"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-16",
+    "tier": "tier4_error_recovery",
+    "prompt": "Read the email with message ID msg_010",
+    "ground_truth": "Message msg_010 not found. Available recent emails include payment outage, security audit, sprint planning, new hire",
+    "expected_tools": [
+      "gmail_read_email",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_010"
+          },
+          "expect_error": true
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": ""
+          }
+        }
+      ],
+      "recovery_hint": "Invalid message ID \u2014 search for recent emails to find correct one"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-19",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find the employee handbook in Drive",
+    "ground_truth": "No employee handbook. Engineering Onboarding Guide is the closest match for new employee documentation",
+    "expected_tools": [
+      "drive_search",
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "employee handbook"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Onboarding"
+          }
+        }
+      ],
+      "recovery_hint": "No handbook \u2014 onboarding guide is closest employee documentation"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-7",
+    "tier": "tier4_error_recovery",
+    "prompt": "Read the Dockerfile from acmecorp/backend",
+    "ground_truth": "No Dockerfile found in mock data. Architecture doc mentions deployment on AWS ECS",
+    "expected_tools": [
+      "github_read_file",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "Dockerfile"
+          },
+          "expect_error": true
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "docs/architecture.md"
+          }
+        }
+      ],
+      "recovery_hint": "No Dockerfile \u2014 check architecture docs for deployment info"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-13",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find emails about the database migration",
+    "ground_truth": "No emails about database migration. Closest: payment processor outage email mentions infrastructure changes",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "database migration"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "infrastructure"
+          }
+        }
+      ],
+      "recovery_hint": "No migration emails \u2014 broaden search to infrastructure topics"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-18",
+    "tier": "tier4_error_recovery",
+    "prompt": "Look for the API rate limiter code in acmecorp/backend",
+    "ground_truth": "No rate limiter code yet. Issue #41 filed to add rate limiting, and PR #15 includes rate_limit.py as new file",
+    "expected_tools": [
+      "github_search_code",
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "rate limit"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "enhancement"
+          }
+        }
+      ],
+      "recovery_hint": "Rate limiter not implemented yet \u2014 check if there's an issue for it"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-11",
+    "tier": "tier4_error_recovery",
+    "prompt": "Search for the incident postmortem in Drive",
+    "ground_truth": "No postmortem found. API Security Audit Report is closest to incident documentation",
+    "expected_tools": [
+      "drive_search",
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "postmortem"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Audit"
+          }
+        }
+      ],
+      "recovery_hint": "No postmortem \u2014 security audit report covers incident findings"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-2",
+    "tier": "tier4_error_recovery",
+    "prompt": "Read the README from acmecorp/api",
+    "ground_truth": "No repo acmecorp/api found. The correct repo is acmecorp/backend with README about Production API service",
+    "expected_tools": [
+      "github_read_file",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/api",
+            "path": "README.md"
+          },
+          "expect_error": true
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "README.md"
+          }
+        }
+      ],
+      "recovery_hint": "File not found in acmecorp/api \u2014 try acmecorp/backend instead"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-12",
+    "tier": "tier4_error_recovery",
+    "prompt": "Read the design spec from Drive (file ID doc_005)",
+    "ground_truth": "File doc_005 not found. Available design-related docs: API Security Audit Report (doc_003)",
+    "expected_tools": [
+      "drive_read_file",
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_005"
+          },
+          "expect_error": true
+        },
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "design"
+          }
+        }
+      ],
+      "recovery_hint": "File ID does not exist \u2014 search for design docs instead"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-3",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find the billing module in the backend codebase",
+    "ground_truth": "No 'billing' module found. The closest match is PaymentProcessor in src/api/payments.py",
+    "expected_tools": [
+      "github_search_code",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "billing"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "payment"
+          }
+        }
+      ],
+      "recovery_hint": "No billing module \u2014 payments.py is the closest match"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-17",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find the logging module in the backend",
+    "ground_truth": "No logging module found. Architecture mentions FastAPI routes and external integrations",
+    "expected_tools": [
+      "github_search_code",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "logging"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "docs/architecture.md"
+          }
+        }
+      ],
+      "recovery_hint": "No logging module \u2014 check architecture docs for system overview"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-8",
+    "tier": "tier4_error_recovery",
+    "prompt": "Find the requirements.txt in the infra repo",
+    "ground_truth": "File not found in mock. README mentions pip install -r requirements.txt for the backend",
+    "expected_tools": [
+      "github_read_file",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/infra",
+            "path": "requirements.txt"
+          },
+          "expect_error": true
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "README.md"
+          }
+        }
+      ],
+      "recovery_hint": "Not in infra repo \u2014 check backend repo README for dependency info"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-9",
+    "tier": "tier4_error_recovery",
+    "prompt": "Search Drive for the quarterly business review deck",
+    "ground_truth": "No QBR deck found. Closest match: Q1 2025 Product Roadmap with revenue targets",
+    "expected_tools": [
+      "drive_search",
+      "drive_search"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "quarterly business review"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Q1"
+          }
+        }
+      ],
+      "recovery_hint": "No QBR deck \u2014 try searching for Q1 roadmap"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-1",
+    "tier": "tier4_error_recovery",
+    "prompt": "Search for the payments service code in the backend",
+    "ground_truth": "No direct match for 'payments service', but PaymentProcessor found in src/api/payments.py",
+    "expected_tools": [
+      "github_search_code",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "payments service"
+          },
+          "expect_empty": true
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "payment"
+          }
+        }
+      ],
+      "recovery_hint": "First search returns empty \u2014 retry with broader query 'payment'"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  },
+  {
+    "id": "v3-t4-recovery-4",
+    "tier": "tier4_error_recovery",
+    "prompt": "Read the config.yaml from the backend repo",
+    "ground_truth": "No config.yaml found. Available files include src/api/auth.py, src/api/payments.py, etc.",
+    "expected_tools": [
+      "github_read_file",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "error_recovery",
+      "steps": [
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "config.yaml"
+          },
+          "expect_error": true
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "config"
+          }
+        }
+      ],
+      "recovery_hint": "config.yaml not found \u2014 search for config references instead"
+    },
+    "error_injection_policy": {
+      "enabled": false,
+      "note": "Error comes from natural mock behavior, not injection"
+    }
+  }
+]

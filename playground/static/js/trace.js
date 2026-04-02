@@ -1,5 +1,11 @@
-﻿function esc(value) {
-  return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+/**
+ * Raw trace renderer — syntax-highlighted trace output.
+ */
+
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+  );
 }
 
 function highlightLine(line) {
@@ -14,6 +20,8 @@ function highlightLine(line) {
 export function renderRawTrace(container, rawTrace) {
   const lines = String(rawTrace || '').split('\n');
   container.innerHTML = lines
-    .map((line, index) => `<span class="trace-line"><span class="trace-line-no">${String(index + 1).padStart(2, '0')}</span><span class="trace-line-body">${highlightLine(line)}</span></span>`)
+    .map((line, i) =>
+      `<span class="trace-line"><span class="trace-line-no">${String(i + 1).padStart(2, '0')}</span><span>${highlightLine(line)}</span></span>`
+    )
     .join('');
 }

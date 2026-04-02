@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://codetune-api.onrender.com/api/$1" },
+    { "source": "/auth/(.*)", "destination": "https://codetune-api.onrender.com/auth/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

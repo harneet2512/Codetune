@@ -53,6 +53,9 @@ dev = [
     "mypy>=1.10",
 ]
 
+[project.scripts]
+tooltune-eval = "tooltune.eval.cli:main"
+
 [tool.ruff]
 line-length = 100
 target-version = "py310"

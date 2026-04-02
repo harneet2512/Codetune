@@ -1,0 +1,882 @@
+[
+  {
+    "id": "v3-t2-restraint-1",
+    "tier": "tier2_restraint",
+    "prompt": "What does CI/CD stand for?",
+    "ground_truth": "Continuous Integration / Continuous Delivery (or Deployment)",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-2",
+    "tier": "tier2_restraint",
+    "prompt": "What does ORM stand for?",
+    "ground_truth": "Object-Relational Mapping \u2014 a technique for converting between database rows and programming language objects",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-3",
+    "tier": "tier2_restraint",
+    "prompt": "What does TCP stand for?",
+    "ground_truth": "Transmission Control Protocol",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-4",
+    "tier": "tier2_restraint",
+    "prompt": "What is a load balancer?",
+    "ground_truth": "A system that distributes incoming traffic across multiple servers to improve availability and performance",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-5",
+    "tier": "tier2_restraint",
+    "prompt": "What are the three parts of a JWT?",
+    "ground_truth": "Header, Payload, and Signature",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-6",
+    "tier": "tier2_restraint",
+    "prompt": "What is an SLA?",
+    "ground_truth": "Service Level Agreement \u2014 a commitment between a provider and client on service quality metrics like uptime",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-7",
+    "tier": "tier2_restraint",
+    "prompt": "What's the time complexity of binary search?",
+    "ground_truth": "O(log n)",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-8",
+    "tier": "tier2_restraint",
+    "prompt": "What does the softmax function do?",
+    "ground_truth": "Converts a vector of real numbers into a probability distribution that sums to 1",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-9",
+    "tier": "tier2_restraint",
+    "prompt": "What are the three pillars of observability?",
+    "ground_truth": "Logs, metrics, and traces",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-10",
+    "tier": "tier2_restraint",
+    "prompt": "What does GPT stand for?",
+    "ground_truth": "Generative Pre-trained Transformer",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-11",
+    "tier": "tier2_restraint",
+    "prompt": "Is Python dynamically typed or statically typed?",
+    "ground_truth": "Python is dynamically typed",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-12",
+    "tier": "tier2_restraint",
+    "prompt": "What is the principle of least privilege?",
+    "ground_truth": "Users and systems should have only the minimum permissions necessary to perform their intended function",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-13",
+    "tier": "tier2_restraint",
+    "prompt": "What is the difference between SQL and NoSQL?",
+    "ground_truth": "SQL databases are relational with structured schemas; NoSQL databases are non-relational with flexible schemas",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-14",
+    "tier": "tier2_restraint",
+    "prompt": "What is a transformer in machine learning?",
+    "ground_truth": "A neural network architecture using self-attention mechanisms, introduced in the 'Attention Is All You Need' paper",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-15",
+    "tier": "tier2_restraint",
+    "prompt": "What is a loss function?",
+    "ground_truth": "A function that measures how well a model's predictions match the expected output \u2014 training minimizes this",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-16",
+    "tier": "tier2_restraint",
+    "prompt": "What is eventual consistency?",
+    "ground_truth": "A consistency model where replicas may temporarily diverge but will eventually converge to the same state",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-17",
+    "tier": "tier2_restraint",
+    "prompt": "What does idempotent mean in REST APIs?",
+    "ground_truth": "An operation that produces the same result regardless of how many times it is called",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-18",
+    "tier": "tier2_restraint",
+    "prompt": "What is observability?",
+    "ground_truth": "The ability to understand a system's internal state from its external outputs: logs, metrics, and traces",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-19",
+    "tier": "tier2_restraint",
+    "prompt": "What does *args and **kwargs mean in Python?",
+    "ground_truth": "*args collects positional arguments into a tuple, **kwargs collects keyword arguments into a dictionary",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-20",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means not found?",
+    "ground_truth": "404 Not Found",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-21",
+    "tier": "tier2_restraint",
+    "prompt": "What is XSS?",
+    "ground_truth": "Cross-Site Scripting \u2014 an attack where malicious scripts are injected into web pages viewed by other users",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-22",
+    "tier": "tier2_restraint",
+    "prompt": "What is infrastructure as code?",
+    "ground_truth": "Managing and provisioning infrastructure through machine-readable configuration files rather than manual processes",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-23",
+    "tier": "tier2_restraint",
+    "prompt": "What port does HTTP use by default?",
+    "ground_truth": "80",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-24",
+    "tier": "tier2_restraint",
+    "prompt": "What does git stash do?",
+    "ground_truth": "Temporarily saves uncommitted changes so you can work on something else and reapply them later",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-25",
+    "tier": "tier2_restraint",
+    "prompt": "What port does SSH use by default?",
+    "ground_truth": "22",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-26",
+    "tier": "tier2_restraint",
+    "prompt": "What port does PostgreSQL listen on by default?",
+    "ground_truth": "5432",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-27",
+    "tier": "tier2_restraint",
+    "prompt": "What is gradient descent?",
+    "ground_truth": "An optimization algorithm that iteratively adjusts parameters in the direction that reduces the loss function",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-28",
+    "tier": "tier2_restraint",
+    "prompt": "What is the vanishing gradient problem?",
+    "ground_truth": "When gradients become extremely small during backpropagation through many layers, preventing effective learning in early layers",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-29",
+    "tier": "tier2_restraint",
+    "prompt": "What does CRUD stand for?",
+    "ground_truth": "Create, Read, Update, Delete",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-30",
+    "tier": "tier2_restraint",
+    "prompt": "What is database sharding?",
+    "ground_truth": "Splitting a database into smaller, independent partitions (shards) distributed across multiple servers",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-31",
+    "tier": "tier2_restraint",
+    "prompt": "What is a webhook?",
+    "ground_truth": "A callback mechanism where a server sends HTTP requests to a client URL when events occur",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-32",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means conflict?",
+    "ground_truth": "409 Conflict",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-33",
+    "tier": "tier2_restraint",
+    "prompt": "What's the difference between git merge and git rebase?",
+    "ground_truth": "Merge creates a merge commit preserving branch history; rebase replays commits for a linear history",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-34",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means unauthorized?",
+    "ground_truth": "401 Unauthorized",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-35",
+    "tier": "tier2_restraint",
+    "prompt": "What does GIL stand for in Python?",
+    "ground_truth": "Global Interpreter Lock",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-36",
+    "tier": "tier2_restraint",
+    "prompt": "What's the difference between SFT and RLHF?",
+    "ground_truth": "SFT (Supervised Fine-Tuning) trains on example completions, RLHF (Reinforcement Learning from Human Feedback) uses a reward model trained on preference data",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-37",
+    "tier": "tier2_restraint",
+    "prompt": "What does DNS stand for?",
+    "ground_truth": "Domain Name System",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-38",
+    "tier": "tier2_restraint",
+    "prompt": "What is the difference between precision and recall?",
+    "ground_truth": "Precision is the ratio of true positives to all predicted positives; recall is the ratio of true positives to all actual positives",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-39",
+    "tier": "tier2_restraint",
+    "prompt": "What does REST stand for?",
+    "ground_truth": "Representational State Transfer",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-40",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means bad request?",
+    "ground_truth": "400 Bad Request",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-41",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means forbidden?",
+    "ground_truth": "403 Forbidden",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-42",
+    "tier": "tier2_restraint",
+    "prompt": "What is an index in a database?",
+    "ground_truth": "A data structure that speeds up data retrieval by providing quick lookup paths, at the cost of extra storage and slower writes",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-43",
+    "tier": "tier2_restraint",
+    "prompt": "What is two-factor authentication?",
+    "ground_truth": "An authentication method requiring two different types of verification, typically something you know and something you have",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-44",
+    "tier": "tier2_restraint",
+    "prompt": "What's the time complexity of quicksort on average?",
+    "ground_truth": "O(n log n)",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-45",
+    "tier": "tier2_restraint",
+    "prompt": "What is a canary deployment?",
+    "ground_truth": "Gradually rolling out a change to a small subset of users before deploying to the full infrastructure",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-46",
+    "tier": "tier2_restraint",
+    "prompt": "What port does Redis use by default?",
+    "ground_truth": "6379",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-47",
+    "tier": "tier2_restraint",
+    "prompt": "What is a git hook?",
+    "ground_truth": "A script that runs automatically at certain points in the git workflow, like pre-commit or post-push",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-48",
+    "tier": "tier2_restraint",
+    "prompt": "What does ACID stand for in databases?",
+    "ground_truth": "Atomicity, Consistency, Isolation, Durability",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-49",
+    "tier": "tier2_restraint",
+    "prompt": "What's the time complexity of inserting into a hash table?",
+    "ground_truth": "O(1) amortized",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-50",
+    "tier": "tier2_restraint",
+    "prompt": "What is the difference between Docker and Kubernetes?",
+    "ground_truth": "Docker is a container runtime for packaging applications; Kubernetes is an orchestration platform for managing containers at scale",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-51",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means rate limited?",
+    "ground_truth": "429 Too Many Requests",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-52",
+    "tier": "tier2_restraint",
+    "prompt": "What is blue-green deployment?",
+    "ground_truth": "A deployment strategy with two identical environments where traffic is switched from the old (blue) to the new (green) version",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-53",
+    "tier": "tier2_restraint",
+    "prompt": "What is a Python decorator?",
+    "ground_truth": "A function that wraps another function to extend its behavior without modifying its code, using @syntax",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-54",
+    "tier": "tier2_restraint",
+    "prompt": "What does GRPO stand for in language model training?",
+    "ground_truth": "Group Relative Policy Optimization \u2014 a reinforcement learning method for LLM alignment",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-55",
+    "tier": "tier2_restraint",
+    "prompt": "What is a context manager in Python?",
+    "ground_truth": "An object that defines __enter__ and __exit__ methods for resource management, used with the with statement",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-56",
+    "tier": "tier2_restraint",
+    "prompt": "What is a Python virtual environment?",
+    "ground_truth": "An isolated Python installation that allows projects to have their own dependencies independent of system packages",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-57",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP methods are considered idempotent?",
+    "ground_truth": "GET, PUT, DELETE, HEAD, OPTIONS are idempotent; POST and PATCH are not",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-58",
+    "tier": "tier2_restraint",
+    "prompt": "What is rate limiting?",
+    "ground_truth": "Restricting the number of API requests a client can make within a time window",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-59",
+    "tier": "tier2_restraint",
+    "prompt": "What's the difference between a CNN and an RNN?",
+    "ground_truth": "CNNs use convolutional layers for spatial patterns (images), RNNs use recurrent connections for sequential data (text, time series)",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-60",
+    "tier": "tier2_restraint",
+    "prompt": "What is overfitting?",
+    "ground_truth": "When a model learns the training data too well, including noise, and fails to generalize to new data",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-61",
+    "tier": "tier2_restraint",
+    "prompt": "What is batch normalization?",
+    "ground_truth": "A technique that normalizes layer inputs to stabilize and accelerate neural network training",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-62",
+    "tier": "tier2_restraint",
+    "prompt": "What data structure uses FIFO ordering?",
+    "ground_truth": "Queue",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-63",
+    "tier": "tier2_restraint",
+    "prompt": "What is a Python generator?",
+    "ground_truth": "A function that uses yield to produce a sequence of values lazily, one at a time, without storing the entire sequence in memory",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-64",
+    "tier": "tier2_restraint",
+    "prompt": "What is a detached HEAD state in git?",
+    "ground_truth": "When HEAD points to a specific commit instead of a branch, meaning new commits won't belong to any branch",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-65",
+    "tier": "tier2_restraint",
+    "prompt": "What does git rebase do?",
+    "ground_truth": "Reapplies commits from the current branch on top of another branch, creating a linear commit history",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-66",
+    "tier": "tier2_restraint",
+    "prompt": "What does JWT stand for?",
+    "ground_truth": "JSON Web Token",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-67",
+    "tier": "tier2_restraint",
+    "prompt": "What's the difference between PUT and PATCH?",
+    "ground_truth": "PUT replaces the entire resource, PATCH partially updates it",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-68",
+    "tier": "tier2_restraint",
+    "prompt": "What is CSRF?",
+    "ground_truth": "Cross-Site Request Forgery \u2014 an attack that tricks a user's browser into making unwanted requests to a site where they're authenticated",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-69",
+    "tier": "tier2_restraint",
+    "prompt": "What is the difference between deepcopy and copy in Python?",
+    "ground_truth": "copy creates a shallow copy (references nested objects), deepcopy recursively copies all nested objects",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-70",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means created?",
+    "ground_truth": "201 Created",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-71",
+    "tier": "tier2_restraint",
+    "prompt": "What does MTTR stand for?",
+    "ground_truth": "Mean Time To Recovery \u2014 the average time to restore service after a failure",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-72",
+    "tier": "tier2_restraint",
+    "prompt": "What's the time complexity of BFS on a graph?",
+    "ground_truth": "O(V + E)",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-73",
+    "tier": "tier2_restraint",
+    "prompt": "What is SQL injection?",
+    "ground_truth": "An attack where malicious SQL code is inserted into application queries through user input to manipulate the database",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-74",
+    "tier": "tier2_restraint",
+    "prompt": "What data structure uses LIFO ordering?",
+    "ground_truth": "Stack",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-75",
+    "tier": "tier2_restraint",
+    "prompt": "What port does HTTPS use by default?",
+    "ground_truth": "443",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-76",
+    "tier": "tier2_restraint",
+    "prompt": "What is CORS?",
+    "ground_truth": "Cross-Origin Resource Sharing \u2014 a browser security mechanism that controls which origins can access resources",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-77",
+    "tier": "tier2_restraint",
+    "prompt": "What's the difference between authentication and authorization?",
+    "ground_truth": "Authentication verifies identity (who you are), authorization verifies permissions (what you can do)",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-78",
+    "tier": "tier2_restraint",
+    "prompt": "What is an API gateway?",
+    "ground_truth": "A server that acts as a single entry point for API requests, handling routing, auth, rate limiting, and load balancing",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-79",
+    "tier": "tier2_restraint",
+    "prompt": "What HTTP status code means internal server error?",
+    "ground_truth": "500 Internal Server Error",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t2-restraint-80",
+    "tier": "tier2_restraint",
+    "prompt": "What's the difference between a list and a tuple in Python?",
+    "ground_truth": "Lists are mutable, tuples are immutable",
+    "expected_tools": [],
+    "metadata": {
+      "category": "restraint"
+    },
+    "error_injection_policy": {}
+  }
+]

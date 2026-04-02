@@ -1,0 +1,433 @@
+# ToolTune v3 Eval Suite — Connector Tool Function Calling
+#
+# 30 representative eval cases covering all 4 tiers and all 3 services
+# (GitHub, Google Drive, Gmail). Uses the EvalCase schema from
+# tooltune.eval.schema.
+#
+# Tier distribution:
+#   Tier 1 (single tool):    10 cases
+#   Tier 2 (restraint):       8 cases (>= 30% restraint representation)
+#   Tier 3 (multi-step):      8 cases
+#   Tier 4 (error recovery):  4 cases
+
+cases:
+  # =========================================================================
+  # Tier 1 — Single Tool
+  # =========================================================================
+
+  - id: v3-eval-t1-gh-search-1
+    prompt: "Search for the authentication handler in acmecorp/backend"
+    category: tier1_github
+    difficulty: easy
+    expected_answer: "authenticate function found in src/api/auth.py"
+    expected_tools:
+      - name: github_search_code
+        args_contains:
+          repo: "acmecorp/backend"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, github, search]
+
+  - id: v3-eval-t1-gh-issues-1
+    prompt: "What urgent bugs are open in the backend repo?"
+    category: tier1_github
+    difficulty: easy
+    expected_answer: "Issue #42: Payment timeout on large orders"
+    expected_tools:
+      - name: github_list_issues
+        args_contains:
+          repo: "acmecorp/backend"
+          state: "open"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, github, issues]
+
+  - id: v3-eval-t1-gh-prs-1
+    prompt: "List the open pull requests in acmecorp/backend"
+    category: tier1_github
+    difficulty: easy
+    expected_answer: "3 open PRs: #15 JWT refresh, #14 payment timeout, #13 deps update"
+    expected_tools:
+      - name: github_list_prs
+        args_contains:
+          repo: "acmecorp/backend"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, github, prs]
+
+  - id: v3-eval-t1-drive-search-1
+    prompt: "Find the security audit report in Google Drive"
+    category: tier1_drive
+    difficulty: easy
+    expected_answer: "API Security Audit Report (doc_003)"
+    expected_tools:
+      - name: drive_search
+        args_contains:
+          query: "Security"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, drive, search]
+
+  - id: v3-eval-t1-drive-read-1
+    prompt: "What does the product roadmap say?"
+    category: tier1_drive
+    difficulty: easy
+    expected_answer: "Q1 priorities: billing portal, team collaboration, SOC2 cert, mobile app beta"
+    expected_tools:
+      - name: drive_read_file
+        args_contains:
+          file_id: "doc_001"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, drive, read]
+
+  - id: v3-eval-t1-drive-recent-1
+    prompt: "What files were recently updated in Drive?"
+    category: tier1_drive
+    difficulty: easy
+    expected_answer: "Sprint Planning Board, Revenue Tracker, Security Audit Report"
+    expected_tools:
+      - name: drive_list_recent
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, drive, recent]
+
+  - id: v3-eval-t1-gmail-search-1
+    prompt: "Find emails about the payment processor outage"
+    category: tier1_gmail
+    difficulty: easy
+    expected_answer: "Alice's email about Stripe webhook timeout resolved"
+    expected_tools:
+      - name: gmail_search
+        args_contains:
+          query: "payment"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, gmail, search]
+
+  - id: v3-eval-t1-gmail-read-1
+    prompt: "Read the full security audit email from Dave"
+    category: tier1_gmail
+    difficulty: easy
+    expected_answer: "3 findings: JWT expiry HIGH, rate limiting MEDIUM, CORS LOW"
+    expected_tools:
+      - name: gmail_read_email
+        args_contains:
+          message_id: "msg_002"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, gmail, read]
+
+  - id: v3-eval-t1-gmail-labels-1
+    prompt: "What email labels do I have?"
+    category: tier1_gmail
+    difficulty: easy
+    expected_answer: "INBOX, SENT, DRAFT, TRASH, SPAM, Engineering, Security, Sprint, Hiring"
+    expected_tools:
+      - name: gmail_list_labels
+    forbidden_tools:
+      - gmail_search
+      - gmail_read_email
+    max_tool_calls: 1
+    tags: [tier1, gmail, labels]
+
+  - id: v3-eval-t1-gh-read-1
+    prompt: "Show me the contents of src/api/auth.py in the backend"
+    category: tier1_github
+    difficulty: easy
+    expected_answer: "authenticate function that validates JWT tokens"
+    expected_tools:
+      - name: github_read_file
+        args_contains:
+          repo: "acmecorp/backend"
+          path: "src/api/auth.py"
+    forbidden_tools: []
+    max_tool_calls: 2
+    tags: [tier1, github, read]
+
+  # =========================================================================
+  # Tier 2 — Restraint (no tools)
+  # =========================================================================
+
+  - id: v3-eval-t2-http-429
+    prompt: "What HTTP status code means rate limited?"
+    category: tier2_restraint
+    difficulty: easy
+    expected_answer: "429"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - github_read_file
+      - github_list_issues
+      - github_list_prs
+      - drive_search
+      - drive_read_file
+      - gmail_search
+      - gmail_read_email
+    max_tool_calls: 0
+    tags: [tier2, restraint, knowledge]
+
+  - id: v3-eval-t2-sft-rlhf
+    prompt: "What's the difference between SFT and RLHF?"
+    category: tier2_restraint
+    difficulty: medium
+    expected_answer: "SFT trains on example completions, RLHF uses a reward model trained on preference data"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, ml]
+
+  - id: v3-eval-t2-python-typed
+    prompt: "Is Python dynamically typed?"
+    category: tier2_restraint
+    difficulty: easy
+    expected_answer: "Yes"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, knowledge]
+
+  - id: v3-eval-t2-idempotent
+    prompt: "What does idempotent mean in the context of REST APIs?"
+    category: tier2_restraint
+    difficulty: medium
+    expected_answer: "An operation that produces the same result regardless of how many times it is called"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, api]
+
+  - id: v3-eval-t2-binary-search
+    prompt: "What's the time complexity of binary search?"
+    category: tier2_restraint
+    difficulty: easy
+    expected_answer: "O(log n)"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, cs]
+
+  - id: v3-eval-t2-https-port
+    prompt: "What port does HTTPS use?"
+    category: tier2_restraint
+    difficulty: easy
+    expected_answer: "443"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, networking]
+
+  - id: v3-eval-t2-acid
+    prompt: "What does ACID stand for in databases?"
+    category: tier2_restraint
+    difficulty: medium
+    expected_answer: "Atomicity, Consistency, Isolation, Durability"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, databases]
+
+  - id: v3-eval-t2-docker-k8s
+    prompt: "What's the difference between Docker and Kubernetes?"
+    category: tier2_restraint
+    difficulty: medium
+    expected_answer: "Docker packages applications in containers; Kubernetes orchestrates containers at scale"
+    expected_tools: []
+    forbidden_tools:
+      - github_search_code
+      - drive_search
+      - gmail_search
+    max_tool_calls: 0
+    tags: [tier2, restraint, devops]
+
+  # =========================================================================
+  # Tier 3 — Multi-Step
+  # =========================================================================
+
+  - id: v3-eval-t3-bug-code
+    prompt: "Find the payment bug in GitHub and show me the related code"
+    category: tier3_multi_step
+    difficulty: medium
+    expected_answer: "Issue #42 payment timeout; PaymentProcessor.charge in src/api/payments.py"
+    expected_tools:
+      - name: github_list_issues
+        args_contains:
+          repo: "acmecorp/backend"
+      - name: github_search_code
+        args_contains:
+          repo: "acmecorp/backend"
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier3, multi_step, github]
+
+  - id: v3-eval-t3-audit-email
+    prompt: "Find the security audit in Drive and check for related emails"
+    category: tier3_multi_step
+    difficulty: medium
+    expected_answer: "Audit has 3 findings; Dave's email covers same findings with Issue #41"
+    expected_tools:
+      - name: drive_read_file
+        args_contains:
+          file_id: "doc_003"
+      - name: gmail_search
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier3, multi_step, cross_service]
+
+  - id: v3-eval-t3-email-pr
+    prompt: "Check emails about the Stripe fix and look at the related PR"
+    category: tier3_multi_step
+    difficulty: medium
+    expected_answer: "Alice's email references PR #14; PR #14 adds timeout handling"
+    expected_tools:
+      - name: gmail_search
+      - name: github_read_pr
+        args_contains:
+          pr_number: 14
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier3, multi_step, cross_service]
+
+  - id: v3-eval-t3-onboarding-prs
+    prompt: "Read the onboarding guide and list the backend PRs a new engineer should review"
+    category: tier3_multi_step
+    difficulty: medium
+    expected_answer: "Clone backend/frontend/infra repos. 3 open PRs: JWT refresh, payment timeout, deps"
+    expected_tools:
+      - name: drive_read_file
+        args_contains:
+          file_id: "doc_002"
+      - name: github_list_prs
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier3, multi_step, cross_service]
+
+  - id: v3-eval-t3-bug-email
+    prompt: "What bugs are open in GitHub? Email the team a summary"
+    category: tier3_multi_step
+    difficulty: hard
+    expected_answer: "Payment timeout bug #42; summary email sent to engineering"
+    expected_tools:
+      - name: github_list_issues
+      - name: gmail_send_email
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier3, multi_step, action]
+
+  - id: v3-eval-t3-audit-issues-email
+    prompt: "Read the audit from Drive, check related GitHub issues, and email Alice a status update"
+    category: tier3_multi_step
+    difficulty: hard
+    expected_answer: "Audit has 3 findings; Issue #41 filed for rate limiting; email sent to Alice"
+    expected_tools:
+      - name: drive_read_file
+      - name: github_list_issues
+      - name: gmail_send_email
+    forbidden_tools: []
+    max_tool_calls: 5
+    tags: [tier3, multi_step, three_step]
+
+  - id: v3-eval-t3-hire-onboard-prs
+    prompt: "Read the new hire email, check the onboarding guide, and list PRs they should review"
+    category: tier3_multi_step
+    difficulty: hard
+    expected_answer: "Frank Torres from Datadog; onboarding: clone repos, make setup; 3 open PRs"
+    expected_tools:
+      - name: gmail_read_email
+      - name: drive_read_file
+      - name: github_list_prs
+    forbidden_tools: []
+    max_tool_calls: 5
+    tags: [tier3, multi_step, three_step]
+
+  - id: v3-eval-t3-search-read-drive
+    prompt: "Find the revenue tracker in Drive and tell me the March numbers"
+    category: tier3_multi_step
+    difficulty: easy
+    expected_answer: "March 2025: $245K revenue, 390 customers, 2.4% churn"
+    expected_tools:
+      - name: drive_search
+        args_contains:
+          query: "Revenue"
+      - name: drive_read_file
+        args_contains:
+          file_id: "sheet_001"
+    forbidden_tools: []
+    max_tool_calls: 3
+    tags: [tier3, multi_step, drive]
+
+  # =========================================================================
+  # Tier 4 — Error Recovery
+  # =========================================================================
+
+  - id: v3-eval-t4-wrong-query
+    prompt: "Search for the billing module in the backend"
+    category: tier4_error_recovery
+    difficulty: hard
+    expected_answer: "No billing module; PaymentProcessor in src/api/payments.py is the closest match"
+    expected_tools:
+      - name: github_search_code
+        args_contains:
+          query: "billing"
+      - name: github_search_code
+        args_contains:
+          query: "payment"
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier4, error_recovery, github]
+
+  - id: v3-eval-t4-wrong-repo
+    prompt: "Read the README from acmecorp/api"
+    category: tier4_error_recovery
+    difficulty: hard
+    expected_answer: "No acmecorp/api repo; README in acmecorp/backend describes the Production API service"
+    expected_tools:
+      - name: github_read_file
+      - name: github_read_file
+        args_contains:
+          repo: "acmecorp/backend"
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier4, error_recovery, github]
+
+  - id: v3-eval-t4-wrong-drive-query
+    prompt: "Find the quarterly business review deck in Drive"
+    category: tier4_error_recovery
+    difficulty: hard
+    expected_answer: "No QBR deck; Q1 2025 Product Roadmap is the closest match"
+    expected_tools:
+      - name: drive_search
+      - name: drive_search
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier4, error_recovery, drive]
+
+  - id: v3-eval-t4-no-email
+    prompt: "Find emails from frank@acmecorp.com"
+    category: tier4_error_recovery
+    difficulty: hard
+    expected_answer: "No emails from Frank (hasn't started yet); Eve's email announces his joining"
+    expected_tools:
+      - name: gmail_search
+      - name: gmail_search
+    forbidden_tools: []
+    max_tool_calls: 4
+    tags: [tier4, error_recovery, gmail]

@@ -1,0 +1,1583 @@
+[
+  {
+    "id": "v3-t3-multi-26",
+    "tier": "tier3_multi_step",
+    "prompt": "Check the roadmap and find any emails about the mobile app beta",
+    "ground_truth": "Roadmap lists mobile app beta for Mar 30. No specific emails found about mobile app",
+    "expected_tools": [
+      "drive_read_file",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_001"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "mobile app"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-24",
+    "tier": "tier3_multi_step",
+    "prompt": "Check the roadmap priorities and see which ones have open GitHub issues",
+    "ground_truth": "Roadmap: billing, collaboration, SOC2, mobile beta. Open issues: payment timeout, rate limiting, user model teams, webhook docs",
+    "expected_tools": [
+      "drive_read_file",
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_001"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-20",
+    "tier": "tier3_multi_step",
+    "prompt": "What bugs are open in GitHub? Send a summary email to the engineering team",
+    "ground_truth": "2 bugs: #42 Payment timeout (urgent), #39 CORS (closed). Summary email sent to engineering@acmecorp.com",
+    "expected_tools": [
+      "github_list_issues",
+      "gmail_send_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "bug"
+          }
+        },
+        {
+          "tool": "gmail_send_email",
+          "args": {
+            "to": "engineering@acmecorp.com",
+            "subject": "Open Bug Summary",
+            "body": "Current open bugs:\n- #42 Payment timeout on large orders (urgent)\n"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-12",
+    "tier": "tier3_multi_step",
+    "prompt": "Search Drive for the roadmap and tell me what's in it",
+    "ground_truth": "Q1 2025 priorities: billing portal (Feb), team collaboration (Mar), SOC2 cert, mobile app beta (Mar 30). MRR target $250K",
+    "expected_tools": [
+      "drive_search",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Roadmap"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_001"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-5",
+    "tier": "tier3_multi_step",
+    "prompt": "List the bugs in the backend repo and then find the related code for the most urgent one",
+    "ground_truth": "Issue #42 Payment timeout (urgent); PaymentProcessor in src/api/payments.py with charge method using Stripe",
+    "expected_tools": [
+      "github_list_issues",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "bug"
+          }
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "payment"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-46",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the architecture doc and list what enhancement issues are planned",
+    "ground_truth": "Architecture: layered (API, Service, Data, External). Enhancements: #41 rate limiting, #40 user model teams",
+    "expected_tools": [
+      "github_read_file",
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "docs/architecture.md"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "enhancement"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-27",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the security audit from Drive and find related emails",
+    "ground_truth": "Audit has 3 findings. Dave's email about SOC2 audit covers same findings and mentions Issue #41 filed",
+    "expected_tools": [
+      "drive_read_file",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "security audit"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-10",
+    "tier": "tier3_multi_step",
+    "prompt": "Look for any emails about the sprint and tell me the full agenda",
+    "ground_truth": "Sprint planning at 2pm in Elm conference room. Agenda: review velocity, triage new issues, assign sprint stories",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "sprint planning"
+          }
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_003"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-30",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the security audit from Drive, check the related GitHub issues, and email Alice a status update",
+    "ground_truth": "Audit: 3 findings. Issue #41 filed for rate limiting. Email sent to alice@acmecorp.com with status",
+    "expected_tools": [
+      "drive_read_file",
+      "github_list_issues",
+      "gmail_send_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        },
+        {
+          "tool": "gmail_send_email",
+          "args": {
+            "to": "alice@acmecorp.com",
+            "subject": "Security audit status",
+            "body": "Audit findings: JWT expiry (HIGH) - PR #15 in progress, Rate limiting (MEDIUM) - Issue #41 filed, CORS (LOW) - pending."
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-17",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the security audit email and check if the rate limiting issue was filed on GitHub",
+    "ground_truth": "Dave's audit email mentions Issue #41 for rate limiting. Issue #41: Add rate limiting to auth endpoints (open, enhancement)",
+    "expected_tools": [
+      "gmail_read_email",
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_002"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "enhancement"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-32",
+    "tier": "tier3_multi_step",
+    "prompt": "Check recent Drive files, read the latest audit report, and find related emails about it",
+    "ground_truth": "Most recent files include Security Audit (Mar 18). Audit has 3 findings. Dave's email covers same findings",
+    "expected_tools": [
+      "drive_list_recent",
+      "drive_read_file",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_list_recent",
+          "args": {}
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "security audit"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-22",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the security audit from Drive and find the related PRs in GitHub",
+    "ground_truth": "Audit recommends JWT fix (PR #15 in progress) and rate limiting (Issue #41). PR #15: JWT refresh token rotation, open",
+    "expected_tools": [
+      "drive_read_file",
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        },
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-13",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the onboarding guide and tell me the setup steps",
+    "ground_truth": "Clone backend/frontend/infra repos, run make setup, get creds from 1Password Engineering vault. Stack: Python/FastAPI backend, React/TypeScript frontend, PostgreSQL+Redis, AWS ECS",
+    "expected_tools": [
+      "drive_search",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Onboarding"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_002"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-4",
+    "tier": "tier3_multi_step",
+    "prompt": "What PRs are addressing the payment timeout issue? Show me the PR details",
+    "ground_truth": "PR #14 fix: payment processor timeout handling by Bob, 142 additions, 38 deletions, mergeable",
+    "expected_tools": [
+      "github_list_prs",
+      "github_read_pr"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 14
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-40",
+    "tier": "tier3_multi_step",
+    "prompt": "List recent Drive docs, check who owns the security audit doc, and read it",
+    "ground_truth": "6 recent files. Security Audit owned by Dave Kim, shared with domain. Findings: JWT, rate limiting, CORS",
+    "expected_tools": [
+      "drive_list_recent",
+      "drive_get_file_info",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_list_recent",
+          "args": {}
+        },
+        {
+          "tool": "drive_get_file_info",
+          "args": {
+            "file_id": "doc_003"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-39",
+    "tier": "tier3_multi_step",
+    "prompt": "Search Gmail for sprint info, check what labels exist, and read the full sprint email",
+    "ground_truth": "Sprint planning email found. Labels include Sprint (Label_3). Full email: 2pm in Elm room, update tickets, flag blockers",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_list_labels",
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "sprint"
+          }
+        },
+        {
+          "tool": "gmail_list_labels",
+          "args": {}
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_003"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-11",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the security audit doc in Drive and read its contents",
+    "ground_truth": "API Security Audit Report: HIGH JWT expiry, MEDIUM rate limiting, LOW CORS wildcard. PR #15 in progress for JWT fix",
+    "expected_tools": [
+      "drive_search",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Security"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-25",
+    "tier": "tier3_multi_step",
+    "prompt": "Check the revenue tracker and find any finance-related code in GitHub",
+    "ground_truth": "Revenue: Jan $180K, Feb $210K, Mar $245K. Payment code in src/api/payments.py handles Stripe charges",
+    "expected_tools": [
+      "drive_read_file",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "sheet_001"
+          }
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "payment"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-36",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the new hire email, check the onboarding guide, and list the backend PRs they should review",
+    "ground_truth": "Frank Torres starts Monday from Datadog. Onboarding: clone repos, make setup, 1Password. 3 open PRs to review",
+    "expected_tools": [
+      "gmail_read_email",
+      "drive_read_file",
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_004"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_002"
+          }
+        },
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-1",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the checkout bug in GitHub and tell me what the code looks like",
+    "ground_truth": "Issue #42 Payment timeout on large orders; PaymentProcessor.charge in src/api/payments.py processes via Stripe",
+    "expected_tools": [
+      "github_list_issues",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "bug"
+          }
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "payment"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-44",
+    "tier": "tier3_multi_step",
+    "prompt": "Get the file info for the revenue tracker and read its contents",
+    "ground_truth": "Revenue Tracker 2025 owned by Bob Martinez, shared. Jan $180K, Feb $210K, Mar $245K revenue",
+    "expected_tools": [
+      "drive_get_file_info",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_get_file_info",
+          "args": {
+            "file_id": "sheet_001"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "sheet_001"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-19",
+    "tier": "tier3_multi_step",
+    "prompt": "Check emails about the audit, then look at the auth code that needs fixing",
+    "ground_truth": "Audit found JWT expiry issue. auth.py: jwt.decode with SECRET_KEY, raises AuthError if user not found",
+    "expected_tools": [
+      "gmail_search",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "security audit"
+          }
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "src/api/auth.py"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-34",
+    "tier": "tier3_multi_step",
+    "prompt": "Check the sprint planning email, see what issues are open, and read the roadmap for priorities",
+    "ground_truth": "Sprint at 2pm, update Linear tickets. 4 open issues. Roadmap priorities: billing, collaboration, SOC2, mobile beta",
+    "expected_tools": [
+      "gmail_read_email",
+      "github_list_issues",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_003"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_001"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-49",
+    "tier": "tier3_multi_step",
+    "prompt": "Get the closed PRs and check if there are related closed issues",
+    "ground_truth": "Closed PR #12: dashboard chart components by Dave. Closed issue #39: CORS headers fix by Dave",
+    "expected_tools": [
+      "github_list_prs",
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "closed"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "closed"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-42",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the SOC2 checklist in Drive and check if there are related emails",
+    "ground_truth": "SOC2 Compliance Checklist.pdf (pdf_001) found. Dave's email about SOC2 audit covers 3 security findings",
+    "expected_tools": [
+      "drive_search",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "SOC2"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "SOC2 audit"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-31",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the deployment runbook from Drive, read it, and check the latest deploy PR",
+    "ground_truth": "No deployment runbook found. Engineering Onboarding Guide available. PRs: JWT refresh #15, payment timeout #14",
+    "expected_tools": [
+      "drive_search",
+      "drive_read_file",
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "deployment"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_002"
+          }
+        },
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-29",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the payment bug in GitHub, read the code, and email Bob about it",
+    "ground_truth": "Issue #42 payment timeout. PaymentProcessor.charge in payments.py. Email sent to bob@acmecorp.com about the bug",
+    "expected_tools": [
+      "github_list_issues",
+      "github_read_file",
+      "gmail_send_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "bug,urgent"
+          }
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "src/api/payments.py"
+          }
+        },
+        {
+          "tool": "gmail_send_email",
+          "args": {
+            "to": "bob@acmecorp.com",
+            "subject": "Payment timeout bug #42",
+            "body": "The PaymentProcessor.charge method needs timeout handling. See issue #42."
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-21",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the design doc in Drive and check if the corresponding GitHub issue exists",
+    "ground_truth": "No design doc found. Architecture doc available (doc_003 Security Audit). Related issues include #41 rate limiting",
+    "expected_tools": [
+      "drive_search",
+      "github_list_issues"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "design"
+          }
+        },
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-23",
+    "tier": "tier3_multi_step",
+    "prompt": "What does the onboarding guide say about repos? List open PRs for the backend",
+    "ground_truth": "Onboarding: clone backend/frontend/infra repos. Backend has 3 open PRs: JWT refresh, payment timeout, deps update",
+    "expected_tools": [
+      "drive_read_file",
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_002"
+          }
+        },
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-43",
+    "tier": "tier3_multi_step",
+    "prompt": "Check what documentation issues exist and read the webhook docs issue details",
+    "ground_truth": "Issue #38: Document webhook integration (open, by Eve). No detailed webhook docs in codebase yet",
+    "expected_tools": [
+      "github_list_issues",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open",
+            "labels": "documentation"
+          }
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "webhook"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-47",
+    "tier": "tier3_multi_step",
+    "prompt": "Search for auth-related code and check what test coverage exists",
+    "ground_truth": "auth.py has authenticate function. test_auth.py tests valid token authentication for user_123",
+    "expected_tools": [
+      "github_search_code",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "authenticate"
+          }
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "tests/test_auth.py"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-37",
+    "tier": "tier3_multi_step",
+    "prompt": "What did Alice email about the payment fix? Read the actual PR she referenced",
+    "ground_truth": "Alice's email: PR #14 fixes retry logic with exponential backoff. PR #14: 142 additions, 38 deletions, 4 changed files, mergeable",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_read_email",
+      "github_read_pr"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "from:alice payment"
+          }
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_001"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 14
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-33",
+    "tier": "tier3_multi_step",
+    "prompt": "Search for the JWT auth code, read the PR that modifies it, and check for related emails",
+    "ground_truth": "JWT code in src/api/auth.py. PR #15 adds refresh token rotation. Alice's payment email references related work",
+    "expected_tools": [
+      "github_search_code",
+      "github_read_pr",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "jwt"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 15
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "JWT"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-45",
+    "tier": "tier3_multi_step",
+    "prompt": "Find all emails from Alice, then check the PR she mentioned",
+    "ground_truth": "Alice emailed about payment outage resolution. PR #14: payment timeout fix by Bob, 142 additions, mergeable",
+    "expected_tools": [
+      "gmail_search",
+      "github_read_pr"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "from:alice"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 14
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-14",
+    "tier": "tier3_multi_step",
+    "prompt": "What recently modified files are in Drive? Read the most recent one",
+    "ground_truth": "Sprint Planning Board is most recent (Mar 22). Other recent: Revenue Tracker, Security Audit, Q1 Roadmap",
+    "expected_tools": [
+      "drive_list_recent",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_list_recent",
+          "args": {}
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_001"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-50",
+    "tier": "tier3_multi_step",
+    "prompt": "Read the payment outage email in full and check the test file for payment tests",
+    "ground_truth": "Alice: exponential backoff retry, timeout 5s->15s, dead letter queue. test_auth.py exists but no payment-specific tests found",
+    "expected_tools": [
+      "gmail_read_email",
+      "github_search_code"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_001"
+          }
+        },
+        {
+          "tool": "github_search_code",
+          "args": {
+            "repo": "acmecorp/backend",
+            "query": "test_payment"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-48",
+    "tier": "tier3_multi_step",
+    "prompt": "Check what's in the sprint planning board and find the sprint planning email",
+    "ground_truth": "Sprint Planning Board in Drive (sheet_002, Mar 22). Carol's email: sprint at 2pm, update Linear tickets",
+    "expected_tools": [
+      "drive_search",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Sprint"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "sprint planning"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-3",
+    "tier": "tier3_multi_step",
+    "prompt": "Find all open PRs in the backend and read the details of the JWT refresh PR",
+    "ground_truth": "3 open PRs; PR #15 adds JWT refresh token rotation with 142 additions, 38 deletions across 4 files",
+    "expected_tools": [
+      "github_list_prs",
+      "github_read_pr"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 15
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-28",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the onboarding doc and check for emails about the new hire who'll need it",
+    "ground_truth": "Onboarding guide covers setup steps. Frank Torres starting Monday as Senior Backend Engineer, Carol is buddy",
+    "expected_tools": [
+      "drive_search",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Onboarding"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "new team member"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-38",
+    "tier": "tier3_multi_step",
+    "prompt": "Check what the security audit says about authentication, then read the auth code and the related PR",
+    "ground_truth": "Audit: JWT tokens lack expiry validation (HIGH). auth.py: jwt.decode validates tokens. PR #15: JWT refresh token rotation",
+    "expected_tools": [
+      "drive_read_file",
+      "github_read_file",
+      "github_read_pr"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "src/api/auth.py"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 15
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-6",
+    "tier": "tier3_multi_step",
+    "prompt": "Find emails about the security audit and read the full details",
+    "ground_truth": "Dave's email: 3 findings - JWT expiry (HIGH), rate limiting (MEDIUM), CORS wildcard (LOW). Issue #41 filed",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "security audit"
+          }
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_002"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-35",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the revenue spreadsheet in Drive, read it, and search for any finance-related emails",
+    "ground_truth": "Revenue Tracker: Jan $180K, Feb $210K, Mar $245K. No specific finance emails found",
+    "expected_tools": [
+      "drive_search",
+      "drive_read_file",
+      "gmail_search"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_search",
+          "args": {
+            "query": "Revenue"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "sheet_001"
+          }
+        },
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "revenue"
+          }
+        }
+      ],
+      "num_steps": 3
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-7",
+    "tier": "tier3_multi_step",
+    "prompt": "Check if there are any emails about the payment issue and read the latest one",
+    "ground_truth": "Alice's email: Stripe timeout resolved with exponential backoff, timeout 5s->15s, dead letter queue added. PR #14",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "payment"
+          }
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_001"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-9",
+    "tier": "tier3_multi_step",
+    "prompt": "Search for emails about the new hire and get the full announcement",
+    "ground_truth": "Frank Torres joining as Senior Backend Engineer from Datadog, focusing on observability. Starts Monday March 24, Carol is onboarding buddy",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "new team member"
+          }
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_004"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-15",
+    "tier": "tier3_multi_step",
+    "prompt": "Get the file info for the roadmap doc and then read its content",
+    "ground_truth": "Q1 2025 Product Roadmap by Alice Chen, shared with acmecorp.com domain. Priorities: billing, collaboration, SOC2, mobile",
+    "expected_tools": [
+      "drive_get_file_info",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "drive_get_file_info",
+          "args": {
+            "file_id": "doc_001"
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_001"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-16",
+    "tier": "tier3_multi_step",
+    "prompt": "Check if there are any urgent emails about the API, then find the related PR",
+    "ground_truth": "Alice's email about payment outage references PR #14 for timeout fix. PR #14: payment processor timeout handling by Bob",
+    "expected_tools": [
+      "gmail_search",
+      "github_list_prs"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "payment"
+          }
+        },
+        {
+          "tool": "github_list_prs",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-18",
+    "tier": "tier3_multi_step",
+    "prompt": "Find the email about the Stripe fix and check the status of the related PR",
+    "ground_truth": "Alice's email references PR #14. PR #14 fix: payment processor timeout handling, open, by Bob, not draft, mergeable",
+    "expected_tools": [
+      "gmail_search",
+      "github_read_pr"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "payment stripe"
+          }
+        },
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 14
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-2",
+    "tier": "tier3_multi_step",
+    "prompt": "Check if there are any open issues about authentication, and pull up the related code",
+    "ground_truth": "Issue #41 Add rate limiting to auth endpoints; authenticate function in src/api/auth.py validates JWT tokens",
+    "expected_tools": [
+      "github_list_issues",
+      "github_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_list_issues",
+          "args": {
+            "repo": "acmecorp/backend",
+            "state": "open"
+          }
+        },
+        {
+          "tool": "github_read_file",
+          "args": {
+            "repo": "acmecorp/backend",
+            "path": "src/api/auth.py"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-8",
+    "tier": "tier3_multi_step",
+    "prompt": "Find emails from Carol and read the full message",
+    "ground_truth": "Sprint planning at 2pm in Elm room. Update Linear tickets, flag blockers, review sprint board. Agenda: review velocity, triage, assign stories",
+    "expected_tools": [
+      "gmail_search",
+      "gmail_read_email"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "gmail_search",
+          "args": {
+            "query": "from:carol"
+          }
+        },
+        {
+          "tool": "gmail_read_email",
+          "args": {
+            "message_id": "msg_003"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "v3-t3-multi-41",
+    "tier": "tier3_multi_step",
+    "prompt": "Look at PR #15 details and check what the security audit says about JWT tokens",
+    "ground_truth": "PR #15: JWT refresh token rotation, 142 additions, 4 files changed. Audit: JWT tokens lack expiry validation (HIGH)",
+    "expected_tools": [
+      "github_read_pr",
+      "drive_read_file"
+    ],
+    "metadata": {
+      "category": "multi_step",
+      "steps": [
+        {
+          "tool": "github_read_pr",
+          "args": {
+            "repo": "acmecorp/backend",
+            "pr_number": 15
+          }
+        },
+        {
+          "tool": "drive_read_file",
+          "args": {
+            "file_id": "doc_003"
+          }
+        }
+      ],
+      "num_steps": 2
+    },
+    "error_injection_policy": {}
+  }
+]
