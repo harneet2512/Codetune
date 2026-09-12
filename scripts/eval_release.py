@@ -33,6 +33,8 @@ class LlamaCppGenerator:
 
     def __init__(self, base_url="http://127.0.0.1:8085"):
         self.base_url = base_url.rstrip("/")
+        self.tokens_predicted = 0
+        self.tokens_evaluated = 0
 
     def generate(self, prompt: str, max_new_tokens: int = 256, temperature: float = 0.0) -> str:
         body = json.dumps({
@@ -51,12 +53,39 @@ class LlamaCppGenerator:
         with urllib.request.urlopen(req, timeout=600) as r:
             out = json.loads(r.read())
         content = out.get("content", "")
+        self.tokens_predicted += out.get("tokens_predicted", 0)
+        self.tokens_evaluated += out.get("tokens_evaluated", 0)
         # /completion stops before emitting stop strings; re-emit </answer> if truncated there
         if "<answer>" in content and "</answer>" not in content:
             content += "</answer>"
         if "<tool_call>" in content and "</tool_call>" not in content:
             content += "</tool_call>"
         return content
+
+
+class ConnectorAdapter:
+    """Adapts MockConnectorRegistry (GitHub/Drive/Gmail) to the ToolRegistry
+    interface the agentic loop expects. Used for the unseen-tool-ecosystem
+    eval: v3 task files, zero-shot schema transfer."""
+
+    def __init__(self):
+        from tools.connectors.mock import MockConnectorRegistry
+        self._inner = MockConnectorRegistry()
+
+    def tool_definitions(self):
+        return self._inner.list_tools()
+
+    def execute(self, tool_call, inject_errors=False, error_probability=0.2, random_seed=None):
+        if inject_errors:
+            rng = random.Random(random_seed)
+            if rng.random() < error_probability:
+                from tooltune.contracts import ToolObservation
+                return ToolObservation(
+                    tool_name=tool_call.name,
+                    content=json.dumps({"error": "Service temporarily unavailable"}),
+                    is_error=True,
+                )
+        return self._inner.execute(tool_call.name, tool_call.arguments)
 
 
 def score(traces, gt_fixes=None):
@@ -105,10 +134,14 @@ def main():
     ap.add_argument("--tasks-same-as", default=None,
                     help="JSON trace file to copy the task-ID sample from (for comparability)")
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--tasks-glob", default="tier*.json",
+                    help="glob under tasks/ (default tier*.json; use v3_tier*.json for unseen-tools eval)")
+    ap.add_argument("--registry", choices=["v1", "v3"], default="v1",
+                    help="v1 = trained 5-tool set; v3 = unseen GitHub/Drive/Gmail ecosystem")
     args = ap.parse_args()
 
     all_tasks = []
-    for f in sorted(Path("tasks").glob("tier*.json")):
+    for f in sorted(Path("tasks").glob(args.tasks_glob)):
         for item in load_json(f):
             all_tasks.append(TaskRecord(**item))
 
@@ -123,24 +156,39 @@ def main():
         tasks = all_tasks[: args.n]
 
     gen = LlamaCppGenerator(args.url)
-    registry = ToolRegistry()
+    registry = ToolRegistry() if args.registry == "v1" else ConnectorAdapter()
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
     traces = []
+    done_ids = set()
+    if out.exists():
+        traces = json.loads(out.read_text())
+        done_ids = {t["task"]["id"] for t in traces}
+        print(f"resuming: {len(done_ids)} traces already in {out}")
     for i, task in enumerate(tasks):
+        if task.id in done_ids:
+            continue
         print(f"[{i+1}/{len(tasks)}] {task.id}", flush=True)
         trace = generate_agentic_completion(
             generator=gen, task=task, registry=registry, max_steps=5, temperature=0.0
         )
         traces.append(trace.to_dict())
+        dump_json(out, traces)  # persist after every task — resumable
 
-    out = Path(args.out)
-    out.parent.mkdir(parents=True, exist_ok=True)
     dump_json(out, traces)
     gt_fixes = {}
     fix_path = Path("results/gt_repair.json")
     if fix_path.exists():
         gt_fixes = json.loads(fix_path.read_text())
         print(f"applying {len(gt_fixes)} re-derived ground truths")
-    print("\nSCORES:", json.dumps(score(traces, gt_fixes), indent=2))
+    scores = score(traces, gt_fixes)
+    scores["tokens_generated_total"] = gen.tokens_predicted
+    scores["tokens_prompt_total"] = gen.tokens_evaluated
+    scores["gen_tokens_per_correct_task"] = (
+        round(gen.tokens_predicted / scores["n"] / scores["task_accuracy"], 1)
+        if scores["task_accuracy"] else None
+    )
+    print("\nSCORES:", json.dumps(scores, indent=2))
     print("saved ->", out)
 
 
