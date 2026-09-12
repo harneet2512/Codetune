@@ -1,0 +1,11 @@
+torch
+transformers>=4.45
+accelerate
+bitsandbytes
+peft
+spaces
+gradio>=5.0
+fastapi
+uvicorn
+pydantic
+safetensors

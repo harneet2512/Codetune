@@ -1,0 +1,94 @@
+[
+  {
+    "task": {
+      "id": "tier1-weather-28",
+      "tier": "tier1_single_tool",
+      "prompt": "How's the weather in Istanbul?",
+      "ground_truth": "Partly Cloudy, 17C",
+      "expected_tools": [
+        "weather"
+      ],
+      "metadata": {
+        "category": "weather",
+        "tool": "weather",
+        "city": "istanbul"
+      },
+      "error_injection_policy": {}
+    },
+    "prompt": "You are a helpful assistant with access to the following tools:\n\n[\n  {\n    \"name\": \"calculator\",\n    \"description\": \"Evaluates a mathematical expression and returns the result.\",\n    \"parameters\": {\n      \"expression\": {\n        \"type\": \"string\",\n        \"description\": \"Math expression\"\n      }\n    }\n  },\n  {\n    \"name\": \"wikipedia\",\n    \"description\": \"Looks up a topic and returns a short factual summary.\",\n    \"parameters\": {\n      \"query\": {\n        \"type\": \"string\",\n        \"description\": \"Topic to look up\"\n      }\n    }\n  },\n  {\n    \"name\": \"weather\",\n    \"description\": \"Returns current weather for a city.\",\n    \"parameters\": {\n      \"city\": {\n        \"type\": \"string\",\n        \"description\": \"City name\"\n      }\n    }\n  },\n  {\n    \"name\": \"code_executor\",\n    \"description\": \"Runs Python code and returns stdout/stderr.\",\n    \"parameters\": {\n      \"code\": {\n        \"type\": \"string\",\n        \"description\": \"Python code to execute\"\n      }\n    }\n  },\n  {\n    \"name\": \"unit_converter\",\n    \"description\": \"Converts a value from one unit to another.\",\n    \"parameters\": {\n      \"value\": {\n        \"type\": \"number\",\n        \"description\": \"Value to convert\"\n      },\n      \"from_unit\": {\n        \"type\": \"string\",\n        \"description\": \"Source unit\"\n      },\n      \"to_unit\": {\n        \"type\": \"string\",\n        \"description\": \"Target unit\"\n      }\n    }\n  }\n]\n\nTo use a tool, write a <tool_call> block with JSON. You will receive the result in an <observation> block.\n\nThink step by step inside <think></think> tags. When you have enough information, give your final answer inside <answer></answer> tags.\nIf a tool returns an error, try a different approach.\n\nUser: How's the weather in Istanbul?\n",
+    "transcript": "<think>\nI need to look up the current weather in Istanbul.\n</think>\n<tool_call>\n{\"name\": \"weather\", \"arguments\": {\"city\": \"istanbul\"}}\n</tool_call>\n<observation>\n{\"temp_celsius\": 17, \"temp_fahrenheit\": 62.6, \"conditions\": \"Haze\"}\n</observation>\n<answer>\nHaze, 17C\n</answer>",
+    "steps": [
+      {
+        "phase": "think",
+        "content": "I need to look up the current weather in Istanbul.",
+        "index": 0,
+        "meta": {}
+      },
+      {
+        "phase": "tool_call",
+        "content": "{\"name\": \"weather\", \"arguments\": {\"city\": \"istanbul\"}}",
+        "index": 1,
+        "meta": {}
+      },
+      {
+        "phase": "observation",
+        "content": "{\"temp_celsius\": 17, \"temp_fahrenheit\": 62.6, \"conditions\": \"Haze\"}",
+        "index": 2,
+        "meta": {}
+      },
+      {
+        "phase": "answer",
+        "content": "Haze, 17C",
+        "index": 3,
+        "meta": {}
+      }
+    ],
+    "final_answer": "Haze, 17C",
+    "tool_calls": [
+      {
+        "name": "weather",
+        "arguments": {
+          "city": "istanbul"
+        },
+        "raw": "{\"name\": \"weather\", \"arguments\": {\"city\": \"istanbul\"}}",
+        "valid": true,
+        "error": null
+      }
+    ],
+    "observations": [
+      "{\"temp_celsius\": 17, \"temp_fahrenheit\": 62.6, \"conditions\": \"Haze\"}"
+    ]
+  },
+  {
+    "task": {
+      "id": "tier2-restraint-1",
+      "tier": "tier2_restraint",
+      "prompt": "What is the capital of Egypt?",
+      "ground_truth": "Cairo",
+      "expected_tools": [],
+      "metadata": {
+        "category": "restraint"
+      },
+      "error_injection_policy": {}
+    },
+    "prompt": "You are a helpful assistant with access to the following tools:\n\n[\n  {\n    \"name\": \"calculator\",\n    \"description\": \"Evaluates a mathematical expression and returns the result.\",\n    \"parameters\": {\n      \"expression\": {\n        \"type\": \"string\",\n        \"description\": \"Math expression\"\n      }\n    }\n  },\n  {\n    \"name\": \"wikipedia\",\n    \"description\": \"Looks up a topic and returns a short factual summary.\",\n    \"parameters\": {\n      \"query\": {\n        \"type\": \"string\",\n        \"description\": \"Topic to look up\"\n      }\n    }\n  },\n  {\n    \"name\": \"weather\",\n    \"description\": \"Returns current weather for a city.\",\n    \"parameters\": {\n      \"city\": {\n        \"type\": \"string\",\n        \"description\": \"City name\"\n      }\n    }\n  },\n  {\n    \"name\": \"code_executor\",\n    \"description\": \"Runs Python code and returns stdout/stderr.\",\n    \"parameters\": {\n      \"code\": {\n        \"type\": \"string\",\n        \"description\": \"Python code to execute\"\n      }\n    }\n  },\n  {\n    \"name\": \"unit_converter\",\n    \"description\": \"Converts a value from one unit to another.\",\n    \"parameters\": {\n      \"value\": {\n        \"type\": \"number\",\n        \"description\": \"Value to convert\"\n      },\n      \"from_unit\": {\n        \"type\": \"string\",\n        \"description\": \"Source unit\"\n      },\n      \"to_unit\": {\n        \"type\": \"string\",\n        \"description\": \"Target unit\"\n      }\n    }\n  }\n]\n\nTo use a tool, write a <tool_call> block with JSON. You will receive the result in an <observation> block.\n\nThink step by step inside <think></think> tags. When you have enough information, give your final answer inside <answer></answer> tags.\nIf a tool returns an error, try a different approach.\n\nUser: What is the capital of Egypt?\n",
+    "transcript": "<think>\nNo external lookup needed \u2014 this is well-known.\n</think>\n<answer>\nCairo\n</answer>",
+    "steps": [
+      {
+        "phase": "think",
+        "content": "No external lookup needed \u2014 this is well-known.",
+        "index": 0,
+        "meta": {}
+      },
+      {
+        "phase": "answer",
+        "content": "Cairo",
+        "index": 1,
+        "meta": {}
+      }
+    ],
+    "final_answer": "Cairo",
+    "tool_calls": [],
+    "observations": []
+  }
+]
