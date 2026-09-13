@@ -105,3 +105,7 @@ playground/             React client + FastAPI backend
 - **Post-training**: QLoRA SFT (450 expert ReAct traces) → corrective SFT (350 examples, r=64, lr=1e-4, 2 epochs) → data-fix v3 retrain; `lora_B` magnitude check on every adapter
 - **Eval protocol**: `<think>/<tool_call>/<observation>/<answer>` raw-completion format, real executor, per-task persisted traces, canonical `is_correct` + LLM judge, Wilson CIs, tokens-per-resolved-task accounting
 - **Spend to date**: ~$3 total on Modal
+
+## Next
+
+Incoming: **RL training for Qwen3-Coder-30B-A3B as a coding agent** — the frontier-lab recipe (verifiable rewards, GRPO, KL-gated rollouts) implemented and instrumented at small scale.
