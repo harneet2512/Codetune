@@ -1,0 +1,130 @@
+{
+  "canonical": 0.9,
+  "canonical_correct": "180/200",
+  "canonical_failures_judged": 20,
+  "judge_overturned": 6,
+  "secondary_accuracy": 0.93,
+  "judge_model": "openai/gpt-4o-mini",
+  "failures": [
+    {
+      "id": "tier3-pop-ratio-8",
+      "gt": "1.2",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use calculator tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the population of Bangkok.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of bangkok\"}}\n</tool_call>\n<observation>\nThe population of the Bangkok metropolitan area is approximately 11.1 million as of 2024.\n</observation>\n<think>\nStep 2: Look up the population of Switzerland.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of switzerland\"}}\n</tool_call>\n<observation>\nThe population of Switzerland is approximately 8.9 million as of 2024.\n</observation>\n<think>\nStep 3: Calculate the ratio of Bangkok's population to Switzerland's population.\n</think>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_bangkok / population_switzerland\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_bangkok / population_switzerland\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_bangkok / population_switzerland\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier3-wiki-code-1",
+      "gt": "23.81",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use code_executor tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the current population of Cairo.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of cairo\"}}\n</tool_call>\n<observation>\nThe population of the Cairo metropolitan area is approximately 22.1 million as of 2024.\n</observation>\n<think>\nStep 2: Write Python code to calculate the population in 5 years.\n</think>\n<tool_call>\n{\"name\": \"code_executor\", \"arguments\": {\"code\": \"current_population = 22100000; growth_rate = 0.015; years = 5; final_population = current_population * (1 + growth_rate) ** years; final_population\"})\n</tool_call>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier3-wiki-code-8",
+      "gt": "42.29",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use code_executor tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the current population of Shanghai.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of shanghai\"}}\n</tool_call>\n<observation>\nThe population of the Shanghai metropolitan area is approximately 29.2 million as of 2024.\n</observation>\n<think>\nStep 2: Write Python code to calculate the population in 15 years.\n</think>\n<tool_call>\n{\"name\": \"code_executor\", \"arguments\": {\"code\": \"current_population = 29200000; growth_rate = 0.025; years = 15; final_population = current_population * (1 + growth_rate) ** years; final_population\"})\n</tool_call>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier2-restraint-121",
+      "gt": "A piece of land that is almost entirely surrounded by water but connected to the mainland.",
+      "answer": "A piece of land almost surrounded by water.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier4-recovery-13",
+      "gt": "27",
+      "answer": "Unknown",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier4-recovery-39",
+      "gt": "1.3",
+      "answer": "Error: All tools failed.",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier4-recovery-8",
+      "gt": "62.6",
+      "answer": "64.4",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier2-restraint-79",
+      "gt": "The process by which plants convert sunlight into energy.",
+      "answer": "It is a process used by plants and other organisms to convert light energy into chemical energy that can later be released to fuel the organism's activities.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier2-restraint-14",
+      "gt": "A large continuous mass of land on the Earth's surface.",
+      "answer": "A large landmass.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier4-recovery-36",
+      "gt": "95.0",
+      "answer": "77.0",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier2-restraint-64",
+      "gt": "A systematic process of observation, hypothesis, experimentation, and conclusion.",
+      "answer": "A systematic process for experimentation and investigation.",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier2-restraint-29",
+      "gt": "A system of government where power is held by the people.",
+      "answer": "A system or process of government by the people, usually through elected representatives.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier3-pop-ratio-23",
+      "gt": "0.5",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use calculator tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the population of Delhi.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of delhi\"}}\n</tool_call>\n<observation>\nThe population of the Delhi metropolitan area is approximately 32.9 million as of 2024.\n</observation>\n<think>\nStep 2: Look up the population of Thailand.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of thailand\"}}\n</tool_call>\n<observation>\nThe population of Thailand is approximately 72 million as of 2024.\n</observation>\n<think>\nStep 3: Calculate the ratio of Delhi's population to Thailand's population.\n</think>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_delhi / population_thailand\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_delhi / population_thailand\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_delhi / population_thailand\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier3-pop-ratio-26",
+      "gt": "0.8",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use calculator tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the population of Colombia.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of colombia\"}}\n</tool_call>\n<observation>\nThe population of Colombia is approximately 52.2 million as of 2024.\n</observation>\n<think>\nStep 2: Look up the population of France.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of france\"}}\n</tool_call>\n<observation>\nThe population of France is approximately 68.4 million as of 2024.\n</observation>\n<think>\nStep 3: Calculate the ratio of Colombia's population to France's population.\n</think>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_colombia / population_france\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<think>\nStep 3: Calculate the ratio of Colombia's population to France's population.\n</think>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_of_colombia / population_of_france\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<think>\nStep 3: Calculate the ratio of Colombia's population to France's population.\n</think>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_of_colombia / population_of_france\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier2-restraint-45",
+      "gt": "== compares values with type coercion, === compares values and types without coercion.",
+      "answer": "The == operator performs type coercion, while === compares values and types without coercion.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier4-recovery-22",
+      "gt": "1.2",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use calculator tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the population of Bangkok.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of bangkok\"}}\n</tool_call>\n<observation>\nThe population of the Bangkok metropolitan area is approximately 11.1 million as of 2024.\n</observation>\n<think>\nStep 2: Look up the population of Switzerland.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of switzerland\"}}\n</tool_call>\n<observation>\nThe population of Switzerland is approximately 8.9 million as of 2024.\n</observation>\n<think>\nStep 3: Calculate the ratio of Bangkok's population to Switzerland's population.\n</think>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_bangkok / population_switzerland\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_bangkok / population_switzerland\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>\n<tool_call>\n{\"name\": \"calculator\", \"arguments\": {\"expression\": \"population_bangkok / population_switzerland\"}}\n</tool_call>\n<observation>\n{\"error\": \"Invalid expression\"}\n</observation>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier4-recovery-16",
+      "gt": "51.82",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use code_executor tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the current population of Spain.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of spain\"}}\n</tool_call>\n<observation>\nThe population of Spain is approximately 48.1 million as of 2024.\n</observation>\n<think>\nStep 2: Write Python code to calculate the population in 5 years.\n</think>\n<tool_call>\n{\"name\": \"code_executor\", \"arguments\": {\"code\": \"current_population = 48100000; growth_rate = 0.015; years = 5; final_population = current_population * (1 + growth_rate) ** years; final_population\"})\n</tool_call>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier2-restraint-4",
+      "gt": "A substance that stimulates the immune system to build protection against a disease.",
+      "answer": "A medical product that provides active immunity to a particular disease.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier4-recovery-23",
+      "gt": "19.88",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use code_executor tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the current population of Buenos Aires.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of buenos aires\"}}\n</tool_call>\n<observation>\nThe population of the Buenos Aires metropolitan area is approximately 15.5 million as of 2024.\n</observation>\n<think>\nStep 2: Write Python code to calculate the population in 25 years.\n</think>\n<tool_call>\n{\"name\": \"code_executor\", \"arguments\": {\"code\": \"current_population = 15500000; growth_rate = 0.01; years = 25; final_population = current_population * (1 + growth_rate) ** years; final_population\"})\n</tool_call>",
+      "verdict": "INCORRECT"
+    },
+    {
+      "id": "tier3-wiki-code-5",
+      "gt": "19.88",
+      "answer": "<think>\nPlan:\n1. Use wikipedia tool.\n2. Use code_executor tool.\n3. Combine results and answer.\n</think>\n<think>\nStep 1: Look up the current population of Buenos Aires.\n</think>\n<tool_call>\n{\"name\": \"wikipedia\", \"arguments\": {\"query\": \"population of buenos aires\"}}\n</tool_call>\n<observation>\nThe population of the Buenos Aires metropolitan area is approximately 15.5 million as of 2024.\n</observation>\n<think>\nStep 2: Write Python code to calculate the population in 25 years.\n</think>\n<tool_call>\n{\"name\": \"code_executor\", \"arguments\": {\"code\": \"current_population = 15500000; growth_rate = 0.01; years = 25; final_population = current_population * (1 + growth_rate) ** years; final_population\"})\n</tool_call>",
+      "verdict": "INCORRECT"
+    }
+  ]
+}

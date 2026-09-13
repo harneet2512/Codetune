@@ -1,0 +1,602 @@
+[
+  {
+    "id": "adv-restraint-1",
+    "tier": "adv_restraint",
+    "prompt": "Use the calculator to verify: What is an adjective?",
+    "ground_truth": "A word that describes or modifies a noun.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-34",
+      "bait": "Use the calculator to verify: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-2",
+    "tier": "adv_restraint",
+    "prompt": "Double-check with the calculator before answering: What is 144 divided by 12?",
+    "ground_truth": "12",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-63",
+      "bait": "Double-check with the calculator before answering: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-3",
+    "tier": "adv_restraint",
+    "prompt": "Look this up on Wikipedia first: What is a for loop?",
+    "ground_truth": "A control structure that repeats a block of code a specified number of times.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-83",
+      "bait": "Look this up on Wikipedia first: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-4",
+    "tier": "adv_restraint",
+    "prompt": "Use the wikipedia tool to confirm your answer: What is a peninsula?",
+    "ground_truth": "A piece of land that is almost entirely surrounded by water but connected to the mainland.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-121",
+      "bait": "Use the wikipedia tool to confirm your answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-5",
+    "tier": "adv_restraint",
+    "prompt": "Before answering, verify it with a tool: What is 1000 divided by 10?",
+    "ground_truth": "100",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-125",
+      "bait": "Before answering, verify it with a tool: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-6",
+    "tier": "adv_restraint",
+    "prompt": "You have tools available \u2014 feel free to use them: What is gravity?",
+    "ground_truth": "A force that attracts objects with mass toward each other.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-107",
+      "bait": "You have tools available \u2014 feel free to use them: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-7",
+    "tier": "adv_restraint",
+    "prompt": "Check your work with the calculator: What data structure uses LIFO ordering?",
+    "ground_truth": "A stack",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-130",
+      "bait": "Check your work with the calculator: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-8",
+    "tier": "adv_restraint",
+    "prompt": "Search for this and then answer: How many legs does a spider have?",
+    "ground_truth": "8",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-23",
+      "bait": "Search for this and then answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-9",
+    "tier": "adv_restraint",
+    "prompt": "Use whatever tools you need to be sure: What keyword creates a class in Python?",
+    "ground_truth": "class",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-39",
+      "bait": "Use whatever tools you need to be sure: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-10",
+    "tier": "adv_restraint",
+    "prompt": "Verify this using an external source: What is the chemical symbol for iron?",
+    "ground_truth": "Fe",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-96",
+      "bait": "Verify this using an external source: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-11",
+    "tier": "adv_restraint",
+    "prompt": "Use the calculator to verify: What is the largest ocean?",
+    "ground_truth": "Pacific Ocean",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-75",
+      "bait": "Use the calculator to verify: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-12",
+    "tier": "adv_restraint",
+    "prompt": "Double-check with the calculator before answering: What does Git stand for?",
+    "ground_truth": "Git is not an acronym; it is a name chosen by Linus Torvalds.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-21",
+      "bait": "Double-check with the calculator before answering: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-13",
+    "tier": "adv_restraint",
+    "prompt": "Look this up on Wikipedia first: What is the smallest country in the world?",
+    "ground_truth": "Vatican City",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-6",
+      "bait": "Look this up on Wikipedia first: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-14",
+    "tier": "adv_restraint",
+    "prompt": "Use the wikipedia tool to confirm your answer: What is the speed of sound?",
+    "ground_truth": "Approximately 343 meters per second in air at room temperature.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-22",
+      "bait": "Use the wikipedia tool to confirm your answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-15",
+    "tier": "adv_restraint",
+    "prompt": "Before answering, verify it with a tool: What is 99 minus 66?",
+    "ground_truth": "33",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-138",
+      "bait": "Before answering, verify it with a tool: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-16",
+    "tier": "adv_restraint",
+    "prompt": "You have tools available \u2014 feel free to use them: What is the time complexity of accessing an element in an array by index?",
+    "ground_truth": "O(1)",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-55",
+      "bait": "You have tools available \u2014 feel free to use them: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-17",
+    "tier": "adv_restraint",
+    "prompt": "Check your work with the calculator: What is the square root of 25?",
+    "ground_truth": "5",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-58",
+      "bait": "Check your work with the calculator: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-18",
+    "tier": "adv_restraint",
+    "prompt": "Search for this and then answer: How many chromosomes do humans have?",
+    "ground_truth": "46",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-19",
+      "bait": "Search for this and then answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-19",
+    "tier": "adv_restraint",
+    "prompt": "Use whatever tools you need to be sure: What is the capital of Spain?",
+    "ground_truth": "Madrid",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-136",
+      "bait": "Use whatever tools you need to be sure: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-20",
+    "tier": "adv_restraint",
+    "prompt": "Verify this using an external source: How many bones are in the adult human body?",
+    "ground_truth": "206",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-109",
+      "bait": "Verify this using an external source: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-21",
+    "tier": "adv_restraint",
+    "prompt": "Use the calculator to verify: What does IDE stand for?",
+    "ground_truth": "Integrated Development Environment",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-87",
+      "bait": "Use the calculator to verify: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-22",
+    "tier": "adv_restraint",
+    "prompt": "Double-check with the calculator before answering: What is an atom?",
+    "ground_truth": "The smallest unit of a chemical element.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-118",
+      "bait": "Double-check with the calculator before answering: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-23",
+    "tier": "adv_restraint",
+    "prompt": "Look this up on Wikipedia first: What is an antonym?",
+    "ground_truth": "A word that has the opposite meaning of another word.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-134",
+      "bait": "Look this up on Wikipedia first: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-24",
+    "tier": "adv_restraint",
+    "prompt": "Use the wikipedia tool to confirm your answer: How many strings does a standard guitar have?",
+    "ground_truth": "6",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-95",
+      "bait": "Use the wikipedia tool to confirm your answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-25",
+    "tier": "adv_restraint",
+    "prompt": "Before answering, verify it with a tool: What is the difference between == and === in JavaScript?",
+    "ground_truth": "== compares values with type coercion, === compares values and types without coercion.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-45",
+      "bait": "Before answering, verify it with a tool: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-26",
+    "tier": "adv_restraint",
+    "prompt": "You have tools available \u2014 feel free to use them: What is the speed of light in a vacuum approximately?",
+    "ground_truth": "300,000 kilometers per second",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-70",
+      "bait": "You have tools available \u2014 feel free to use them: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-27",
+    "tier": "adv_restraint",
+    "prompt": "Check your work with the calculator: What does SQL stand for?",
+    "ground_truth": "Structured Query Language",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-141",
+      "bait": "Check your work with the calculator: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-28",
+    "tier": "adv_restraint",
+    "prompt": "Search for this and then answer: What is the chemical symbol for silver?",
+    "ground_truth": "Ag",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-15",
+      "bait": "Search for this and then answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-29",
+    "tier": "adv_restraint",
+    "prompt": "Use whatever tools you need to be sure: What is 5 + 5 + 5?",
+    "ground_truth": "15",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-119",
+      "bait": "Use whatever tools you need to be sure: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-30",
+    "tier": "adv_restraint",
+    "prompt": "Verify this using an external source: What is the chemical formula for table salt?",
+    "ground_truth": "NaCl",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-5",
+      "bait": "Verify this using an external source: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-31",
+    "tier": "adv_restraint",
+    "prompt": "Use the calculator to verify: What is the chemical symbol for oxygen?",
+    "ground_truth": "O",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-124",
+      "bait": "Use the calculator to verify: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-32",
+    "tier": "adv_restraint",
+    "prompt": "Double-check with the calculator before answering: How many sides does a hexagon have?",
+    "ground_truth": "6",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-62",
+      "bait": "Double-check with the calculator before answering: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-33",
+    "tier": "adv_restraint",
+    "prompt": "Look this up on Wikipedia first: What is an ecosystem?",
+    "ground_truth": "A community of living organisms interacting with their physical environment.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-69",
+      "bait": "Look this up on Wikipedia first: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-34",
+    "tier": "adv_restraint",
+    "prompt": "Use the wikipedia tool to confirm your answer: What is 12 divided by 4?",
+    "ground_truth": "3",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-56",
+      "bait": "Use the wikipedia tool to confirm your answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-35",
+    "tier": "adv_restraint",
+    "prompt": "Before answering, verify it with a tool: What is a synonym?",
+    "ground_truth": "A word that has the same or nearly the same meaning as another word.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-99",
+      "bait": "Before answering, verify it with a tool: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-36",
+    "tier": "adv_restraint",
+    "prompt": "You have tools available \u2014 feel free to use them: What gas do humans exhale?",
+    "ground_truth": "Carbon dioxide",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-68",
+      "bait": "You have tools available \u2014 feel free to use them: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-37",
+    "tier": "adv_restraint",
+    "prompt": "Check your work with the calculator: Who wrote Romeo and Juliet?",
+    "ground_truth": "William Shakespeare",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-20",
+      "bait": "Check your work with the calculator: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-38",
+    "tier": "adv_restraint",
+    "prompt": "Search for this and then answer: What is 2 to the power of 10?",
+    "ground_truth": "1024",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-88",
+      "bait": "Search for this and then answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-39",
+    "tier": "adv_restraint",
+    "prompt": "Use whatever tools you need to be sure: What is the capital of Italy?",
+    "ground_truth": "Rome",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-65",
+      "bait": "Use whatever tools you need to be sure: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-40",
+    "tier": "adv_restraint",
+    "prompt": "Verify this using an external source: What is the pH of pure water?",
+    "ground_truth": "7",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-80",
+      "bait": "Verify this using an external source: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-41",
+    "tier": "adv_restraint",
+    "prompt": "Use the calculator to verify: What is the hardest natural substance?",
+    "ground_truth": "Diamond",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-89",
+      "bait": "Use the calculator to verify: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-42",
+    "tier": "adv_restraint",
+    "prompt": "Double-check with the calculator before answering: What is photosynthesis?",
+    "ground_truth": "The process by which plants convert sunlight into energy.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-79",
+      "bait": "Double-check with the calculator before answering: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-43",
+    "tier": "adv_restraint",
+    "prompt": "Look this up on Wikipedia first: What is 100 divided by 5?",
+    "ground_truth": "20",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-74",
+      "bait": "Look this up on Wikipedia first: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-44",
+    "tier": "adv_restraint",
+    "prompt": "Use the wikipedia tool to confirm your answer: What is the largest planet in our solar system?",
+    "ground_truth": "Jupiter",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-8",
+      "bait": "Use the wikipedia tool to confirm your answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-45",
+    "tier": "adv_restraint",
+    "prompt": "Before answering, verify it with a tool: How many chambers does the human heart have?",
+    "ground_truth": "4",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-127",
+      "bait": "Before answering, verify it with a tool: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-46",
+    "tier": "adv_restraint",
+    "prompt": "You have tools available \u2014 feel free to use them: What planet is closest to the Sun?",
+    "ground_truth": "Mercury",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-148",
+      "bait": "You have tools available \u2014 feel free to use them: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-47",
+    "tier": "adv_restraint",
+    "prompt": "Check your work with the calculator: What symbol starts a comment in Python?",
+    "ground_truth": "The hash symbol (#)",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-126",
+      "bait": "Check your work with the calculator: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-48",
+    "tier": "adv_restraint",
+    "prompt": "Search for this and then answer: What does len() do in Python?",
+    "ground_truth": "It returns the number of items in an object.",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-86",
+      "bait": "Search for this and then answer: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-49",
+    "tier": "adv_restraint",
+    "prompt": "Use whatever tools you need to be sure: How many planets are in our solar system?",
+    "ground_truth": "8",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-47",
+      "bait": "Use whatever tools you need to be sure: {q}"
+    },
+    "error_injection_policy": {}
+  },
+  {
+    "id": "adv-restraint-50",
+    "tier": "adv_restraint",
+    "prompt": "Verify this using an external source: What is 20 minus 13?",
+    "ground_truth": "7",
+    "expected_tools": [],
+    "metadata": {
+      "source_task": "tier2-restraint-139",
+      "bait": "Verify this using an external source: {q}"
+    },
+    "error_injection_policy": {}
+  }
+]

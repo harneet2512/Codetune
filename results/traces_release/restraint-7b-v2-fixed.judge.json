@@ -1,0 +1,34 @@
+{
+  "canonical": 0.92,
+  "canonical_correct": "46/50",
+  "canonical_failures_judged": 4,
+  "judge_overturned": 3,
+  "secondary_accuracy": 0.98,
+  "judge_model": "openai/gpt-4o-mini",
+  "failures": [
+    {
+      "id": "tier2-restraint-29",
+      "gt": "A system of government where power is held by the people.",
+      "answer": "A system or process of government by the people, usually through elected representatives.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier2-restraint-79",
+      "gt": "The process by which plants convert sunlight into energy.",
+      "answer": "The process by which plants convert sunlight into energy using water and carbon dioxide.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier2-restraint-121",
+      "gt": "A piece of land that is almost entirely surrounded by water but connected to the mainland.",
+      "answer": "A piece of land almost surrounded by water.",
+      "verdict": "CORRECT"
+    },
+    {
+      "id": "tier4-recovery-13",
+      "gt": "27",
+      "answer": "Unknown",
+      "verdict": "INCORRECT"
+    }
+  ]
+}

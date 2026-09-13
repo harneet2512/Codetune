@@ -1,172 +1,107 @@
-# CodeTune
+# CodeTune / Restraint-7B
 
-A post-training lab that turns Qwen 2.5 7B into a tool-using agent through reinforcement learning. The model learns to read files from GitHub, search emails in Gmail, find specs in Google Drive, and know when not to call tools at all. 8% to 62% task accuracy. Full-stack playground included.
+A post-training and agent-evaluation lab. The headline artifact is **Restraint-7B** — a Qwen2.5-7B-Instruct model trained to hold the tool/no-tool decision boundary — plus the eval infrastructure that caught four silent failures before release, falsified a wrong hypothesis, traced a failure to a data-generator bug, and proved the fix on identical task IDs.
 
-![CodeTune Demo](codetune-demo.gif)
+Weights + model card: [huggingface.co/aravindpersona/restraint-7b](https://huggingface.co/aravindpersona/restraint-7b) · Engineering narrative: [TECHREPORT.md](TECHREPORT.md)
 
-## Results
+## The model vs the baseline
 
-```
-                        Base        SFT         GRPO
-Task Accuracy           8%          60%         62%         +54pp
-Tool Precision          12%         85%         94%         +82pp
-Restraint Score         15%         60%         85%         +70pp
-Evidence Quality        0.4/5       3.2/5       4.2/5       +3.8
-```
+200-task paired eval — same task IDs, same harness, same scorer, temperature 0, real deterministic tool executor:
 
-### By Category (250 tasks)
+| Metric | SFT baseline | **Restraint-7B v3** |
+|---|---|---|
+| Task accuracy | 71.5% (143/200) | **92.0%** (184/200) [87.4–95.0] |
+| Restraint (no-tool tasks, 0 calls) | **0%** (0/63) | **98.4%** (62/63) [91.5–99.7] |
+| Total tool calls | 445 | **213** (−52%) |
+| Tokens per resolved task | 2,090 | **1,163** (−44%) |
+| Parse failures | 22% | **0%** |
+| Tier 1 single-tool | 85/85 | **85/85** |
+| Tier 4 error recovery (held-out) | 7/14 | **10/14** |
 
-```
-                        Tasks       Base        SFT         GRPO
-Single-tool             100         12%         78%         80%
-Multi-step              80          4%          55%         58%
-Cross-service           50          2%          42%         45%
-Restraint               20          15%         60%         85%
-```
+95% Wilson CIs in brackets. The baseline calls `calculator` on "What is 6 squared?" — it cannot tell *"I know this"* from *"I need a tool"*. Restraint-7B holds back, and restraint *adds* accuracy: every unnecessary call is also a failure surface.
 
-## What It Does
+## What the eval system caught
 
-**Training.** Supervised fine-tuning on 250 expert tool-use traces, then GRPO with a composite reward signal (correctness + tool precision + restraint + planning). QLoRA on a single T4 GPU.
+Four silent failures that headline metrics alone would have shipped:
 
-**Evaluation.** 250 tasks modeled on real engineering workflows: spec compliance audits, production incident triage, cross-service investigations, and restraint scenarios. Four tiers from single-tool lookups to multi-hop cross-service reasoning.
+1. **Dead adapter.** The first GRPO run produced an adapter with mean `lora_B` magnitude ~1e-6 — an untrained costume. A magnitude sanity check now gates every training run.
+2. **Fabricated observations.** The harness was missing `</tool_call>` and `<observation>` stops — the model was writing its own tool results. Fixing the stop list moved measured accuracy 56% → 92%.
+3. **Rotten ground truth.** 40/500 expected answers had drifted from environment regeneration. Repaired with a preserved diff (`results/gt_repair.json`).
+4. **Contaminated baseline.** The "12% restraint" baseline was a pre-fix artifact; the true paired baseline is **0%**.
 
-**17 tool schemas across 5 services.** GitHub (search repos, read files, list PRs, commit history, create issues), Gmail (search, read, send, list threads), Google Drive (search, read documents, list folders, metadata), Confluence, Jira.
+## The fix cycle (v2 → v3)
 
-**Full-stack playground.** React frontend with three-column model comparison, block-based trace visualization, eval dashboard, connectors workbench with live tool testing, and a FastAPI backend with real API integrations.
+The n=200 eval left 20 canonical failures. They looked like generation-budget truncations, so we ran the falsification: all 20 re-evaluated at `max_tokens=512` → **0/20 recovered**. Trace forensics then found three layered mechanisms sharing one surface signature, two of them **inside the training-data generator itself**:
 
-**Live inference.** The trained GRPO model runs on HuggingFace ZeroGPU, executes real tool calls against real APIs (GitHub, Gmail, Google Drive via OAuth), and streams the reasoning trace to the frontend in real time via SSE.
+- `pop_ratio` emitted `population_X / population_Y` — symbolic variable names — as calculator args (5 tasks)
+- `wiki_code` fell through to a generic branch that gave `code_executor` a `{"query": prompt}` arg — the model never saw a real `code` arg and improvised malformed JSON (5 tasks)
 
-## Architecture
+The generator was fixed, the model retrained (same 350-example recipe), and the identical 20 task IDs were re-evaluated: **exactly the 9 predicted data-borne failures recovered — 4/4 symbolic + 5/5 code — zero collateral change** on scorer artifacts and genuine recovery misses. Full suite re-run confirmed no regression: 90.0% → 92.0% accuracy, 88.9% → 98.4% restraint, 5% → 0% parse failures.
 
-```
-Frontend (React/Vite)         Backend (FastAPI)           Model (HuggingFace)
-+-----------------+    HTTP   +-----------------+  POST   +-----------------+
-| Playground      |---/api-->| ReAct Loop      |-------->| Qwen 2.5 7B     |
-| Eval Dashboard  |<--SSE---| Tool Router     |         | GRPO checkpoint  |
-| Connectors      |          | Trace Builder   |         | ZeroGPU (T4)    |
-| Models          |          | Demo Cache      |         +-----------------+
-+-----------------+          +-------+---------+
-                                     |
-                         +-----------+-----------+
-                         v           v           v
-                    GitHub API   Gmail API   Drive API
-```
+## The rest of the evidence
 
-## Demo Tasks
+| Experiment | Result |
+|---|---|
+| **Adversarial restraint** (50 tool-bait prompts) | baseline captured **94%** of the time; v2 holds **56%** — real learned restraint, partially surface-form-dependent |
+| **Unseen-ecosystem transfer** (17 GitHub/Drive/Gmail schemas, 120 tasks, zero-shot) | restraint **100%**, tool selection **76.8%**, judge-scored accuracy **50.8%** — argument grounding is the disclosed bottleneck |
+| **Cross-scale ablation** (same 350-example recipe on Qwen2.5-1.5B) | restraint **96.8%** transfers; accuracy **37.5%** — the policy is scale-free, tool competence is capability-bound |
+| **Quantization parity** (bf16 vs Q4_K_M, same 50 IDs) | 90% vs 92% — statistically indistinguishable |
+| **Live APIs** (40 tasks, real Open-Meteo + Wikipedia) | restraint **100%**; misses are unit-conversion faithfulness, not tool decisions |
+| **LLM judge secondary score** (`gpt-4o-mini`, committed prompt) | canonical 90% → **93%** — most residual "misses" are scorer strictness on paraphrases |
 
-**Spec Compliance Audit.** Read the API Security Spec from Google Drive, then audit the auth middleware on GitHub against it. GRPO finds all 4 violations with line numbers. SFT finds 2. Base guesses.
+## Regression gate
 
-**Production Incident Triage.** Search Gmail for deployment alerts, trace to the failing commit on GitHub, read the diff, identify root cause. GRPO cross-references 3 sources and names the exact commit.
-
-**Restraint: HTTP 409.** "What HTTP status code for a resource that already exists?" GRPO answers directly. Zero tool calls. SFT calls `search_pages` unnecessarily.
-
-**Cross-Service Investigation.** Search emails for deployment failures, then check the related repo for recent commits. Tests multi-hop reasoning across GitHub and Gmail.
-
-## Training Pipeline
+`scripts/model_gate.py` — CI-ready release gate on any trace file:
 
 ```
-Qwen 2.5 7B Instruct
-        |
-        v  SFT (250 traces, QLoRA r=64, 2 epochs)
-        |
-  + SFT --- 60% accuracy, learns format but over-tools
-        |
-        v  LoRA merge, then GRPO (300 steps, 8 gen/prompt)
-        |
-  + GRPO --- 62% accuracy, 94% tool precision, 85% restraint
+gate: results/traces_release/v1-v3.json  (n=200)
+  PASS  restraint_rate=0.984  >= 0.8
+  PASS  tier1_acc=1.000       >= 0.95
+  PASS  task_accuracy=0.920   >= 0.75
+  PASS  parse_failure_rate=0.000  <= 0.1
+GATE PASSED
 ```
 
-### Reward Signal
+Verified discriminating: it **rejects** the SFT baseline (3/4 failures), the 1.5B ablation (catches restraint-without-competence), and v2's adversarial traces (catches bait fragility).
 
-```
-Signal              Weight      What It Measures
-Task correctness    1.0         Did the model get the right answer?
-Tool precision      0.3         Were tool calls well-targeted with correct args?
-Restraint           0.1         Did it avoid tools on knowledge questions?
-Planning            0.1         Did it plan before acting?
-Loop penalty        -0.1        Penalize excess tool calls per step
-```
+## Reproduce
 
-### What Changes at Each Stage
+```bash
+# Eval (any checkpoint, any suite) — Modal GPUs, resumable chunks
+modal run scripts/modal_eval.py --model v2 --suite v1
 
-**Base** outputs raw JSON blobs. No structured reasoning. Hallucinates tool names. 0% tool usage.
+# Merge chunks + score with Wilson CIs and token economics
+python scripts/merge_eval_chunks.py v1-v3 --out results/traces_release/v1-v3.json
 
-**SFT** learns the ReAct format (think, tool_call, observation, answer) but over-tools on questions that don't need tools. 74% tool call rate on knowledge questions. Finds 2 of 4 violations in spec audits.
-
-**GRPO** learns when NOT to call tools (100% restraint on knowledge questions), targets queries precisely, cross-references multiple sources, and cites evidence with line numbers. Finds all 4 violations in spec audits.
-
-## Failure Modes (Latest GRPO Eval)
-
-```
-Mode                    Count       Example
-Hallucinated tool       3 (1.2%)    Called analyze_security() which doesn't exist
-Malformed arguments     5 (2.0%)    Passed integer for query expecting string
-Wrong tool selection    8 (3.2%)    Used search_emails when task required search_files
-Premature termination   12 (4.8%)   Answered before reading all sources
-Over-planning           4 (1.6%)    Called 6 tools for a single-step lookup
-Missed restraint        6 (2.4%)    Called search_pages for "What is HTTP 409?"
+# Release gate
+python scripts/model_gate.py results/traces_release/v1-v3.json
 ```
 
-## Quick Start
+Raw traces for every number in this README: `results/traces_release/` (merged) and `results/traces_modal/` (raw chunks). Suites: `v1` (200), `v1-fail` (20 canonical failures), `adv` (50 bait prompts), `v3` (120 unseen-ecosystem), `paired50`, live-API variant via `tools/live_registry.py`.
 
-### Demo Mode (no credentials needed)
+## Full-stack playground
+
+React frontend with three-column model comparison, block-based trace visualization, eval dashboard, connectors workbench with live tool testing, and a FastAPI backend with real API integrations (GitHub, Gmail, Google Drive via OAuth).
 
 ```bash
 cd playground/client
-npm install
-npm run dev
+npm install && npm run dev   # demo mode, no credentials needed
 ```
 
-Open http://localhost:3000. All views work with pre-computed traces.
-
-### Full Stack (live inference + real APIs)
-
-```bash
-# Backend
-cd backend
-pip install -r requirements.txt
-cp .env.example .env    # fill in your credentials
-python main.py
-
-# Frontend (separate terminal)
-cd playground/client
-npm run dev
-```
-
-### Credentials
-
-GitHub: personal access token with `public_repo` scope.
-Gmail and Drive: Google Cloud OAuth 2.0 client with `gmail.readonly` and `drive.readonly` scopes.
-HuggingFace: Space with your GRPO model deployed on ZeroGPU.
-
-All credentials go in `backend/.env`. See `.env.example` for the full template.
-
-## Project Structure
+## Repo layout
 
 ```
-codetune/
-  train/                    SFT + GRPO training scripts
-  tooltune/eval/            Tool-use evaluation suite
-  eval/                     Code generation evals (HumanEval, MBPP)
-  tasks/                    250 engineering workflow tasks (4 tiers)
-  tools/connectors/         GitHub, Gmail, Drive tool schemas + mock executors
-  playground/client/        React frontend (Vite + TypeScript)
-  backend/                  FastAPI orchestrator
-    connectors/             Real API connectors (GitHub, Gmail, Drive)
-    inference/              HuggingFace Space client
-    auth/                   Google OAuth 2.0
-    traces/                 Raw output to block parser
-  results/                  Training logs, eval results, checkpoints
-  serve/                    Quantization + deployment (vLLM, SGLang, llama.cpp)
-  bench/                    Async benchmark runner
-  configs/                  YAML configs for training, eval, serving
+train/                  Trace generators + SFT/GRPO training (the fixed generator lives here)
+scripts/                Modal training/eval runners, merge+score, judge, release gate
+tasks/                  Eval suites (v1 500, adversarial 50, unseen-ecosystem 120)
+tools/                  Tool schemas + executors (deterministic mocks + live REST registry)
+results/                Eval results + traces_release/ + traces_modal/ raw chunks
+playground/             React client + FastAPI backend
 ```
 
-## Technical Details
+## Technical details
 
-- **Base model**: Qwen/Qwen2.5-7B-Instruct (7B params, ChatML format)
-- **Fine-tuning**: QLoRA (r=16, alpha=32, NF4 quantization, ~87M trainable params)
-- **GRPO**: TRL library, num_generations=8, beta=0, lr=5e-6
-- **Frontend**: React 19, TypeScript, Vite 8, lucide-react
-- **Backend**: FastAPI, httpx, sse-starlette, google-auth-oauthlib
-- **Serving**: vLLM, SGLang, llama.cpp with GPTQ INT8 / AWQ INT4
+- **Base**: Qwen/Qwen2.5-7B-Instruct (ChatML)
+- **Post-training**: QLoRA SFT (450 expert ReAct traces) → corrective SFT (350 examples, r=64, lr=1e-4, 2 epochs) → data-fix v3 retrain; `lora_B` magnitude check on every adapter
+- **Eval protocol**: `<think>/<tool_call>/<observation>/<answer>` raw-completion format, real executor, per-task persisted traces, canonical `is_correct` + LLM judge, Wilson CIs, tokens-per-resolved-task accounting
+- **Spend to date**: ~$3 total on Modal

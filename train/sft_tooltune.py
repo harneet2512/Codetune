@@ -46,6 +46,15 @@ _OP_WORDS = {
 }
 
 
+def _pop_millions(fact: str) -> float | None:
+    """Parse 'approximately N million/billion' out of a wikipedia fact."""
+    m = re.search(r"approximately ([\d.]+)\s*(million|billion)", fact or "")
+    if not m:
+        return None
+    v = float(m.group(1))
+    return v * 1000 if m.group(2) == "billion" else v
+
+
 def _extract_expression(prompt: str) -> str:
     """Extract a math expression from a natural-language calculator prompt.
 
@@ -225,13 +234,23 @@ def _make_multi_step_trace(prompt: str, answer: str, expected_tools: list[str], 
             f"<observation>\n{fact_b}\n</observation>"
         )
 
-        # Step 3: calculate ratio
-        calc_expr = f"population_{entity_a.lower()} / population_{entity_b.lower()}"
+        # Step 3: calculate ratio — bind the OBSERVED values into the
+        # expression. (Previously emitted symbolic names like
+        # "population_bangkok / population_switzerland", which the model
+        # faithfully learned and which no calculator can evaluate.)
+        pa = _pop_millions(fact_a)
+        pb = _pop_millions(fact_b)
+        if pa and pb:
+            calc_expr = f"{pa} / {pb}"
+            calc_obs = str(round(pa / pb, 4)).rstrip("0").rstrip(".")
+        else:
+            calc_expr = f"population_{entity_a.lower()} / population_{entity_b.lower()}"
+            calc_obs = str(answer)
         calc_args = json.dumps({"expression": calc_expr})
         blocks.append(
-            f"<think>\nStep 3: Calculate the ratio of {entity_a}'s population to {entity_b}'s population.\n</think>\n"
+            f"<think>\nStep 3: Calculate the ratio of {entity_a}'s population to {entity_b}'s population using the observed values.\n</think>\n"
             f'<tool_call>\n{{"name": "calculator", "arguments": {calc_args}}}\n</tool_call>\n'
-            f"<observation>\n{answer}\n</observation>"
+            f"<observation>\n{calc_obs}\n</observation>"
         )
 
     elif pattern == "distance_cost":
@@ -257,6 +276,38 @@ def _make_multi_step_trace(prompt: str, answer: str, expected_tools: list[str], 
             f"<think>\nStep 2: Calculate gas cost: ({miles} miles / {mpg} mpg) * ${price}/gallon.\n</think>\n"
             f'<tool_call>\n{{"name": "calculator", "arguments": {calc_args}}}\n</tool_call>\n'
             f"<observation>\n{answer}\n</observation>"
+        )
+
+    elif pattern == "wiki_code":
+        entity = metadata.get("entity", "")
+        query_key = metadata.get("query_key", f"population of {entity.lower()}")
+        rate = float(metadata.get("rate", 2.0))
+        years = int(metadata.get("years", 10))
+        fact = FACTS_DATA.get(
+            query_key,
+            f"The population of {entity} is approximately 20 million as of 2024.")
+
+        wiki_args = json.dumps({"query": query_key})
+        blocks.append(
+            f"<think>\nStep 1: Look up the current population of {entity}.\n</think>\n"
+            f'<tool_call>\n{{"name": "wikipedia", "arguments": {wiki_args}}}\n</tool_call>\n'
+            f"<observation>\n{fact}\n</observation>"
+        )
+
+        # Step 2: code_executor — teach the REAL arg shape. The generic
+        # branch used to emit {"query": prompt} here, so the model never saw
+        # a code arg in multi-step context and improvised notebook-style
+        # code (bare trailing expression, no print). The executor captures
+        # stdout only, so the call must print().
+        pop = _pop_millions(fact) or 20.0
+        code = (f"pop = {pop}; growth_rate = {rate}/100; years = {years}; "
+                f"result = pop * (1 + growth_rate) ** years; print(result)")
+        code_args = json.dumps({"code": code})
+        code_obs = str(pop * (1 + rate / 100) ** years)
+        blocks.append(
+            f"<think>\nStep 2: Write Python code to calculate the population in {years} years, using the observed population of {pop} million.\n</think>\n"
+            f'<tool_call>\n{{"name": "code_executor", "arguments": {code_args}}}\n</tool_call>\n'
+            f"<observation>\n{code_obs}\n</observation>"
         )
 
     else:

@@ -186,12 +186,23 @@ def train():
 
     # ---- persist adapter to the volume FIRST (survives any later crash) ----
     import shutil
-    dst = Path("/out/restraint-sft")
+    dst = Path("/out/restraint-sft-v3")
     if dst.exists():
         shutil.rmtree(dst)
     shutil.copytree(OUT, dst)
     vol.commit()
-    print("saved adapter -> volume:restraint-runs/restraint-sft", flush=True)
+    print("saved adapter -> volume:restraint-runs/restraint-sft-v3", flush=True)
+
+    # ---- also merge into the stage-1 weights -> evaluable v3 model ----
+    V3_MERGED = "/tmp/v3_merged"
+    if not Path(V3_MERGED).exists():
+        stream_merge(SFT_MERGED, OUT, V3_MERGED)
+        mdst = Path("/out/restraint-7b-v3-merged")
+        if mdst.exists():
+            shutil.rmtree(mdst)
+        shutil.copytree(V3_MERGED, mdst)
+        vol.commit()
+        print("saved merged -> volume:restraint-runs/restraint-7b-v3-merged", flush=True)
 
     # ---- quick behavioral probe (non-fatal: real eval happens locally) ----
     try:

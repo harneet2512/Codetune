@@ -136,8 +136,9 @@ def main():
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--tasks-glob", default="tier*.json",
                     help="glob under tasks/ (default tier*.json; use v3_tier*.json for unseen-tools eval)")
-    ap.add_argument("--registry", choices=["v1", "v3"], default="v1",
-                    help="v1 = trained 5-tool set; v3 = unseen GitHub/Drive/Gmail ecosystem")
+    ap.add_argument("--registry", choices=["v1", "v3", "live"], default="v1",
+                    help="v1 = trained 5-tool set (simulated); v3 = unseen GitHub/Drive/Gmail "
+                         "ecosystem; live = v1 schemas backed by real Open-Meteo/Wikipedia APIs")
     args = ap.parse_args()
 
     all_tasks = []
@@ -156,7 +157,13 @@ def main():
         tasks = all_tasks[: args.n]
 
     gen = LlamaCppGenerator(args.url)
-    registry = ToolRegistry() if args.registry == "v1" else ConnectorAdapter()
+    if args.registry == "v1":
+        registry = ToolRegistry()
+    elif args.registry == "live":
+        from tools.live_registry import LiveToolRegistry
+        registry = LiveToolRegistry()
+    else:
+        registry = ConnectorAdapter()
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     traces = []
